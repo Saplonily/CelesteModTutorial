@@ -1,4 +1,8 @@
 site_name: 蔚蓝Code Mod教程
+repo_url: https://github.com/Saplonily/CelesteModTourial
+site_description: Celeste Code Mod Tourial
+site_author: Saplonily
+
 theme:
   name: material
 
