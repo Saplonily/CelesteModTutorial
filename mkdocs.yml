@@ -1,0 +1,37 @@
+site_name: 蔚蓝Code Mod教程
+theme:
+  name: material
+
+nav:
+  - 首页: "index.md"
+
+# - 入门
+#   - Celeste, Everest, MonoMod
+#   - 基础环境配置
+#   - 自动化环境
+# - 阅读/修改代码初步
+#   - 阅读Celeste的代码
+#   - Monocle及EC架构及部分基础知识
+#   - On钩子初步
+#   - 认识IL
+#   - IL钩子
+#   - "自由"地钩取
+#   - 协程的钩取
+#   - 访问私有成员
+#     - 反射
+#     - DynamicData / DynData
+# - 游戏设置初步
+#   - 添加Mod设置选项
+# - 简单自定义实体
+#   - 简单地图布置
+#   - 简单loenn配置
+#   - Logging
+#   - 按键输入
+#   - 使用Alarm, Tween, Coroutine等组件
+# - 进阶
+#   - Everest事件
+#   - 继承并使用钩子
+#   - 更多Monocle组件, 实体
+#   - 高级设置
+# - Loenn配置进阶
+# ...其他想起来再写
