@@ -5,9 +5,20 @@ site_author: Saplonily
 
 theme:
   name: material
+  
+markdown_extensions:
+  - admonition #MkDocs 警告框
+  - footnotes #脚注
+  - meta #自定义文章元数据
+  - pymdownx.caret #下划线
+  - pymdownx.mark #文本高亮
+  - pymdownx.tilde #删除线
 
 nav:
   - 首页: "index.md"
+  - 入门:
+    - Celeste, Everest, MonoMod : "begin/CelesteEverestMonoMod.md"
+    - 基础环境配置 : "begin/BasicEnv.md"
 
 # - 入门
 #   - Celeste, Everest, MonoMod

@@ -1,2 +1,0 @@
-# Celeste Everest MonoMod
-
