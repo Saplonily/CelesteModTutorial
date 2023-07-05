@@ -1,0 +1,655 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Celeste Code Mod Tourial">
+      
+      
+        <meta name="author" content="Saplonily">
+      
+      
+      
+        <link rel="prev" href="../CelesteEverestMonoMod/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+    
+    
+      
+        <title>基础环境配置 - 蔚蓝Code Mod教程</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="蔚蓝Code Mod教程" class="md-header__button md-logo" aria-label="蔚蓝Code Mod教程" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            蔚蓝Code Mod教程
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              基础环境配置
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Saplonily/CelesteModTourial" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="蔚蓝Code Mod教程" class="md-nav__button md-logo" aria-label="蔚蓝Code Mod教程" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    蔚蓝Code Mod教程
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Saplonily/CelesteModTourial" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        首页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          入门
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CelesteEverestMonoMod/" class="md-nav__link">
+        Celeste, Everest, MonoMod
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          基础环境配置
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        基础环境配置
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#celeste" class="md-nav__link">
+    Celeste
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ide" class="md-nav__link">
+    IDE 与 开发环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    项目创建
+  </a>
+  
+    <nav class="md-nav" aria-label="项目创建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visual-studio" class="md-nav__link">
+    对于 Visual Studio
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    添加引用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module" class="md-nav__link">
+    添加 Module 类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#everest" class="md-nav__link">
+    让 Everest 加载
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#celeste" class="md-nav__link">
+    Celeste
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ide" class="md-nav__link">
+    IDE 与 开发环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    项目创建
+  </a>
+  
+    <nav class="md-nav" aria-label="项目创建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visual-studio" class="md-nav__link">
+    对于 Visual Studio
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    添加引用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module" class="md-nav__link">
+    添加 Module 类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#everest" class="md-nav__link">
+    让 Everest 加载
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="_1">基础环境配置</h1>
+<h2 id="celeste">Celeste</h2>
+<blockquote>
+<p>如果你不是 Windows 用户的话这一步你可以直接跳过.</p>
+</blockquote>
+<p>原因是 Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝已经就是 FNA 版本了, 而在 Windows 上则是 XNA 版本, 所以我们需要一些方法切换到 FNA 版本:</p>
+<ul>
+<li>在 Steam 上:  库-&gt;Celeste, 右键菜单属性-&gt;测试版-&gt;Opengl</li>
+<li>在 itch 上: 重新下载一个 <code>Celeste Windows OpenGL</code> 版本</li>
+<li>在 Epic 上: Epic 的蔚蓝都是 FNA 版本, 你不需要做任何事情</li>
+</ul>
+<blockquote>
+<p>Everest 会在运行时将你的 FNA mod 重链接为 XNA, 所以你不需要担心这两个版本造成的不兼容</p>
+<p>注意更换版本后你通常还需要重新给新版本安装上 Everest</p>
+</blockquote>
+<h2 id="ide">IDE 与 开发环境</h2>
+<p>因为我们是 CodeMod, 嗯, 那么写一些代码是必不可少的, 那么一般情况下拥有一个 IDE 在这一步会舒畅很多, 在这里我会推荐 <code>Visual Studio</code>, <code>Visual Studio Code</code>, <code>Rider</code>, 后两个是跨平台的而第一个是仅 Windows 的. </p>
+<ul>
+<li>对于 <code>Visual Studio</code>, 你需要安装 <code>.NET 开发负载</code>. (在<code>Visual Studio Installer</code>中)</li>
+<li>对于 <code>Visual Studio Code</code>, 你需要安装 <code>C#</code> 拓展.</li>
+</ul>
+<p>在之后我会更倾向于在 <code>Windows</code> 上使用 <code>Visual Studio</code>, 所以其他编辑器/IDE/平台可能不怎么会提, 如果你有什么问题的话你可以在任何找到我的地方包括群里问我(, 问的多的话我会写在这个教程里的_(:з」∠)_</p>
+<h2 id="_2">项目创建</h2>
+<h4 id="visual-studio">对于 <code>Visual Studio</code></h4>
+<p>你需要在创建项目页面选择这个:
+<img alt="VS创建项目页面" src="../vsprojnew.png" /><br />
+注意选择带 <code>.NET Framework</code> 字样的, 因为蔚蓝的底层框架相对于目前的 <code>.NET</code> 发展已经很古老了, 所以可能 vs 不怎么期望你创建这个项目(, 然后在选择项目框架时记得精确选择 <code>.NET Framework 4.5.2</code>.</p>
+<p>那么当你创建完项目后你会得到一个代码文件 <code>Class1.cs</code> 以及里面的代码:</p>
+<pre><code class="language-cs">using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MyCelesteMod
+{
+    public class Class1
+    {
+
+    }
+}
+
+</code></pre>
+<h2 id="_3">添加引用</h2>
+<p>因为我们是蔚蓝 mod 嘛, 所以肯定得依赖一些蔚蓝的东西, 具体操作就是在解决方案识图的<code>引用</code>上右击, 然后选择<code>添加引用</code>, 在新的窗口的左侧选择<code>浏览</code>, 这时点击窗口右下角的<code>浏览</code>, 在这个文件选择框里选择以下几个在蔚蓝根目录下的文件:</p>
+<ul>
+<li>Celeste.exe</li>
+<li>FNA.dll</li>
+<li>MMHOOK_Celeste.dll</li>
+<li>YamlDotNet.dll</li>
+</ul>
+<p>另外为了保证你的 mod 的跨平台性, 你的引用列表里 <code>System</code> 开头的只能包含:</p>
+<ul>
+<li>System</li>
+<li>System.Configuration</li>
+<li>System.Core</li>
+<li>System.Data</li>
+<li>System.Drawing</li>
+<li>System.Runtime.Serialization</li>
+<li>System.Security</li>
+<li>System.Xml</li>
+<li>System.Xml.Linq</li>
+</ul>
+<p>如果你的项目引用有其他<code>System</code>系列的不在上述列表上的你需要将其移除(通过右击移除).</p>
+<h2 id="module">添加 Module 类</h2>
+<p>ok在我们一番折腾下我们终于可以开始来写代码了, 那么首先把你的 <code>Class1.cs</code> 重命名成 <code>(你的mod名)Module.cs</code>, 比如这里我的 mod 名叫 <code>MyCelesteMod</code>, 那么这个文件最好叫做 <code>MyCelesteModModule.cs</code>, 这是为了方便日后开发能一眼识别出这是我们最早期创建的那个关键类.</p>
+<blockquote>
+<p>如果你的 vs 提示你是否重命名标识符, 你可以选是, 这样那个文件里的<code>Class1</code>类名也会帮你重命名</p>
+</blockquote>
+<p>那么同样地对这个文件里的类的名字也重命名, 然后我们让这个类继承于 <code>EverestModule</code></p>
+<blockquote>
+<p>如果出现了未命名标识符的错误, 请检查你是否正确引用了 <code>Celeste.exe</code> 并且 using 了 <code>Celeste.Mod</code> 命名空间</p>
+</blockquote>
+<p>那么现在我们需要加入两个方法以实现这个抽象类<del>, 同时让vs闭嘴</del>.</p>
+<pre><code class="language-cs">public override void Load()
+{
+}
+
+public override void Unload()
+{
+}
+</code></pre>
+<p><code>Load</code> 方法会在 Everest 加载你的 Mod 时被调用, <code>Unload</code> 方法会在 Everest 卸载你的 Mod 时被调用, 在这里我们写个类似 Hello world 的东西, 即在 <code>Load</code> 里打印些话. em, 可能不是你期望的 <code>Console.WriteLine</code> 而是 <code>Logger.Log</code>, 就像这样:</p>
+<pre><code class="language-cs">Logger.Log(LogLevel.Info, &quot;MyCelesteMod&quot;, &quot;Hello World! Hello Everest!&quot;);
+</code></pre>
+<ul>
+<li>第一个参数设置了这句日志的等级, 这里我们先选 <code>Info</code>.</li>
+<li>第二个参数设置了这句日志的 <code>Tag</code>, 通常它是你的 Mod 名字</li>
+<li>第三个参数就是我们希望输出的话</li>
+</ul>
+<p>现在, 按下 <code>Ctrl + B</code>, vs 应该会启动编译.</p>
+<blockquote>
+<p>你会遇到一个关于 <code>x86</code> 与 <code>AnyCpu</code> 架构不符的警告, 这里我们先忽略它.</p>
+</blockquote>
+<p>编译完成, 我们就可以找到我们编译出来的新鲜的程序集: <code>&lt;你的项目名&gt;/&lt;你的项目名&gt;/bin/Debug/&lt;你的项目名&gt;.dll</code></p>
+<h2 id="everest">让 Everest 加载</h2>
+<p>以上一顿操作过后你会发现你的蔚蓝什么也没发生(乐). 因为我们还没告诉它让它加载我们的 mod! 为了让 Everest 加载我们的 mod, 我们首先需要在蔚蓝的 Mods 文件夹里面新建一个文件夹并放入我们的 mod 文件, 它的名字我们最好就是项目名字, 即 <code>MyCelesteMod</code>, 然后在这里写一份带我们 mod 信息的 <code>everest.yaml</code> 文件:</p>
+<pre><code class="language-yaml">- Name: &lt;mod名字&gt;
+  Version: &lt;版本&gt;
+  DLL: &lt;dll位置&gt;
+  Dependencies:
+    - Name: Everest
+      Version: &lt;依赖的everest版本&gt;
+</code></pre>
+<p>ok我们的 mod 名字是<code>MyCelesteMod</code>, 由于是开发早期, 版本指定为<code>0.1.0</code>, 然后你正在使用的 <code>Everest</code> 版本是 <code>3876</code>, 然后是 Dll 位置, 我们先把之前编译的新鲜<del>(可能现在不咋新鲜了)</del>的 dll 复制到这里来, 没记错的话在这里叫 <code>MyCelesteMod.dll</code>, ok, <code>everest.yaml</code> 里要写的 dll 位置是相对于这个文件夹的, 我们就放在它里面第一层, 所以我们直接写 <code>MyCelesteMod.dll</code> 就行了.</p>
+<p>现在你的那个文件夹现在可能长这个样子:</p>
+<ul>
+<li>MyCelesteMod</li>
+<li>MyCelesteMod.dll</li>
+<li>everest.yaml</li>
+</ul>
+<p>everest.yaml可能长这个样子:</p>
+<pre><code class="language-yaml">- Name: MyCelesteMod
+  Version: 0.1.0
+  DLL: MyCelesteMod.dll
+  Dependencies:
+    - Name: Everest
+      Version: 1.3876.0
+</code></pre>
+<p>ok, 在见证奇迹之前我们还要干最后一件小事, 就是我们的日志是打印在文件里的同时也打印在控制台里的, 虽然能在日志文件里看到我们的 Hello world 但是为了日后方便调试我们还是先让蔚蓝启动的同时启动一个控制台好一点. Everest 已经为我们做了这件事了, 我们要做的就是在蔚蓝exe同目录下找到<code>everest-launch.txt</code>, 额, 没找到也没关系, 新建一个就可以了, 然后在里面写上<code>--console</code>, 是的就这一小点东西, 然后我们保存, 启动蔚蓝!</p>
+<p>在同时弹出的控制台窗口扫视一下:</p>
+<pre><code class="language-log">[MonoMod] [AutoPatch] Patch pass
+[MonoMod] [AutoPatch] PatchRefs pass
+[MonoMod] [PostProcessor] PostProcessor pass #1
+[MonoMod] [Write] Writing modded module into output file.
+(07/05/2023 23:22:16) [Everest] [Info] [MyCelesteMod] Hello World! Hello Everest!
+(07/05/2023 23:22:16) [Everest] [Info] [core] Module MyCelesteMod 0.1.0 registered.
+(07/05/2023 23:22:16) [Everest] [Info] [loader] Loading mods with unsatisfied optional dependencies (if any)
+FNA3D Driver: D3D11
+D3D11 Adapter: Intel(R) UHD Graphics 630
+BEGIN LOAD
+ - GFX LOAD: 139ms
+ - MTN LOAD: 9ms
+WINDOW-1600x900
+GAME DISPLAYED (in 291ms)
+ - AUDIO LOAD: 454ms
+ - GFX DATA LOAD: 75ms
+</code></pre>
+<p>大概在如上的位置附近(在这里是第5行)你就能找到你的 Hello world 了, 至此基本环境配置结束.</p>
+<p>最后修改: 2023-7-5</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      
+    
+  </body>
+</html>
