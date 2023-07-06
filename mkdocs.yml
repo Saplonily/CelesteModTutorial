@@ -7,12 +7,19 @@ theme:
   name: material
   
 markdown_extensions:
-  - admonition #MkDocs 警告框
-  - footnotes #脚注
-  - meta #自定义文章元数据
-  - pymdownx.caret #下划线
-  - pymdownx.mark #文本高亮
-  - pymdownx.tilde #删除线
+  - admonition
+  - footnotes
+  - meta
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
 
 nav:
   - 首页: "index.md"
