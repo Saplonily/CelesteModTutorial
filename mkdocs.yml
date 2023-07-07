@@ -5,6 +5,8 @@ site_author: Saplonily
 
 theme:
   name: material
+  features:
+    - content.code.copy
   
 markdown_extensions:
   - admonition # 警告
@@ -26,6 +28,7 @@ nav:
   - 入门:
     - Celeste, Everest, MonoMod : "begin/CelesteEverestMonoMod.md"
     - 基础环境配置 : "begin/BasicEnv.md"
+    - 偏好: "begin/prefer.md"
 
 # - 入门
 #   - Celeste, Everest, MonoMod

@@ -19,6 +19,7 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 
 因为我们是 CodeMod, 嗯, 那么写一些代码是必不可少的, 那么一般情况在 IDE 里写代码会好很多.
 蔚蓝是使用 `C#` 基于 `.NET framework 4.5.2` 制作的, 那么你就需要学习一下 `C#`.
+> 理论上所有 .NET 系语言比如 VB.NET/F# 都可以, 但是为了方便起见我们使用 C#
 
 好吧这句话可能说的太平淡了(, 毕竟大部分<del>蔚批</del>蔚蓝 mod 爱好者就是被这一步卡住的, 那我这里能做的... 只有给你推荐几个视频和书籍了.
 
@@ -38,14 +39,16 @@ C#入门经典-第7版-C# 6.0
 
 ## 项目创建
 
-在vs创建项目页面中我们需要选择这个:
+在vs创建项目页面中我们需要选择这个:  
+
 ![VS创建项目页面](vsprojnew.png)  
 注意要选带 `.NET Framework` 字样的, 蔚蓝的底层框架相对于目前的 `.NET` 已经很古老了, 所以可能会被稍微特殊点对待(, 之后在为项目命名的窗口中的项目框架记得精确选择 `.NET Framework 4.5.2`.  
+
 ![Test](vsprojtfw.png)  
 如果你没有 [`.NET Framework 4.5.2`](https://dotnet.microsoft.com/zh-cn/download/dotnet-framework/thank-you/net452-developer-pack-offline-installer) 的选项请检查是否安装了此框架, 并且你选择的是带 `.NET Framework` 字样的类库项目.
 
 当你创建完项目后, 你会得到一个代码文件 `Class1.cs`, 它看起来像:
-```cs
+```cs title="Class1.cs"
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -104,7 +107,7 @@ ok在我们一番折腾下我们终于可以开始来写代码了, 那么首先�
 > 如果出现了未命名标识符的错误, 请检查你是否正确引用了 `Celeste.exe` 并且 **using** 了 **`Celeste.Mod` 命名空间**
 
 `EverestModule` 是一个抽象类 ,那么现在我们需要加入两个方法以实现它<del>, 同时让vs闭嘴</del>.
-```cs
+```cs title="MyCelesteMod.cs"
 public override void Load()
 {
 }
@@ -129,7 +132,7 @@ Logger.Log(LogLevel.Info, "MyCelesteMod", "Hello World! Hello Everest!");
 - 第三个参数: 我们希望输出的话
 
 那么你现在的代码应该是大概这样子的:
-```cs
+```cs title="MyCelesteMod.cs"
 using Celeste.Mod;
 using System;
 using System.Collections.Generic;
@@ -163,7 +166,7 @@ namespace MyCelesteMod
 ## 让 Everest 加载
 
 以上一顿操作过后你会发现你的蔚蓝什么也没发生(乐). 因为我们还没告诉它让它加载我们的 mod! 为了让 Everest 加载我们的 mod, 其中一个方法就是在蔚蓝的 Mods 文件夹里面新建一个文件夹, 并放入我们的 mod 文件, 它的名字我们最好就是项目名字, 比如 `MyCelesteMod`, 然后在这里写一份 `everest.yaml` 文件, 它包含我们 mod 的一些基本信息:
-```yaml
+```yaml title="everest.yaml"
 - Name: <mod名字>
   Version: <版本>
   DLL: <dll位置>
@@ -184,7 +187,7 @@ ok, 我们来慢慢填这些东西
     * everest.yaml
 
 everest.yaml可能长这个样子:
-```yaml
+```yaml title="everest.yaml"
 - Name: MyCelesteMod
   Version: 0.1.0
   DLL: MyCelesteMod.dll
@@ -196,7 +199,7 @@ everest.yaml可能长这个样子:
 ok, 在启动之前我们还要干最后一件小事, 就是我们的日志, 它打印在文件里同时也打印在控制台里, 日志文件翻阅比较麻烦, 所以为了日后方便调试, 我们还是先让蔚蓝启动的同时启动一个控制台好一点. Everest 已经为我们做了这件事了, 我们要做的只是在蔚蓝exe同目录下找到`everest-launch.txt`, 没找到也没关系, 新建一个就可以了, 然后在里面写上`--console`, 是的就这一小点东西, 然后我们保存, 启动蔚蓝!
 
 启动后你应该会同时看到一个控制台窗口, 扫视一下:
-```log
+```log title="console output"
 [MonoMod] [AutoPatch] Patch pass
 [MonoMod] [AutoPatch] PatchRefs pass
 [MonoMod] [PostProcessor] PostProcessor pass #1
