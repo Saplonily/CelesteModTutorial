@@ -183,7 +183,6 @@ public class MyModModule : EverestModule
 {
     public override void Load()
     {
-        
         Logger.Log(LogLevel.Info, "MyCelesteMod", "Hello World! Hello Everest!");
     }
 
