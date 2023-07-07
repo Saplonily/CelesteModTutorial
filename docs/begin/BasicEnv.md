@@ -44,7 +44,7 @@ C#入门经典-第7版-C# 6.0
 ![Test](vsprojtfw.png)  
 如果你没有 [`.NET Framework 4.5.2`](https://dotnet.microsoft.com/zh-cn/download/dotnet-framework/thank-you/net452-developer-pack-offline-installer) 的选项请检查是否安装了此框架, 并且你选择的是带 `.NET Framework` 字样的类库项目.
 
-当你创建完项目后, 你会得到一个代码文件 `Class1.cs` 以及, 它看起来像:
+当你创建完项目后, 你会得到一个代码文件 `Class1.cs`, 它看起来像:
 ```cs
 using System;
 using System.Collections.Generic;
@@ -71,13 +71,11 @@ namespace MyCelesteMod
 - 选择`添加引用`
 - 在新的窗口选择左侧的`浏览`
 - 点击窗口右下角的`浏览`  
-  
-完成后在弹出的文件选择框中选择以下几个在蔚蓝根目录下的文件:
-
-- `Celeste.exe`
-- `FNA.dll`
-- `MMHOOK_Celeste.dll`
-- `YamlDotNet.dll`
+- 完成后在弹出的文件选择框中选择以下几个在蔚蓝根目录下的文件:
+    - `Celeste.exe`
+    - `FNA.dll`
+    - `MMHOOK_Celeste.dll`
+    - `YamlDotNet.dll`
 
 > 对于 steam 版蔚蓝的目录通常会在 `C:\Program Files (x86)\Steam\steamapps\common\Celeste`
 
@@ -182,8 +180,8 @@ ok, 我们来慢慢填这些东西
 现在你的那个文件夹现在可能长这个样子:
 
 - MyCelesteMod
-  - MyCelesteMod.dll
-  - everest.yaml
+    * MyCelesteMod.dll
+    * everest.yaml
 
 everest.yaml可能长这个样子:
 ```yaml
