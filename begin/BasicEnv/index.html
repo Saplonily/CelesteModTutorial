@@ -480,7 +480,7 @@ C#入门经典-第7版-C# 6.0  </p>
 注意要选带 <code>.NET Framework</code> 字样的, 蔚蓝的底层框架相对于目前的 <code>.NET</code> 已经很古老了, 所以可能会被稍微特殊点对待(, 之后在为项目命名的窗口中的项目框架记得精确选择 <code>.NET Framework 4.5.2</code>.<br />
 <img alt="Test" src="../vsprojtfw.png" /><br />
 如果你没有 <a href="https://dotnet.microsoft.com/zh-cn/download/dotnet-framework/thank-you/net452-developer-pack-offline-installer"><code>.NET Framework 4.5.2</code></a> 的选项请检查是否安装了此框架, 并且你选择的是带 <code>.NET Framework</code> 字样的类库项目.</p>
-<p>当你创建完项目后, 你会得到一个代码文件 <code>Class1.cs</code> 以及, 它看起来像:
+<p>当你创建完项目后, 你会得到一个代码文件 <code>Class1.cs</code>, 它看起来像:
 <div class="language-cs highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
@@ -503,13 +503,13 @@ C#入门经典-第7版-C# 6.0  </p>
 <li>选择<code>添加引用</code></li>
 <li>在新的窗口选择左侧的<code>浏览</code></li>
 <li>点击窗口右下角的<code>浏览</code>  </li>
-</ul>
-<p>完成后在弹出的文件选择框中选择以下几个在蔚蓝根目录下的文件:</p>
-<ul>
+<li>完成后在弹出的文件选择框中选择以下几个在蔚蓝根目录下的文件:<ul>
 <li><code>Celeste.exe</code></li>
 <li><code>FNA.dll</code></li>
 <li><code>MMHOOK_Celeste.dll</code></li>
 <li><code>YamlDotNet.dll</code></li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>对于 steam 版蔚蓝的目录通常会在 <code>C:\Program Files (x86)\Steam\steamapps\common\Celeste</code></p>
@@ -601,9 +601,11 @@ ok, 我们来慢慢填这些东西
 - <code>Dll 位置</code>: 我们先把之前编译的新鲜<del>(可能现在不咋新鲜了)</del>的 dll 复制到这个文件夹来, 没记错的话在这里叫 <code>MyCelesteMod.dll</code>, ok, <code>everest.yaml</code> 里要写的 dll 位置是相对于这个文件夹的, 我们就放在它里面第一层, 所以我们直接写 <code>MyCelesteMod.dll</code> 就行了.</p>
 <p>现在你的那个文件夹现在可能长这个样子:</p>
 <ul>
-<li>MyCelesteMod</li>
+<li>MyCelesteMod<ul>
 <li>MyCelesteMod.dll</li>
 <li>everest.yaml</li>
+</ul>
+</li>
 </ul>
 <p>everest.yaml可能长这个样子:
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyCelesteMod</span>
