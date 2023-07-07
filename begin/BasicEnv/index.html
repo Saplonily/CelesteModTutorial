@@ -16,6 +16,8 @@
         <link rel="prev" href="../CelesteEverestMonoMod/">
       
       
+        <link rel="next" href="../prefer/">
+      
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
@@ -350,6 +352,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prefer/" class="md-nav__link">
+        偏好
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -460,6 +476,9 @@
 <h2 id="c">C# 编程能力 与 开发环境</h2>
 <p>因为我们是 CodeMod, 嗯, 那么写一些代码是必不可少的, 那么一般情况在 IDE 里写代码会好很多.
 蔚蓝是使用 <code>C#</code> 基于 <code>.NET framework 4.5.2</code> 制作的, 那么你就需要学习一下 <code>C#</code>.</p>
+<blockquote>
+<p>理论上所有 .NET 系语言比如 VB.NET/F# 都可以, 但是为了方便起见我们使用 C#</p>
+</blockquote>
 <p>好吧这句话可能说的太平淡了(, 毕竟大部分<del>蔚批</del>蔚蓝 mod 爱好者就是被这一步卡住的, 那我这里能做的... 只有给你推荐几个视频和书籍了.</p>
 <p>对于通过视频的方式我推荐:<br />
 <a href="https://www.bilibili.com/video/av895726228">Bilibili 丑萌气质狗 【C#零基础入门教程 Visual Studio 2022】人生低谷来学C#</a></p>
@@ -475,13 +494,13 @@ C#入门经典-第7版-C# 6.0  </p>
 </ul>
 <p>在之后我会在 <code>Windows</code> 上使用 <code>Visual Studio</code>, 其他编辑器/IDE就不会提了, 所以你遇到了什么奇怪的问题可以到任何能联系到我的地方问我_(:з」∠)_</p>
 <h2 id="_2">项目创建</h2>
-<p>在vs创建项目页面中我们需要选择这个:
-<img alt="VS创建项目页面" src="../vsprojnew.png" /><br />
-注意要选带 <code>.NET Framework</code> 字样的, 蔚蓝的底层框架相对于目前的 <code>.NET</code> 已经很古老了, 所以可能会被稍微特殊点对待(, 之后在为项目命名的窗口中的项目框架记得精确选择 <code>.NET Framework 4.5.2</code>.<br />
-<img alt="Test" src="../vsprojtfw.png" /><br />
+<p>在vs创建项目页面中我们需要选择这个:  </p>
+<p><img alt="VS创建项目页面" src="../vsprojnew.png" /><br />
+注意要选带 <code>.NET Framework</code> 字样的, 蔚蓝的底层框架相对于目前的 <code>.NET</code> 已经很古老了, 所以可能会被稍微特殊点对待(, 之后在为项目命名的窗口中的项目框架记得精确选择 <code>.NET Framework 4.5.2</code>.  </p>
+<p><img alt="Test" src="../vsprojtfw.png" /><br />
 如果你没有 <a href="https://dotnet.microsoft.com/zh-cn/download/dotnet-framework/thank-you/net452-developer-pack-offline-installer"><code>.NET Framework 4.5.2</code></a> 的选项请检查是否安装了此框架, 并且你选择的是带 <code>.NET Framework</code> 字样的类库项目.</p>
 <p>当你创建完项目后, 你会得到一个代码文件 <code>Class1.cs</code>, 它看起来像:
-<div class="language-cs highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<div class="language-cs highlight"><span class="filename">Class1.cs</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Text</span><span class="p">;</span>
@@ -537,7 +556,7 @@ C#入门经典-第7版-C# 6.0  </p>
 <p>如果出现了未命名标识符的错误, 请检查你是否正确引用了 <code>Celeste.exe</code> 并且 <strong>using</strong> 了 <strong><code>Celeste.Mod</code> 命名空间</strong></p>
 </blockquote>
 <p><code>EverestModule</code> 是一个抽象类 ,那么现在我们需要加入两个方法以实现它<del>, 同时让vs闭嘴</del>.
-<div class="language-cs highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
+<div class="language-cs highlight"><span class="filename">MyCelesteMod.cs</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
@@ -557,7 +576,7 @@ C#入门经典-第7版-C# 6.0  </p>
 <li>第三个参数: 我们希望输出的话</li>
 </ul>
 <p>那么你现在的代码应该是大概这样子的:
-<div class="language-cs highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Celeste.Mod</span><span class="p">;</span>
+<div class="language-cs highlight"><span class="filename">MyCelesteMod.cs</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Celeste.Mod</span><span class="p">;</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
@@ -587,7 +606,7 @@ C#入门经典-第7版-C# 6.0  </p>
 <p>编译完成, 我们就可以找到我们编译出来的新鲜的程序集: <code>&lt;你的项目名&gt;/&lt;你的项目名&gt;/bin/Debug/&lt;你的项目名&gt;.dll</code>, 你的 vs 的输出窗口也应该会写上这个 dll 的完整路径.</p>
 <h2 id="everest">让 Everest 加载</h2>
 <p>以上一顿操作过后你会发现你的蔚蓝什么也没发生(乐). 因为我们还没告诉它让它加载我们的 mod! 为了让 Everest 加载我们的 mod, 其中一个方法就是在蔚蓝的 Mods 文件夹里面新建一个文件夹, 并放入我们的 mod 文件, 它的名字我们最好就是项目名字, 比如 <code>MyCelesteMod</code>, 然后在这里写一份 <code>everest.yaml</code> 文件, 它包含我们 mod 的一些基本信息:
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;mod名字&gt;</span>
+<div class="language-yaml highlight"><span class="filename">everest.yaml</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;mod名字&gt;</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">Version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;版本&gt;</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">DLL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;dll位置&gt;</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">Dependencies</span><span class="p">:</span>
@@ -608,7 +627,7 @@ ok, 我们来慢慢填这些东西
 </li>
 </ul>
 <p>everest.yaml可能长这个样子:
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyCelesteMod</span>
+<div class="language-yaml highlight"><span class="filename">everest.yaml</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyCelesteMod</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">Version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1.0</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">DLL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyCelesteMod.dll</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">Dependencies</span><span class="p">:</span>
@@ -617,7 +636,7 @@ ok, 我们来慢慢填这些东西
 </span></code></pre></div></p>
 <p>ok, 在启动之前我们还要干最后一件小事, 就是我们的日志, 它打印在文件里同时也打印在控制台里, 日志文件翻阅比较麻烦, 所以为了日后方便调试, 我们还是先让蔚蓝启动的同时启动一个控制台好一点. Everest 已经为我们做了这件事了, 我们要做的只是在蔚蓝exe同目录下找到<code>everest-launch.txt</code>, 没找到也没关系, 新建一个就可以了, 然后在里面写上<code>--console</code>, 是的就这一小点东西, 然后我们保存, 启动蔚蓝!</p>
 <p>启动后你应该会同时看到一个控制台窗口, 扫视一下:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[MonoMod] [AutoPatch] Patch pass
+<div class="language-text highlight"><span class="filename">console output</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[MonoMod] [AutoPatch] Patch pass
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>[MonoMod] [AutoPatch] PatchRefs pass
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>[MonoMod] [PostProcessor] PostProcessor pass #1
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>[MonoMod] [Write] Writing modded module into output file.
@@ -673,7 +692,7 @@ ok, 我们来慢慢填这些东西
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
