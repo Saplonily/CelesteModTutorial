@@ -183,8 +183,8 @@ ok, 我们来慢慢填这些东西
 现在你的那个文件夹现在可能长这个样子:
 
 - MyCelesteMod
-    * MyCelesteMod.dll
-    * everest.yaml
+    - MyCelesteMod.dll
+    - everest.yaml
 
 everest.yaml可能长这个样子:
 ```yaml title="everest.yaml"
