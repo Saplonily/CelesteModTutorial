@@ -8,6 +8,9 @@
 
 ## Sdk-style csproj
 
+!!! warning
+    本小节会随着环境配置内容的重写而重写, 因为这也对于新人来说过于复杂!
+
 现在打开你的项目目录中的 `.csproj` 文件(通常也会被叫作\*项目文件\*), 它用于组织描述你的项目是什么样子的, 你可能会发现非常的杂乱不可读, 就像:
 
 ```xml title=".csproj" hl_lines="8 10-12 34-50"
@@ -112,8 +115,13 @@
 迁移至 `Sdk-style csproj` 非常简单, 你只需要:
 
 - 删除 `PropertyGroup` 和 `ItemGroup` 及旁边的非标黄节点
-- 在 `Project` 节点上加入属性: `Sdk = "Microsoft.NET.Sdk"`
+- 删除 `Project` 节点下的两个 `Import`
+- 删除 `Project` 节点的所有属性
+- 重新在 `Project` 节点上加入属性: `Sdk = "Microsoft.NET.Sdk"`
 - `TargetFrameworkVersion` 更改为新版的 `TargetFramework`, `v4.5.2` 更改为 `net452`
+
+!!! note
+    不用担心删掉这么多东西会出现问题, 实际上我们删掉的东西只是合并入 `Sdk = "Microsoft.NET.Sdk"` 这一句了而已
 
 这个时候整个文件清晰可读:
 
@@ -128,15 +136,25 @@
 ## Implicit Usings (隐式 Using)
 
 现在看看你的源文件头顶是不是充满了一大堆 `using xxx`? 那就对了, 我们可以使用这个特性来让它看起来更简介些.
-那么打开你的项目文件, 向 `PropertyGroup` 加入一句 `<ImplicitUsings>true</ImplicitUsings>`,
-这个时候你就可以移除你的大部分 `System` 开头的 Using 语句啦, 因为我们是蔚蓝 mod, 所以我们经常也会 Using 以下几个命名空间:
+那么打开你的项目文件, 向你的 `ItemGroup` 中加入这些:
+
+```xml
+<Using Include="System"/>
+<Using Include="System.Collections.Generic"/>
+<Using Include="System.IO"/>
+<Using Include="System.Linq"/>
+<Using Include="System.Threading"/>
+<Using Include="System.Threading.Tasks"/>
+```
+
+这个时候你就可以移除你的大部分 `System` 开头的 Using 语句啦, 这被称为 `隐式 Using`, 因为我们是蔚蓝 mod, 所以我们经常也会 Using 以下几个命名空间:
 
 - `Celeste.Mod`: 包含很多 Everest 相关东西
 - `Celeste`: 蔚蓝本体所在命名空间
 - `Monocle`: 蔚蓝自己的游戏引擎
 - `Microsoft.Xna.Framework`: 蔚蓝自己的游戏引擎的底层框架
 
-那么对这些自定义的隐式 Using 我们需要向 `ItemGroup` 加入这些:
+对这些隐式 Using 我们也向 `ItemGroup` 加入:
 ```xml
 <Using Include="Celeste.Mod"/>
 <Using Include="Celeste"/>
@@ -193,7 +211,7 @@ public class MyModModule : EverestModule
 }
 ```
 
-> 如果你收到警告 `CS8370`, 那你就需要在 `PropertyGroup` 下添加这一行:
+> 如果你收到错误 `CS8370`, 那你就需要在 `PropertyGroup` 下添加这一行:
 > ```xml
 > <LangVersion>preview</LangVersion>
 > ```

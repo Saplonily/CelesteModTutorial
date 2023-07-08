@@ -21,7 +21,7 @@
 
 ## MonoMod
 
-Everest 的底层就是 MonoMod, 你只需要知道 Everest 依赖了 MonoMod, 同样地这也是一个开源项目([Github](https://github.com/MonoMod/MonoMod)), 有趣的是, Everest 的主要维护者之一也是 MonoMod 的主要维护者, 同时 MonoMod 也是一些其他游戏的 mod 底层, 比如 Terria 的 [tModLoader](https://github.com/blushiemagic/tModLoader), Fez 的 [FEZMod](https://github.com/0x0ade/FEZMod-Legacy) 等等. <del>我们蔚批太厉害啦</del>
+Everest 的底层就是 MonoMod, 你只需要知道 Everest 依赖了 MonoMod, 同样地这也是一个开源项目([Github](https://github.com/MonoMod/MonoMod)), 有趣的是, Everest 的主要维护者之一也是 MonoMod 的主要维护者, 同时 MonoMod 也是一些其他游戏的 mod 底层, 比如 Terraria 的 [tModLoader](https://github.com/blushiemagic/tModLoader), Fez 的 [FEZMod](https://github.com/0x0ade/FEZMod-Legacy) 等等. <del>我们蔚批太厉害啦</del>
 
 那么在这三个基础概念了解之后你就可以开始制作你的第一个 mod了:  
 [基础环境配置](./BasicEnv.md)

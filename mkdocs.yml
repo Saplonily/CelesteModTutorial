@@ -7,7 +7,7 @@ theme:
   name: material
   features:
     - content.code.copy
-  
+
 markdown_extensions:
   - admonition # 警告
   - meta # 元数据
@@ -16,9 +16,12 @@ markdown_extensions:
   - pymdownx.tilde # 下划线
   - pymdownx.inlinehilite # 高亮
   - pymdownx.snippets # 语法高亮
-  - pymdownx.superfences # 语法高亮
+  - pymdownx.superfences: # 语法高亮
+      custom_fences:
+        - name: mermaid
+          class: mermaid
   - pymdownx.tasklist # 列表
-  - pymdownx.highlight:  # 语法高亮
+  - pymdownx.highlight: # 语法高亮
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
@@ -26,10 +29,10 @@ markdown_extensions:
 nav:
   - 首页: "index.md"
   - 入门:
-    - Celeste, Everest, MonoMod : "begin/CelesteEverestMonoMod.md"
-    - 基础环境配置 : "begin/BasicEnv.md"
-    - 偏好: "begin/prefer.md"
-
+      - Celeste, Everest, MonoMod: "begin/CelesteEverestMonoMod.md"
+      - 基础环境配置: "begin/BasicEnv.md"
+      - 偏好: "begin/prefer.md"
+      - 钩子, 阅读代码, demo1: "begin/hook,code,demo1.md"
 # - 入门
 #   - Celeste, Everest, MonoMod
 #   - 基础环境配置

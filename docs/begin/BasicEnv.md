@@ -39,6 +39,9 @@ C#入门经典-第7版-C# 6.0
 
 ## 项目创建
 
+!!! warning
+    本小节会在未来进行重写, 因为本小节对于新人来说过于复杂!
+
 在vs创建项目页面中我们需要选择这个:  
 
 ![VS创建项目页面](vsprojnew.png)  
@@ -125,7 +128,7 @@ public override void Unload()
 Logger.Log(LogLevel.Info, "MyCelesteMod", "Hello World! Hello Everest!");
 ```
 
-这是一个蔚蓝底层框架 `Monocle` 引擎里的一个静态类, 在之后我们会介绍蔚蓝中常见类的使用, 在这里这个方法的参数:
+这是一个蔚蓝底层框架 `Monocle` 引擎里的一个静态类, 在之后我们会介绍蔚蓝中常见类的使用. 下面是这个方法的参数列表:
 
 - 第一个参数: 这句日志的等级, 这里我们先选 `Info`.
 - 第二个参数: 这句日志的 `Tag`, 通常它是你的 Mod 名字
