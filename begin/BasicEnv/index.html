@@ -366,6 +366,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hook%2Ccode%2Cdemo1/" class="md-nav__link">
+        钩子, 阅读代码, demo1
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -494,6 +508,10 @@ C#入门经典-第7版-C# 6.0  </p>
 </ul>
 <p>在之后我会在 <code>Windows</code> 上使用 <code>Visual Studio</code>, 其他编辑器/IDE就不会提了, 所以你遇到了什么奇怪的问题可以到任何能联系到我的地方问我_(:з」∠)_</p>
 <h2 id="_2">项目创建</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>本小节会在未来进行重写, 因为本小节对于新人来说过于复杂!</p>
+</div>
 <p>在vs创建项目页面中我们需要选择这个:  </p>
 <p><img alt="VS创建项目页面" src="../vsprojnew.png" /><br />
 注意要选带 <code>.NET Framework</code> 字样的, 蔚蓝的底层框架相对于目前的 <code>.NET</code> 已经很古老了, 所以可能会被稍微特殊点对待(, 之后在为项目命名的窗口中的项目框架记得精确选择 <code>.NET Framework 4.5.2</code>.  </p>
@@ -569,7 +587,7 @@ C#入门经典-第7版-C# 6.0  </p>
 在这里我们会写个类似 Hello world 的东西, 即在 <code>Load</code> 里打印些话. em, 可能不是你期望的 <code>Console.WriteLine</code> 而是 <code>Logger.Log</code>, 就像这样:</p>
 <div class="language-cs highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World! Hello Everest!&quot;</span><span class="p">);</span>
 </span></code></pre></div>
-<p>这是一个蔚蓝底层框架 <code>Monocle</code> 引擎里的一个静态类, 在之后我们会介绍蔚蓝中常见类的使用, 在这里这个方法的参数:</p>
+<p>这是一个蔚蓝底层框架 <code>Monocle</code> 引擎里的一个静态类, 在之后我们会介绍蔚蓝中常见类的使用. 下面是这个方法的参数列表:</p>
 <ul>
 <li>第一个参数: 这句日志的等级, 这里我们先选 <code>Info</code>.</li>
 <li>第二个参数: 这句日志的 <code>Tag</code>, 通常它是你的 Mod 名字</li>

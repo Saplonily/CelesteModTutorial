@@ -1,0 +1,692 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Celeste Code Mod Tourial">
+      
+      
+        <meta name="author" content="Saplonily">
+      
+      
+      
+        <link rel="prev" href="../prefer/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+    
+    
+      
+        <title>钩子, 阅读代码, demo1 - 蔚蓝Code Mod教程</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#demo1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="蔚蓝Code Mod教程" class="md-header__button md-logo" aria-label="蔚蓝Code Mod教程" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            蔚蓝Code Mod教程
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              钩子, 阅读代码, demo1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Saplonily/CelesteModTourial" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="蔚蓝Code Mod教程" class="md-nav__button md-logo" aria-label="蔚蓝Code Mod教程" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    蔚蓝Code Mod教程
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Saplonily/CelesteModTourial" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        首页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          入门
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CelesteEverestMonoMod/" class="md-nav__link">
+        Celeste, Everest, MonoMod
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BasicEnv/" class="md-nav__link">
+        基础环境配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prefer/" class="md-nav__link">
+        偏好
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          钩子, 阅读代码, demo1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        钩子, 阅读代码, demo1
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#on" class="md-nav__link">
+    钩子 (特指 On 钩子)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    阅读代码
+  </a>
+  
+    <nav class="md-nav" aria-label="阅读代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#monocle-ec" class="md-nav__link">
+    Monocle, EC 架构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-demo1" class="md-nav__link">
+    锁定单冲 - demo1
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#on" class="md-nav__link">
+    钩子 (特指 On 钩子)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    阅读代码
+  </a>
+  
+    <nav class="md-nav" aria-label="阅读代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#monocle-ec" class="md-nav__link">
+    Monocle, EC 架构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-demo1" class="md-nav__link">
+    锁定单冲 - demo1
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="demo1">钩子, 阅读代码, demo1</h1>
+<!--
+// 下文废弃, 原计划自动化构建介绍于本节
+
+## 开始之前
+
+还记得我们是怎么编译我们的项目, 然后丢给 Everest 加载的吗?  
+没事忘了也没关系, 我们在这里重新理一下:
+
+- 编译我们的项目 (Ctrl + B, 或者菜单上的*生成*->*生成解决方案*)
+- 找到编译出的程序集
+- 复制到蔚蓝 Mods 目录下的你的 Mod 的文件夹下
+- 在确保前面的步骤是在关闭蔚蓝时进行的后, 重新打开蔚蓝
+
+看似简单的四步实际上真正操作起来是很麻烦的, -->
+
+<h2 id="_1">前言</h2>
+<p>在这一节, 我们会介绍在制作 mod 中的一个很重要的技术: 钩子(Hook),
+我们主要介绍 On 钩子, 在之后我们会阅读蔚蓝的代码, 最后我们会制作一个修改玩家冲刺数的小 demo.</p>
+<h2 id="on">钩子 (特指 On 钩子)</h2>
+<p>对于 C# 的一个普通的函数来说, 它被调用时看起来是这样的:</p>
+<pre class="mermaid"><code>graph LR
+    A[调用方] --&gt; B[即将调用该函数];
+    subgraph 该函数
+    B --&gt; C[该函数主体];
+    C --&gt; D[结束调用该函数];
+    end
+    D --&gt; E[调用方];</code></pre>
+<p>当我们引入钩子技术后, 这个函数调用时会像被"钩"住一样转身去调用我们的函数:</p>
+<pre class="mermaid"><code>graph LR
+    A[调用方]; B[即将调用该函数];
+    F[钩子]; G[我们的函数];
+    H[该函数主体];
+    D[结束调用该函数];
+    E[调用方];
+    subgraph 该函数
+    B; H; D;
+    end
+    A --&gt; B;
+    B --&gt; F;
+    F --&gt; G;
+    H --&gt; D;
+    G --&gt; H;
+    G -.或者.-&gt; D;
+    D --&gt; E;</code></pre>
+<p>如图所见, 该钩子允许你在调用某个函数时转身去调用我们的函数, 同时你能选择我们的函数执行完后是否再执行回原函数.</p>
+<p>在 Everest 中, 借助于 MonoMod 的技术, 创建一个 On 钩子简单的就像:</p>
+<div class="language-cs highlight"><span class="filename">简单的钩取...</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">Update</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">Player_Update</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Player_Update</span><span class="p">(</span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">orig_Update</span><span class="w"> </span><span class="n">orig</span><span class="p">,</span><span class="w"> </span><span class="n">Player</span><span class="w"> </span><span class="n">self</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">{</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">orig</span><span class="p">(</span><span class="n">self</span><span class="p">);</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">{</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">Update</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">Player_Update</span><span class="p">;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>在上面的代码中我们使用类似订阅事件的语法去钩住了 <code>Player</code> 类的 <code>Update</code> 方法(该方法每帧都会调用一遍),
+在这里我们的函数就是<code>Player_Update</code>,
+你可能注意到参数很复杂, 是的, 所以一般来说我都是依赖 IDE 帮我自动填写这些参数就像:  </p>
+<p><img alt="b4" src="../image.png" />  </p>
+<p><img alt="at" src="../image-1.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>注意 IDE 生成的函数默认包含一句抛出异常语句, 记得把它改掉</p>
+</div>
+<p><code>orig</code> 参数是一个<strong>委托</strong>, 调用它就相当于调用这个钩子钩住的原函数, 也就是说你可以在该函数调用前做些事,
+也可以在该函数调用后做些事, 或者干脆不调用这个函数, 甚至调用这个函数多次.
+通常来说我们都会在末尾简单的调用回去避免造成不必要的麻烦.</p>
+<div class="language-cs highlight"><span class="filename">一些钩子本身...</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Player_Update</span><span class="p">(</span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">orig_Update</span><span class="w"> </span><span class="n">orig</span><span class="p">,</span><span class="w"> </span><span class="n">Player</span><span class="w"> </span><span class="n">self</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// 在这之前做一些事...</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="c1">// 当某些奇怪的条件不成立时我们才调用回去原来的函数...</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">xxx</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="n">orig</span><span class="p">(</span><span class="n">self</span><span class="p">);</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="c1">// 在这之后做一些事...</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>如果你钩取到的是一个成员函数(也叫成员方法), 那么参数通常会带有一个 <code>self</code>, 它表示执行这个成员函数时 <code>this</code> 的值,
+那么自然地如果你钩取的是一个静态函数那么是没有这个参数的.<br />
+如果你钩取的函数是带参数的, 那么参数列表会原封不动的排列在前面提到的参数的后面.  </p>
+<p>比如你尝试钩取 <code>Player.Jump</code> 函数时, 它的三个参数会这样传递给你:</p>
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Player_Jump</span><span class="p">(</span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">orig_Jump</span><span class="w"> </span><span class="n">orig</span><span class="p">,</span><span class="w"> </span><span class="n">Player</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">particles</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">playSfx</span><span class="p">)</span>
+</span></code></pre></div>
+<p>最后, 不要忘记在 <code>Unload</code> 方法里取消掉我们的钩子(通过<code>-=</code>), 防止我们的钩子在不必要的地方产生不好的影响:
+<div class="language-cs highlight"><span class="filename">取消钩子</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">Update</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">Player_Update</span><span class="p">;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h2 id="_2">阅读代码</h2>
+<p>到这里你是否有很多问号(((,
+比如这些函数都是干什么的? </p>
+<ul>
+<li><code>Player</code> 是什么?</li>
+<li><code>Player.Update</code> 是什么?</li>
+<li><code>Player.Jump</code> 又是什么??</li>
+</ul>
+<p>所以这时我们就需要<strong>阅读蔚蓝的代码</strong>来了解这些东西. 当然, 蔚蓝是个商业游戏, 想指望它开源所有代码是不可能的,
+那我们就必须得借助一些反编译工具.<br />
+在这里我会推荐 <a href="https://github.com/dnSpyEx/dnSpy"><code>dnSpy</code></a></p>
+<p>使用该软件很简单:</p>
+<ul>
+<li>打开它</li>
+<li>点击左上角的<code>文件</code>, <code>打开</code></li>
+<li>选择 <code>Celeste.exe</code></li>
+<li>展开蔚蓝的程序集</li>
+<li>你现在可以看到蔚蓝都有哪些类了</li>
+<li>你现在也可以看到蔚蓝都有哪些函数了</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>不要上传反编译后的代码到任何地方, 这可能会不避免的造成一些争议.</p>
+</div>
+<p>现在我们浏览蔚蓝的代码就像你在 IDE 里浏览你的项目一样, 不过这不是我们的项目, 通常你可能会对着一个字段、一个函数发呆, 因为你根本不知道它是做什么的!
+好在 <code>dnSpy</code> 提供了一个很好用的"分析"功能:<br />
+<img alt="dnSpy-ana" src="../image-2.png" /><br />
+在这里你可以看到那些字段、那些函数被谁调用、被谁引用、被谁更改:
+<img alt="dnSpy-findthings" src="../image-3.png" />  </p>
+<h3 id="monocle-ec">Monocle, EC 架构</h3>
+<p>在这里我会简单介绍一下整个蔚蓝是怎么组织起来的.<br />
+首先蔚蓝基于 <code>Monocle</code> 引擎, 这是 <code>matt</code> 自己开发的一个引擎, 所以别指望你能在网上找到它的教程(,
+其次 <code>Monocle</code> 再次依赖 <code>Monogame</code> 或者 <code>FNA</code>, 它们都是微软的 <code>XNA</code> 框架的重新实现(因为 <code>XNA</code> 早停更了),
+<code>XNA</code> 提供的 api 都非常原始, 甚至连最基本的场景组织之类的都没有, 那么 <code>Monocle</code> 就是来实现这些的.  </p>
+<p>通常来说一个正在运行的 <code>Monocle</code> 游戏的结构就像:
+<pre class="mermaid"><code>graph LR
+R[Engine] --- A;
+
+A[Scene] --- B[Entity A];
+A --- C[Entity B];
+A --- E[Entity ...];
+B --- F[Component A];
+B --- G[Component B];
+C --- H[Component A];
+C --- I[Component C];
+C --- J[Component ...];</code></pre></p>
+<ul>
+<li><code>Scene</code> 表示一个场景, 比如主界面场景, pico8 场景, 以及最常见的 gameplay 场景.  </li>
+<li><code>Entity</code> 表示一个实体, 比如说玛德琳就是一个实体, 一个弹球是一个实体, 一个泡泡是一个实体.</li>
+<li><code>Component</code> 表示一个组件, 它附加与实体之上, 通常我们能直接看到的只有图片组件, 比如岩浆块的贴图就是由 <code>Image</code> 组件来展现的, 玩家的动画由 <code>Sprite</code> 组件展现.  </li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>以上这个架构我们就称为 <code>EC</code> 架构, 它是游戏的一种组织方式的实现.  </p>
+</div>
+<p>每过 <code>1/60</code> 秒, <code>Engine</code> 就会被调用 <code>Update()</code> 函数,
+<code>Engine</code> 内部会调用 <code>Scene</code> 的 <code>Update()</code> 函数,
+<code>Scene</code> 内部会遍历它所有的 <code>Entity</code> 并调用它们的 <code>Update()</code> 函数,
+<code>Entity</code> 内部还会遍历它所有的 <code>Component</code> 并调用它们的 <code>Update()</code> 函数.  </p>
+<p>所以那么自然, <code>Player.Update()</code> 就是玛德琳每帧的更新逻辑所在的地方了. 现在我们做一个小 demo, 将玩家的冲刺数量锁死为单冲.  </p>
+<h2 id="-demo1">锁定单冲 - demo1</h2>
+<p>通过简单的浏览蔚蓝的代码, 你了解到(没了解到也正常) <code>Player.Dashes</code> 这个字段储存了玩家的冲刺数量, 那么现在我们将它锁定为 1, 也就是单冲.<br />
+首先我们钩取 <code>Player.Update()</code>, 然后在确保调用回原来的函数后直接将 <code>Dashes</code> 强制修改为 1.</p>
+<div class="language-cs highlight"><span class="filename">锁定冲刺为1!</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">Update</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">Player_Update</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Player_Update</span><span class="p">(</span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">orig_Update</span><span class="w"> </span><span class="n">orig</span><span class="p">,</span><span class="w"> </span><span class="n">Player</span><span class="w"> </span><span class="n">self</span><span class="p">)</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">{</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="n">self</span><span class="p">.</span><span class="n">Dashes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="n">orig</span><span class="p">(</span><span class="n">self</span><span class="p">);</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">}</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">{</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">Update</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">Player_Update</span><span class="p">;</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>那么现在编译, 按之前的内容操作, 并重启蔚蓝, 你应该就会看到你的玛德琳永远都会有单冲了(即使是在空中!).</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      
+    
+  </body>
+</html>

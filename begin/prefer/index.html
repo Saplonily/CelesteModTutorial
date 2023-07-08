@@ -16,6 +16,8 @@
         <link rel="prev" href="../BasicEnv/">
       
       
+        <link rel="next" href="../hook%2Ccode%2Cdemo1/">
+      
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
@@ -343,6 +345,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hook%2Ccode%2Cdemo1/" class="md-nav__link">
+        钩子, 阅读代码, demo1
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -423,6 +439,10 @@
 没关系, 你依然可以使用同时提及到的等效方法</p>
 </div>
 <h2 id="sdk-style-csproj">Sdk-style csproj</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>本小节会随着环境配置内容的重写而重写, 因为这也对于新人来说过于复杂!</p>
+</div>
 <p>现在打开你的项目目录中的 <code>.csproj</code> 文件(通常也会被叫作*项目文件*), 它用于组织描述你的项目是什么样子的, 你可能会发现非常的杂乱不可读, 就像:</p>
 <div class="language-xml highlight"><span class="filename">.csproj</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">ToolsVersion=</span><span class="s">&quot;15.0&quot;</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot;</span><span class="nt">&gt;</span>
@@ -523,9 +543,15 @@
 迁移至 <code>Sdk-style csproj</code> 非常简单, 你只需要:</p>
 <ul>
 <li>删除 <code>PropertyGroup</code> 和 <code>ItemGroup</code> 及旁边的非标黄节点</li>
-<li>在 <code>Project</code> 节点上加入属性: <code>Sdk = "Microsoft.NET.Sdk"</code></li>
+<li>删除 <code>Project</code> 节点下的两个 <code>Import</code></li>
+<li>删除 <code>Project</code> 节点的所有属性</li>
+<li>重新在 <code>Project</code> 节点上加入属性: <code>Sdk = "Microsoft.NET.Sdk"</code></li>
 <li><code>TargetFrameworkVersion</code> 更改为新版的 <code>TargetFramework</code>, <code>v4.5.2</code> 更改为 <code>net452</code></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>不用担心删掉这么多东西会出现问题, 实际上我们删掉的东西只是合并入 <code>Sdk = "Microsoft.NET.Sdk"</code> 这一句了而已</p>
+</div>
 <p>这个时候整个文件清晰可读:</p>
 <ul>
 <li>根节点的 <code>Project</code> 下挂载着 <code>PropertyGroup</code> 以及 <code>ItemGroup</code>,</li>
@@ -537,37 +563,44 @@
 所以我们之后对项目文件的修改的描述都会基于<strong>这两个节点</strong>.</p>
 <h2 id="implicit-usings-using">Implicit Usings (隐式 Using)</h2>
 <p>现在看看你的源文件头顶是不是充满了一大堆 <code>using xxx</code>? 那就对了, 我们可以使用这个特性来让它看起来更简介些.
-那么打开你的项目文件, 向 <code>PropertyGroup</code> 加入一句 <code>&lt;ImplicitUsings&gt;true&lt;/ImplicitUsings&gt;</code>,
-这个时候你就可以移除你的大部分 <code>System</code> 开头的 Using 语句啦, 因为我们是蔚蓝 mod, 所以我们经常也会 Using 以下几个命名空间:</p>
+那么打开你的项目文件, 向你的 <code>ItemGroup</code> 中加入这些:</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Collections.Generic&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.IO&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Linq&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Threading&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Threading.Tasks&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div>
+<p>这个时候你就可以移除你的大部分 <code>System</code> 开头的 Using 语句啦, 这被称为 <code>隐式 Using</code>, 因为我们是蔚蓝 mod, 所以我们经常也会 Using 以下几个命名空间:</p>
 <ul>
 <li><code>Celeste.Mod</code>: 包含很多 Everest 相关东西</li>
 <li><code>Celeste</code>: 蔚蓝本体所在命名空间</li>
 <li><code>Monocle</code>: 蔚蓝自己的游戏引擎</li>
 <li><code>Microsoft.Xna.Framework</code>: 蔚蓝自己的游戏引擎的底层框架</li>
 </ul>
-<p>那么对这些自定义的隐式 Using 我们需要向 <code>ItemGroup</code> 加入这些:
-<div class="language-xml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Celeste.Mod&quot;</span><span class="nt">/&gt;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Celeste&quot;</span><span class="nt">/&gt;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Monocle&quot;</span><span class="nt">/&gt;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Microsoft.Xna.Framework&quot;</span><span class="nt">/&gt;</span>
+<p>对这些隐式 Using 我们也向 <code>ItemGroup</code> 加入:
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Celeste.Mod&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Celeste&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Monocle&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Microsoft.Xna.Framework&quot;</span><span class="nt">/&gt;</span>
 </span></code></pre></div></p>
 <p>现在打开你的代码文件, 你可以将头顶上的大部分 Using 都删除了, 这样, 你的代码文件变的更加的干净整洁:
-<div class="language-cs highlight"><span class="filename">MyModModule.cs</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="p">{</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">            </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World! Hello Everest!&quot;</span><span class="p">);</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="p">{</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">}</span>
+<div class="language-cs highlight"><span class="filename">MyModModule.cs</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">            </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World! Hello Everest!&quot;</span><span class="p">);</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="p">}</span>
 </span></code></pre></div></p>
 <h2 id="file-scoped-namespaces">File Scoped Namespaces</h2>
 <blockquote>
@@ -581,25 +614,24 @@
 <li>回退 namespace 下的所有缩进</li>
 <li>搞定了, 走你!</li>
 </ul>
-<div class="language-cs highlight"><span class="filename">MyModModule.cs</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span><span class="p">;</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">{</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World! Hello Everest!&quot;</span><span class="p">);</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">}</span>
+<div class="language-cs highlight"><span class="filename">MyModModule.cs</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span><span class="p">;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">{</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World! Hello Everest!&quot;</span><span class="p">);</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="p">}</span>
 </span></code></pre></div>
 <blockquote>
-<p>如果你收到警告 <code>CS8370</code>, 那你就需要在 <code>PropertyGroup</code> 下添加这一行:
-<div class="language-xml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&lt;LangVersion&gt;</span>preview<span class="nt">&lt;/LangVersion&gt;</span>
+<p>如果你收到错误 <code>CS8370</code>, 那你就需要在 <code>PropertyGroup</code> 下添加这一行:
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&lt;LangVersion&gt;</span>preview<span class="nt">&lt;/LangVersion&gt;</span>
 </span></code></pre></div></p>
 </blockquote>
 <p>最后修改: 2023-7-7</p>
