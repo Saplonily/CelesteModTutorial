@@ -1,8 +1,12 @@
 # 基础环境配置
 
+!!! note
+    本节内容由手动配置重写为通过模板配置, 旧版你可以到[归档-基础环境配置](../arc/BasicEnv.md)中找到(不推荐)
+
 ## Celeste
 
-> 如果你不是 Windows 用户的话这一步你可以直接跳过.
+!!! note
+    如果你不是 Windows 用户的话这一步你可以直接跳过.
 
 Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝已经就是 FNA 版本了, 而在 Windows 上则是 XNA 版本, 所以我们需要一些方法切换到 FNA 版本:
 
@@ -10,9 +14,9 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 - 在 itch 上: 重新下载一个 `Celeste Windows OpenGL` 版本
 - 在 Epic 上: 已经是 FNA 版本了
 
-> Everest 会在运行时将你以 FNA 版本制作的 mod 重链接为 XNA, 所有你不是很需要在意这俩的差距  
-
-> 注意更换版本后通常会变回原版, 记得重新安装 Everest
+!!! note
+    Everest 会在运行时将你以 FNA 版本制作的 mod 重链接为 XNA, 所有你不是很需要在意这俩的差距  
+    注意更换版本后通常会变回原版, 记得重新安装 Everest
 
 
 ## C# 编程能力 与 开发环境
@@ -28,7 +32,8 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 
 对于书籍的方式我推荐:  
 C#入门经典-第7版-C# 6.0  
-> 如果你的能力无法支持正版的话, 你可以到上面视频up的群的群文件中寻找它的电子 pdf 版
+!!! note
+    如果你的能力无法支持正版的话, 你可以到上面视频up的群的群文件中寻找它的电子 pdf 版
 
 对于开发使用的 IDE 这里推荐 `Visual Studio`, `Visual Studio Code`, `Rider`, 后两个是跨平台的而第一个是仅 Windows 平台的. 
 
@@ -37,189 +42,153 @@ C#入门经典-第7版-C# 6.0
 
 在之后我会在 `Windows` 上使用 `Visual Studio`, 其他编辑器/IDE就不会提了, 所以你遇到了什么奇怪的问题可以到任何能联系到我的地方问我_(:з」∠)_
 
-## 项目创建
+## 通过模板创建项目
 
-!!! warning
-    本小节会在未来进行重写, 因为本小节对于新人来说过于复杂!
+\_(:з」∠)\_  
+根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(  
+所以呢这里就推荐一种新的配置环境的方式 - **使用模板**  
+考虑到 nuget 安装模板也需要一定的命令行基础...  
+所以我觉得还是[提供直接的下载链接更好](https://hongshitieli.lanzouk.com/ih5Cr11o3jaj),
+下载解压后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:
 
-在vs创建项目页面中我们需要选择这个:  
+!!! note
+    你可能还需要安装 `.NET 6 SDK` 来使用该模板, 你可以[点击这里](https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/sdk-6.0.411-windows-x64-installer)下载
 
-![VS创建项目页面](vsprojnew.png)  
-注意要选带 `.NET Framework` 字样的, 蔚蓝的底层框架相对于目前的 `.NET` 已经很古老了, 所以可能会被稍微特殊点对待(, 之后在为项目命名的窗口中的项目框架记得精确选择 `.NET Framework 4.5.2`.  
+- CelesteMod.props
+- CelesteMod.targets
+- Common.props
+- MyCelesteModModule.cs
+    
+以及你的项目, 它的名字是 `MyCelesteMod`, 不同于旧的方法, 在这里你的配置过程很简单:
 
-![Test](vsprojtfw.png)  
-如果你没有 [`.NET Framework 4.5.2`](https://dotnet.microsoft.com/zh-cn/download/dotnet-framework/thank-you/net452-developer-pack-offline-installer) 的选项请检查是否安装了此框架, 并且你选择的是带 `.NET Framework` 字样的类库项目.
+- 首先打开 `Common.props`, **将里面的 `CelesteRootPath` 内的内容改成你的蔚蓝安装位置**
+- 好像就没了...
 
-当你创建完项目后, 你会得到一个代码文件 `Class1.cs`, 它看起来像:
-```cs title="Class1.cs"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyCelesteMod
-{
-    public class Class1
-    {
-
-    }
-}
-
+咳咳这就是新方法的便利(啊?), 现在你可以按下 `Ctrl+B` 或者手动点击 `生成->生成解决方案`,
+如果你在你的 vs 输出里面看到了类似这一句:
 ```
-
-## 添加对蔚蓝的引用
-
-因为我们是蔚蓝 mod 嘛, 所以肯定得依赖一些蔚蓝的东西, 即依赖于蔚蓝的程序集.
-具体操作来说:
-
-- 在解决方案视图窗口你的项目下的`引用`上右击
-- 选择`添加引用`
-- 在新的窗口选择左侧的`浏览`
-- 点击窗口右下角的`浏览`  
-- 完成后在弹出的文件选择框中选择以下几个在蔚蓝根目录下的文件:
-    - `Celeste.exe`
-    - `FNA.dll`
-    - `MMHOOK_Celeste.dll`
-    - `YamlDotNet.dll`
-
-> 对于 steam 版蔚蓝的目录通常会在 `C:\Program Files (x86)\Steam\steamapps\common\Celeste`
-
-另外为了保证你的 mod 的跨平台性, 你的引用列表里 `System` 开头的只能包含:
-
-- `System`
-- `System.Configuration`
-- `System.Core`
-- `System.Data`
-- `System.Drawing`
-- `System.Runtime.Serialization`
-- `System.Security`
-- `System.Xml`
-- `System.Xml.Linq`
-
-如果你的项目引用有其他 `System` 开头系列的引用, 并且它们不在上述列表上, 你需要将其移除(右键->移除).
-
-## 添加 Module 类
-
-ok在我们一番折腾下我们终于可以开始来写代码了, 那么首先把你的 `Class1.cs` 重命名成 `(你的mod名)Module.cs`, 比如这里我的 mod 名叫 `MyCelesteMod`, 那么这个文件最好叫做 `MyCelesteModModule.cs`, 这是为了方便日后开发能一眼识别出这是我们最早期创建的那个关键类.
-
-> 如果你的 vs 提示你是否重命名标识符, 你可以选是, 这样那个文件里的 `Class1` 类名也会帮你重命名
-
-那么同样地对这个文件里的类的名字也重命名, 然后**我们让这个类继承于 `EverestModule`**.
-
-> 如果出现了未命名标识符的错误, 请检查你是否正确引用了 `Celeste.exe` 并且 **using** 了 **`Celeste.Mod` 命名空间**
-
-`EverestModule` 是一个抽象类 ,那么现在我们需要加入两个方法以实现它<del>, 同时让vs闭嘴</del>.
-```cs title="MyCelesteMod.cs"
-public override void Load()
-{
-}
-
-public override void Unload()
-{
-}
+1>Copied files in 'ModFolder' to 'C:\Program Files (x86)\Steam\steamapps\common\Celeste\Mods\MyCelesteMod'
 ```
+并且你在你的蔚蓝 Mod 目录下找到了这个被创建的目录,
+那么你的环境就算是配完了, 如果你很感兴趣这之中发生了什么, 要引用哪些程序集, 这个模板背后干了什么, 你可以去看那复杂的旧的配置方法.
+!!! note
+    这个模板使用 `msbuild` 帮助了你很多事!  
+    比如当你编译完项目之后它会复制编译结果到项目目录的 `ModFolder` 目录下,
+    然后将整个 `ModFolder` 复制到蔚蓝的 `Mods\{你的mod名}` 文件夹下!
+    所以当我们需要更改一些比如说 loenn 的配置文件, `everest.yaml` 的内容, 你的测试地图等时, 
+    你只需要简单的重新编译一遍项目, 然后等待模板来帮你做剩下的活!
 
-`Load` 方法会在 Everest 加载你的 Mod 时被调用  
-`Unload` 方法会在 Everest 卸载你的 Mod 时被调用  
-在这里我们会写个类似 Hello world 的东西, 即在 `Load` 里打印些话. em, 可能不是你期望的 `Console.WriteLine` 而是 `Logger.Log`, 就像这样:
+## 更改细节
+通过模板的话依然有些东西需要自行更改, 比如这个 Mod 的名字.  
+更改 Mod 的名字很简单, 你只需要简单地在 vs 里重命名项目的名字
+比如我想叫做 `MyAwesomeMod`, 那么你可以通过这样:  
+![awesome mod!](image-4.png)
 
+## Module 类
+
+<!--草啊, 新的环境配置教程还得再写一遍这俩个b东西-->
+就像我们的经典的控制台 C# 应用程序一样有个 `Main` 方法, 我们的 Mod 也有一些类似的东西, 
+这里就是 Everest 提供给我们的 `EverestModule` 类.  
+那么, 现在打开你的 `***Module.cs` 那个文件, 你应该会看到结构这样的代码:
 ```cs
-Logger.Log(LogLevel.Info, "MyCelesteMod", "Hello World! Hello Everest!");
-```
+namespace MyCelesteMod;
 
-这是一个蔚蓝底层框架 `Monocle` 引擎里的一个静态类, 在之后我们会介绍蔚蓝中常见类的使用. 下面是这个方法的参数列表:
-
-- 第一个参数: 这句日志的等级, 这里我们先选 `Info`.
-- 第二个参数: 这句日志的 `Tag`, 通常它是你的 Mod 名字
-- 第三个参数: 我们希望输出的话
-
-那么你现在的代码应该是大概这样子的:
-```cs title="MyCelesteMod.cs"
-using Celeste.Mod;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyCelesteMod
+public class MyAwesomeModModule : EverestModule
 {
-    public class MyModModule : EverestModule
+    public override void Load()
     {
-        public override void Load()
-        {
-            Logger.Log(LogLevel.Info, "MyCelesteMod", "Hello World! Hello Everest!");
-        }
+        Logger.Log(LogLevel.Info, "MyCelesteMod", "Hello World!");
+        
+    }
 
-        public override void Unload()
-        {
-            
-        }
+    public override void Unload()
+    {
     }
 }
+``` 
+在开头我们声明了命名空间, 接下来我们声明了一个类, 然后让它继承于 `EverestModule`, 注意这个类是抽象的, 它要求我们实现的两个方法分别为 `Load` 与 `Unload`.  
+这两个方法很简单:
 
-```
+- `Load` 方法在你的 mod 被加载时调用.
+- `Unload` 方法在你的 mod 被卸载时调用.
 
-现在, 按下 `Ctrl + B`, vs 应该会启动编译.
-> 你会遇到一个关于 `x86` 与 `AnyCpu` 架构不符的警告, 这里我们先忽略它并在后面解决.
+通常我们会在 `Load` 方法里加载我们需要的资源, 进行适当的初始化, 在 `Unload` 方法里释放我们的资源.  
+在这里为了明显可见, 我们在 `Load` 方法里通过一个蔚蓝中的类 `Logger` 打印出了一句 "Hello World".
 
-编译完成, 我们就可以找到我们编译出来的新鲜的程序集: `<你的项目名>/<你的项目名>/bin/Debug/<你的项目名>.dll`, 你的 vs 的输出窗口也应该会写上这个 dll 的完整路径.
+??? note "如果你好奇 `Logger.Log` 这个方法你可以展开来了解"
+    `Logger` 是一个蔚蓝底层引擎 `Monocle` 的一个工具类, 它帮助你打印输出一些调试信息,
+    通常这些信息会被打印进控制台的同时写入游戏的 `log.txt` 文件中, 
+    这也就解释了为什么你遇到各种问题时别人总要求你发送你的 `log.txt`.  
+    `Logger.Log` 有两个重载, 其中一个的签名是:
+    ```cs
+    public static void Log(LogLevel logLevel, string tag, string str)
+    ```
+    它会以 `logLevel` 的日志等级打印一个标签为 `tag` 的消息 `str`,
+    另一个重载不要求你传入 `logLevel` 但会默认你的 `logLevel` 为 `LogLevel.Verbose`.
+    `LogLevel` 枚举包含 `Verbose, Debug, Info, Warn, Error`.
+    通常对于普通日志我们会选择 `Info`, 对于较多的调试信息选择 `Debug`,
+    对于冗余的信息选择 `Verbose`, 对于一些错误但不影响游戏进行的信息选择 `Warn`, 对于一些致命性错误我们会选择 `Error`.
+    一般地, 游戏只会打印 `Info` 等级及以上的日志, 你可以通过在蔚蓝启动的命令行中加入`--loglevel {等级}`来指定过滤等级.
 
-## 让 Everest 加载
+## everest.yaml
 
-以上一顿操作过后你会发现你的蔚蓝什么也没发生(乐). 因为我们还没告诉它让它加载我们的 mod! 为了让 Everest 加载我们的 mod, 其中一个方法就是在蔚蓝的 Mods 文件夹里面新建一个文件夹, 并放入我们的 mod 文件, 它的名字我们最好就是项目名字, 比如 `MyCelesteMod`, 然后在这里写一份 `everest.yaml` 文件, 它包含我们 mod 的一些基本信息:
-```yaml title="everest.yaml"
-- Name: <mod名字>
-  Version: <版本>
-  DLL: <dll位置>
-  Dependencies:
-    - Name: Everest
-      Version: <依赖的 everest 版本>
-```
-ok, 我们来慢慢填这些东西
-- `mod名字`: 推荐为项目名比如 `MyCelesteMod`
-- `版本`: 由于是开发早期, 所以版本推荐指定为0开头的 `0.1.0`
-- `依赖的 everest 版本`: 这里填你的 everest 版本就行了, 比如说如果你是 3876 那么这里应该写 `1.3876.0`
-- `Dll 位置`: 我们先把之前编译的新鲜<del>(可能现在不咋新鲜了)</del>的 dll 复制到这个文件夹来, 没记错的话在这里叫 `MyCelesteMod.dll`, ok, `everest.yaml` 里要写的 dll 位置是相对于这个文件夹的, 我们就放在它里面第一层, 所以我们直接写 `MyCelesteMod.dll` 就行了.
-
-现在你的那个文件夹现在可能长这个样子:
-
-- MyCelesteMod
-    - MyCelesteMod.dll
+ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没有让蔚蓝加载到我们的mod, 不过别急, 这是倒数第二步了.  
+实际上有关 code mod 的所有代码相关的东西我们都已经做完了, 剩余的其实只是一个普通 mod 要做的 ---- 写 `everest.yaml`.
+在这里我们需要在 `ModFolder` 这个文件夹里做这件事, 那么, 在你的这个文件夹下创建 `everest.yaml` 空文件, 你的目录结构可能像是:
+- ModFolder
     - everest.yaml
+    - MyCelesteMod.dll
+    - MyCelesteMod.pdb
 
-everest.yaml可能长这个样子:
-```yaml title="everest.yaml"
+好的, 现在我们打开 `everest.yaml`, 然后像一个普通的 mapper 一样填写信息:
+```yml
 - Name: MyCelesteMod
   Version: 0.1.0
   DLL: MyCelesteMod.dll
   Dependencies:
     - Name: Everest
-      Version: 1.3876.0
+      Version: 1.3971.0
 ```
+这些参数分别是:
 
-ok, 在启动之前我们还要干最后一件小事, 就是我们的日志, 它打印在文件里同时也打印在控制台里, 日志文件翻阅比较麻烦, 所以为了日后方便调试, 我们还是先让蔚蓝启动的同时启动一个控制台好一点. Everest 已经为我们做了这件事了, 我们要做的只是在蔚蓝exe同目录下找到`everest-launch.txt`, 没找到也没关系, 新建一个就可以了, 然后在里面写上`--console`, 是的就这一小点东西, 然后我们保存, 启动蔚蓝!
+- `Name`: 你的 mod 名字
+- `Version`: 你的 mod 的版本
+- `DLL`: 如果你是 code mod 的话, 这里填入你的 code (也就是 dll 文件) 的位置, 这里我们是直接把 .dll 文件放到这个 yaml 的旁边了, 所以直接写名字就好
 
-启动后你应该会同时看到一个控制台窗口, 扫视一下:
-```log title="console output"
-[MonoMod] [AutoPatch] Patch pass
-[MonoMod] [AutoPatch] PatchRefs pass
-[MonoMod] [PostProcessor] PostProcessor pass #1
-[MonoMod] [Write] Writing modded module into output file.
-(07/05/2023 23:22:16) [Everest] [Info] [MyCelesteMod] Hello World! Hello Everest!
-(07/05/2023 23:22:16) [Everest] [Info] [core] Module MyCelesteMod 0.1.0 registered.
-(07/05/2023 23:22:16) [Everest] [Info] [loader] Loading mods with unsatisfied optional dependencies (if any)
+最后是最底下的那个依赖, 这里我们只依赖最基础的 Everest, 版本填上你目前使用的 Everest 版本, 这里我就填写 3971 了.  
+
+## 最后一步!
+
+为了方便我们的调试, 我们需要让蔚蓝打开的同时打开控制台, 这一步很简单:
+
+- 找到蔚蓝根目录下的 `everest-launch.txt`, 没有的话新建一个空的就行了
+- 向里面写入 `--console`
+- 搞定, 走你!
+
+现在, 重新编译项目, 让 `msbuild` 带着你的 `ModFolder` 的内容飞往蔚蓝 Mods 文件夹下, 启动蔚蓝.  
+在同时启动的黑乎乎的窗口上你应该能在这附近看到那句熟悉的 Hello world:
+```log hl_lines="7"
+(07/08/2023 21:18:59) [Everest] [Info] [core] Module DialogCutscene 1.0.0 registered.
+(07/08/2023 21:18:59) [Everest] [Info] [core] Module UpdateChecker 1.0.2 registered.
+(07/08/2023 21:18:59) [Everest] [Info] [core] Module InfiniteSaves 1.0.0 registered.
+(07/08/2023 21:18:59) [Everest] [Info] [core] Module DebugRebind 1.0.0 registered.
+(07/08/2023 21:18:59) [Everest] [Info] [core] Module RebindPeriod 1.0.0 registered.
+(07/08/2023 21:19:00) [Everest] [Info] [Everest.LuaBoot] Lua ready.
+(07/08/2023 21:19:00) [Everest] [Info] [MyCelesteMod] Hello World!
+(07/08/2023 21:19:00) [Everest] [Info] [core] Module MyAwesomeMod 0.1.0 registered.
+(07/08/2023 21:19:00) [Everest] [Info] [loader] Loading mods with unsatisfied optional dependencies (if any)
 FNA3D Driver: D3D11
 D3D11 Adapter: Intel(R) UHD Graphics 630
-BEGIN LOAD
- - GFX LOAD: 139ms
- - MTN LOAD: 9ms
-WINDOW-1600x900
-GAME DISPLAYED (in 291ms)
- - AUDIO LOAD: 454ms
- - GFX DATA LOAD: 75ms
 ```
-大概在如上的位置附近(在这里是第5行)你就能找到你的 Hello world 了, 至此基本环境配置结束.
 
-最后修改: 2023-7-6
+## 还没完
+
+在经过如上的配置后, 你会发现在蔚蓝启动时进行资源复制会报错, 
+这是因为 everest 锁定了它们, 同时由于蔚蓝的重启速度不是很理想, 
+这大大的拉低了 mod 开发效率, 不过好在 everest 提供了一个技术叫做 `hot reload`,
+即热重载, 它允许你在游戏运行期间替换你的代码并重载资源, 它目前还在 wip 状态.  
+要开启这项功能, 首先到你的蔚蓝根目录下的 Saves 目录, 找到并打开 `modsettings-Everest.celeste` 这个文件,
+翻到大概中间的位置, 找到属性 `CodeReload_WIP`, 将其更改为 `true`, 此时对你的项目稍作更改并重新编译,
+你应该不会得到任何错误, 并且 everest 也正确的重载了你的 mod.
+
+最后修改: 2023-7-8
