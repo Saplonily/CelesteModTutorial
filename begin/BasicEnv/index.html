@@ -317,28 +317,42 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    项目创建
+    通过模板创建项目
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    添加对蔚蓝的引用
+    更改细节
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#module" class="md-nav__link">
-    添加 Module 类
+    Module 类
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#everest" class="md-nav__link">
-    让 Everest 加载
+  <a href="#everestyaml" class="md-nav__link">
+    everest.yaml
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    最后一步!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    还没完
   </a>
   
 </li>
@@ -374,6 +388,69 @@
     <li class="md-nav__item">
       <a href="../hook%2Ccode%2Cdemo1/" class="md-nav__link">
         钩子, 阅读代码, demo1
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          历史归档
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          历史归档
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arc/BasicEnv/" class="md-nav__link">
+        基础环境配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arc/sdk-styled-proj/" class="md-nav__link">
+        偏好-sdk-styled-proj
       </a>
     </li>
   
@@ -428,28 +505,42 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    项目创建
+    通过模板创建项目
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    添加对蔚蓝的引用
+    更改细节
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#module" class="md-nav__link">
-    添加 Module 类
+    Module 类
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#everest" class="md-nav__link">
-    让 Everest 加载
+  <a href="#everestyaml" class="md-nav__link">
+    everest.yaml
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    最后一步!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    还没完
   </a>
   
 </li>
@@ -473,20 +564,26 @@
 
 
 <h1 id="_1">基础环境配置</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>本节内容由手动配置重写为通过模板配置, 旧版你可以到<a href="../../arc/BasicEnv/">归档-基础环境配置</a>中找到(不推荐)</p>
+</div>
 <h2 id="celeste">Celeste</h2>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>如果你不是 Windows 用户的话这一步你可以直接跳过.</p>
-</blockquote>
+</div>
 <p>Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝已经就是 FNA 版本了, 而在 Windows 上则是 XNA 版本, 所以我们需要一些方法切换到 FNA 版本:</p>
 <ul>
 <li>在 Steam 上:  库-&gt;Celeste, 右键菜单属性-&gt;测试版-&gt;Opengl</li>
 <li>在 itch 上: 重新下载一个 <code>Celeste Windows OpenGL</code> 版本</li>
 <li>在 Epic 上: 已经是 FNA 版本了</li>
 </ul>
-<blockquote>
-<p>Everest 会在运行时将你以 FNA 版本制作的 mod 重链接为 XNA, 所有你不是很需要在意这俩的差距  </p>
-<p>注意更换版本后通常会变回原版, 记得重新安装 Everest</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Everest 会在运行时将你以 FNA 版本制作的 mod 重链接为 XNA, 所有你不是很需要在意这俩的差距<br />
+注意更换版本后通常会变回原版, 记得重新安装 Everest</p>
+</div>
 <h2 id="c">C# 编程能力 与 开发环境</h2>
 <p>因为我们是 CodeMod, 嗯, 那么写一些代码是必不可少的, 那么一般情况在 IDE 里写代码会好很多.
 蔚蓝是使用 <code>C#</code> 基于 <code>.NET framework 4.5.2</code> 制作的, 那么你就需要学习一下 <code>C#</code>.</p>
@@ -498,181 +595,153 @@
 <a href="https://www.bilibili.com/video/av895726228">Bilibili 丑萌气质狗 【C#零基础入门教程 Visual Studio 2022】人生低谷来学C#</a></p>
 <p>对于书籍的方式我推荐:<br />
 C#入门经典-第7版-C# 6.0  </p>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>如果你的能力无法支持正版的话, 你可以到上面视频up的群的群文件中寻找它的电子 pdf 版</p>
-</blockquote>
+</div>
 <p>对于开发使用的 IDE 这里推荐 <code>Visual Studio</code>, <code>Visual Studio Code</code>, <code>Rider</code>, 后两个是跨平台的而第一个是仅 Windows 平台的. </p>
 <ul>
 <li>对于 <code>Visual Studio</code>, 你需要安装 <code>.NET 开发负载</code>. (在<code>Visual Studio Installer</code>中)</li>
 <li>对于 <code>Visual Studio Code</code>, 你需要安装 <code>C#</code> 拓展.</li>
 </ul>
 <p>在之后我会在 <code>Windows</code> 上使用 <code>Visual Studio</code>, 其他编辑器/IDE就不会提了, 所以你遇到了什么奇怪的问题可以到任何能联系到我的地方问我_(:з」∠)_</p>
-<h2 id="_2">项目创建</h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>本小节会在未来进行重写, 因为本小节对于新人来说过于复杂!</p>
+<h2 id="_2">通过模板创建项目</h2>
+<p>_(:з」∠)_<br />
+根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(<br />
+所以呢这里就推荐一种新的配置环境的方式 - <strong>使用模板</strong><br />
+考虑到 nuget 安装模板也需要一定的命令行基础...<br />
+所以我觉得还是<a href="https://hongshitieli.lanzouk.com/ih5Cr11o3jaj">提供直接的下载链接更好</a>,
+下载解压后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>你可能还需要安装 <code>.NET 6 SDK</code> 来使用该模板, 你可以<a href="https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/sdk-6.0.411-windows-x64-installer">点击这里</a>下载</p>
 </div>
-<p>在vs创建项目页面中我们需要选择这个:  </p>
-<p><img alt="VS创建项目页面" src="../vsprojnew.png" /><br />
-注意要选带 <code>.NET Framework</code> 字样的, 蔚蓝的底层框架相对于目前的 <code>.NET</code> 已经很古老了, 所以可能会被稍微特殊点对待(, 之后在为项目命名的窗口中的项目框架记得精确选择 <code>.NET Framework 4.5.2</code>.  </p>
-<p><img alt="Test" src="../vsprojtfw.png" /><br />
-如果你没有 <a href="https://dotnet.microsoft.com/zh-cn/download/dotnet-framework/thank-you/net452-developer-pack-offline-installer"><code>.NET Framework 4.5.2</code></a> 的选项请检查是否安装了此框架, 并且你选择的是带 <code>.NET Framework</code> 字样的类库项目.</p>
-<p>当你创建完项目后, 你会得到一个代码文件 <code>Class1.cs</code>, 它看起来像:
-<div class="language-cs highlight"><span class="filename">Class1.cs</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Text</span><span class="p">;</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Threading.Tasks</span><span class="p">;</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">{</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Class1</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span>
-</span></code></pre></div></p>
-<h2 id="_3">添加对蔚蓝的引用</h2>
-<p>因为我们是蔚蓝 mod 嘛, 所以肯定得依赖一些蔚蓝的东西, 即依赖于蔚蓝的程序集.
-具体操作来说:</p>
 <ul>
-<li>在解决方案视图窗口你的项目下的<code>引用</code>上右击</li>
-<li>选择<code>添加引用</code></li>
-<li>在新的窗口选择左侧的<code>浏览</code></li>
-<li>点击窗口右下角的<code>浏览</code>  </li>
-<li>完成后在弹出的文件选择框中选择以下几个在蔚蓝根目录下的文件:<ul>
-<li><code>Celeste.exe</code></li>
-<li><code>FNA.dll</code></li>
-<li><code>MMHOOK_Celeste.dll</code></li>
-<li><code>YamlDotNet.dll</code></li>
+<li>CelesteMod.props</li>
+<li>CelesteMod.targets</li>
+<li>Common.props</li>
+<li>MyCelesteModModule.cs</li>
 </ul>
-</li>
-</ul>
-<blockquote>
-<p>对于 steam 版蔚蓝的目录通常会在 <code>C:\Program Files (x86)\Steam\steamapps\common\Celeste</code></p>
-</blockquote>
-<p>另外为了保证你的 mod 的跨平台性, 你的引用列表里 <code>System</code> 开头的只能包含:</p>
+<p>以及你的项目, 它的名字是 <code>MyCelesteMod</code>, 不同于旧的方法, 在这里你的配置过程很简单:</p>
 <ul>
-<li><code>System</code></li>
-<li><code>System.Configuration</code></li>
-<li><code>System.Core</code></li>
-<li><code>System.Data</code></li>
-<li><code>System.Drawing</code></li>
-<li><code>System.Runtime.Serialization</code></li>
-<li><code>System.Security</code></li>
-<li><code>System.Xml</code></li>
-<li><code>System.Xml.Linq</code></li>
+<li>首先打开 <code>Common.props</code>, <strong>将里面的 <code>CelesteRootPath</code> 内的内容改成你的蔚蓝安装位置</strong></li>
+<li>好像就没了...</li>
 </ul>
-<p>如果你的项目引用有其他 <code>System</code> 开头系列的引用, 并且它们不在上述列表上, 你需要将其移除(右键-&gt;移除).</p>
-<h2 id="module">添加 Module 类</h2>
-<p>ok在我们一番折腾下我们终于可以开始来写代码了, 那么首先把你的 <code>Class1.cs</code> 重命名成 <code>(你的mod名)Module.cs</code>, 比如这里我的 mod 名叫 <code>MyCelesteMod</code>, 那么这个文件最好叫做 <code>MyCelesteModModule.cs</code>, 这是为了方便日后开发能一眼识别出这是我们最早期创建的那个关键类.</p>
-<blockquote>
-<p>如果你的 vs 提示你是否重命名标识符, 你可以选是, 这样那个文件里的 <code>Class1</code> 类名也会帮你重命名</p>
-</blockquote>
-<p>那么同样地对这个文件里的类的名字也重命名, 然后<strong>我们让这个类继承于 <code>EverestModule</code></strong>.</p>
-<blockquote>
-<p>如果出现了未命名标识符的错误, 请检查你是否正确引用了 <code>Celeste.exe</code> 并且 <strong>using</strong> 了 <strong><code>Celeste.Mod</code> 命名空间</strong></p>
-</blockquote>
-<p><code>EverestModule</code> 是一个抽象类 ,那么现在我们需要加入两个方法以实现它<del>, 同时让vs闭嘴</del>.
-<div class="language-cs highlight"><span class="filename">MyCelesteMod.cs</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">{</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
-</span></code></pre></div></p>
-<p><code>Load</code> 方法会在 Everest 加载你的 Mod 时被调用<br />
-<code>Unload</code> 方法会在 Everest 卸载你的 Mod 时被调用<br />
-在这里我们会写个类似 Hello world 的东西, 即在 <code>Load</code> 里打印些话. em, 可能不是你期望的 <code>Console.WriteLine</code> 而是 <code>Logger.Log</code>, 就像这样:</p>
-<div class="language-cs highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World! Hello Everest!&quot;</span><span class="p">);</span>
+<p>咳咳这就是新方法的便利(啊?), 现在你可以按下 <code>Ctrl+B</code> 或者手动点击 <code>生成-&gt;生成解决方案</code>,
+如果你在你的 vs 输出里面看到了类似这一句:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1&gt;Copied files in &#39;ModFolder&#39; to &#39;C:\Program Files (x86)\Steam\steamapps\common\Celeste\Mods\MyCelesteMod&#39;
 </span></code></pre></div>
-<p>这是一个蔚蓝底层框架 <code>Monocle</code> 引擎里的一个静态类, 在之后我们会介绍蔚蓝中常见类的使用. 下面是这个方法的参数列表:</p>
-<ul>
-<li>第一个参数: 这句日志的等级, 这里我们先选 <code>Info</code>.</li>
-<li>第二个参数: 这句日志的 <code>Tag</code>, 通常它是你的 Mod 名字</li>
-<li>第三个参数: 我们希望输出的话</li>
-</ul>
-<p>那么你现在的代码应该是大概这样子的:
-<div class="language-cs highlight"><span class="filename">MyCelesteMod.cs</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Celeste.Mod</span><span class="p">;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Text</span><span class="p">;</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Threading.Tasks</span><span class="p">;</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">{</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="p">{</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">            </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World! Hello Everest!&quot;</span><span class="p">);</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="p">{</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="p">}</span>
-</span></code></pre></div></p>
-<p>现在, 按下 <code>Ctrl + B</code>, vs 应该会启动编译.</p>
-<blockquote>
-<p>你会遇到一个关于 <code>x86</code> 与 <code>AnyCpu</code> 架构不符的警告, 这里我们先忽略它并在后面解决.</p>
-</blockquote>
-<p>编译完成, 我们就可以找到我们编译出来的新鲜的程序集: <code>&lt;你的项目名&gt;/&lt;你的项目名&gt;/bin/Debug/&lt;你的项目名&gt;.dll</code>, 你的 vs 的输出窗口也应该会写上这个 dll 的完整路径.</p>
-<h2 id="everest">让 Everest 加载</h2>
-<p>以上一顿操作过后你会发现你的蔚蓝什么也没发生(乐). 因为我们还没告诉它让它加载我们的 mod! 为了让 Everest 加载我们的 mod, 其中一个方法就是在蔚蓝的 Mods 文件夹里面新建一个文件夹, 并放入我们的 mod 文件, 它的名字我们最好就是项目名字, 比如 <code>MyCelesteMod</code>, 然后在这里写一份 <code>everest.yaml</code> 文件, 它包含我们 mod 的一些基本信息:
-<div class="language-yaml highlight"><span class="filename">everest.yaml</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;mod名字&gt;</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">Version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;版本&gt;</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">DLL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;dll位置&gt;</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">Dependencies</span><span class="p">:</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Everest</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="nt">Version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;依赖的 everest 版本&gt;</span>
+并且你在你的蔚蓝 Mod 目录下找到了这个被创建的目录,
+那么你的环境就算是配完了, 如果你很感兴趣这之中发生了什么, 要引用哪些程序集, 这个模板背后干了什么, 你可以去看那复杂的旧的配置方法.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>这个模板使用 <code>msbuild</code> 帮助了你很多事!<br />
+比如当你编译完项目之后它会复制编译结果到项目目录的 <code>ModFolder</code> 目录下,
+然后将整个 <code>ModFolder</code> 复制到蔚蓝的 <code>Mods\{你的mod名}</code> 文件夹下!
+所以当我们需要更改一些比如说 loenn 的配置文件, <code>everest.yaml</code> 的内容, 你的测试地图等时, 
+你只需要简单的重新编译一遍项目, 然后等待模板来帮你做剩下的活!</p>
+</div>
+<h2 id="_3">更改细节</h2>
+<p>通过模板的话依然有些东西需要自行更改, 比如这个 Mod 的名字.<br />
+更改 Mod 的名字很简单, 你只需要简单地在 vs 里重命名项目的名字
+比如我想叫做 <code>MyAwesomeMod</code>, 那么你可以通过这样:<br />
+<img alt="awesome mod!" src="../image-4.png" /></p>
+<h2 id="module">Module 类</h2>
+<!--草啊, 新的环境配置教程还得再写一遍这俩个b东西-->
+<p>就像我们的经典的控制台 C# 应用程序一样有个 <code>Main</code> 方法, 我们的 Mod 也有一些类似的东西, 
+这里就是 Everest 提供给我们的 <code>EverestModule</code> 类.<br />
+那么, 现在打开你的 <code>***Module.cs</code> 那个文件, 你应该会看到结构这样的代码:
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">{</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
 </span></code></pre></div>
-ok, 我们来慢慢填这些东西
-- <code>mod名字</code>: 推荐为项目名比如 <code>MyCelesteMod</code>
-- <code>版本</code>: 由于是开发早期, 所以版本推荐指定为0开头的 <code>0.1.0</code>
-- <code>依赖的 everest 版本</code>: 这里填你的 everest 版本就行了, 比如说如果你是 3876 那么这里应该写 <code>1.3876.0</code>
-- <code>Dll 位置</code>: 我们先把之前编译的新鲜<del>(可能现在不咋新鲜了)</del>的 dll 复制到这个文件夹来, 没记错的话在这里叫 <code>MyCelesteMod.dll</code>, ok, <code>everest.yaml</code> 里要写的 dll 位置是相对于这个文件夹的, 我们就放在它里面第一层, 所以我们直接写 <code>MyCelesteMod.dll</code> 就行了.</p>
-<p>现在你的那个文件夹现在可能长这个样子:</p>
+在开头我们声明了命名空间, 接下来我们声明了一个类, 然后让它继承于 <code>EverestModule</code>, 注意这个类是抽象的, 它要求我们实现的两个方法分别为 <code>Load</code> 与 <code>Unload</code>.<br />
+这两个方法很简单:</p>
 <ul>
-<li>MyCelesteMod<ul>
-<li>MyCelesteMod.dll</li>
-<li>everest.yaml</li>
+<li><code>Load</code> 方法在你的 mod 被加载时调用.</li>
+<li><code>Unload</code> 方法在你的 mod 被卸载时调用.</li>
 </ul>
-</li>
-</ul>
-<p>everest.yaml可能长这个样子:
-<div class="language-yaml highlight"><span class="filename">everest.yaml</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyCelesteMod</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">Version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1.0</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">DLL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyCelesteMod.dll</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">Dependencies</span><span class="p">:</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Everest</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">      </span><span class="nt">Version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.3876.0</span>
-</span></code></pre></div></p>
-<p>ok, 在启动之前我们还要干最后一件小事, 就是我们的日志, 它打印在文件里同时也打印在控制台里, 日志文件翻阅比较麻烦, 所以为了日后方便调试, 我们还是先让蔚蓝启动的同时启动一个控制台好一点. Everest 已经为我们做了这件事了, 我们要做的只是在蔚蓝exe同目录下找到<code>everest-launch.txt</code>, 没找到也没关系, 新建一个就可以了, 然后在里面写上<code>--console</code>, 是的就这一小点东西, 然后我们保存, 启动蔚蓝!</p>
-<p>启动后你应该会同时看到一个控制台窗口, 扫视一下:
-<div class="language-text highlight"><span class="filename">console output</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[MonoMod] [AutoPatch] Patch pass
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>[MonoMod] [AutoPatch] PatchRefs pass
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>[MonoMod] [PostProcessor] PostProcessor pass #1
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>[MonoMod] [Write] Writing modded module into output file.
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>(07/05/2023 23:22:16) [Everest] [Info] [MyCelesteMod] Hello World! Hello Everest!
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>(07/05/2023 23:22:16) [Everest] [Info] [core] Module MyCelesteMod 0.1.0 registered.
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>(07/05/2023 23:22:16) [Everest] [Info] [loader] Loading mods with unsatisfied optional dependencies (if any)
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>FNA3D Driver: D3D11
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>D3D11 Adapter: Intel(R) UHD Graphics 630
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>BEGIN LOAD
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a> - GFX LOAD: 139ms
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a> - MTN LOAD: 9ms
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>WINDOW-1600x900
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>GAME DISPLAYED (in 291ms)
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a> - AUDIO LOAD: 454ms
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a> - GFX DATA LOAD: 75ms
+<p>通常我们会在 <code>Load</code> 方法里加载我们需要的资源, 进行适当的初始化, 在 <code>Unload</code> 方法里释放我们的资源.<br />
+在这里为了明显可见, 我们在 <code>Load</code> 方法里通过一个蔚蓝中的类 <code>Logger</code> 打印出了一句 "Hello World".</p>
+<details class="note">
+<summary>如果你好奇 <code>Logger.Log</code> 这个方法你可以展开来了解</summary>
+<p><code>Logger</code> 是一个蔚蓝底层引擎 <code>Monocle</code> 的一个工具类, 它帮助你打印输出一些调试信息,
+通常这些信息会被打印进控制台的同时写入游戏的 <code>log.txt</code> 文件中, 
+这也就解释了为什么你遇到各种问题时别人总要求你发送你的 <code>log.txt</code>.<br />
+<code>Logger.Log</code> 有两个重载, 其中一个的签名是:
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="w"> </span><span class="n">logLevel</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">str</span><span class="p">)</span>
 </span></code></pre></div>
-大概在如上的位置附近(在这里是第5行)你就能找到你的 Hello world 了, 至此基本环境配置结束.</p>
-<p>最后修改: 2023-7-6</p>
+它会以 <code>logLevel</code> 的日志等级打印一个标签为 <code>tag</code> 的消息 <code>str</code>,
+另一个重载不要求你传入 <code>logLevel</code> 但会默认你的 <code>logLevel</code> 为 <code>LogLevel.Verbose</code>.
+<code>LogLevel</code> 枚举包含 <code>Verbose, Debug, Info, Warn, Error</code>.
+通常对于普通日志我们会选择 <code>Info</code>, 对于较多的调试信息选择 <code>Debug</code>,
+对于冗余的信息选择 <code>Verbose</code>, 对于一些错误但不影响游戏进行的信息选择 <code>Warn</code>, 对于一些致命性错误我们会选择 <code>Error</code>.
+一般地, 游戏只会打印 <code>Info</code> 等级及以上的日志, 你可以通过在蔚蓝启动的命令行中加入<code>--loglevel {等级}</code>来指定过滤等级.</p>
+</details>
+<h2 id="everestyaml">everest.yaml</h2>
+<p>ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没有让蔚蓝加载到我们的mod, 不过别急, 这是倒数第二步了.<br />
+实际上有关 code mod 的所有代码相关的东西我们都已经做完了, 剩余的其实只是一个普通 mod 要做的 ---- 写 <code>everest.yaml</code>.
+在这里我们需要在 <code>ModFolder</code> 这个文件夹里做这件事, 那么, 在你的这个文件夹下创建 <code>everest.yaml</code> 空文件, 你的目录结构可能像是:
+- ModFolder
+    - everest.yaml
+    - MyCelesteMod.dll
+    - MyCelesteMod.pdb</p>
+<p>好的, 现在我们打开 <code>everest.yaml</code>, 然后像一个普通的 mapper 一样填写信息:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>- Name: MyCelesteMod
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  Version: 0.1.0
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  DLL: MyCelesteMod.dll
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  Dependencies:
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    - Name: Everest
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>      Version: 1.3971.0
+</span></code></pre></div>
+这些参数分别是:</p>
+<ul>
+<li><code>Name</code>: 你的 mod 名字</li>
+<li><code>Version</code>: 你的 mod 的版本</li>
+<li><code>DLL</code>: 如果你是 code mod 的话, 这里填入你的 code (也就是 dll 文件) 的位置, 这里我们是直接把 .dll 文件放到这个 yaml 的旁边了, 所以直接写名字就好</li>
+</ul>
+<p>最后是最底下的那个依赖, 这里我们只依赖最基础的 Everest, 版本填上你目前使用的 Everest 版本, 这里我就填写 3971 了.  </p>
+<h2 id="_4">最后一步!</h2>
+<p>为了方便我们的调试, 我们需要让蔚蓝打开的同时打开控制台, 这一步很简单:</p>
+<ul>
+<li>找到蔚蓝根目录下的 <code>everest-launch.txt</code>, 没有的话新建一个空的就行了</li>
+<li>向里面写入 <code>--console</code></li>
+<li>搞定, 走你!</li>
+</ul>
+<p>现在, 重新编译项目, 让 <code>msbuild</code> 带着你的 <code>ModFolder</code> 的内容飞往蔚蓝 Mods 文件夹下, 启动蔚蓝.<br />
+在同时启动的黑乎乎的窗口上你应该能在这附近看到那句熟悉的 Hello world:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>(07/08/2023 21:18:59) [Everest] [Info] [core] Module DialogCutscene 1.0.0 registered.
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>(07/08/2023 21:18:59) [Everest] [Info] [core] Module UpdateChecker 1.0.2 registered.
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>(07/08/2023 21:18:59) [Everest] [Info] [core] Module InfiniteSaves 1.0.0 registered.
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>(07/08/2023 21:18:59) [Everest] [Info] [core] Module DebugRebind 1.0.0 registered.
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>(07/08/2023 21:18:59) [Everest] [Info] [core] Module RebindPeriod 1.0.0 registered.
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>(07/08/2023 21:19:00) [Everest] [Info] [Everest.LuaBoot] Lua ready.
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="hll">(07/08/2023 21:19:00) [Everest] [Info] [MyCelesteMod] Hello World!
+</span></span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>(07/08/2023 21:19:00) [Everest] [Info] [core] Module MyAwesomeMod 0.1.0 registered.
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>(07/08/2023 21:19:00) [Everest] [Info] [loader] Loading mods with unsatisfied optional dependencies (if any)
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>FNA3D Driver: D3D11
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>D3D11 Adapter: Intel(R) UHD Graphics 630
+</span></code></pre></div></p>
+<h2 id="_5">还没完</h2>
+<p>在经过如上的配置后, 你会发现在蔚蓝启动时进行资源复制会报错, 
+这是因为 everest 锁定了它们, 同时由于蔚蓝的重启速度不是很理想, 
+这大大的拉低了 mod 开发效率, 不过好在 everest 提供了一个技术叫做 <code>hot reload</code>,
+即热重载, 它允许你在游戏运行期间替换你的代码并重载资源, 它目前还在 wip 状态.<br />
+要开启这项功能, 首先到你的蔚蓝根目录下的 Saves 目录, 找到并打开 <code>modsettings-Everest.celeste</code> 这个文件,
+翻到大概中间的位置, 找到属性 <code>CodeReload_WIP</code>, 将其更改为 <code>true</code>, 此时对你的项目稍作更改并重新编译,
+你应该不会得到任何错误, 并且 everest 也正确的重载了你的 mod.</p>
+<p>最后修改: 2023-7-8</p>
 
 
 
@@ -683,6 +752,8 @@ ok, 我们来慢慢填这些东西
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
       </main>
@@ -710,7 +781,7 @@ ok, 我们来慢慢填这些东西
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>

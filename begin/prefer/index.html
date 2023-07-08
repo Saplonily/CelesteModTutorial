@@ -316,8 +316,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sdk-style-csproj" class="md-nav__link">
-    Sdk-style csproj
+  <a href="#_2" class="md-nav__link">
+    简单了解项目文件
   </a>
   
 </li>
@@ -365,6 +365,69 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          历史归档
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          历史归档
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arc/BasicEnv/" class="md-nav__link">
+        基础环境配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arc/sdk-styled-proj/" class="md-nav__link">
+        偏好-sdk-styled-proj
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -392,8 +455,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sdk-style-csproj" class="md-nav__link">
-    Sdk-style csproj
+  <a href="#_2" class="md-nav__link">
+    简单了解项目文件
   </a>
   
 </li>
@@ -438,138 +501,48 @@
 如果你无法理解某些东西,
 没关系, 你依然可以使用同时提及到的等效方法</p>
 </div>
-<h2 id="sdk-style-csproj">Sdk-style csproj</h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>本小节会随着环境配置内容的重写而重写, 因为这也对于新人来说过于复杂!</p>
-</div>
-<p>现在打开你的项目目录中的 <code>.csproj</code> 文件(通常也会被叫作*项目文件*), 它用于组织描述你的项目是什么样子的, 你可能会发现非常的杂乱不可读, 就像:</p>
-<div class="language-xml highlight"><span class="filename">.csproj</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">ToolsVersion=</span><span class="s">&quot;15.0&quot;</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot;</span><span class="nt">&gt;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&lt;Import</span><span class="w"> </span><span class="na">Project=</span><span class="s">&quot;$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props&quot;</span><span class="w"> </span><span class="na">Condition=</span><span class="s">&quot;Exists(&#39;$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props&#39;)&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&lt;Configuration</span><span class="w"> </span><span class="na">Condition=</span><span class="s">&quot; &#39;$(Configuration)&#39; == &#39;&#39; &quot;</span><span class="nt">&gt;</span>Debug<span class="nt">&lt;/Configuration&gt;</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">&lt;Platform</span><span class="w"> </span><span class="na">Condition=</span><span class="s">&quot; &#39;$(Platform)&#39; == &#39;&#39; &quot;</span><span class="nt">&gt;</span>AnyCPU<span class="nt">&lt;/Platform&gt;</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&lt;ProjectGuid&gt;</span>{100E625E-04C6-434F-865C-3E6E50A379B5}<span class="nt">&lt;/ProjectGuid&gt;</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;OutputType&gt;</span>Library<span class="nt">&lt;/OutputType&gt;</span>
-</span></span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">&lt;AppDesignerFolder&gt;</span>Properties<span class="nt">&lt;/AppDesignerFolder&gt;</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;RootNamespace&gt;</span>MyCelesteMod<span class="nt">&lt;/RootNamespace&gt;</span>
-</span></span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;AssemblyName&gt;</span>MyCelesteMod<span class="nt">&lt;/AssemblyName&gt;</span>
-</span></span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;TargetFrameworkVersion&gt;</span>v4.5.2<span class="nt">&lt;/TargetFrameworkVersion&gt;</span>
-</span></span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">&lt;FileAlignment&gt;</span>512<span class="nt">&lt;/FileAlignment&gt;</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="nt">&lt;Deterministic&gt;</span>true<span class="nt">&lt;/Deterministic&gt;</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Condition=</span><span class="s">&quot; &#39;$(Configuration)|$(Platform)&#39; == &#39;Debug|AnyCPU&#39; &quot;</span><span class="nt">&gt;</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nt">&lt;DebugSymbols&gt;</span>true<span class="nt">&lt;/DebugSymbols&gt;</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nt">&lt;DebugType&gt;</span>full<span class="nt">&lt;/DebugType&gt;</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="nt">&lt;Optimize&gt;</span>false<span class="nt">&lt;/Optimize&gt;</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="nt">&lt;OutputPath&gt;</span>bin\Debug\<span class="nt">&lt;/OutputPath&gt;</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="nt">&lt;DefineConstants&gt;</span>DEBUG;TRACE<span class="nt">&lt;/DefineConstants&gt;</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="nt">&lt;ErrorReport&gt;</span>prompt<span class="nt">&lt;/ErrorReport&gt;</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="nt">&lt;WarningLevel&gt;</span>4<span class="nt">&lt;/WarningLevel&gt;</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">  </span><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Condition=</span><span class="s">&quot; &#39;$(Configuration)|$(Platform)&#39; == &#39;Release|AnyCPU&#39; &quot;</span><span class="nt">&gt;</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="nt">&lt;DebugType&gt;</span>pdbonly<span class="nt">&lt;/DebugType&gt;</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="nt">&lt;Optimize&gt;</span>true<span class="nt">&lt;/Optimize&gt;</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="nt">&lt;OutputPath&gt;</span>bin\Release\<span class="nt">&lt;/OutputPath&gt;</span>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">    </span><span class="nt">&lt;DefineConstants&gt;</span>TRACE<span class="nt">&lt;/DefineConstants&gt;</span>
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="nt">&lt;ErrorReport&gt;</span>prompt<span class="nt">&lt;/ErrorReport&gt;</span>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="nt">&lt;WarningLevel&gt;</span>4<span class="nt">&lt;/WarningLevel&gt;</span>
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Celeste&quot;</span><span class="nt">&gt;</span>
-</span></span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="hll"><span class="w">      </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\Celeste.exe<span class="nt">&lt;/HintPath&gt;</span>
-</span></span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;/Reference&gt;</span>
-</span></span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;FNA&quot;</span><span class="nt">&gt;</span>
-</span></span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="hll"><span class="w">      </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\FNA.dll<span class="nt">&lt;/HintPath&gt;</span>
-</span></span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;/Reference&gt;</span>
-</span></span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;MMHOOK_Celeste&quot;</span><span class="nt">&gt;</span>
-</span></span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="hll"><span class="w">      </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\MMHOOK_Celeste.dll<span class="nt">&lt;/HintPath&gt;</span>
-</span></span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;/Reference&gt;</span>
-</span></span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;YamlDotNet&quot;</span><span class="nt">&gt;</span>
-</span></span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="hll"><span class="w">      </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\YamlDotNet.dll<span class="nt">&lt;/HintPath&gt;</span>
-</span></span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;/Reference&gt;</span>
-</span></span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span></span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Core&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span></span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Xml.Linq&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span></span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Microsoft.CSharp&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span></span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Xml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span></span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
-</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
-</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">    </span><span class="nt">&lt;Compile</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;MyModModule.cs&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">    </span><span class="nt">&lt;Compile</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Properties\AssemblyInfo.cs&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
-</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">  </span><span class="nt">&lt;Import</span><span class="w"> </span><span class="na">Project=</span><span class="s">&quot;$(MSBuildToolsPath)\Microsoft.CSharp.targets&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="nt">&lt;/Project&gt;</span>
-</span></code></pre></div>
+<h2 id="_2">简单了解项目文件</h2>
+<p>在解决方案资源管理器中, 双击你的项目, 按理来说你应该会打开该项目的 <code>.csproj</code> 文件,
+通常也叫做项目文件, 它描述了这个项目的各方面的信息, 并且以下几小节的内容也依赖于此.<br />
+如果你使用的是从模板配置的环境, 那么你应该会看到如下内容:
+<div class="language-xml highlight"><span class="filename">.csproj</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">&quot;Microsoft.NET.Sdk&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">&lt;Import</span><span class="w"> </span><span class="na">Project=</span><span class="s">&quot;CelesteMod.props&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&lt;Import</span><span class="w"> </span><span class="na">Project=</span><span class="s">&quot;Common.props&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&lt;PropertyGroup&gt;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="nt">&lt;RootNamespace&gt;</span>$(AssemblyName)<span class="nt">&lt;/RootNamespace&gt;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="nt">&lt;LangVersion&gt;</span>preview<span class="nt">&lt;/LangVersion&gt;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">&lt;ItemGroup&gt;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Core&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Xml.Linq&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Xml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="nt">&lt;/ItemGroup&gt;</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="nt">&lt;Import</span><span class="w"> </span><span class="na">Project=</span><span class="s">&quot;CelesteMod.targets&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="nt">&lt;/Project&gt;</span>
+</span></code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>对于此部分的内容你可能需要阅读了解一下 <code>XML</code> 格式文件</p>
+<p>这个文件是 XML 格式的, 如果你不熟悉 XML 的话你可以到<a href="">这里</a>速成一下, 免得你不知道我们讨论的东西都是什么</p>
 </div>
-<p>实际上对于我们真正经常修改的属性只有上面标亮的行, 那么如果这时候使用 <code>Sdk-style csproj</code> 会好很多, 它看上去是这样的:</p>
-<div class="language-xml highlight"><span class="filename">Sdk-style csproj</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">&quot;Microsoft.NET.Sdk&quot;</span><span class="nt">&gt;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&lt;PropertyGroup&gt;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="nt">&lt;OutputType&gt;</span>Library<span class="nt">&lt;/OutputType&gt;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="nt">&lt;RootNamespace&gt;</span>MyCelesteMod<span class="nt">&lt;/RootNamespace&gt;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="nt">&lt;AssemblyName&gt;</span>MyCelesteMod<span class="nt">&lt;/AssemblyName&gt;</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="nt">&lt;TargetFramework&gt;</span>net452<span class="nt">&lt;/TargetFramework&gt;</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nt">&lt;ItemGroup&gt;</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Celeste&quot;</span><span class="nt">&gt;</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">            </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\Celeste.exe<span class="nt">&lt;/HintPath&gt;</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="nt">&lt;/Reference&gt;</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;FNA&quot;</span><span class="nt">&gt;</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">            </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\FNA.dll<span class="nt">&lt;/HintPath&gt;</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="nt">&lt;/Reference&gt;</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;MMHOOK_Celeste&quot;</span><span class="nt">&gt;</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">            </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\MMHOOK_Celeste.dll<span class="nt">&lt;/HintPath&gt;</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">        </span><span class="nt">&lt;/Reference&gt;</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;YamlDotNet&quot;</span><span class="nt">&gt;</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">            </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\YamlDotNet.dll<span class="nt">&lt;/HintPath&gt;</span>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">        </span><span class="nt">&lt;/Reference&gt;</span>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Core&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Xml.Linq&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Microsoft.CSharp&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Xml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="nt">&lt;/ItemGroup&gt;</span>
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
-</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="nt">&lt;/Project&gt;</span>
-</span></code></pre></div>
-<p>你会发现其实这里只留下了我们上面标黄的东西,
-是的, 这就是 <code>Sdk-style csproj</code> 的优点.<br />
-迁移至 <code>Sdk-style csproj</code> 非常简单, 你只需要:</p>
-<ul>
-<li>删除 <code>PropertyGroup</code> 和 <code>ItemGroup</code> 及旁边的非标黄节点</li>
-<li>删除 <code>Project</code> 节点下的两个 <code>Import</code></li>
-<li>删除 <code>Project</code> 节点的所有属性</li>
-<li>重新在 <code>Project</code> 节点上加入属性: <code>Sdk = "Microsoft.NET.Sdk"</code></li>
-<li><code>TargetFrameworkVersion</code> 更改为新版的 <code>TargetFramework</code>, <code>v4.5.2</code> 更改为 <code>net452</code></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>不用担心删掉这么多东西会出现问题, 实际上我们删掉的东西只是合并入 <code>Sdk = "Microsoft.NET.Sdk"</code> 这一句了而已</p>
-</div>
-<p>这个时候整个文件清晰可读:</p>
-<ul>
-<li>根节点的 <code>Project</code> 下挂载着 <code>PropertyGroup</code> 以及 <code>ItemGroup</code>,</li>
-<li><code>PropertyGroup</code> 描述了我们项目的一些通用属性, 比如输出类型, 命名空间, 程序集昵称以及项目框架版本,</li>
-<li><code>ItemGroup</code> 则描述了我们项目中的一些引用等.</li>
-</ul>
-<p>在这里提及这个是因为在后面部分我们会需要修改 <code>.csproj</code> 文件,
-通过对比你可以发现这两个 xml 文件都有 <code>PropertyGroup</code> 和 <code>ItemGroup</code> 节点 (如果有多个节点的话, 任意一个都行),
-所以我们之后对项目文件的修改的描述都会基于<strong>这两个节点</strong>.</p>
+<p>其中我们只需要关注里面的 <code>PropertyGroup</code> 以及 <code>ItemGroup</code> 节点<br />
+<code>PropertyGroup</code> 节点定义了这个项目有哪些属性, 比如项目框架版本, 语言版本, 程序集昵称等<br />
+<code>ItemGroup</code> 则定义了这个项目包含什么, 比如引用了哪些程序集、哪些 nuget 包等.</p>
 <h2 id="implicit-usings-using">Implicit Usings (隐式 Using)</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>对于通过模板构建的项目来说这一步已经完成, 你可以尝试将 <code>Common.props</code> 中的 <code>CommonCelesteUsings</code> 更改为 <code>false</code> 来感受没有启用的效果</p>
+</div>
 <p>现在看看你的源文件头顶是不是充满了一大堆 <code>using xxx</code>? 那就对了, 我们可以使用这个特性来让它看起来更简介些.
 那么打开你的项目文件, 向你的 <code>ItemGroup</code> 中加入这些:</p>
-<div class="language-xml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System&quot;</span><span class="nt">/&gt;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Collections.Generic&quot;</span><span class="nt">/&gt;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.IO&quot;</span><span class="nt">/&gt;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Linq&quot;</span><span class="nt">/&gt;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Threading&quot;</span><span class="nt">/&gt;</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Threading.Tasks&quot;</span><span class="nt">/&gt;</span>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Collections.Generic&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.IO&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Linq&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Threading&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Threading.Tasks&quot;</span><span class="nt">/&gt;</span>
 </span></code></pre></div>
 <p>这个时候你就可以移除你的大部分 <code>System</code> 开头的 Using 语句啦, 这被称为 <code>隐式 Using</code>, 因为我们是蔚蓝 mod, 所以我们经常也会 Using 以下几个命名空间:</p>
 <ul>
@@ -579,33 +552,30 @@
 <li><code>Microsoft.Xna.Framework</code>: 蔚蓝自己的游戏引擎的底层框架</li>
 </ul>
 <p>对这些隐式 Using 我们也向 <code>ItemGroup</code> 加入:
-<div class="language-xml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Celeste.Mod&quot;</span><span class="nt">/&gt;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Celeste&quot;</span><span class="nt">/&gt;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Monocle&quot;</span><span class="nt">/&gt;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Microsoft.Xna.Framework&quot;</span><span class="nt">/&gt;</span>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Celeste.Mod&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Celeste&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Monocle&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Microsoft.Xna.Framework&quot;</span><span class="nt">/&gt;</span>
 </span></code></pre></div></p>
 <p>现在打开你的代码文件, 你可以将头顶上的大部分 Using 都删除了, 这样, 你的代码文件变的更加的干净整洁:
-<div class="language-cs highlight"><span class="filename">MyModModule.cs</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="p">{</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">            </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World! Hello Everest!&quot;</span><span class="p">);</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="p">{</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="p">}</span>
+<div class="language-cs highlight"><span class="filename">MyModModule.cs</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">            </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World! Hello Everest!&quot;</span><span class="p">);</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">}</span>
 </span></code></pre></div></p>
 <h2 id="file-scoped-namespaces">File Scoped Namespaces</h2>
-<blockquote>
-<p>这个是我的个人偏好, 你可以选择直接忽略</p>
-</blockquote>
 <p>对于 namespace 命名空间来说我们通常一个文件只有一个命名空间, 那么最外层的 namespace 的缩进就有些浪费横向空间,
 所以我们选择使用 <code>File Scoped Namespaces</code>, 这很简单:</p>
 <ul>
@@ -614,27 +584,27 @@
 <li>回退 namespace 下的所有缩进</li>
 <li>搞定了, 走你!</li>
 </ul>
-<div class="language-cs highlight"><span class="filename">MyModModule.cs</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span><span class="p">;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">{</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World! Hello Everest!&quot;</span><span class="p">);</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="p">}</span>
+<div class="language-cs highlight"><span class="filename">MyModModule.cs</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span><span class="p">;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">{</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World! Hello Everest!&quot;</span><span class="p">);</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="p">}</span>
 </span></code></pre></div>
 <blockquote>
 <p>如果你收到错误 <code>CS8370</code>, 那你就需要在 <code>PropertyGroup</code> 下添加这一行:
-<div class="language-xml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&lt;LangVersion&gt;</span>preview<span class="nt">&lt;/LangVersion&gt;</span>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&lt;LangVersion&gt;</span>preview<span class="nt">&lt;/LangVersion&gt;</span>
 </span></code></pre></div></p>
 </blockquote>
-<p>最后修改: 2023-7-7</p>
+<p>最后修改: 2023-7-8</p>
 
 
 
@@ -645,6 +615,8 @@
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
       </main>
@@ -672,7 +644,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
