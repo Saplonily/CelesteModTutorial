@@ -135,6 +135,7 @@ public class MyAwesomeModModule : EverestModule
 ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没有让蔚蓝加载到我们的mod, 不过别急, 这是倒数第二步了.  
 实际上有关 code mod 的所有代码相关的东西我们都已经做完了, 剩余的其实只是一个普通 mod 要做的 ---- 写 `everest.yaml`.
 在这里我们需要在 `ModFolder` 这个文件夹里做这件事, 那么, 在你的这个文件夹下创建 `everest.yaml` 空文件, 你的目录结构可能像是:
+
 - ModFolder
     - everest.yaml
     - MyCelesteMod.dll
@@ -183,8 +184,9 @@ D3D11 Adapter: Intel(R) UHD Graphics 630
 
 ## 还没完
 
-在经过如上的配置后, 你会发现在蔚蓝启动时进行资源复制会报错, 
-这是因为 everest 锁定了它们, 同时由于蔚蓝的重启速度不是很理想, 
+在经过如上的配置后, 你会发现在蔚蓝启动时进行编译并在 msbuild 为你复制资源时会报错, 
+这是因为 everest 锁定占用了它们, 导致你不得不让这一切在蔚蓝关闭时进行,
+同时由于蔚蓝的重启速度不是很理想, 
 这大大的拉低了 mod 开发效率, 不过好在 everest 提供了一个技术叫做 `hot reload`,
 即热重载, 它允许你在游戏运行期间替换你的代码并重载资源, 它目前还在 wip 状态.  
 要开启这项功能, 首先到你的蔚蓝根目录下的 Saves 目录, 找到并打开 `modsettings-Everest.celeste` 这个文件,
