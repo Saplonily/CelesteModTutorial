@@ -11,4 +11,13 @@
 
 [开始 - Celeste Everest MonoMod](./begin/CelesteEverestMonoMod.md)
 
+最后, 感谢一些为本教程贡献的人:
+
+- Apple Sheep - 在写作初期提供了大量修改建议 ([Bilibili](https://space.bilibili.com/227488539))
+- 夜谷紫幽 - 为配置环境节提供了使用模板的建议 ([Bilibili](https://space.bilibili.com/346379712))
+
+以及我自己 :D
+
+- Saplonily ([Bilibili](https://space.bilibili.com/39046375), [Mail](mailto:Saplonily@outlook.com))
+
 <del>说起来国内的coder看起来真的好少哎, 所以说写这个教程可以认为是我不想写码想推给别人((</del>
