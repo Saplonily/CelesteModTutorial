@@ -368,6 +368,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    钩子的最佳实践
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -576,6 +583,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    钩子的最佳实践
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -773,6 +787,10 @@ C --- J[Component ...];</code></pre></p>
 </span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>那么现在编译, 按之前的内容操作, 并重启蔚蓝, 你应该就会看到你的玛德琳永远都会有单冲了(即使是在空中!).</p>
+<h2 id="_3">钩子的最佳实践</h2>
+<p>我们应该尽可能一次性地就将我们所需要的所有钩子在 <code>Load</code> 里加载完, 因为创建钩子实际上的开销并不小,
+如果你需要某些 "某些条件不成立不启动钩子, 条件成立再启动钩子" 的逻辑的话, 我建议你应该始终保持钩子,
+然后在钩子内部判断你的条件, 不成立时你应该直接回调原来的方法并不做任何其他事情.</p>
 
 
 
