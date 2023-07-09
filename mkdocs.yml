@@ -38,6 +38,7 @@ nav:
       - 基础环境配置: "begin/BasicEnv.md"
       - 偏好: "begin/prefer.md"
       - 钩子, 阅读代码, demo1: "begin/hook,code,demo1.md"
+      - 简单自定义实体: "begin/SimpleEntity.md"
   - 历史归档:
       - 基础环境配置: "arc/BasicEnv.md"
       - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
