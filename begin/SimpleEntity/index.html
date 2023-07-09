@@ -13,13 +13,17 @@
       
       
       
+        <link rel="prev" href="../hook%2Ccode%2Cdemo1/">
+      
+      
+        <link rel="next" href="../../arc/BasicEnv/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>简单实体 - 蔚蓝Code Mod教程</title>
+        <title>简单自定义实体 - 蔚蓝Code Mod教程</title>
       
     
     
@@ -95,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              简单实体
+              简单自定义实体
             
           </span>
         </div>
@@ -217,14 +221,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
@@ -233,7 +239,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           入门
@@ -291,6 +297,149 @@
       <a href="../hook%2Ccode%2Cdemo1/" class="md-nav__link">
         钩子, 阅读代码, demo1
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          简单自定义实体
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        简单自定义实体
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    我们的自定义实体类
+  </a>
+  
+    <nav class="md-nav" aria-label="我们的自定义实体类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    它能干什么
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    声明这个类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#everest" class="md-nav__link">
+    让 Everest 找到它
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loenn" class="md-nav__link">
+    Loenn
+  </a>
+  
+    <nav class="md-nav" aria-label="Loenn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    基础使用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loenn_1" class="md-nav__link">
+    让 Loenn 找到我们的实体
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    回到代码
+  </a>
+  
+    <nav class="md-nav" aria-label="回到代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    告诉游戏它该做什么
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    告诉游戏它长什么样
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    准备就绪
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -434,6 +583,109 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    我们的自定义实体类
+  </a>
+  
+    <nav class="md-nav" aria-label="我们的自定义实体类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    它能干什么
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    声明这个类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#everest" class="md-nav__link">
+    让 Everest 找到它
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loenn" class="md-nav__link">
+    Loenn
+  </a>
+  
+    <nav class="md-nav" aria-label="Loenn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    基础使用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loenn_1" class="md-nav__link">
+    让 Loenn 找到我们的实体
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    回到代码
+  </a>
+  
+    <nav class="md-nav" aria-label="回到代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    告诉游戏它该做什么
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    告诉游戏它长什么样
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    准备就绪
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -450,7 +702,203 @@
   
 
 
-<h1 id="_1">简单实体</h1>
+<h1 id="_1">简单自定义实体</h1>
+<p>在知道一些 mod 制作中最为基础的东西后, 我们首先把兴趣点转向自定义实体,
+相信相对于修改已有的东西并伴随着一定的烧脑(我该怎么改? 这么改会不会破坏官图元素?), 你可能更喜欢自己制作一个实体, 那就对了!
+在这一节, 我们会了解 loenn 的基础使用、添加一个自定义实体的通用步骤, 以及一些游戏常用的方法!</p>
+<h2 id="_2">我们的自定义实体类</h2>
+<h3 id="_3">它能干什么</h3>
+<p>在开始制作这个自定义实体之前, 我们先明白一下这个实体做出来是什么效果的.<br />
+那么, 为了简单起见, 这里就做一个简单的功能, 它大概是:</p>
+<ul>
+<li>它叫做 <code>PassByRefill</code></li>
+<li>长度和宽度是随意的</li>
+<li>它看起来是个透明的红色物体</li>
+<li>玩家与其碰撞时会锁定为某个冲刺数</li>
+<li>这个冲刺数可以在作图软件中设置</li>
+</ul>
+<p>是的就这样简单, 那么我们开始吧.</p>
+<h3 id="_4">声明这个类</h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>在前面我们钩取了 <code>Player.Update()</code> 并且在一直修改冲刺数为 1!<br />
+不要忘记把钩子函数以及钩取和取消钩取的那些代码删掉,
+最后你的 Module 类应该只包含两个空的 <code>Load</code> 和 <code>Unload</code> 方法!</p>
+</div>
+<p>首先在代码中, 我们需要声明这个类, 也就是创建一个 .cs 文件, 然后命个名.
+在这里你还需要继承一下 <code>Entity</code>, 在前面我们已经了解过了它是 <code>Monocle</code> 的一个类, 表示场景中的实体.<br />
+那么你应该会写出如下的代码:</p>
+<div class="language-cs highlight"><span class="filename">PassByRefill.cs</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PassByRefill</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Entity</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">{</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>ok, 接下来, 我们加一个表示冲刺数的字段, 然后搞一个构造函数接收并赋值它:
+<div class="language-cs highlight"><span class="filename">PassByRefill.cs</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Dashes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">public</span><span class="w"> </span><span class="nf">PassByRefill</span><span class="p">(</span><span class="n">Vector2</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="n">Vector2</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dashes</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">{</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">position</span><span class="p">;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">Dashes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dashes</span><span class="p">;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p>这里的 <code>position</code> 参数会被用于设置它的 <code>Position</code> 字段, 这个字段从 <code>Monocle.Entity</code> 继承而来, 它表示这个 <code>Entity</code> 在场景中所在的位置(世界坐标).<br />
+<code>Vector2</code> 是一个 XNA 中的结构体, 包含一个 <code>X</code> 和一个 <code>Y</code> 的 <code>float</code> 字段, 它用于描述空间中的位置, 就像你在平面直角坐标系中所做的一样!<br />
+不过这里需要注意, 游戏中的坐标系和我们通常数学中的坐标系<strong>不同</strong>, 它的顶点在<strong>左上角</strong>, <strong>X 轴水平向右</strong>但是 <strong>Y 轴竖直向下</strong>! 切记不要搞混了.<br />
+<code>Vector2</code> 同时也可能表示大小, 即 <code>X</code> 字段表示宽度, <code>Y</code> 字段表示长度, 在这里我们用它来接收它的大小.<br />
+你可能注意到我们并没有理 <code>size</code> 这个表示大小参数, 稍等一下, 我们在本节后边就会使用它了.</p>
+<p><img alt="game-coord" src="../image-5.png" /></p>
+<p>接下来, 我们需要声明一个特殊的构造函数, 这个构造函数由 Everest 反射调用, 用于将作图软件那边的数据传递给我们:
+<div class="language-cs highlight"><span class="filename">PassByRefill.cs</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">public</span><span class="w"> </span><span class="nf">PassByRefill</span><span class="p">(</span><span class="n">EntityData</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">Vector2</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span><span class="w"> </span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="k">this</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">Position</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vector2</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">Width</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Height</span><span class="p">),</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Int</span><span class="p">(</span><span class="s">&quot;dashes&quot;</span><span class="p">))</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div></p>
+<p>在这里, <code>EntityData data</code> 储存了作图软件保存的相关数据, 我们要提取它们很简单,
+比如说我们要提取一个名为 <code>dashes</code> 的 <code>int</code> 类型的数据, 我们就简单地调用它的方法 <code>Int(string name)</code> 就得到了,
+然后是它的大小数据, 由于大小是个特殊的东西, 这里我们可以直接通过 <code>Width</code> 和 <code>Height</code> 属性提取并 <code>new</code> 一个 <code>Vector2</code> 结构体来传递给我们上面的构造函数.
+对于更多方法以及这部分数据该如何自定义我们会在本节后半部分说明.<br />
+<code>Vector2 offset</code> 表示这一面的最左上角的<strong>世界坐标</strong>, <code>EntityData</code> 的 <code>Position</code> 是物体<strong>相对</strong>于这一面最左上角的坐标,
+所以我们需要把它相加来得到世界坐标.(因为 <code>Entity.Position</code> 永远只接受世界坐标!)</p>
+<h3 id="everest">让 Everest 找到它</h3>
+<p>现在我们只定义了一个类 Everest 那边是啥也不知道的, 所以我们得告诉它, 而这个过程我们一般就叫 <code>注册</code>.<br />
+要注册一个自定义实体非常简单, 我们只需要将 <code>CustomEntity</code> (在命名空间 <code>Celeste.Mod.Entities</code> 中) 装饰到我们的类上并传入我们实体的 "名称 ID". 就像:
+<div class="language-cs highlight"><span class="filename">PassByRefill.cs</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">[CustomEntity(&quot;MyCelesteMod/PassByRefill&quot;)]</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PassByRefill</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Entity</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">......</span>
+</span></code></pre></div>
+在这里 "名称 ID" 我们一般推荐以 "{Mod名}/该实体类名" 进行命名, 就像这里一样, Mod 名为 <code>MyCelesteMod</code>, 类名为 <code>PassByRefill</code>, 实体 "名称 ID" 就是 <code>MyCelesteMod/PassByRefill</code>. 这里我建议你记住它, 待会我们会在作图软件配置的时候用到.</p>
+<h2 id="loenn">Loenn</h2>
+<div class="admonition info">
+<p class="admonition-title">作图软件</p>
+<p>蔚蓝的作图软件最流行的目前有 <code>ahorn</code> 与 <code>loenn</code>, 不过我更推荐 <code>loenn</code>, 因为 <code>ahorn</code> 实在是 太!!卡!!了!!</p>
+</div>
+<h3 id="_5">基础使用</h3>
+<p>Loenn 是一个蔚蓝的作图软件, 当然这里我们使用它不是制作出精美的地图, 而是仅仅放置一下我们的自定义实体!<br />
+_(:з」∠)_, 这里我不怎么想重复它的基础使用, 所以我推荐你去以下几个视频中了解:</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/av354525627/">Bilibili 【Celeste蔚蓝】电箱作图教程重置版 0-1 Loenn的安装</a></li>
+<li><a href="https://www.bilibili.com/video/av782056152/">Bilibili 【Celeste蔚蓝】电箱作图教程重置版 1-1 Loenn的使用</a></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">版本</p>
+<p>如果你之前已经下载了 Loenn, 我建议你确保它升级到最新版了, 因为接下来的某些东西我可能不太记得是哪个版本引入的了.</p>
+</div>
+<h3 id="loenn_1">让 Loenn 找到我们的实体</h3>
+<p>相信你现在已经懂的 Loenn 基本的使用用法了, 那么现在, 我们要给 Loenn 写一些东西让它知道我们这个实体 mapper 们能用了.<br />
+首先我们在 ModFolder 下新建一个叫 <code>Loenn</code> 的文件夹, 再在里面新建一个叫 <code>entities</code> 的文件夹, 再在里面新建一个叫 <code>PassByRefill.lua</code> (也就是<code>{实体类名}.lua</code>) 的文本文件.
+现在你的目录结构应该是这样的:</p>
+<ul>
+<li>ModFolder<ul>
+<li>Loenn<ul>
+<li>entities<ul>
+<li>PassByRefill.lua</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>ok, 然后我们打开 <code>PassByRefill.lua</code>, 这是一个 <code>lua</code> 语言的源文件, 这里我们不需要很多 <code>lua</code> 知识, 直接照着抄就好了:</p>
+<div class="language-lua highlight"><span class="filename">PassByRefill.lua</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">local</span> <span class="n">entity</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">entity</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;MyCelesteMod/PassByRefill&quot;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">entity</span><span class="p">.</span><span class="n">placements</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        <span class="n">width</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        <span class="n">height</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        <span class="n">dashes</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="p">}</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">}</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="kr">return</span> <span class="n">entity</span>
+</span></code></pre></div>
+<p>还记得我们之前记住的实体 "名称 ID" 吗? 在这里你就需要将其赋值给 <code>entity.name</code>.  </p>
+<ul>
+<li>然后是 <code>entity</code> 的 <code>placements</code>, 它表示这个实体的放置选项, 在这里我们先不管, 你就理解为你希望 Loenn 怎么把你这个实体拆分为多个放置选项, 这里我们的写法表示不希望 Loenn 拆分它, 如果这里的 <code>placements</code> 是个数组的话那么 Loenn 就会拆分它了.<ul>
+<li>继续到 <code>name</code> 属性, 它表示这个放置选项的名称, 这个名称是任意的, 它只被用来作为本地化键名(本地化就包括我们常说的"汉化").</li>
+<li>然后是 <code>data</code> 属性, 它表示这个实体的数据.<ul>
+<li>在这里我们声明了三个数字类型的属性: <code>width</code>, <code>height</code>, <code>dashes</code>, 前两个属性是特殊的, 在代码中提取只需要对 <code>EntityData</code> 获取 <code>Width</code>/<code>Height</code> 字段即可.  </li>
+<li>第三个 <code>dashes</code> 属性就是我们的自定义属性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>在 <code>data</code> 对象里的属性, 后面的等号就表示它的默认值, 比如 <code>width</code> 默认为 16, <code>dashes</code> 默认为 1.</p>
+<div class="admonition note tip">
+<p class="admonition-title">Note</p>
+<p>如果你不声明 <code>width</code> 和 <code>height</code> 属性的话 Loenn 似乎会直接禁止你放置这个实体.</p>
+</div>
+<p>好吧看起来上面这一坨*非常难懂*, 不过没关系, 只要你会直接复制上面的东西, 改一下 <code>entity.name</code>, 向 <code>data</code> 里加一些属性就行了. 实际上我也是这么做的.  </p>
+<p>那么, 重新编译我们的项目, 让 <code>msbuild</code> 把我们的东西复制过去, 这时打开我们的 Loenn (或者重启 Loenn), 搜索一下 <code>@MyCelesteMod</code>.
+那么列表上应该只会出现一个名字很奇怪的选项(因为我们还没配置本地化相关的东西!), 现在把它放到任何你喜欢的地方, 打开它的属性框, 我们就能看到一个大大的 <code>dashes</code>
+属性在上面允许我们改啦. 你可能注意到它是全白的! 因为我们还没告诉 Loenn 它长什么样! 不过这个等以后我们再来搞.</p>
+<h2 id="_6">回到代码</h2>
+<p>现在在游戏中进入放了我们那个实体的那张图, 然后到之前你喜欢的那个地方, 然后... 是的, 你啥也不会看见, 因为我们也没告诉游戏它长什么样! 同时你走到它附近, 也不会发生任何事,
+因为我们也没告诉游戏这个实体应该干什么!</p>
+<h3 id="_7">告诉游戏它该做什么</h3>
+<p>那么, 就像前面描述的一样, "玩家与其碰撞时会锁定为某个冲刺数", 那么我们需要做一些碰撞. 在 <code>Monocle</code> 里这项工作很简单, 我们首先在构造函数里去 <code>new</code> 一个长方形的碰撞箱:
+<div class="language-cs highlight"><span class="filename">PassByRefill.PassByRefill(Vector2 position, Vector2 size, int dashes)</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">Hitbox</span><span class="w"> </span><span class="n">hitbox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="n">size</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">Y</span><span class="p">);</span>
+</span></code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>我们在这里用到了之前的 <code>size</code> 参数</p>
+</div>
+<p><code>Hitbox</code> 就是我们想要的长方形碰撞箱, 它的唯一的构造器接收四个参数, 前两个参数为它的宽高, 后两个参数为这个碰撞箱的偏移(因为碰撞箱我们要附加到 <code>Entity</code> 身上, 所以会有偏移这个东西),
+这两个参数默认都为 0.<br />
+然后设置到 <code>Entity</code> 身上:
+<div class="language-cs highlight"><span class="filename">PassByRefill.PassByRefill(Vector2 position, Vector2 size, int dashes)</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">Collider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hitbox</span><span class="p">;</span>
+</span></code></pre></div>
+<code>Collider</code> 是 <code>Entity</code> 的一个属性, 它表示这个 <code>Entity</code> 自身的碰撞箱.  </p>
+<p>碰撞箱设置完后, 我们就该在 <code>Update()</code> 检测碰撞了, 这很简单~
+<div class="language-cs highlight"><span class="filename">PassByRefill.Update()</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">base</span><span class="p">.</span><span class="n">Update</span><span class="p">();</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1">// 获取 Player 实例 (别害怕!)</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kt">var</span><span class="w"> </span><span class="n">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Scene</span><span class="p">.</span><span class="n">Tracker</span><span class="p">.</span><span class="n">GetEntity</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1">// 检测是否与玩家碰撞</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CollideCheck</span><span class="p">(</span><span class="n">player</span><span class="p">))</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">{</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="c1">// 如果碰撞了, 那么设置它的冲刺数</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="n">player</span><span class="p">.</span><span class="n">Dashes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">Dashes</span><span class="p">;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p>相信你看到第二行一定会被吓一跳! 相信那一串东西对于新人来说一定很复杂, 不过没关系, 你只需要知道那一串会返回在场的那个玩家就行.<br />
+然后我们用 <code>Entity</code> 的 <code>CollideCheck</code> 检查我们又没有与玩家发生碰撞, 如果有则强制设置它的冲刺数.<br />
+由于我们每一帧都在检查, 都在设置, 所以最终的效果就是玩家一旦进入这个区域, 冲刺数被锁定为 <code>Dashes</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>实际上这里有更好的方法来单独检测与玩家的碰撞, 为了简单起见这里没有采用. 不过我们依然会在后面提到(常见 Celeste, Monocle 类节).<br />
+第一行的 <code>base.Update()</code> 会遍历调用该 <code>Entity</code> 的所有 <code>Component</code> 的 <code>Update()</code>, 通常我们需要在开头就调用它. 后面的 <code>Render()</code> 也是.</p>
+</div>
+<h3 id="_8">告诉游戏它长什么样</h3>
+<p>那么, 功能做好后, 的让玩家看见, 为了简单起见这里我们不打算使用图片, 只是像前面描述的一样, 它是个"透明的红色物体",
+在这里我们需要重写 <code>Entity</code> 的 <code>Render()</code> 方法来绘制一个纯色长方形,
+它会在游戏中每帧都会被调用, 就像 <code>Update()</code> 一样,
+不过切记不要在这两个方法里干不相关的事! 你应该在 <code>Update()</code> 里<strong>只</strong>更新你的逻辑, 而在 <code>Render()</code> 里<strong>只</strong>做绘制.<br />
+这里我们选择绘制一个透明的红色长方形, 我们需要借助这个函数:
+<div class="language-cs highlight"><span class="filename">Monocle.Draw.Rect</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Draw</span><span class="p">.</span><span class="n">Rect</span><span class="p">(</span><span class="n">Vector2</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+</span></code></pre></div>
+- 第一个参数是我们希望绘制的位置(世界坐标)
+- 第二个参数是我们希望绘制的宽度 
+- 第三个参数是我们希望绘制的高度
+- 第四个参数是我们希望绘制的颜色</p>
+<p>我们在这里会这样用它:</p>
+<div class="language-cs highlight"><span class="filename">PassByRefill.Render()</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">base</span><span class="p">.</span><span class="n">Render</span><span class="p">();</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">Color</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">Red</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">c</span><span class="p">.</span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">127</span><span class="p">;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">Draw</span><span class="p">.</span><span class="n">Rect</span><span class="p">(</span><span class="n">Position</span><span class="p">,</span><span class="w"> </span><span class="n">Width</span><span class="p">,</span><span class="w"> </span><span class="n">Height</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+</span></code></pre></div>
+<p>首先我们获取一个红色的 <code>Color</code>, 然后设置透明度为 <code>127</code>, 然后调用这个方法绘制.<br />
+你可能注意到 <code>Width</code> 和 <code>Height</code> 这两个东西, 它是 <code>Entity</code> 的两个属性, 默认它们都是 0, 在你加入碰撞箱的瞬间他们会变成碰撞箱的宽和高,
+在这里它们的值就是我们之前设置的 <code>Hitbox</code> 的宽高.</p>
+<h2 id="_9">准备就绪</h2>
+<p>那么, 一切就绪, 编译你的项目, 到那个地方, 在半透明红色的区域里享受锁定冲刺数的快乐吧!</p>
+<p><img alt="sample" src="../image-6.png" /></p>
 
 
 
