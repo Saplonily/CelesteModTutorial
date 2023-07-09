@@ -83,8 +83,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="蔚蓝Code Mod教程" class="md-header__button md-logo" aria-label="蔚蓝Code Mod教程" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../assets/images/favicon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -181,8 +180,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="蔚蓝Code Mod教程" class="md-nav__button md-logo" aria-label="蔚蓝Code Mod教程" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../assets/images/favicon.png" alt="logo">
 
     </a>
     蔚蓝Code Mod教程
@@ -645,7 +643,9 @@
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>在上面的代码中我们使用类似订阅事件的语法去钩住了 <code>Player</code> 类的 <code>Update</code> 方法(该方法每帧都会调用一遍),
-在这里我们的函数就是<code>Player_Update</code>,
+Everest 为我们把几乎所有可能钩取的函数放到了命名空间 <code>On</code> 中, 当你想钩取某个方法时只需通过 <code>On</code> 命名空间一路"点"到你想要的方法上,
+然后使用一个钩子函数以像事件一样的语法"订阅"就能钩住它!
+在这里我们的钩子函数就是<code>Player_Update</code>,
 你可能注意到参数很复杂, 是的, 所以一般来说我都是依赖 IDE 帮我自动填写这些参数就像:  </p>
 <p><img alt="b4" src="../image.png" />  </p>
 <p><img alt="at" src="../image-1.png" /></p>
