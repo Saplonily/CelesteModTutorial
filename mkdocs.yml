@@ -5,6 +5,7 @@ site_author: Saplonily
 
 theme:
   name: material
+  logo: assets/images/favicon.png
   features:
     - content.code.copy
     - content.tabs.link
