@@ -57,20 +57,23 @@ public PassByRefill(Vector2 position, Vector2 size, int dashes)
 你可能注意到我们并没有理 `size` 这个表示大小参数, 稍等一下, 我们在本节后边就会使用它了.
 
 ![game-coord](image-5.png)
+![room-coord](image-7.png)
 
-接下来, 我们需要声明一个特殊的构造函数, 这个构造函数由 Everest 反射调用, 用于将作图软件那边的数据传递给我们:
+接下来, 我们需要声明一个特殊的构造函数, 这个构造函数**由 Everest 反射调用**, 用于将作图软件那边的数据传递给我们:
 ```cs title="PassByRefill.cs"
 public PassByRefill(EntityData data, Vector2 offset) 
         : this(data.Position + offset, new Vector2(data.Width, data.Height), data.Int("dashes"))
     { }
 ```
-
 在这里, `EntityData data` 储存了作图软件保存的相关数据, 我们要提取它们很简单,
 比如说我们要提取一个名为 `dashes` 的 `int` 类型的数据, 我们就简单地调用它的方法 `Int(string name)` 就得到了,
 然后是它的大小数据, 由于大小是个特殊的东西, 这里我们可以直接通过 `Width` 和 `Height` 属性提取并 `new` 一个 `Vector2` 结构体来传递给我们上面的构造函数.
 对于更多方法以及这部分数据该如何自定义我们会在本节后半部分说明.  
 `Vector2 offset` 表示这一面的最左上角的**世界坐标**, `EntityData` 的 `Position` 是物体**相对**于这一面最左上角的坐标,
 所以我们需要把它相加来得到世界坐标.(因为 `Entity.Position` 永远只接受世界坐标!)
+
+!!! info
+    这个构造函数的参数列表也能为其他的样子, 但是我们最最最常用的一个版本就是上面这个
 
 ### 让 Everest 找到它
 
@@ -155,8 +158,11 @@ return entity
 ### 告诉游戏它该做什么
 
 那么, 就像前面描述的一样, "玩家与其碰撞时会锁定为某个冲刺数", 那么我们需要做一些碰撞. 在 `Monocle` 里这项工作很简单, 我们首先在构造函数里去 `new` 一个长方形的碰撞箱:
-```cs title="PassByRefill.PassByRefill(Vector2 position, Vector2 size, int dashes)"
-Hitbox hitbox = new(size.X, size.Y);
+```cs title="PassByRefill.PassByRefill"
+public PassByRefill(Vector2 position, Vector2 size, int dashes)
+{
+    Hitbox hitbox = new(size.X, size.Y);
+}
 ```
 !!! info
     我们在这里用到了之前的 `size` 参数
@@ -164,32 +170,36 @@ Hitbox hitbox = new(size.X, size.Y);
 `Hitbox` 就是我们想要的长方形碰撞箱, 它的唯一的构造器接收四个参数, 前两个参数为它的宽高, 后两个参数为这个碰撞箱的偏移(因为碰撞箱我们要附加到 `Entity` 身上, 所以会有偏移这个东西),
 这两个参数默认都为 0.  
 然后设置到 `Entity` 身上:
-```cs title="PassByRefill.PassByRefill(Vector2 position, Vector2 size, int dashes)"
+```cs title="PassByRefill.PassByRefill"
 Collider = hitbox;
 ```
 `Collider` 是 `Entity` 的一个属性, 它表示这个 `Entity` 自身的碰撞箱.  
+`Collider` 属性是 `Collider` 类型的, 它是一个抽象类表示一个碰撞体, 这里我们的 `Hitbox` 就是它的一个实现, 也就是一种长方形的实现.  
 
 碰撞箱设置完后, 我们就该在 `Update()` 检测碰撞了, 这很简单~
 ```cs title="PassByRefill.Update()"
-base.Update();
-// 获取 Player 实例 (别害怕!)
-var player = Scene.Tracker.GetEntity<Player>();
-
-// 检测是否与玩家碰撞
-if (this.CollideCheck(player))
+public override void Update()
 {
-    // 如果碰撞了, 那么设置它的冲刺数
-    player.Dashes = this.Dashes;
+    base.Update();
+    // 获取 Player 实例 (别害怕!)
+    var player = Scene.Tracker.GetEntity<Player>();
+
+    // 检测是否与玩家碰撞
+    if (this.CollideCheck(player))
+    {
+        // 如果碰撞了, 那么设置它的冲刺数
+        player.Dashes = this.Dashes;
+    }
 }
 ```
 
-相信你看到第二行一定会被吓一跳! 相信那一串东西对于新人来说一定很复杂, 不过没关系, 你只需要知道那一串会返回在场的那个玩家就行.  
+相信你看到第五行一定会被吓一跳! 相信那一串东西对于新人来说一定很复杂, 不过没关系, 你只需要知道那一串会返回在场的那个玩家就行.  
 然后我们用 `Entity` 的 `CollideCheck` 检查我们又没有与玩家发生碰撞, 如果有则强制设置它的冲刺数.  
 由于我们每一帧都在检查, 都在设置, 所以最终的效果就是玩家一旦进入这个区域, 冲刺数被锁定为 `Dashes`.
 
 !!! info
-    实际上这里有更好的方法来单独检测与玩家的碰撞, 为了简单起见这里没有采用. 不过我们依然会在后面提到(常见 Celeste, Monocle 类节).  
-    第一行的 `base.Update()` 会遍历调用该 `Entity` 的所有 `Component` 的 `Update()`, 通常我们需要在开头就调用它. 后面的 `Render()` 也是.
+    实际上这里有更好的方法来单独检测与玩家的碰撞, 为了简单起见这里没有采用. 不过我们依然会在后面提到("常见 Celeste, Monocle 类"节).  
+    第一行的 `base.Update()` 会**遍历调用**该 `Entity` 的所有 **`Component` 的 `Update()`**, 通常我们需要**在开头就调用**它. 后面的 `Render()` 也是.
 
 ### 告诉游戏它长什么样
 
@@ -224,3 +234,67 @@ Draw.Rect(Position, Width, Height, c);
 那么, 一切就绪, 编译你的项目, 到那个地方, 在半透明红色的区域里享受锁定冲刺数的快乐吧!
 
 ![sample](image-6.png)
+
+如果你遇到了困难, 你可以对比一下最终的代码:
+```cs title="PassByRefill.cs"
+using Celeste.Mod.Entities;
+
+namespace MyCelesteMod;
+
+[CustomEntity("MyCelesteMod/PassByRefill")]
+public class PassByRefill : Entity
+{
+    public int Dashes = 0;
+
+    public PassByRefill(Vector2 position, Vector2 size, int dashes)
+    {
+        Dashes = dashes;
+        Position = position;
+        Hitbox hitbox = new(size.X, size.Y);
+        Collider = hitbox;
+    }
+
+    public PassByRefill(EntityData data, Vector2 offset)
+        : this(data.Position + offset, new Vector2(data.Width, data.Height), data.Int("dashes"))
+    { }
+
+    public override void Update()
+    {
+        base.Update();
+        var player = Scene.Tracker.GetEntity<Player>();
+        if (this.CollideCheck(player))
+        {
+            player.Dashes = this.Dashes;
+        }
+    }
+
+    public override void Render()
+    {
+        base.Render();
+        Color c = Color.Red;
+        c.A = 127;
+        Draw.Rect(Position, Width, Height, c);
+    }
+}
+```
+
+## 更多
+
+### 为什么在 Loenn 中我能设置 dashes 为小数?
+
+在 Loenn 中如果你没有显式指定某个数字 data 的类型的话它默认会是浮点数,
+也就是你能输入小数, 不过这不会**很**影响(还是有的!)代码那边, 所以我们得跟 Loenn 说一下它是个整数!
+```lua title="PassByRefill.lua"
+entity.fieldInformation = 
+{
+    dashes = {
+        fieldType = "integer"
+    }
+}
+```
+在这里我们设置了一个新的属性 `fieldInformation`, 然后在里面告诉 Loenn 我们的 `dashes` 这个属性的 `fieldType` 是 `integer`, 也就是整数.  
+那么现在再重新编译, 重启 Loenn, 你应该会看到 Loenn 只允许你输入整数了.
+
+### 为 Loenn 侧配置本地化以及贴图
+
+咕了, 之后再写.
