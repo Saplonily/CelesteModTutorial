@@ -283,7 +283,7 @@ public class PassByRefill : Entity
 ### 为什么在 Loenn 中我能设置 dashes 为小数?
 
 在 Loenn 中如果你没有显式指定某个数字 data 的类型的话它默认会是浮点数,
-也就是你能输入小数, 不过这不会**很**影响(还是有的!)代码那边, 所以我们得跟 Loenn 说一下它是个整数!
+也就是你能输入小数, 不过这不会**很**影响(还是有的!)代码那边, 所以我们得跟 Loenn 说一下它是个整数! 那么我们在代码的 return 之前这样设置一下:
 ```lua title="PassByRefill.lua"
 entity.fieldInformation = 
 {
@@ -295,6 +295,32 @@ entity.fieldInformation =
 在这里我们设置了一个新的属性 `fieldInformation`, 然后在里面告诉 Loenn 我们的 `dashes` 这个属性的 `fieldType` 是 `integer`, 也就是整数.  
 那么现在再重新编译, 重启 Loenn, 你应该会看到 Loenn 只允许你输入整数了.
 
-### 为 Loenn 侧配置本地化以及贴图
+### 为 Loenn 侧配置本地化
 
-咕了, 之后再写.
+现在我们在 Loenn 侧我们的实体放置选择的名称非常奇怪! 这肯定不是你想要的结果, 所以这里我们将为其配置**本地化**.  
+那么, 常规地, 我们需要在 `ModFolder/Loenn` 这个文件夹下再新建一个叫 `lang` 文件夹, 然后在里面创建一个叫 `en_gb.lang` 的空文件, 
+它是 Loenn 默认读取的本地化文件. 现在你的目录结构应该像:
+
+- ModFolder
+    - Loenn
+        - entities
+            - PassByRefill.lua
+        - lang
+            - en_gb.lang
+
+在 `en_gb.lang` 文件里, 我们写下:
+
+```lang
+entities.MyCelesteMod/PassByRefill.placements.name.normal=PassByRefill
+```
+
+啊, 这一串可能有亿点长, 我们慢慢来解释一下:  
+首先这是一个实体, 所以以 `entities` 开头, 然后我们需要键入实体的"名称 ID", 然后再依次键入 `placements` 和 `name`,
+这表示我们想本地化的内容是那个实体的放置选项的名称, 最后键入放置选项的名字 "normal"(它应该会在你的 lua 的第五行附近).  
+ok 现在我们已经指定了我们想本地化什么东西了, 那么接下来简单的 `={内容}`, 在这里是 `PassByRefill`. 最后, 编译复制, 重启 Loenn,
+你应该就会看到我们的实体终于有个正常名字了:
+
+![our-name!](image-8.png)
+
+!!! info
+    对于它的贴图我们之后再说, <del>我知道你很急但是你先别急</del>.
