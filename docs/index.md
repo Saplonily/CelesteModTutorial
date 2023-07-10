@@ -15,6 +15,7 @@
 
 - Apple Sheep - 在写作初期提供了大量修改建议 ([Bilibili](https://space.bilibili.com/227488539))
 - 夜谷紫幽 - 为配置环境节提供了使用模板的建议 ([Bilibili](https://space.bilibili.com/346379712))
+- 电箱 - 制作了包含基础 Loenn 使用教程的作图教程 ([Bilibili](https://space.bilibili.com/240308518))
 
 以及我自己 :D
 
