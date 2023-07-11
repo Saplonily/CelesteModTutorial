@@ -1,7 +1,8 @@
 # 钩子, 阅读代码, demo1
 
 <!--
-// 下文废弃, 原计划自动化构建介绍于本节
+- 原计划是自动化构建介绍于本节
+- 考虑到使用模板配置更为简单所以以下这段内容就废弃了
 
 ## 开始之前
 
@@ -116,7 +117,7 @@ private void Player_Update(On.Celeste.Player.orig_Update orig, Player self)
 private void Player_Jump(On.Celeste.Player.orig_Jump orig, Player self, bool particles, bool playSfx)
 ```
 
-最后, 不要忘记在 `Unload` 方法里取消掉我们的钩子(通过`-=`), 防止我们的钩子在不必要的地方产生不好的影响:
+最后, **不要忘记**在 `Unload` 方法里**取消**掉我们的钩子(通过`-=`), 防止我们的钩子在不必要的地方产生不好的影响:
 ```cs title="取消钩子"
 public override void Unload()
 {
@@ -149,10 +150,11 @@ public override void Unload()
 !!! warning
     不要上传反编译后的代码到任何地方, 这可能会不避免的造成一些争议.
 
-现在我们浏览蔚蓝的代码就像你在 IDE 里浏览你的项目一样, 不过这不是我们的项目, 通常你可能会对着一个字段、一个函数发呆, 因为你根本不知道它是做什么的!
-好在 `dnSpy` 提供了一个很好用的"分析"功能:  
+现在我们浏览蔚蓝的代码就像你在 IDE 里浏览你的项目一样, 虽然这不是我们的项目. 在浏览过程中, 通常可能你会对着一个字段、一个函数发呆,
+大概是因为你根本不知道它是做什么的!
+好在 `dnSpy` 提供了一个很好用的"分析"功能来缓解这个 :  
 ![dnSpy-ana](image-2.png)  
-在这里你可以看到那些字段、那些函数被谁调用、被谁引用、被谁更改:
+在这里你可以看到哪些字段、哪些函数被谁调用了、被谁引用了、被谁更改了:
 ![dnSpy-findthings](image-3.png)  
 
 ### Monocle, EC 架构
@@ -181,19 +183,19 @@ C --- J[Component ...];
 - `Entity` 表示一个实体, 比如说玛德琳就是一个实体, 一个弹球是一个实体, 一个泡泡是一个实体.
 - `Component` 表示一个组件, 它附加与实体之上, 通常我们能直接看到的只有图片组件, 比如岩浆块的贴图就是由 `Image` 组件来展现的, 玩家的动画由 `Sprite` 组件展现.  
 
-!!! note
+!!! info
     以上这个架构我们就称为 `EC` 架构, 它是游戏的一种组织方式的实现.  
 
-每过 `1/60` 秒, `Engine` 就会被调用 `Update()` 函数,
-`Engine` 内部会调用 `Scene` 的 `Update()` 函数,
-`Scene` 内部会遍历它所有的 `Entity` 并调用它们的 `Update()` 函数,
-`Entity` 内部还会遍历它所有的 `Component` 并调用它们的 `Update()` 函数.  
+通常地, 每过 `1/60` 秒, `Engine` 就会被调用它的 `Update()` 函数用来更新游戏逻辑,
+`Engine.Update()` 内部会再次调用 `Scene` 的 `Update()` 函数,
+`Scene.Update()` 内部会遍历它所有的 `Entity` 并调用它们的 `Update()` 函数,
+`Entity.Update()` 内部还会遍历它所有的 `Component` 并调用它们的 `Update()` 函数.  
 
-所以那么自然, `Player.Update()` 就是玛德琳每帧的更新逻辑所在的地方了. 现在我们做一个小 demo, 将玩家的冲刺数量锁死为单冲.  
+那么自然, `Player.Update()` 就是玛德琳每帧的更新逻辑所在的地方了. 现在我们做一个小 demo, 将玩家的冲刺数量锁死为单冲.  
 
 ## 锁定单冲 - demo1
 
-通过简单的浏览蔚蓝的代码, 你了解到(没了解到也正常) `Player.Dashes` 这个字段储存了玩家的冲刺数量, 那么现在我们将它锁定为 1, 也就是单冲.  
+通过简单的浏览蔚蓝的代码, 你了解到(没了解到也正常, 后面会说一些常见类和结构帮助你理解) `Player.Dashes` 这个字段储存了玩家的冲刺数量, 那么现在我们将它锁定为 1, 也就是单冲.  
 首先我们钩取 `Player.Update()`, 然后在确保调用回原来的函数后直接将 `Dashes` 强制修改为 1.
 
 ```cs title="锁定冲刺为1!"
