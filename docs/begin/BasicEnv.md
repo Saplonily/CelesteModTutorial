@@ -21,26 +21,30 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 
 ## C# 编程能力 与 开发环境
 
-因为我们是 CodeMod, 嗯, 那么写一些代码是必不可少的, 那么一般情况在 IDE 里写代码会好很多.
-蔚蓝是使用 `C#` 基于 `.NET framework 4.5.2` 制作的, 那么你就需要学习一下 `C#`.
-> 理论上所有 .NET 系语言比如 VB.NET/F# 都可以, 但是为了方便起见我们使用 C#
+因为我们是 CodeMod, 嗯, 那么写一些代码是必不可少的, 蔚蓝是使用 `C#` 基于 `.NET framework 4.5.2` 来制作的, 那么学习 `C#` 当然是必不可少的.
 
-好吧这句话可能说的太平淡了(, 毕竟大部分<del>蔚批</del>蔚蓝 mod 爱好者就是被这一步卡住的, 那我这里能做的... 只有给你推荐几个视频和书籍了.
+!!! info
+    理论上所有 **.NET 系**语言比如 `VB.NET` `F#` 都可以, 不过为了方便起见我们还是使用 C#.
 
-对于通过视频的方式我推荐:  
-[Bilibili 丑萌气质狗 【C#零基础入门教程 Visual Studio 2022】人生低谷来学C#](https://www.bilibili.com/video/av895726228)
+好吧这句话可能说的太平淡了(wuwu), 毕竟大部分<del>蔚批</del>蔚蓝 mod 爱好者就是被这一步卡住的, 那么这里...只能给你推荐几个学习渠道了,
+毕竟在这里没必要让这个教程过于全能.
 
-对于书籍的方式我推荐:  
-C#入门经典-第7版-C# 6.0  
-!!! note
-    如果你的能力无法支持正版的话, 你可以到上面视频up的群的群文件中寻找它的电子 pdf 版
+1. 视频: [Bilibili - 丑萌气质狗 - 【C#零基础入门教程 Visual Studio 2022】人生低谷来学C#](https://www.bilibili.com/video/av895726228) (全p, 稍微不全)
+2. 视频: [Bilibili - C#从入门到精通（第5版）](https://www.bilibili.com/video/av882929680) (1-71p, 109-132p)
+3. 视频: [Bilibili - 刘铁猛 - C#语言入门详解-第1季-剪辑版-全33课-分154集](https://www.bilibili.com/video/av906241776) (1-152p)
+4. 网站: [Runnob - C# 教程](https://www.runoob.com/csharp/csharp-tutorial.html)
+5. 网站: [w3schools - C# 教程](https://www.w3schools.com/cs/index.php) (英文)
+6. 书籍: C#入门经典-第7版-C# 6.0
 
-对于开发使用的 IDE 这里推荐 `Visual Studio`, `Visual Studio Code`, `Rider`, 后两个是跨平台的而第一个是仅 Windows 平台的. 
+!!! info
+    如果你没有能力支持正版书籍的话, 你可以到一些 C# 开发者群内寻找它的电子非正版(比如视频 `1.` up 的群内)  
+    上面几个我更加推荐的是 `1.` 和 `3.`  
+    借用 `4.` 的目录, 确保你对下面这些概念(画 × 的暂时在蔚蓝 CodeMod 中用不到)有足够清晰的了解在开始你的蔚蓝 CodeMod 之旅之前:  
+    ![runnob-1](image-11.png)
+    ![runnob-2](image-12.png)
+    ![runnob-3](image-10.png)
 
-- 对于 `Visual Studio`, 你需要安装 `.NET 开发负载`. (在`Visual Studio Installer`中)
-- 对于 `Visual Studio Code`, 你需要安装 `C#` 拓展.
-
-在之后我会在 `Windows` 上使用 `Visual Studio`, 其他编辑器/IDE就不会提了, 所以你遇到了什么奇怪的问题可以到任何能联系到我的地方问我_(:з」∠)_
+相信在上面的教程中你应该已经被推荐了一些编辑器/IDE, 那么在本教程中我个人会为了方便**仅**在 `Windows` 上使用 `Visual Studio`, 那你遇到了什么奇怪的问题可以到任何能联系到我的地方问我_(:з」∠)_
 
 ## 通过模板创建项目
 
@@ -49,6 +53,7 @@ C#入门经典-第7版-C# 6.0
 所以呢这里就推荐一种新的配置环境的方式 - **使用模板**  
 考虑到 nuget 安装模板也需要一定的命令行基础...  
 所以我觉得还是[提供直接的下载链接更好](https://hongshitieli.lanzouk.com/ih5Cr11o3jaj),
+如果有需要的话这是模板的[Github源](https://github.com/Saplonily/celeste-mod-template-sdkstyled), 
 下载解压后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:
 
 !!! note
@@ -64,6 +69,17 @@ C#入门经典-第7版-C# 6.0
 - 首先打开 `Common.props`, **将里面的 `CelesteRootPath` 内的内容改成你的蔚蓝安装位置**
 - 好像就没了...
 
+```xml hl_lines="3"
+<Project>
+	<PropertyGroup>
+		<CelesteRootPath>C:\Program Files (x86)\Steam\steamapps\common\Celeste</CelesteRootPath>
+		<CommonCelesteUsings>true</CommonCelesteUsings>
+		<CommonCelesteReferences>true</CommonCelesteReferences>
+		<ModAssetsFolderName>ModFolder</ModAssetsFolderName>
+	</PropertyGroup>
+</Project>
+```
+
 咳咳这就是新方法的便利(啊?), 现在你可以按下 `Ctrl+B` 或者手动点击 `生成->生成解决方案`,
 如果你在你的 vs 输出里面看到了类似这一句:
 ```
@@ -76,20 +92,22 @@ C#入门经典-第7版-C# 6.0
     比如当你编译完项目之后它会复制编译结果到项目目录的 `ModFolder` 目录下,
     然后将整个 `ModFolder` 复制到蔚蓝的 `Mods\{你的mod名}` 文件夹下!
     所以当我们需要更改一些比如说 loenn 的配置文件, `everest.yaml` 的内容, 你的测试地图等时, 
-    你只需要简单的重新编译一遍项目, 然后等待模板来帮你做剩下的活!
+    你只需要简单地重新编译一遍项目, 然后等待模板来帮你做剩下的活!  
 
 ## 更改细节
 通过模板的话依然有些东西需要自行更改, 比如这个 Mod 的名字.  
 更改 Mod 的名字很简单, 你只需要简单地在 vs 里重命名项目的名字
 比如我想叫做 `MyAwesomeMod`, 那么你可以通过这样:  
-![awesome mod!](image-4.png)
+![awesome mod!](image-4.png)  
+顺便别忘了把类似 `MyCelesteModModule.cs` 的文件名也改成类似 `MyAwesomeModModule.cs`,
+以及改名后清理一下 ModFolder 下面可能有的一些以过去名字命名的 .dll 和 .pdb 文件!  
 
 ## Module 类
 
 <!--草啊, 新的环境配置教程还得再写一遍这俩个b东西-->
-就像我们的经典的控制台 C# 应用程序一样有个 `Main` 方法, 我们的 Mod 也有一些类似的东西, 
-这里就是 Everest 提供给我们的 `EverestModule` 类.  
-那么, 现在打开你的 `***Module.cs` 那个文件, 你应该会看到结构这样的代码:
+就像我们的经典的控制台 C# 应用程序一样有个 `Main` 方法, 我们的蔚蓝 Mod 也有一个 类似的东西, 
+那就是 Everest 提供给我们的 `EverestModule` 类.  
+那么, 现在打开你的 `Module.cs` 那个文件, 你应该会看到结构这样的代码:
 ```cs
 namespace MyCelesteMod;
 
@@ -184,13 +202,11 @@ D3D11 Adapter: Intel(R) UHD Graphics 630
 
 ## 还没完
 
-在经过如上的配置后, 你会发现在蔚蓝启动时进行编译并在 msbuild 为你复制资源时会报错, 
+在经过如上的配置后, 你会发现在蔚蓝启动的时候, 进行编译并复制资源时会报错, 
 这是因为 everest 锁定占用了它们, 导致你不得不让这一切在蔚蓝关闭时进行,
-同时由于蔚蓝的重启速度不是很理想, 
-这大大的拉低了 mod 开发效率, 不过好在 everest 提供了一个技术叫做 `hot reload`,
+同时由于蔚蓝的重启速度不是很理想, 这大大的拉低了 mod 开发效率.  
+ 不过好在 everest 提供了一个技术叫做 `hot reload`,
 即热重载, 它允许你在游戏运行期间替换你的代码并重载资源, 它目前还在 wip 状态.  
 要开启这项功能, 首先到你的蔚蓝根目录下的 Saves 目录, 找到并打开 `modsettings-Everest.celeste` 这个文件,
-翻到大概中间的位置, 找到属性 `CodeReload_WIP`, 将其更改为 `true`, 此时对你的项目稍作更改并重新编译,
-你应该不会得到任何错误, 并且 everest 也正确的重载了你的 mod.
-
-最后修改: 2023-7-8
+翻到大概中间的位置, 找到属性 `CodeReload_WIP`, 将其更改为 `true`, 此时重新编译你的项目,
+你应该就不会再得到任何错误, 并且 everest 也正确地热重载了你的 mod 和你的 mod 资源.
