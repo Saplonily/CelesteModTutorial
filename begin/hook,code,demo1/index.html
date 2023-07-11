@@ -610,7 +610,8 @@
 
 <h1 id="demo1">钩子, 阅读代码, demo1</h1>
 <!--
-// 下文废弃, 原计划自动化构建介绍于本节
+- 原计划是自动化构建介绍于本节
+- 考虑到使用模板配置更为简单所以以下这段内容就废弃了
 
 ## 开始之前
 
@@ -701,7 +702,7 @@ Everest 为我们把几乎所有可能钩取的函数放到了命名空间 <code
 <p>比如你尝试钩取 <code>Player.Jump</code> 函数时, 它的三个参数会这样传递给你:</p>
 <div class="language-cs highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Player_Jump</span><span class="p">(</span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">orig_Jump</span><span class="w"> </span><span class="n">orig</span><span class="p">,</span><span class="w"> </span><span class="n">Player</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">particles</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">playSfx</span><span class="p">)</span>
 </span></code></pre></div>
-<p>最后, 不要忘记在 <code>Unload</code> 方法里取消掉我们的钩子(通过<code>-=</code>), 防止我们的钩子在不必要的地方产生不好的影响:
+<p>最后, <strong>不要忘记</strong>在 <code>Unload</code> 方法里<strong>取消</strong>掉我们的钩子(通过<code>-=</code>), 防止我们的钩子在不必要的地方产生不好的影响:
 <div class="language-cs highlight"><span class="filename">取消钩子</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">On</span><span class="p">.</span><span class="n">Celeste</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">Update</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">Player_Update</span><span class="p">;</span>
@@ -731,10 +732,11 @@ Everest 为我们把几乎所有可能钩取的函数放到了命名空间 <code
 <p class="admonition-title">Warning</p>
 <p>不要上传反编译后的代码到任何地方, 这可能会不避免的造成一些争议.</p>
 </div>
-<p>现在我们浏览蔚蓝的代码就像你在 IDE 里浏览你的项目一样, 不过这不是我们的项目, 通常你可能会对着一个字段、一个函数发呆, 因为你根本不知道它是做什么的!
-好在 <code>dnSpy</code> 提供了一个很好用的"分析"功能:<br />
+<p>现在我们浏览蔚蓝的代码就像你在 IDE 里浏览你的项目一样, 虽然这不是我们的项目. 在浏览过程中, 通常可能你会对着一个字段、一个函数发呆,
+大概是因为你根本不知道它是做什么的!
+好在 <code>dnSpy</code> 提供了一个很好用的"分析"功能来缓解这个 :<br />
 <img alt="dnSpy-ana" src="../image-2.png" /><br />
-在这里你可以看到那些字段、那些函数被谁调用、被谁引用、被谁更改:
+在这里你可以看到哪些字段、哪些函数被谁调用了、被谁引用了、被谁更改了:
 <img alt="dnSpy-findthings" src="../image-3.png" />  </p>
 <h3 id="monocle-ec">Monocle, EC 架构</h3>
 <p>在这里我会简单介绍一下整个蔚蓝是怎么组织起来的.<br />
@@ -758,17 +760,17 @@ C --- J[Component ...];</code></pre></p>
 <li><code>Entity</code> 表示一个实体, 比如说玛德琳就是一个实体, 一个弹球是一个实体, 一个泡泡是一个实体.</li>
 <li><code>Component</code> 表示一个组件, 它附加与实体之上, 通常我们能直接看到的只有图片组件, 比如岩浆块的贴图就是由 <code>Image</code> 组件来展现的, 玩家的动画由 <code>Sprite</code> 组件展现.  </li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>以上这个架构我们就称为 <code>EC</code> 架构, 它是游戏的一种组织方式的实现.  </p>
 </div>
-<p>每过 <code>1/60</code> 秒, <code>Engine</code> 就会被调用 <code>Update()</code> 函数,
-<code>Engine</code> 内部会调用 <code>Scene</code> 的 <code>Update()</code> 函数,
-<code>Scene</code> 内部会遍历它所有的 <code>Entity</code> 并调用它们的 <code>Update()</code> 函数,
-<code>Entity</code> 内部还会遍历它所有的 <code>Component</code> 并调用它们的 <code>Update()</code> 函数.  </p>
-<p>所以那么自然, <code>Player.Update()</code> 就是玛德琳每帧的更新逻辑所在的地方了. 现在我们做一个小 demo, 将玩家的冲刺数量锁死为单冲.  </p>
+<p>通常地, 每过 <code>1/60</code> 秒, <code>Engine</code> 就会被调用它的 <code>Update()</code> 函数用来更新游戏逻辑,
+<code>Engine.Update()</code> 内部会再次调用 <code>Scene</code> 的 <code>Update()</code> 函数,
+<code>Scene.Update()</code> 内部会遍历它所有的 <code>Entity</code> 并调用它们的 <code>Update()</code> 函数,
+<code>Entity.Update()</code> 内部还会遍历它所有的 <code>Component</code> 并调用它们的 <code>Update()</code> 函数.  </p>
+<p>那么自然, <code>Player.Update()</code> 就是玛德琳每帧的更新逻辑所在的地方了. 现在我们做一个小 demo, 将玩家的冲刺数量锁死为单冲.  </p>
 <h2 id="-demo1">锁定单冲 - demo1</h2>
-<p>通过简单的浏览蔚蓝的代码, 你了解到(没了解到也正常) <code>Player.Dashes</code> 这个字段储存了玩家的冲刺数量, 那么现在我们将它锁定为 1, 也就是单冲.<br />
+<p>通过简单的浏览蔚蓝的代码, 你了解到(没了解到也正常, 后面会说一些常见类和结构帮助你理解) <code>Player.Dashes</code> 这个字段储存了玩家的冲刺数量, 那么现在我们将它锁定为 1, 也就是单冲.<br />
 首先我们钩取 <code>Player.Update()</code>, 然后在确保调用回原来的函数后直接将 <code>Dashes</code> 强制修改为 1.</p>
 <div class="language-cs highlight"><span class="filename">锁定冲刺为1!</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>

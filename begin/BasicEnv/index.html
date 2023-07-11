@@ -646,32 +646,38 @@
 注意更换版本后通常会变回原版, 记得重新安装 Everest</p>
 </div>
 <h2 id="c">C# 编程能力 与 开发环境</h2>
-<p>因为我们是 CodeMod, 嗯, 那么写一些代码是必不可少的, 那么一般情况在 IDE 里写代码会好很多.
-蔚蓝是使用 <code>C#</code> 基于 <code>.NET framework 4.5.2</code> 制作的, 那么你就需要学习一下 <code>C#</code>.</p>
-<blockquote>
-<p>理论上所有 .NET 系语言比如 VB.NET/F# 都可以, 但是为了方便起见我们使用 C#</p>
-</blockquote>
-<p>好吧这句话可能说的太平淡了(, 毕竟大部分<del>蔚批</del>蔚蓝 mod 爱好者就是被这一步卡住的, 那我这里能做的... 只有给你推荐几个视频和书籍了.</p>
-<p>对于通过视频的方式我推荐:<br />
-<a href="https://www.bilibili.com/video/av895726228">Bilibili 丑萌气质狗 【C#零基础入门教程 Visual Studio 2022】人生低谷来学C#</a></p>
-<p>对于书籍的方式我推荐:<br />
-C#入门经典-第7版-C# 6.0  </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>如果你的能力无法支持正版的话, 你可以到上面视频up的群的群文件中寻找它的电子 pdf 版</p>
+<p>因为我们是 CodeMod, 嗯, 那么写一些代码是必不可少的, 蔚蓝是使用 <code>C#</code> 基于 <code>.NET framework 4.5.2</code> 来制作的, 那么学习 <code>C#</code> 当然是必不可少的.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>理论上所有 <strong>.NET 系</strong>语言比如 <code>VB.NET</code> <code>F#</code> 都可以, 不过为了方便起见我们还是使用 C#.</p>
 </div>
-<p>对于开发使用的 IDE 这里推荐 <code>Visual Studio</code>, <code>Visual Studio Code</code>, <code>Rider</code>, 后两个是跨平台的而第一个是仅 Windows 平台的. </p>
-<ul>
-<li>对于 <code>Visual Studio</code>, 你需要安装 <code>.NET 开发负载</code>. (在<code>Visual Studio Installer</code>中)</li>
-<li>对于 <code>Visual Studio Code</code>, 你需要安装 <code>C#</code> 拓展.</li>
-</ul>
-<p>在之后我会在 <code>Windows</code> 上使用 <code>Visual Studio</code>, 其他编辑器/IDE就不会提了, 所以你遇到了什么奇怪的问题可以到任何能联系到我的地方问我_(:з」∠)_</p>
+<p>好吧这句话可能说的太平淡了(wuwu), 毕竟大部分<del>蔚批</del>蔚蓝 mod 爱好者就是被这一步卡住的, 那么这里...只能给你推荐几个学习渠道了,
+毕竟在这里没必要让这个教程过于全能.</p>
+<ol>
+<li>视频: <a href="https://www.bilibili.com/video/av895726228">Bilibili - 丑萌气质狗 - 【C#零基础入门教程 Visual Studio 2022】人生低谷来学C#</a> (全p, 稍微不全)</li>
+<li>视频: <a href="https://www.bilibili.com/video/av882929680">Bilibili - C#从入门到精通（第5版）</a> (1-71p, 109-132p)</li>
+<li>视频: <a href="https://www.bilibili.com/video/av906241776">Bilibili - 刘铁猛 - C#语言入门详解-第1季-剪辑版-全33课-分154集</a> (1-152p)</li>
+<li>网站: <a href="https://www.runoob.com/csharp/csharp-tutorial.html">Runnob - C# 教程</a></li>
+<li>网站: <a href="https://www.w3schools.com/cs/index.php">w3schools - C# 教程</a> (英文)</li>
+<li>书籍: C#入门经典-第7版-C# 6.0</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>如果你没有能力支持正版书籍的话, 你可以到一些 C# 开发者群内寻找它的电子非正版(比如视频 <code>1.</code> up 的群内)<br />
+上面几个我更加推荐的是 <code>1.</code> 和 <code>3.</code><br />
+借用 <code>4.</code> 的目录, 确保你对下面这些概念(画 × 的暂时在蔚蓝 CodeMod 中用不到)有足够清晰的了解在开始你的蔚蓝 CodeMod 之旅之前:<br />
+<img alt="runnob-1" src="../image-11.png" />
+<img alt="runnob-2" src="../image-12.png" />
+<img alt="runnob-3" src="../image-10.png" /></p>
+</div>
+<p>相信在上面的教程中你应该已经被推荐了一些编辑器/IDE, 那么在本教程中我个人会为了方便<strong>仅</strong>在 <code>Windows</code> 上使用 <code>Visual Studio</code>, 那你遇到了什么奇怪的问题可以到任何能联系到我的地方问我_(:з」∠)_</p>
 <h2 id="_2">通过模板创建项目</h2>
 <p>_(:з」∠)_<br />
 根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(<br />
 所以呢这里就推荐一种新的配置环境的方式 - <strong>使用模板</strong><br />
 考虑到 nuget 安装模板也需要一定的命令行基础...<br />
 所以我觉得还是<a href="https://hongshitieli.lanzouk.com/ih5Cr11o3jaj">提供直接的下载链接更好</a>,
+如果有需要的话这是模板的<a href="https://github.com/Saplonily/celeste-mod-template-sdkstyled">Github源</a>, 
 下载解压后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -688,9 +694,18 @@ C#入门经典-第7版-C# 6.0  </p>
 <li>首先打开 <code>Common.props</code>, <strong>将里面的 <code>CelesteRootPath</code> 内的内容改成你的蔚蓝安装位置</strong></li>
 <li>好像就没了...</li>
 </ul>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;Project&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">&lt;PropertyGroup&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="hll"><span class="w">        </span><span class="nt">&lt;CelesteRootPath&gt;</span>C:\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste<span class="nt">&lt;/CelesteRootPath&gt;</span>
+</span></span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="nt">&lt;CommonCelesteUsings&gt;</span>true<span class="nt">&lt;/CommonCelesteUsings&gt;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="nt">&lt;CommonCelesteReferences&gt;</span>true<span class="nt">&lt;/CommonCelesteReferences&gt;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="nt">&lt;ModAssetsFolderName&gt;</span>ModFolder<span class="nt">&lt;/ModAssetsFolderName&gt;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">&lt;/Project&gt;</span>
+</span></code></pre></div>
 <p>咳咳这就是新方法的便利(啊?), 现在你可以按下 <code>Ctrl+B</code> 或者手动点击 <code>生成-&gt;生成解决方案</code>,
 如果你在你的 vs 输出里面看到了类似这一句:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1&gt;Copied files in &#39;ModFolder&#39; to &#39;C:\Program Files (x86)\Steam\steamapps\common\Celeste\Mods\MyCelesteMod&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1&gt;Copied files in &#39;ModFolder&#39; to &#39;C:\Program Files (x86)\Steam\steamapps\common\Celeste\Mods\MyCelesteMod&#39;
 </span></code></pre></div>
 并且你在你的蔚蓝 Mod 目录下找到了这个被创建的目录,
 那么你的环境就算是配完了, 如果你很感兴趣这之中发生了什么, 要引用哪些程序集, 这个模板背后干了什么, 你可以去看那复杂的旧的配置方法.</p>
@@ -700,32 +715,34 @@ C#入门经典-第7版-C# 6.0  </p>
 比如当你编译完项目之后它会复制编译结果到项目目录的 <code>ModFolder</code> 目录下,
 然后将整个 <code>ModFolder</code> 复制到蔚蓝的 <code>Mods\{你的mod名}</code> 文件夹下!
 所以当我们需要更改一些比如说 loenn 的配置文件, <code>everest.yaml</code> 的内容, 你的测试地图等时, 
-你只需要简单的重新编译一遍项目, 然后等待模板来帮你做剩下的活!</p>
+你只需要简单地重新编译一遍项目, 然后等待模板来帮你做剩下的活!  </p>
 </div>
 <h2 id="_3">更改细节</h2>
 <p>通过模板的话依然有些东西需要自行更改, 比如这个 Mod 的名字.<br />
 更改 Mod 的名字很简单, 你只需要简单地在 vs 里重命名项目的名字
 比如我想叫做 <code>MyAwesomeMod</code>, 那么你可以通过这样:<br />
-<img alt="awesome mod!" src="../image-4.png" /></p>
+<img alt="awesome mod!" src="../image-4.png" /><br />
+顺便别忘了把类似 <code>MyCelesteModModule.cs</code> 的文件名也改成类似 <code>MyAwesomeModModule.cs</code>,
+以及改名后清理一下 ModFolder 下面可能有的一些以过去名字命名的 .dll 和 .pdb 文件!  </p>
 <h2 id="module">Module 类</h2>
 <!--草啊, 新的环境配置教程还得再写一遍这俩个b东西-->
-<p>就像我们的经典的控制台 C# 应用程序一样有个 <code>Main</code> 方法, 我们的 Mod 也有一些类似的东西, 
-这里就是 Everest 提供给我们的 <code>EverestModule</code> 类.<br />
-那么, 现在打开你的 <code>***Module.cs</code> 那个文件, 你应该会看到结构这样的代码:
-<div class="language-cs highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span><span class="p">;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">{</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
+<p>就像我们的经典的控制台 C# 应用程序一样有个 <code>Main</code> 方法, 我们的蔚蓝 Mod 也有一个 类似的东西, 
+那就是 Everest 提供给我们的 <code>EverestModule</code> 类.<br />
+那么, 现在打开你的 <code>Module.cs</code> 那个文件, 你应该会看到结构这样的代码:
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
 </span></code></pre></div>
 在开头我们声明了命名空间, 接下来我们声明了一个类, 然后让它继承于 <code>EverestModule</code>, 注意这个类是抽象的, 它要求我们实现的两个方法分别为 <code>Load</code> 与 <code>Unload</code>.<br />
 这两个方法很简单:</p>
@@ -741,7 +758,7 @@ C#入门经典-第7版-C# 6.0  </p>
 通常这些信息会被打印进控制台的同时写入游戏的 <code>log.txt</code> 文件中, 
 这也就解释了为什么你遇到各种问题时别人总要求你发送你的 <code>log.txt</code>.<br />
 <code>Logger.Log</code> 有两个重载, 其中一个的签名是:
-<div class="language-cs highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="w"> </span><span class="n">logLevel</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">str</span><span class="p">)</span>
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="w"> </span><span class="n">logLevel</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">str</span><span class="p">)</span>
 </span></code></pre></div>
 它会以 <code>logLevel</code> 的日志等级打印一个标签为 <code>tag</code> 的消息 <code>str</code>,
 另一个重载不要求你传入 <code>logLevel</code> 但会默认你的 <code>logLevel</code> 为 <code>LogLevel.Verbose</code>.
@@ -763,12 +780,12 @@ C#入门经典-第7版-C# 6.0  </p>
 </li>
 </ul>
 <p>好的, 现在我们打开 <code>everest.yaml</code>, 然后像一个普通的 mapper 一样填写信息:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>- Name: MyCelesteMod
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  Version: 0.1.0
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  DLL: MyCelesteMod.dll
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  Dependencies:
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    - Name: Everest
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>      Version: 1.3971.0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>- Name: MyCelesteMod
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  Version: 0.1.0
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  DLL: MyCelesteMod.dll
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  Dependencies:
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    - Name: Everest
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>      Version: 1.3971.0
 </span></code></pre></div>
 这些参数分别是:</p>
 <ul>
@@ -786,28 +803,27 @@ C#入门经典-第7版-C# 6.0  </p>
 </ul>
 <p>现在, 重新编译项目, 让 <code>msbuild</code> 带着你的 <code>ModFolder</code> 的内容飞往蔚蓝 Mods 文件夹下, 启动蔚蓝.<br />
 在同时启动的黑乎乎的窗口上你应该能在这附近看到那句熟悉的 Hello world:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>(07/08/2023 21:18:59) [Everest] [Info] [core] Module DialogCutscene 1.0.0 registered.
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>(07/08/2023 21:18:59) [Everest] [Info] [core] Module UpdateChecker 1.0.2 registered.
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>(07/08/2023 21:18:59) [Everest] [Info] [core] Module InfiniteSaves 1.0.0 registered.
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>(07/08/2023 21:18:59) [Everest] [Info] [core] Module DebugRebind 1.0.0 registered.
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>(07/08/2023 21:18:59) [Everest] [Info] [core] Module RebindPeriod 1.0.0 registered.
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>(07/08/2023 21:19:00) [Everest] [Info] [Everest.LuaBoot] Lua ready.
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="hll">(07/08/2023 21:19:00) [Everest] [Info] [MyCelesteMod] Hello World!
-</span></span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>(07/08/2023 21:19:00) [Everest] [Info] [core] Module MyAwesomeMod 0.1.0 registered.
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>(07/08/2023 21:19:00) [Everest] [Info] [loader] Loading mods with unsatisfied optional dependencies (if any)
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>FNA3D Driver: D3D11
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>D3D11 Adapter: Intel(R) UHD Graphics 630
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>(07/08/2023 21:18:59) [Everest] [Info] [core] Module DialogCutscene 1.0.0 registered.
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>(07/08/2023 21:18:59) [Everest] [Info] [core] Module UpdateChecker 1.0.2 registered.
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>(07/08/2023 21:18:59) [Everest] [Info] [core] Module InfiniteSaves 1.0.0 registered.
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>(07/08/2023 21:18:59) [Everest] [Info] [core] Module DebugRebind 1.0.0 registered.
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>(07/08/2023 21:18:59) [Everest] [Info] [core] Module RebindPeriod 1.0.0 registered.
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>(07/08/2023 21:19:00) [Everest] [Info] [Everest.LuaBoot] Lua ready.
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="hll">(07/08/2023 21:19:00) [Everest] [Info] [MyCelesteMod] Hello World!
+</span></span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>(07/08/2023 21:19:00) [Everest] [Info] [core] Module MyAwesomeMod 0.1.0 registered.
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>(07/08/2023 21:19:00) [Everest] [Info] [loader] Loading mods with unsatisfied optional dependencies (if any)
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>FNA3D Driver: D3D11
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>D3D11 Adapter: Intel(R) UHD Graphics 630
 </span></code></pre></div></p>
 <h2 id="_5">还没完</h2>
-<p>在经过如上的配置后, 你会发现在蔚蓝启动时进行编译并在 msbuild 为你复制资源时会报错, 
+<p>在经过如上的配置后, 你会发现在蔚蓝启动的时候, 进行编译并复制资源时会报错, 
 这是因为 everest 锁定占用了它们, 导致你不得不让这一切在蔚蓝关闭时进行,
-同时由于蔚蓝的重启速度不是很理想, 
-这大大的拉低了 mod 开发效率, 不过好在 everest 提供了一个技术叫做 <code>hot reload</code>,
+同时由于蔚蓝的重启速度不是很理想, 这大大的拉低了 mod 开发效率.<br />
+ 不过好在 everest 提供了一个技术叫做 <code>hot reload</code>,
 即热重载, 它允许你在游戏运行期间替换你的代码并重载资源, 它目前还在 wip 状态.<br />
 要开启这项功能, 首先到你的蔚蓝根目录下的 Saves 目录, 找到并打开 <code>modsettings-Everest.celeste</code> 这个文件,
-翻到大概中间的位置, 找到属性 <code>CodeReload_WIP</code>, 将其更改为 <code>true</code>, 此时对你的项目稍作更改并重新编译,
-你应该不会得到任何错误, 并且 everest 也正确的重载了你的 mod.</p>
-<p>最后修改: 2023-7-8</p>
+翻到大概中间的位置, 找到属性 <code>CodeReload_WIP</code>, 将其更改为 <code>true</code>, 此时重新编译你的项目,
+你应该就不会再得到任何错误, 并且 everest 也正确地热重载了你的 mod 和你的 mod 资源.</p>
 
 
 
