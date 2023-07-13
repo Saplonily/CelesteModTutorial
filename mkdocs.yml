@@ -39,6 +39,18 @@ nav:
       - 偏好: "begin/prefer.md"
       - 钩子, 阅读代码, demo1: "begin/hook,code,demo1.md"
       - 简单自定义实体: "begin/SimpleEntity.md"
+      - 简单自定义Trigger: "begin/SimpleTrigger.md"
+#     - 阅读代码: "begin/Reading.md"
+#     - <del>更多 Loenn 设置与 EntityData</del>: "begin/AdvLoennAndData.md"
+# - <del>过渡</del>:
+#     - <del>进行贴图</del>: "trans/Texturing.md"
+#     - <del>进阶EC</del>: "trans/ECcommon.md"
+#     - <del>进阶钩子</del>:
+#         - <del>认识 IL</del>: "trans/IL.md"
+#         - <del>IL 钩子与随意钩取</del>: "trans/AdvHooks.md"
+#     - <del>私有访问</del>: "trans/PrivateAccess.md"
+#     - <del>常见Celeste, Monocle类</del>: "trans/Common.md"
+#     - <del>Flag</del>: "trans/Flag.md"
   - 历史归档:
       - 基础环境配置: "arc/BasicEnv.md"
       - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"

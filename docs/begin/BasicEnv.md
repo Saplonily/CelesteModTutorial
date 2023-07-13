@@ -98,7 +98,7 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 通过模板的话依然有些东西需要自行更改, 比如这个 Mod 的名字.  
 更改 Mod 的名字很简单, 你只需要简单地在 vs 里重命名项目的名字
 比如我想叫做 `MyAwesomeMod`, 那么你可以通过这样:  
-![awesome mod!](image-4.png)  
+![awesome mod!](rename_proj.png)
 顺便别忘了把类似 `MyCelesteModModule.cs` 的文件名也改成类似 `MyAwesomeModModule.cs`,
 以及改名后清理一下 ModFolder 下面可能有的一些以过去名字命名的 .dll 和 .pdb 文件!  
 
