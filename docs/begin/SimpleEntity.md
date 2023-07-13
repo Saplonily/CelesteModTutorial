@@ -56,8 +56,8 @@ public PassByRefill(Vector2 position, Vector2 size, int dashes)
 `Vector2` 同时也可能表示大小, 即 `X` 字段表示宽度, `Y` 字段表示长度, 在这里我们用它来接收它的大小.  
 你可能注意到我们并没有理 `size` 这个表示大小参数, 稍等一下, 我们在本节后边就会使用它了.
 
-![game-coord](image-5.png)
-![room-coord](image-7.png)
+![game-coord](game_coord.png)
+![room-coord](room_entity_coord.png)
 
 接下来, 我们需要声明一个特殊的构造函数, 这个构造函数**由 Everest 反射调用**, 用于将作图软件那边的数据传递给我们:
 ```cs title="PassByRefill.cs"
@@ -233,7 +233,7 @@ Draw.Rect(Position, Width, Height, c);
 
 那么, 一切就绪, 编译你的项目, 到那个地方, 在半透明红色的区域里享受锁定冲刺数的快乐吧!
 
-![sample](image-6.png)
+![sample](entity_result.png)
 
 如果你遇到了困难, 你可以对比一下最终的代码:
 ```cs title="PassByRefill.cs"
@@ -320,7 +320,7 @@ entities.MyCelesteMod/PassByRefill.placements.name.normal=PassByRefill
 ok 现在我们已经指定了我们想本地化什么东西了, 那么接下来简单的 `={内容}`, 在这里是 `PassByRefill`. 最后, 编译复制, 重启 Loenn,
 你应该就会看到我们的实体终于有个正常名字了:
 
-![our-name!](image-8.png)
+![our-name!](our_loenn_entity_name.png)
 
 !!! info
     对于它的贴图我们之后再说, <del>我知道你很急但是你先别急</del>.

@@ -82,7 +82,7 @@ C#入门经典-第7版-C# 6.0
 通过模板的话依然有些东西需要自行更改, 比如这个 Mod 的名字.  
 更改 Mod 的名字很简单, 你只需要简单地在 vs 里重命名项目的名字
 比如我想叫做 `MyAwesomeMod`, 那么你可以通过这样:  
-![awesome mod!](image-4.png)
+![awesome mod!](rename_proj.png)
 
 ## Module 类
 
