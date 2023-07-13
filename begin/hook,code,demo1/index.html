@@ -398,6 +398,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimpleTrigger/" class="md-nav__link">
+        简单自定义Trigger
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -676,8 +690,8 @@ Everest 为我们把几乎所有可能钩取的函数放到了命名空间 <code
 然后使用一个钩子函数以像事件一样的语法"订阅"就能钩住它!
 在这里我们的钩子函数就是<code>Player_Update</code>,
 你可能注意到参数很复杂, 是的, 所以一般来说我都是依赖 IDE 帮我自动填写这些参数就像:  </p>
-<p><img alt="b4" src="../image.png" />  </p>
-<p><img alt="at" src="../image-1.png" /></p>
+<p><img alt="b4" src="../auto_complete_b4.png" />  </p>
+<p><img alt="af" src="../auto_complete_af.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>注意 IDE 生成的函数默认包含一句抛出异常语句, 记得把它改掉</p>
@@ -735,9 +749,9 @@ Everest 为我们把几乎所有可能钩取的函数放到了命名空间 <code
 <p>现在我们浏览蔚蓝的代码就像你在 IDE 里浏览你的项目一样, 虽然这不是我们的项目. 在浏览过程中, 通常可能你会对着一个字段、一个函数发呆,
 大概是因为你根本不知道它是做什么的!
 好在 <code>dnSpy</code> 提供了一个很好用的"分析"功能来缓解这个 :<br />
-<img alt="dnSpy-ana" src="../image-2.png" /><br />
+<img alt="dnSpy-ana" src="../dnspy_ana.png" /><br />
 在这里你可以看到哪些字段、哪些函数被谁调用了、被谁引用了、被谁更改了:
-<img alt="dnSpy-findthings" src="../image-3.png" />  </p>
+<img alt="dnSpy-track" src="../dnspy_track.png" />  </p>
 <h3 id="monocle-ec">Monocle, EC 架构</h3>
 <p>在这里我会简单介绍一下整个蔚蓝是怎么组织起来的.<br />
 首先蔚蓝基于 <code>Monocle</code> 引擎, 这是 <code>matt</code> 自己开发的一个引擎, 所以别指望你能在网上找到它的教程(,

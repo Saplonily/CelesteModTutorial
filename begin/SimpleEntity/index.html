@@ -16,7 +16,7 @@
         <link rel="prev" href="../hook%2Ccode%2Cdemo1/">
       
       
-        <link rel="next" href="../../arc/BasicEnv/">
+        <link rel="next" href="../SimpleTrigger/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
@@ -472,6 +472,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimpleTrigger/" class="md-nav__link">
+        简单自定义Trigger
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -803,8 +817,8 @@
 不过这里需要注意, 游戏中的坐标系和我们通常数学中的坐标系<strong>不同</strong>, 它的顶点在<strong>左上角</strong>, <strong>X 轴水平向右</strong>但是 <strong>Y 轴竖直向下</strong>! 切记不要搞混了.<br />
 <code>Vector2</code> 同时也可能表示大小, 即 <code>X</code> 字段表示宽度, <code>Y</code> 字段表示长度, 在这里我们用它来接收它的大小.<br />
 你可能注意到我们并没有理 <code>size</code> 这个表示大小参数, 稍等一下, 我们在本节后边就会使用它了.</p>
-<p><img alt="game-coord" src="../image-5.png" />
-<img alt="room-coord" src="../image-7.png" /></p>
+<p><img alt="game-coord" src="../game_coord.png" />
+<img alt="room-coord" src="../room_entity_coord.png" /></p>
 <p>接下来, 我们需要声明一个特殊的构造函数, 这个构造函数<strong>由 Everest 反射调用</strong>, 用于将作图软件那边的数据传递给我们:
 <div class="language-cs highlight"><span class="filename">PassByRefill.cs</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">public</span><span class="w"> </span><span class="nf">PassByRefill</span><span class="p">(</span><span class="n">EntityData</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">Vector2</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span><span class="w"> </span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="k">this</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">Position</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vector2</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">Width</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Height</span><span class="p">),</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Int</span><span class="p">(</span><span class="s">&quot;dashes&quot;</span><span class="p">))</span>
@@ -964,7 +978,7 @@ _(:з」∠)_, 这里我不怎么想重复它的基础使用, 所以我推荐你
 在这里它们的值就是我们之前设置的 <code>Hitbox</code> 的宽高.</p>
 <h2 id="_9">准备就绪</h2>
 <p>那么, 一切就绪, 编译你的项目, 到那个地方, 在半透明红色的区域里享受锁定冲刺数的快乐吧!</p>
-<p><img alt="sample" src="../image-6.png" /></p>
+<p><img alt="sample" src="../entity_result.png" /></p>
 <p>如果你遇到了困难, 你可以对比一下最终的代码:
 <div class="language-cs highlight"><span class="filename">PassByRefill.cs</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Celeste.Mod.Entities</span><span class="p">;</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
@@ -1047,7 +1061,7 @@ _(:з」∠)_, 这里我不怎么想重复它的基础使用, 所以我推荐你
 这表示我们想本地化的内容是那个实体的放置选项的名称, 最后键入放置选项的名字 "normal"(它应该会在你的 lua 的第五行附近).<br />
 ok 现在我们已经指定了我们想本地化什么东西了, 那么接下来简单的 <code>={内容}</code>, 在这里是 <code>PassByRefill</code>. 最后, 编译复制, 重启 Loenn,
 你应该就会看到我们的实体终于有个正常名字了:</p>
-<p><img alt="our-name!" src="../image-8.png" /></p>
+<p><img alt="our-name!" src="../our_loenn_entity_name.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>对于它的贴图我们之后再说, <del>我知道你很急但是你先别急</del>.</p>
