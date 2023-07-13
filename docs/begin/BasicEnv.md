@@ -40,9 +40,9 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
     如果你没有能力支持正版书籍的话, 你可以到一些 C# 开发者群内寻找它的电子非正版(比如视频 `1.` up 的群内)  
     上面几个我更加推荐的是 `1.` 和 `3.`  
     借用 `4.` 的目录, 确保你对下面这些概念(画 × 的暂时在蔚蓝 CodeMod 中用不到)有足够清晰的了解在开始你的蔚蓝 CodeMod 之旅之前:  
-    ![runnob-1](image-11.png)
-    ![runnob-2](image-12.png)
-    ![runnob-3](image-10.png)
+    ![runnob-1](runnob-1.png)
+    ![runnob-2](runnob-2.png)
+    ![runnob-3](runnob-3.png)
 
 相信在上面的教程中你应该已经被推荐了一些编辑器/IDE, 那么在本教程中我个人会为了方便**仅**在 `Windows` 上使用 `Visual Studio`, 那你遇到了什么奇怪的问题可以到任何能联系到我的地方问我_(:з」∠)_
 
