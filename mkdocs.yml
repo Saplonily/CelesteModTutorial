@@ -40,6 +40,7 @@ nav:
       - 钩子, 阅读代码, demo1: "begin/hook,code,demo1.md"
       - 简单自定义实体: "begin/SimpleEntity.md"
       - 简单自定义Trigger: "begin/SimpleTrigger.md"
+#     - 阅读代码: "begin/Reading.md"
 #     - <del>更多 Loenn 设置与 EntityData</del>: "begin/AdvLoennAndData.md"
 # - <del>过渡</del>:
 #     - <del>进行贴图</del>: "trans/Texturing.md"
