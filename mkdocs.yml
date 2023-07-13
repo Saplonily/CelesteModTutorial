@@ -45,12 +45,12 @@ nav:
 # - <del>过渡</del>:
 #     - <del>进行贴图</del>: "trans/Texturing.md"
 #     - <del>进阶EC</del>: "trans/ECcommon.md"
+#     - <del>常见Celeste, Monocle类</del>: "trans/Common.md"
+#     - <del>Flag</del>: "trans/Flag.md"
 #     - <del>进阶钩子</del>:
 #         - <del>认识 IL</del>: "trans/IL.md"
 #         - <del>IL 钩子与随意钩取</del>: "trans/AdvHooks.md"
 #     - <del>私有访问</del>: "trans/PrivateAccess.md"
-#     - <del>常见Celeste, Monocle类</del>: "trans/Common.md"
-#     - <del>Flag</del>: "trans/Flag.md"
   - 历史归档:
       - 基础环境配置: "arc/BasicEnv.md"
       - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
