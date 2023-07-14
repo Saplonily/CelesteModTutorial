@@ -13,13 +13,17 @@
       
       
       
+        <link rel="prev" href="../SimpleTrigger/">
+      
+      
+        <link rel="next" href="../../arc/BasicEnv/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>Reading - 蔚蓝Code Mod教程</title>
+        <title>阅读代码2 - 蔚蓝Code Mod教程</title>
       
     
     
@@ -60,6 +64,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#2" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -90,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reading
+              阅读代码2
             
           </span>
         </div>
@@ -212,14 +221,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
@@ -228,7 +239,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           入门
@@ -283,8 +294,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../hook%2Ccode%2Cdemo1/" class="md-nav__link">
-        钩子, 阅读代码, demo1
+      <a href="../hook%2Ccode/" class="md-nav__link">
+        钩子, 阅读代码
       </a>
     </li>
   
@@ -314,6 +325,88 @@
       <a href="../SimpleTrigger/" class="md-nav__link">
         简单自定义Trigger
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          阅读代码2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        阅读代码2
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ctor" class="md-nav__link">
+    .ctor
+  </a>
+  
+    <nav class="md-nav" aria-label=".ctor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ctor-cctor" class="md-nav__link">
+    .ctor / .cctor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orig_" class="md-nav__link">
+    orig_*
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statemachine" class="md-nav__link">
+    StateMachine
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -454,6 +547,50 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ctor" class="md-nav__link">
+    .ctor
+  </a>
+  
+    <nav class="md-nav" aria-label=".ctor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ctor-cctor" class="md-nav__link">
+    .ctor / .cctor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orig_" class="md-nav__link">
+    orig_*
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statemachine" class="md-nav__link">
+    StateMachine
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -471,9 +608,101 @@
   
 
 
-  <h1>Reading</h1>
-
-
+<h1 id="2">阅读代码2</h1>
+<p>嗯...根据一些很少的反馈, 似乎阅读由反编译器生成的代码时会有一些困难, 那, 这一节会简单说一些反编译器生成的代码与通常的 c# 代码不一样的地方.</p>
+<h2 id="ctor">.ctor</h2>
+<p>你可能会在反编译器中看到这种奇怪的语法:
+<div class="language-cs highlight"><span class="filename">Celeste.FinalBoss (6a 拥抱的 Badeline)</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">orig_ctor</span><span class="p">(</span><span class="n">EntityData</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">Vector2</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">this</span><span class="p">..</span><span class="n">ctor</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Position</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">NodesOffset</span><span class="p">(</span><span class="n">offset</span><span class="p">),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">Int</span><span class="p">(</span><span class="s">&quot;patternIndex&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">Float</span><span class="p">(</span><span class="s">&quot;cameraPastY&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">120f</span><span class="p">),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">Bool</span><span class="p">(</span><span class="s">&quot;dialog&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">Bool</span><span class="p">(</span><span class="s">&quot;startHit&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">Bool</span><span class="p">(</span><span class="s">&quot;cameraLockY&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">));</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p>嗯...好的, <code>orig_ctor</code> 这个名字有点怪, 但是能看, 但是接下来的 <code>this..ctor</code> 是什么?! 它甚至是个非法语法!<br />
+其实这并不罕见, 因为 everest 对蔚蓝程序的修改并不是只停留在表面, 而更是深入到了 <strong>IL 代码层</strong>, IL 代码我们会在之后讲述, 在这里你只需要知道它是一种<strong>中间语言</strong>.<br />
+你的 c# 代码会被编译为 IL 由<strong>运行时</strong>来执行, 同样地, 其他的 <code>.NET系</code> 语言比如说 <code>VB.NET</code> 和 <code>F#</code> 也会被编译为 IL 由运行时执行.<br />
+那么既然这里的 IL 是由 c# 编译而来的, 那么这样的 IL 多多少少会有一种 "c# 味", 反编译器就是靠着这种 "c# 味" 来逆推出可能的源码. 但是 everest 直接在 IL 代码层进行了修改,
+所以这种 "c# 味" 会被掩盖导致反编译器生成奇奇怪怪的代码.  </p>
+<p>好吧上面这一大段可能很难懂, 不过没关系, 我们不如直接告诉介绍上面的这种情况怎么处理:</p>
+<h3 id="ctor-cctor">.ctor / .cctor</h3>
+<p><code>.ctor</code> 是一个特殊昵称, 它表示类的构造函数, 比如 <code>Player.ctor(Vector2 position, PlayerSpriteMode spriteMode)</code> 就表示 <code>Player</code> 仅有的那个构造函数.<br />
+那么, 在我们之后提到的 <code>ctor</code> <code>.ctor</code> 意思都为 "构造函数".  </p>
+<p><code>.cctor</code> 也是一个特殊昵称, 它表示该类的静态构造函数, 在之后我们提到的 <code>cctor</code> 与 <code>.cctor</code> 都表意为"静态构造函数".</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>在前面的钩子节我们没有探讨构造函数如何钩取, 那么这里你大概会明白, 钩取名字为 <code>ctor</code> 的方法即为钩取构造函数.</p>
+</div>
+<h3 id="orig_">orig_*</h3>
+<p>一些方法可能以 <code>orig_</code> 开头, 这表明 everest 对原方法进行了修改, 或者更为简单一点, 进行了"钩取". 在这里, 比如说 <code>Player.Update</code> 方法就被 everest 进行了"钩取",
+所谓的钩子就是 <code>Player.Update</code>, 而对应我们的钩子的 <code>orig</code> 委托在这里就体现为 <code>orig_Update</code> 方法.</p>
+<div class="language-cs highlight"><span class="filename">Player.Update  (像钩子本体一样!)</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Update</span><span class="p">()</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">orig_Update</span><span class="p">();</span><span class="w"> </span><span class="c1">// 就像在我们的钩子里调用 orig 委托一样</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="c1">// 就像在我们的钩子里在函数执行完后做些事情一样</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">Level</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">base</span><span class="p">.</span><span class="n">Scene</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Level</span><span class="p">;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">level</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">......</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1">// Player.orig_Update() 就像我们的钩子钩取的原函数!</span>
+</span></code></pre></div>
+<h2 id="statemachine">StateMachine</h2>
+<p>这个是个 Monocle 的一个 Component, 是一个<strong>状态机</strong>的实现, 我本来打算在 <strong>常见 Celeste, Monocle 类</strong><sub>在写了.jpg</sub> 节说的, 但是提前一下使得你能更好的读懂相关代码可能更好一点.<br />
+不过这里我们只说一个东西: <code>St*</code> 这一类字段.<br />
+在阅读 <code>Player</code> 类的代码时, 你会看到这些奇奇怪怪名字的常量但是"没有被使用":</p>
+<ul>
+<li>const int StNormal = 0;</li>
+<li>const int StClimb = 1;</li>
+<li>const int StDash = 2;</li>
+<li>const int StSwim = 3;</li>
+<li>const int StBoost = 4;</li>
+<li>......</li>
+</ul>
+<p>这些是玩家状态的编号, 至于"没有被使用"是因为在 c# 编译器在编译期就把引用的这些数字内联了, 你看到的只有保留下来的元数据.<br />
+比如这里奇怪的<a href="https://www.zhihu.com/question/22018894">魔数</a> 24:
+<div class="language-cs highlight"><span class="filename">int Player.FlingBirdUpdate()</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">FlingBirdUpdate</span><span class="p">()</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">base</span><span class="p">.</span><span class="n">MoveTowardsX</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">flingBird</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="m">250f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Engine</span><span class="p">.</span><span class="n">DeltaTime</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">);</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">base</span><span class="p">.</span><span class="n">MoveTowardsY</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">flingBird</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">8f</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">base</span><span class="p">.</span><span class="n">Collider</span><span class="p">.</span><span class="n">Height</span><span class="p">,</span><span class="w"> </span><span class="m">250f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Engine</span><span class="p">.</span><span class="n">DeltaTime</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">);</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="m">24</span><span class="p">;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+</span></code></pre></div>
+你肯定很疑惑这个奇怪的 24 是什么, 那么这里你就需要去查玩家的那一堆状态机编号了.<br />
+经过查询, 你会得到编号为 24 的状态是 <code>StFlingBird</code>, 即鸟扔状态:
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StFlingBird</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">24</span><span class="p">;</span>
+</span></code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>FlingBirdUpdate 是一个<strong>状态机的</strong> Update 函数, 它的返回值表示下一帧玩家的状态应该是什么.</p>
+</div>
+<p>在这里简单列出一下 <code>Player</code> 的所有状态以便你查询:</p>
+<div class="language-cs highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// 这里一部分状态我也不知道是什么意思, 感谢可能的pr来完善本表</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StNormal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 正常</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StClimb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 攀爬</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StDash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// 冲刺</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StSwim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// 水中</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StBoost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">;</span><span class="w"> </span><span class="c1">// 绿泡泡中</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StRedDash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">;</span><span class="w"> </span><span class="c1">// 红泡泡中</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StHitSquash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span><span class="p">;</span><span class="w"> </span><span class="c1">// 被固体挤压?</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StLaunch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span><span class="p">;</span><span class="w"> </span><span class="c1">// 被 弹球, 鱼 弹开</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StPickup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// 捡起抓取物</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StDreamDash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">9</span><span class="p">;</span><span class="w"> </span><span class="c1">// 穿果冻</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StSummitLaunch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// 7ab 上升过场</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StDummy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">11</span><span class="p">;</span><span class="w"> </span><span class="c1">// 剧情过场状态?</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StIntroWalk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">12</span><span class="p">;</span><span class="w"> </span><span class="c1">// Walk 类型的 Intro (Intro 即玩家进入关卡最开始时的表现)</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StIntroJump</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">13</span><span class="p">;</span><span class="w"> </span><span class="c1">// Jump 类型的 Intro</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StIntroRespawn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">14</span><span class="p">;</span><span class="w"> </span><span class="c1">// Respawn 类型的 Intro</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StIntroWakeUp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15</span><span class="p">;</span><span class="w"> </span><span class="c1">// WakeUp 类型的 Intro (2a awake)</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StBirdDashTutorial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">16</span><span class="p">;</span><span class="w"> </span><span class="c1">// 序章教冲刺状态?</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StFrozen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">17</span><span class="p">;</span><span class="w"> </span><span class="c1">// 未知</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StReflectionFall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">18</span><span class="p">;</span><span class="w"> </span><span class="c1">// 6a-2 掉落剧情段</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StStarFly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">;</span><span class="w"> </span><span class="c1">// 羽毛状态</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StTempleFall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// 5a 镜子后段的掉落</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StCassetteFly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">21</span><span class="p">;</span><span class="w"> </span><span class="c1">// 捡到磁带后的泡泡包裹段</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StAttract</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">22</span><span class="p">;</span><span class="w"> </span><span class="c1">// 6a badeline boss 靠近时的吸引段</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StIntroMoonJump</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">23</span><span class="p">;</span><span class="w"> </span><span class="c1">// 9a 开场上升剧情段</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StFlingBird</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">24</span><span class="p">;</span><span class="w"> </span><span class="c1">// 9a 鸟扔状态</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StIntroThinkForABit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">25</span><span class="p">;</span><span class="w"> </span><span class="c1">// 9a 的 Intro?</span>
+</span></code></pre></div>
+<p>// TODO</p>
 
 
 
