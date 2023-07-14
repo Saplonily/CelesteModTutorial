@@ -37,10 +37,10 @@ nav:
       - Celeste, Everest, MonoMod: "begin/CelesteEverestMonoMod.md"
       - 基础环境配置: "begin/BasicEnv.md"
       - 偏好: "begin/prefer.md"
-      - 钩子, 阅读代码, demo1: "begin/hook,code,demo1.md"
+      - 钩子, 阅读代码: "begin/hook,code.md"
       - 简单自定义实体: "begin/SimpleEntity.md"
       - 简单自定义Trigger: "begin/SimpleTrigger.md"
-#     - 阅读代码: "begin/Reading.md"
+      - 阅读代码2: "begin/Reading.md"
 #     - 更多 Loenn 设置与 EntityData: "begin/AdvLoennAndData.md"
 # - 过渡:
 #     - 进行贴图: "trans/Texturing.md"
