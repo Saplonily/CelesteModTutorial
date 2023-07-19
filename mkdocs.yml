@@ -13,6 +13,8 @@ theme:
 markdown_extensions:
   - admonition # 警告
   - meta # 元数据
+  - attr_list
+  - md_in_html
   - def_list # 列表
   - pymdownx.mark # mark
   - pymdownx.tilde # 下划线
@@ -41,9 +43,8 @@ nav:
       - 简单自定义实体: "begin/SimpleEntity.md"
       - 简单自定义Trigger: "begin/SimpleTrigger.md"
       - 阅读代码2: "begin/Reading.md"
-#     - 更多 Loenn 设置与 EntityData: "begin/AdvLoennAndData.md"
+      - 简单贴图: "begin/SimpleTexturing.md"
 # - 过渡:
-#     - 进行贴图: "trans/Texturing.md"
 #     - 进阶EC: "trans/ECcommon.md"
 #     - 常见Celeste, Monocle类: "trans/Common.md"
 #     - Flag: "trans/Flag.md"
