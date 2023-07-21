@@ -45,8 +45,8 @@ nav:
       - 简单自定义Trigger: "begin/SimpleTrigger.md"
       - 阅读代码2: "begin/Reading.md"
       - 简单贴图: "begin/SimpleTexturing.md"
-# - 过渡:
-#     - 进阶EC: "trans/ECcommon.md"
+  - 过渡:
+      - 进阶EC: "trans/ECcommon.md"
 #     - 常见Celeste, Monocle:
 #       - Alarm, Tween: "trans/common/Alarm,Tween.md"
 #     - Flag: "trans/Flag.md"
@@ -54,6 +54,8 @@ nav:
 #         - 认识 IL: "trans/IL.md"
 #         - IL 钩子与随意钩取: "trans/AdvHooks.md"
 #     - 私有访问: "trans/PrivateAccess.md"
+#  - 额外:
+#     - ImGUI: "extra/ImGUI.md"
   - 历史归档:
       - 基础环境配置: "arc/BasicEnv.md"
       - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
