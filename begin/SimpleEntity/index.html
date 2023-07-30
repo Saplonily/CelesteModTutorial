@@ -446,7 +446,7 @@
         
           <li class="md-nav__item">
   <a href="#loenn-dashes" class="md-nav__link">
-    为什么在 Loenn 中我能设置 dashes 为小数?
+    在 Loenn 中禁止设置 dashes 为小数
   </a>
   
 </li>
@@ -538,12 +538,61 @@
       
       
         <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-          历史归档
+          过渡
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          过渡
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trans/ECcommon/" class="md-nav__link">
+        更多EC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          历史归档
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           历史归档
         </label>
@@ -596,17 +645,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
       
       
       
-        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
           其他
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_4">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           其他
         </label>
@@ -763,7 +812,7 @@
         
           <li class="md-nav__item">
   <a href="#loenn-dashes" class="md-nav__link">
-    为什么在 Loenn 中我能设置 dashes 为小数?
+    在 Loenn 中禁止设置 dashes 为小数
   </a>
   
 </li>
@@ -968,20 +1017,24 @@ _(:з」∠)_, 这里我不怎么想重复它的基础使用, 所以我推荐你
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Scene</span><span class="p">.</span><span class="n">Tracker</span><span class="p">.</span><span class="n">GetEntity</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="p">();</span>
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
 </span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="c1">// 检测是否与玩家碰撞</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CollideCheck</span><span class="p">(</span><span class="n">player</span><span class="p">))</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">player</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">CollideCheck</span><span class="p">(</span><span class="n">player</span><span class="p">))</span>
 </span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="p">{</span>
 </span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="c1">// 如果碰撞了, 那么设置它的冲刺数</span>
 </span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="n">player</span><span class="p">.</span><span class="n">Dashes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">Dashes</span><span class="p">;</span>
 </span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="p">}</span>
 </span></code></pre></div></p>
-<p>相信你看到第五行一定会被吓一跳! 相信那一串东西对于新人来说一定很复杂, 不过没关系, 你只需要知道那一串会返回在场的那个玩家就行.<br />
-然后我们用 <code>Entity</code> 的 <code>CollideCheck</code> 检查我们又没有与玩家发生碰撞, 如果有则强制设置它的冲刺数.<br />
+<p>相信你看到第五行一定会被吓一跳! 相信那一串东西对于新人来说一定很复杂, 不过没关系, 你只需要知道那一串会返回在场的那个玩家就行(不在场时为 null).<br />
+然后我们用 <code>Entity</code> 的 <code>CollideCheck</code> 检查我们有没有与玩家发生碰撞, 如果有则强制设置它的冲刺数.<br />
 由于我们每一帧都在检查, 都在设置, 所以最终的效果就是玩家一旦进入这个区域, 冲刺数被锁定为 <code>Dashes</code>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>实际上这里有更好的方法来单独检测与玩家的碰撞, 为了简单起见这里没有采用. 不过我们依然会在后面提到("常见 Celeste, Monocle 类"节).<br />
 第一行的 <code>base.Update()</code> 会<strong>遍历调用</strong>该 <code>Entity</code> 的所有 <strong><code>Component</code> 的 <code>Update()</code></strong>, 通常我们需要<strong>在开头就调用</strong>它. 后面的 <code>Render()</code> 也是.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>在玩家死亡后的"烟花"并不是 <code>Player</code> 实例, 所以此时我们会得到一个 <code>null</code> 的结果, 如果你不想让你的游戏崩溃的话记得检查它是否为 <code>null</code>.</p>
 </div>
 <h3 id="_8">告诉游戏它长什么样</h3>
 <p>那么, 功能做好后, 的让玩家看见, 为了简单起见这里我们不打算使用图片, 只是像前面描述的一样, 它是个"透明的红色物体",
@@ -1033,7 +1086,7 @@ _(:з」∠)_, 这里我不怎么想重复它的基础使用, 所以我推荐你
 </span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="w">    </span><span class="p">{</span>
 </span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w">        </span><span class="k">base</span><span class="p">.</span><span class="n">Update</span><span class="p">();</span>
 </span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Scene</span><span class="p">.</span><span class="n">Tracker</span><span class="p">.</span><span class="n">GetEntity</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="p">();</span>
-</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CollideCheck</span><span class="p">(</span><span class="n">player</span><span class="p">))</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">player</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">CollideCheck</span><span class="p">(</span><span class="n">player</span><span class="p">))</span>
 </span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a><span class="w">        </span><span class="p">{</span>
 </span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a><span class="w">            </span><span class="n">player</span><span class="p">.</span><span class="n">Dashes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">Dashes</span><span class="p">;</span>
 </span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a><span class="w">        </span><span class="p">}</span>
@@ -1049,7 +1102,7 @@ _(:з」∠)_, 这里我不怎么想重复它的基础使用, 所以我推荐你
 </span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a><span class="p">}</span>
 </span></code></pre></div></p>
 <h2 id="_10">更多</h2>
-<h3 id="loenn-dashes">为什么在 Loenn 中我能设置 dashes 为小数?</h3>
+<h3 id="loenn-dashes">在 Loenn 中禁止设置 dashes 为小数</h3>
 <p>在 Loenn 中如果你没有显式指定某个数字 data 的类型的话它默认会是浮点数,
 也就是你能输入小数, 不过这不会<strong>很</strong>影响(还是有的!)代码那边, 所以我们得跟 Loenn 说一下它是个整数! 那么我们在代码的 return 之前这样设置一下:
 <div class="language-lua highlight"><span class="filename">PassByRefill.lua</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">entity</span><span class="p">.</span><span class="n">fieldInformation</span> <span class="o">=</span> 
