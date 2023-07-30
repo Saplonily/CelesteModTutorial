@@ -185,7 +185,7 @@ public override void Update()
     var player = Scene.Tracker.GetEntity<Player>();
 
     // 检测是否与玩家碰撞
-    if (this.CollideCheck(player))
+    if (player is not null && this.CollideCheck(player))
     {
         // 如果碰撞了, 那么设置它的冲刺数
         player.Dashes = this.Dashes;
@@ -193,13 +193,16 @@ public override void Update()
 }
 ```
 
-相信你看到第五行一定会被吓一跳! 相信那一串东西对于新人来说一定很复杂, 不过没关系, 你只需要知道那一串会返回在场的那个玩家就行.  
-然后我们用 `Entity` 的 `CollideCheck` 检查我们又没有与玩家发生碰撞, 如果有则强制设置它的冲刺数.  
+相信你看到第五行一定会被吓一跳! 相信那一串东西对于新人来说一定很复杂, 不过没关系, 你只需要知道那一串会返回在场的那个玩家就行(不在场时为 null).  
+然后我们用 `Entity` 的 `CollideCheck` 检查我们有没有与玩家发生碰撞, 如果有则强制设置它的冲刺数.  
 由于我们每一帧都在检查, 都在设置, 所以最终的效果就是玩家一旦进入这个区域, 冲刺数被锁定为 `Dashes`.
 
 !!! info
     实际上这里有更好的方法来单独检测与玩家的碰撞, 为了简单起见这里没有采用. 不过我们依然会在后面提到("常见 Celeste, Monocle 类"节).  
     第一行的 `base.Update()` 会**遍历调用**该 `Entity` 的所有 **`Component` 的 `Update()`**, 通常我们需要**在开头就调用**它. 后面的 `Render()` 也是.
+
+!!! info
+    在玩家死亡后的"烟花"并不是 `Player` 实例, 所以此时我们会得到一个 `null` 的结果, 如果你不想让你的游戏崩溃的话记得检查它是否为 `null`.
 
 ### 告诉游戏它长什么样
 
@@ -262,7 +265,7 @@ public class PassByRefill : Entity
     {
         base.Update();
         var player = Scene.Tracker.GetEntity<Player>();
-        if (this.CollideCheck(player))
+        if (player is not null && this.CollideCheck(player))
         {
             player.Dashes = this.Dashes;
         }
@@ -280,7 +283,7 @@ public class PassByRefill : Entity
 
 ## 更多
 
-### 为什么在 Loenn 中我能设置 dashes 为小数?
+### 在 Loenn 中禁止设置 dashes 为小数
 
 在 Loenn 中如果你没有显式指定某个数字 data 的类型的话它默认会是浮点数,
 也就是你能输入小数, 不过这不会**很**影响(还是有的!)代码那边, 所以我们得跟 Loenn 说一下它是个整数! 那么我们在代码的 return 之前这样设置一下:

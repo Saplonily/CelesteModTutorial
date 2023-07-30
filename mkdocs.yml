@@ -21,14 +21,14 @@ markdown_extensions:
   - pymdownx.tilde # 下划线
   - pymdownx.inlinehilite # 高亮
   - pymdownx.snippets # 语法高亮
+  - pymdownx.tasklist # 列表
+  - pymdownx.details
   - pymdownx.tabbed:
       alternate_style: true 
   - pymdownx.superfences: # 语法高亮
       custom_fences:
         - name: mermaid
           class: mermaid
-  - pymdownx.tasklist # 列表
-  - pymdownx.details
   - pymdownx.highlight: # 语法高亮
       anchor_linenums: true
       line_spans: __span
@@ -46,7 +46,7 @@ nav:
       - 阅读代码2: "begin/Reading.md"
       - 简单贴图: "begin/SimpleTexturing.md"
   - 过渡:
-      - 进阶EC: "trans/ECcommon.md"
+      - 更多EC: "trans/ECcommon.md"
 #     - 常见Celeste, Monocle:
 #       - Alarm, Tween: "trans/common/Alarm,Tween.md"
 #     - Flag: "trans/Flag.md"
