@@ -32,7 +32,7 @@ ok那么我们 balabala 说了一大堆, 接下来介绍几个会被蔚蓝调用
 
 对于 Component 来说大部分函数与 Entity 的类似, 只不过名字前加个了 Entity.
 比如实体的 `Awake` 对应 Component 的 `EntityAwake`, 通常这些函数被调用的地方是对应的 Entity 的生命周期函数的默认实现,
-所以除非有意的记得在开头调用基类的生命周期实现:
+所以除非有意而为之记得在开头调用基类的生命周期实现:
 ```cs title="MyInterestingEntity.cs"
 public override void Awake()
 {
@@ -57,6 +57,15 @@ public override void Awake()
 - `Scene.Entities`: 获取当前场景上的实体列表
 - `Entity.Components`: 获取当前实体的 Component 列表
 
+#### Entity
+
+`Entity` 本身有四个公开的字段:
+
+- `Active`, 该 `bool` 字段表示该 `Entity` 是否 "存活", 否则为 "失活", "失活" 的 `Entity` 将不会被调用 `Update` 方法直到 `Active` 为 `true`
+- `Collidable`, 该 `bool` 字段表示该 `Entity` 是否 "可碰撞", 不可碰撞的实体与任何实体进行碰撞检测时都会返回 `false`, 所以你可以使用该自动禁用它的碰撞箱
+- `Visible`, 该 `bool` 字段表示该 `Entity` 是否 "可见", 不可见的实体不会被调用 `Render` 方法, 注意即使不可见它的碰撞箱依然存在.
+- `Position`, 该 `Vector2` 字段表示该 `Entity` 的位置, 注意这个位置相对的坐标系是不同的, 对于 HUD 实体来说它的坐标系是一个 1922 x 1092 的原点左上角的屏幕坐标, 对于 gameplay 实体来说它是相对于世界原点的分度值为 1px 的坐标. 这个行为可以通过后面所说的 `Tag` 来配置.
+
 ## Tag
 
 :thinking:  
@@ -70,3 +79,12 @@ this.AddTag(Tags.HUD);
 ```
 当你的实体拥有这个 Tag 后, 蔚蓝会将你的实体绘制在 ui 层, 比较常见的例子就是左上角的计时器, 它在构造器内就给自己打上了 `Tags.HUD` 的标签.  
 也如上面所说的, 一些蔚蓝常见的所有 Tag 你都可以在 `Celeste.Tags` 类内找到.
+
+以下是一些可能地常见的 Tag:
+
+- `PauseUpdate`: 是否在暂停期间依然被调用 `Update`, 通常用于 ui 层的实体上
+- `FrozenUpdate`: 是否在 `Frozen` 状态下依然被调用 `Update` (比如草莓籽动画过程, 1a蓝心解密成功过程, 注意此状态与冻结帧无关)
+- `TransitionUpdate`: 是否在关卡切板时依然被调用 `Update`, 通常用于在切板时更新一些视觉上的东西(比如电网的 "放电" 动画不会在切板时静止)
+- `HUD`: 即是否是 ui 层, 此项就会更改 `Entity` 的 `Position` 的相对坐标系
+- `Global`: 该 Entity 是否是全局的, 这个全局指**整个蔚蓝 Celeste**, 通常在蔚蓝切换场景时所有的 `Entity` 都会被移除, 所以我们可能需要这个 Tag 来防止它发生.
+ 一个使用的例子就是群服, 你会发现无论你在蔚蓝的哪个界面你都可以接发消息, 查看在线人数等.
