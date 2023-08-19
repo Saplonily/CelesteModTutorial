@@ -355,6 +355,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    最后一些碎碎念
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -502,44 +509,10 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-          常见Celeste, Monocle
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3_2">
-          <span class="md-nav__icon md-icon"></span>
-          常见Celeste, Monocle
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../trans/common1/" class="md-nav__link">
         Alarm, Tween, Coroutine
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -745,6 +718,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    最后一些碎碎念
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -815,8 +795,8 @@
 根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(<br />
 所以呢这里就推荐一种新的配置环境的方式 - <strong>使用模板</strong><br />
 考虑到 nuget 安装模板也需要一定的命令行基础...<br />
-所以我觉得还是<a href="https://hongshitieli.lanzouk.com/ih5Cr11o3jaj">提供直接的下载链接更好</a>,
-如果有需要的话这是模板的<a href="https://github.com/Saplonily/celeste-mod-template-sdkstyled">Github源</a>, 
+所以我觉得还是<a href="https://hongshitieli.lanzouc.com/iZzh515spp6b">提供直接的下载链接更好</a>,
+或者你也可以到<a href="https://github.com/Saplonily/celeste-mod-template-sdkstyled">Github源</a>, 
 下载解压后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -827,6 +807,7 @@
 <li>CelesteMod.targets</li>
 <li>Common.props</li>
 <li>MyCelesteModModule.cs</li>
+<li>MyCelesteMod.csproj</li>
 </ul>
 <p>以及你的项目, 它的名字是 <code>MyCelesteMod</code>, 不同于旧的方法, 在这里你的配置过程很简单:</p>
 <ul>
@@ -909,7 +890,11 @@
 <h2 id="everestyaml">everest.yaml</h2>
 <p>ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没有让蔚蓝加载到我们的mod, 不过别急, 这是倒数第二步了.<br />
 实际上有关 code mod 的所有代码相关的东西我们都已经做完了, 剩余的其实只是一个普通 mod 要做的 ---- 写 <code>everest.yaml</code>.
-在这里我们需要在 <code>ModFolder</code> 这个文件夹里做这件事, 那么, 在你的这个文件夹下创建 <code>everest.yaml</code> 空文件, 你的目录结构可能像是:</p>
+在这里我们需要在 <code>ModFolder</code> 这个文件夹里做这件事, 那么, 在你的这个文件夹下创建 <code>everest.yaml</code> 空文件, 你的目录结构可能像是:  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>.dll</code> 文件和 <code>.pdb</code> 文件仅会在你构建过项目后出现, 有时候甚至 ModFolder 目录也会在构建过后出现</p>
+</div>
 <ul>
 <li>ModFolder<ul>
 <li>everest.yaml</li>
@@ -963,6 +948,31 @@
 要开启这项功能, 首先到你的蔚蓝根目录下的 Saves 目录, 找到并打开 <code>modsettings-Everest.celeste</code> 这个文件,
 翻到大概中间的位置, 找到属性 <code>CodeReload_WIP</code>, 将其更改为 <code>true</code>, 此时重新编译你的项目,
 你应该就不会再得到任何错误, 并且 everest 也正确地热重载了你的 mod 和你的 mod 资源.</p>
+<h2 id="_6">最后一些碎碎念</h2>
+<p>这一节完成后你的目录结构大概会像是:</p>
+<ul>
+<li>MyCelesteMod (你的根目录)<ul>
+<li>ModFolder<ul>
+<li>everest.yaml</li>
+<li>MyCelesteMod.dll</li>
+<li>MyCelesteMod.pdb</li>
+</ul>
+</li>
+<li>CelesteMod.props</li>
+<li>CelesteMod.targets</li>
+<li>Common.props</li>
+<li>MyCelesteMod.csproj</li>
+<li>MyCelesteModModule.cs</li>
+</ul>
+</li>
+</ul>
+<p>其中正如之前所介绍的, 我推荐如果你使用该模板的话, mod 的资源文件应该放在 <code>ModFolder</code> 中, 然后就像往常一样放置你的 mod 资源,
+当你的项目在构建时它们会自动被复制.<br />
+如果你没有更改你的项目而只更改了资源文件时你会发现编译项目会因为"所有文件都是最新的"而跳过编译, 而同时也会跳过我们的资源复制, 对此的话我们有两种解决方案:</p>
+<ul>
+<li>直接强制重新构建项目 (vs中 "生成" -&gt; "重新生成项目")</li>
+<li>在项目根目录执行 <code>msbuild -target:CopyModAssets</code> 命令行</li>
+</ul>
 
 
 
