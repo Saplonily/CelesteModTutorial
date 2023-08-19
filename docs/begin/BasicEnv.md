@@ -52,8 +52,8 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(  
 所以呢这里就推荐一种新的配置环境的方式 - **使用模板**  
 考虑到 nuget 安装模板也需要一定的命令行基础...  
-所以我觉得还是[提供直接的下载链接更好](https://hongshitieli.lanzouk.com/ih5Cr11o3jaj),
-如果有需要的话这是模板的[Github源](https://github.com/Saplonily/celeste-mod-template-sdkstyled), 
+所以我觉得还是[提供直接的下载链接更好](https://hongshitieli.lanzouc.com/iZzh515spp6b),
+或者你也可以到[Github源](https://github.com/Saplonily/celeste-mod-template-sdkstyled), 
 下载解压后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:
 
 !!! note
@@ -63,6 +63,7 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 - CelesteMod.targets
 - Common.props
 - MyCelesteModModule.cs
+- MyCelesteMod.csproj
     
 以及你的项目, 它的名字是 `MyCelesteMod`, 不同于旧的方法, 在这里你的配置过程很简单:
 
@@ -93,6 +94,8 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
     然后将整个 `ModFolder` 复制到蔚蓝的 `Mods\{你的mod名}` 文件夹下!
     所以当我们需要更改一些比如说 loenn 的配置文件, `everest.yaml` 的内容, 你的测试地图等时, 
     你只需要简单地重新编译一遍项目, 然后等待模板来帮你做剩下的活!  
+
+
 
 ## 更改细节
 通过模板的话依然有些东西需要自行更改, 比如这个 Mod 的名字.  
@@ -152,7 +155,10 @@ public class MyAwesomeModModule : EverestModule
 
 ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没有让蔚蓝加载到我们的mod, 不过别急, 这是倒数第二步了.  
 实际上有关 code mod 的所有代码相关的东西我们都已经做完了, 剩余的其实只是一个普通 mod 要做的 ---- 写 `everest.yaml`.
-在这里我们需要在 `ModFolder` 这个文件夹里做这件事, 那么, 在你的这个文件夹下创建 `everest.yaml` 空文件, 你的目录结构可能像是:
+在这里我们需要在 `ModFolder` 这个文件夹里做这件事, 那么, 在你的这个文件夹下创建 `everest.yaml` 空文件, 你的目录结构可能像是:  
+
+!!! note
+    `.dll` 文件和 `.pdb` 文件仅会在你构建过项目后出现, 有时候甚至 ModFolder 目录也会在构建过后出现
 
 - ModFolder
     - everest.yaml
@@ -210,3 +216,25 @@ D3D11 Adapter: Intel(R) UHD Graphics 630
 要开启这项功能, 首先到你的蔚蓝根目录下的 Saves 目录, 找到并打开 `modsettings-Everest.celeste` 这个文件,
 翻到大概中间的位置, 找到属性 `CodeReload_WIP`, 将其更改为 `true`, 此时重新编译你的项目,
 你应该就不会再得到任何错误, 并且 everest 也正确地热重载了你的 mod 和你的 mod 资源.
+
+## 最后一些碎碎念
+
+这一节完成后你的目录结构大概会像是:
+
+- MyCelesteMod (你的根目录)
+    - ModFolder
+        - everest.yaml
+        - MyCelesteMod.dll
+        - MyCelesteMod.pdb
+    - CelesteMod.props
+    - CelesteMod.targets
+    - Common.props
+    - MyCelesteMod.csproj
+    - MyCelesteModModule.cs
+
+其中正如之前所介绍的, 我推荐如果你使用该模板的话, mod 的资源文件应该放在 `ModFolder` 中, 然后就像往常一样放置你的 mod 资源,
+当你的项目在构建时它们会自动被复制.  
+如果你没有更改你的项目而只更改了资源文件时你会发现编译项目会因为"所有文件都是最新的"而跳过编译, 而同时也会跳过我们的资源复制, 对此的话我们有两种解决方案:
+
+- 直接强制重新构建项目 (vs中 "生成" -> "重新生成项目")
+- 在项目根目录执行 `msbuild -target:CopyModAssets` 命令行

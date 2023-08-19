@@ -47,10 +47,9 @@ nav:
       - 简单贴图: "begin/SimpleTexturing.md"
   - 过渡:
       - 更多EC: "trans/ECcommon.md"
-      - 常见Celeste, Monocle:
-        - Alarm, Tween, Coroutine: "trans/common1.md"
-        # - Flag, Tag, Tracker: "trans/common2.md"
-        # - Sprite, Image: "trans/common3.md"
+      - Alarm, Tween, Coroutine: "trans/common1.md"
+      # - Flag, Tag, Tracker: "trans/common2.md"
+      # - Sprite, Image: "trans/common3.md"
 #     - 进阶钩子:
 #         - 认识 IL: "trans/IL.md"
 #         - IL 钩子与随意钩取: "trans/AdvHooks.md"
