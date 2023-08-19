@@ -52,7 +52,7 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(  
 所以呢这里就推荐一种新的配置环境的方式 - **使用模板**  
 考虑到 nuget 安装模板也需要一定的命令行基础...  
-所以我觉得还是[提供直接的下载链接更好](https://hongshitieli.lanzouc.com/iZzh515spp6b),
+所以我觉得还是[提供直接的下载链接更好](https://hongshitieli.lanzouc.com/i1WYg15srr7g),
 或者你也可以到[Github源](https://github.com/Saplonily/celeste-mod-template-sdkstyled), 
 下载解压后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:
 
