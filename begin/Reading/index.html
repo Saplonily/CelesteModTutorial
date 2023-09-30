@@ -19,7 +19,7 @@
         <link rel="next" href="../SimpleTexturing/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.1.17">
     
     
       
@@ -42,6 +42,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../css/content.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -800,7 +802,7 @@
 </span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StIntroJump</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">13</span><span class="p">;</span><span class="w"> </span><span class="c1">// Jump 类型的 Intro (1a)</span>
 </span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StIntroRespawn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">14</span><span class="p">;</span><span class="w"> </span><span class="c1">// Respawn 类型的 Intro (重生)</span>
 </span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StIntroWakeUp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15</span><span class="p">;</span><span class="w"> </span><span class="c1">// WakeUp 类型的 Intro (2a awake)</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StBirdDashTutorial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">16</span><span class="p">;</span><span class="w"> </span><span class="c1">// 序章教冲刺时的状态?</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StBirdDashTutorial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">16</span><span class="p">;</span><span class="w"> </span><span class="c1">// 序章教冲刺时冲刺结束后进入的状态</span>
 </span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StFrozen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">17</span><span class="p">;</span><span class="w"> </span><span class="c1">// 未知</span>
 </span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StReflectionFall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">18</span><span class="p">;</span><span class="w"> </span><span class="c1">// 6a-2 掉落剧情段</span>
 </span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">StStarFly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">;</span><span class="w"> </span><span class="c1">// 羽毛飞行</span>
@@ -836,8 +838,7 @@
                     Material for MkDocs
                 </a>
             </div>
-            <a href="https://icp.gov.moe/?keyword=20221437" class="md-copyright" target="_blank"
-                rel="noopener">
+            <a href="https://icp.gov.moe/?keyword=20221437" class="md-copyright" target="_blank" rel="noopener">
                 萌ICP备20221437号
             </a>
         </div>
