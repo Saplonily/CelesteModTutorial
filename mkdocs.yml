@@ -27,7 +27,7 @@ markdown_extensions:
   - pymdownx.tasklist # 列表
   - pymdownx.details
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - pymdownx.superfences: # 语法高亮
       custom_fences:
         - name: mermaid
@@ -53,13 +53,13 @@ nav:
       - Alarm, Tween, Coroutine: "trans/common1.md"
       # - Flag, Tag, Tracker: "trans/common2.md"
       # - Sprite, Image: "trans/common3.md"
-#     - 进阶钩子:
-#         - 认识 IL: "trans/IL.md"
-#         - IL 钩子与随意钩取: "trans/AdvHooks.md"
-#     - 私有访问: "trans/PrivateAccess.md"
-#  - 额外:
-#     - 调试: "extra/debug.md"
-#     - ImGUI: "extra/ImGUI.md"
+  #     - 进阶钩子:
+  #         - 认识 IL: "trans/IL.md"
+  #         - IL 钩子与随意钩取: "trans/AdvHooks.md"
+  #     - 私有访问: "trans/PrivateAccess.md"
+  #  - 额外:
+  #     - 调试: "extra/debug.md"
+  #     - ImGUI: "extra/ImGUI.md"
   - 历史归档:
       - 基础环境配置: "arc/BasicEnv.md"
       - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
