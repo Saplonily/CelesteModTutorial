@@ -11,6 +11,9 @@ theme:
     - content.code.copy
     - content.tabs.link
 
+extra_css:
+  - css/content.css
+
 markdown_extensions:
   - admonition # 警告
   - meta # 元数据
