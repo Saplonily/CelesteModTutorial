@@ -1,32 +1,37 @@
 # 阅读代码2
 
-嗯...根据一些很少的反馈, 似乎阅读由反编译器生成的代码时会有一些困难, 那, 这一节会简单说一些反编译器生成的代码与通常的 c# 代码不一样的地方.
+一些情况下, 阅读由反编译器生成的代码时可能不是那么顺利, 那么这一节会简单说一些反编译器生成的代码与通常的 C# 代码不一样的地方.
 
 ## 奇奇怪怪的昵称与代码
 
 在反编译器中可能会出现这种奇怪的语法:
-```cs title="Celeste.FinalBoss (6a后半段Badeline)"
+```cs title="Celeste.FinalBoss (即 6a 后半段 Badeline Boss 实体)"
 public void orig_ctor(EntityData e, Vector2 offset)
 {
     this..ctor(e.Position + offset, e.NodesOffset(offset), e.Int("patternIndex", 0), e.Float("cameraPastY", 120f), e.Bool("dialog", false), e.Bool("startHit", false), e.Bool("cameraLockY", true));
 }
 ```
 
-嗯...好的, 首先 `orig_ctor` 这个名字有点怪但是能接受, 但是接下来的 `this..ctor` 是什么? 它甚至是个非法语法!  
-其实这并不罕见, 由于 everest 对蔚蓝程序的修改并不只是停留在表面, 而更是深入到了 **IL 代码层**, 这是一种相对底层的代码,
-你的 c# 代码**都**会被编译为 IL 然后扔给**运行时(runtime)**来执行, 同样地, 所有其他的 `.NET` 系语言比如 `VB.NET` 和 `F#` 也都会被编译为 IL.  
-那么既然这里的 IL 是由 c# 编译而来的, 那么这样的 IL 多多少少会有一种 "c# 味", 反编译器就是靠这种 "c# 味" 来逆推出源码. 但是这里 everest 直接在 IL 代码层进行了修改,
-破坏了这种 "c# 味", 那自然反编译器就会生成奇奇怪怪的代码.
+嗯...好的, 首先 `orig_ctor` 这个名字有点怪但是能接受, 但是接下来的 `this..ctor` 是什么? 它甚至在 `C#` 中是个非法语法!  
+其实这并不罕见, 由于 Everest 对蔚蓝程序的修改并不只是停留在表面, 而更是深入到了 **IL 代码层**, 这是一种相对底层的代码,
+你的 `C#` 代码最终**都**会被编译为 `IL` 然后扔给**运行时(runtime)**来执行, 同样地, 所有其他的 `.NET` 系语言比如 `VB.NET` 和 `F#` 也都会被编译为 IL.  
+那么既然这里的 IL 是由 `C#` 编译而来的, 那么这样的 IL 多多少少会有一种 "C# 味", 反编译器就是靠这种一定的 "C# 味" 来逆推出可能的 `C#` 源码. 
+但是既然这里 Everest 直接在 IL 代码层进行了修改, 破坏了这种 "C# 味", 那自然反编译器就会生成奇奇怪怪的代码.
 
-那么原因说完了, 接下来就来解决这些"是什么"的问题:
+那么原因说完了, 接下来就来解决这些 "是什么" 的问题:
 
 ### .ctor / .cctor
 
-`.ctor` 是一种特殊的函数名称, 表示类的**构造函数**, 比如 `Player..ctor(a, b)` 就表示这里调用了 `Player..ctor` 这个函数, 即构造函数(虽然你自己是在 c# 中做不到的!).  
-通常我们也会用 `ctor` `.ctor` 指代 "构造函数".  
+`.ctor` 是一种特殊的函数名称, 表示类的**构造函数**, 比如 `Player..ctor(a, b)` 就表示这里调用了 `Player..ctor` 这个函数, 虽然你自己在 C# 中是做不到的.  
+所以我们经常也会用 `ctor` 或者 `.ctor` 来指代 "构造函数".  
 
-`.cctor` 也是一种特殊的函数名称, 表示类的**静态构造函数**, 比如 `Input..cctor()` 就表示 `Input` 类的无参静态构造函数.
-同样地我们通常也会用 `cctor` `.cctor` 指代 "静态构造函数".
+`.cctor` 也是一种特殊的函数名称, 表示类的**静态构造函数**, 比如 `Input..cctor()` 就表示调用 `Input` 类的无参静态构造函数.
+同样地我们通常也会用 `cctor` 或者 `.cctor` 来指代 "静态构造函数".
+
+这一类函数在 `IL` 层有个标记叫 `special name`, 当反编译器发现一个方法名为 `.ctor` 且带有 `special name` 标记的方法时,
+反编译器就会认为它是一个构造函数, 如果反编译器发现这个方法在一个构造函数开头调用了, 那么反编译器就会认为这个构造函数带一个构造函数链,
+但是如果它的调用位置在其他位置, 同时又因为 `C#` 编译器是不可能编译, 那么反编译器就会不知所措, 只能无奈的生成 `xxx..ctor()` 这种错误的语法.
+这也是我们上面看到的 `this..ctor` 这种语法被生成的原因, 因为这个构造函数调用不在构造函数里出现, 而是在一个正常的 `orig_ctor` 方法里面!
 
 !!! info
     在前面的钩子节我们没有探讨过构造函数如何钩取, 在这里你可能就会明白, 钩取名字为 `ctor` 的函数就是钩取了构造函数, 静态构造函数同理.
@@ -50,7 +55,7 @@ public override void Update()
 
 !!! info
     如果你自行钩取 `Player.Update` 函数这种已被 everest "钩取" 的函数实际上你钩取的是 everest 的钩子, 这对于 `On` 钩子可能没有大影响,
-    但是对于后面我们会说的 `IL` 钩子有很大影响, 不过这些我们等到后面高阶钩子的时候再说.
+    但是对于后面我们会说的 `IL` 钩子有很大影响, 不过这些我们等到后面再说.
 
 ## StateMachine
 
@@ -89,7 +94,6 @@ const int StFlingBird = 24;
 在这里会简单列出一下 `Player` 的所有状态便于查询:
 
 ```cs
-// 其实有一部分状态我也不知道是什么意思, 所以就感谢可能的pr来完善这里啦
 const int StNormal = 0; // 正常
 const int StClimb = 1; // 攀爬
 const int StDash = 2; // 冲刺
@@ -115,5 +119,5 @@ const int StCassetteFly = 21; // 捡到磁带后的泡泡包裹段
 const int StAttract = 22; // 6a badeline boss 靠近时的吸引段
 const int StIntroMoonJump = 23; // 9a 开场上升剧情段
 const int StFlingBird = 24; // 9a 鸟扔状态
-const int StIntroThinkForABit = 25; // 9a 的 Intro?
+const int StIntroThinkForABit = 25; // 9a Intro
 ```
