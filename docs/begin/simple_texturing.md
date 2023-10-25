@@ -4,11 +4,11 @@
 这里我们会使用这个 64x64 的**超级丑陋**的贴图(画画一点不会qwq):  
 
 <figure markdown>
-  ![FuckingUglyTexture](FuckingUglyTexture.png){ width=150 }
+  ![FuckingUglyTexture](./fucking_ugly_texture.png){ width=150 }
   <figcaption>啊它真的太丑陋了</figcaption>
 </figure>
 
-你可以在这里下载它: [FuckingUglyTexture.png](./FuckingUglyTexture.png)
+你可以在这里下载它: [fucking_ugly_texture.png](./fucking_ugly_texture.png)
 
 
 ## 禁止我们的实体缩放
