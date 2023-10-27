@@ -244,9 +244,9 @@ flowchart
 
 ~~~这图做完后看上去好像不是想象中的那么直观...~~~
 
-## 动手试试看
+## 书写 `IL`
 
-现在我们以及了解了一小些 `IL` 的知识, 现在我们回到之前的工程中, 更改为以下代码:
+现在我们已经了解了一小些 `IL` 的知识, 现在我们回到之前的工程中, 更改为以下代码:
 ```cs hl_lines="14 23-28 30-32"
 
 using System.Reflection;
@@ -287,11 +287,13 @@ public static class Program
 
 这里我们在上面更改了方法的定义, 使它变为带有 `int` 返回值且接收 3 个参数的方法, 然后适当修改我们调用这个方法的地方,
 然后运用我们刚才的 `IL` 知识实现这个方法.  
+现在, 运行它, 你应该会得到 `result is 6` 的输出, 但是我们全程都没有在 `C#` 代码中使用 `+` 运算符,
+而是直接在 `IL` 中调用 `add` 操作符, 从某些方面来说这挺有趣的.
 
 现在, 试着完成一个小练习, 将上面 `GenerateMethod` 方法里对 `MyMethod` 的实现从 `a + b + c` 更改为 `a + b * c`.
 
 === "提示"
-    乘法的操作符为 `mul`, 其使用方法与 `add` 一致
+    乘法的操作符为 `mul`, 其使用方法与 `add` 一致.
 === "答案"
     === "方法一"
         ```cs
@@ -316,11 +318,61 @@ public static class Program
         在方法二中就需要动点脑子, 我们一次性将三个参数压入了栈中, 然后执行一个 `mul` 操作, 它会把最后压入的两个元素弹出相乘后压入,
         然后我们马上再执行一个 `add` 操作, 将刚刚被压入的元素与最开始被压入的第一个参数相加, 也就是实现的是 `a + (b * c)`.
 
+----
 现在你可以试着玩一些有趣的东西, 比如试着用 `ldarg.3` 压入一个不存在的第四个参数, 或者在 `ret` 时评估栈上没有元素或者有很多个元素.  
 &emsp;———— 它们都会迷惑 jit 然后不知所措地扔给你一个 `InvalidProgramException`.
 
+那么再来试试 `a - b + c`:
+
+=== "提示"
+    减法的操作符为 `sub`, 它会弹出两个值, 将后弹出的值减去先弹出的值后将结果压入评估栈.
+=== "答案"
+    ```cs
+    il.Emit(OpCodes.Ldarg_0);
+    il.Emit(OpCodes.Ldarg_1);
+    il.Emit(OpCodes.Sub);
+    il.Emit(OpCodes.Ldarg_2);
+    il.Emit(OpCodes.Add);
+    il.Emit(OpCodes.Ret);
+    ```
+    你可能已经发现的一个比较舒服的点是, 相减的顺序刚好就是压入的顺序, 也即弹出的逆顺序, 这点会让我们在某些情况下手写 `IL` 的更符合直觉一点.
+
+----
 ## 方法的调用, 字段、属性的访问
 
-### 字段的访问
+### 静态方法的调用
+
+现在我们的 `IL` 指令只能缩写加加减减是不是很无聊? 那么现在我们来试试在 `IL` 中调用方法.  
+在 `IL` 中有三种调用方法指令:
+
+| 操作符 | 参数 | 描述 |
+| ---- | ---- | ---- |
+| `call` | 方法 token | 根据方法的参数列表(包含 `this`, 如果其是成员方法时)逆顺序弹出对应数量参数并以此调用对应方法 |
+| `callvirt` | 方法 token | 同 `call`, 但是该指令在对应方法为虚方法时会向下寻找重写后的方法 |
+| `calli` | callsite 描述 | 根据 callsite 描述 弹出对应参数并再次弹出所需的函数指针并调用 |
+
+其中用的最多的是 `call` 和 `callvirt`, 最后一个 `calli` 在做与本机交互时才常用, 
+因为它要求我们有对应的函数指针(函数指针可能很多教程不会提及, 你可以在MSDN 上的[不安全代码、数据指针和函数指针](https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/unsafe-code#function-pointers)这篇文章中了解).  
+
+`call` 与 `callvirt` 最主要的区别是, `call` 指令一旦指定了对应方法, 那么在运行时调用的方法是不会变的, 所以它通常生成于静态方法的调用中,
+而 `callvirt` 在运行时会检测目标类型, 并向下查找可能的被重写后的方法, 所以按字面意思它经常生成于虚方法的调用中, 不过一般对于普通成员方法的调用,
+`C#` 编译器也会生成 `callvirt` 指令, 这是因为 `callvirt` 需要检查目标类型, 在调用对象为 `null` 时就抛出 `NullReferenceException`,
+而 `call` 指令可能直到方法调用一半时才察觉 `this` 为 `null`, 这是一个很危险的行为.
+
+----
+在我们废话完之后, 是时候做一点实际的了. 现在, 我们不需要我们之前测试 `add`, `ret`, `mul`, `sub` 指令时声明的方法签名了, 所以我们更改如下代码,
+使得我们的动态方法 `MyMethod` 返回 `void` 并且不接收参数:
+```cs hl_lines="6-7"
+public static MethodInfo GenerateMethod(Action<ILGenerator> generateAction)
+{
+    AssemblyBuilder asmBuilder = AssemblyBuilder.DefineDynamicAssembly(new("MyAssembly"), AssemblyBuilderAccess.RunAndCollect);
+    ModuleBuilder moduleBuilder = asmBuilder.DefineDynamicModule("MyTestModule");
+    TypeBuilder typeBuilder = moduleBuilder.DefineType("MyType");
+    MethodBuilder methodBuilder = typeBuilder.DefineMethod("MyMethod", MethodAttributes.Public | MethodAttributes.Static
+        , typeof(void), Type.EmptyTypes);
+    generateAction(methodBuilder.GetILGenerator());
+    return typeBuilder.CreateType().GetMethod("MyMethod")!;
+}
+```
 
 // TODO

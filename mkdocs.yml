@@ -5,11 +5,13 @@ site_author: Saplonily
 
 theme:
   name: material
+  language: zh
   custom_dir: overrides
   logo: assets/images/favicon.png
   features:
     - content.code.copy
     - content.tabs.link
+    - navigation.sections
 
 extra_css:
   - css/content.css
@@ -20,10 +22,7 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - def_list # 列表
-  - pymdownx.mark # mark
   - pymdownx.tilde # 下划线
-  - pymdownx.inlinehilite # 高亮
-  - pymdownx.snippets # 语法高亮
   - pymdownx.tasklist # 列表
   - pymdownx.details
   - pymdownx.tabbed:
@@ -33,9 +32,9 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
   - pymdownx.highlight: # 语法高亮
-      anchor_linenums: true
-      line_spans: __span
+      auto_title: true
       pygments_lang_class: true
+      linenums: true
 
 nav:
   - 首页: "index.md"

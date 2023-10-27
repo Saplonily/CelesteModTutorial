@@ -1,10 +1,10 @@
 # 首页
 
-本系列教程主要会说一些个人在制作蔚蓝CodeMod的一些经验  
+本系列教程主要写自于个人在制作蔚蓝 CodeMod 的一些经验  
 本网站内容开源在: [github.com/Saplonily/CelesteModTourial](https://github.com/Saplonily/CelesteModTourial)  
-十分欢迎来提 pr 和 issue, 毕竟我不知道你们哪里不太懂_(:з」∠)_  
+十分欢迎来提 pr 和 issue 以修复各种语法错误, 用词错误和内容错误以及建议_(:з」∠)_  
 
-大部分文章可能会写的不明不白以至于需要频繁修改, 如果你有更好的修改建议的话欢迎来提 issue(  
+大部分文章可能会写的不明不白以至于需要频繁修改, 如果你有更好的修改建议的话欢迎来提 issue.  
 
 那么一切就绪, 可以开始阅读 入门-第一节 了:
 
@@ -18,6 +18,25 @@
 
 以及我自己 :D
 
-- Saplonily ([Bilibili](https://space.bilibili.com/39046375), [Mail](mailto:Saplonily@outlook.com))
+- Saplonily ([Bilibili](https://space.bilibili.com/39046375), [Outlook](mailto:Saplonily@outlook.com))
 
-<del>说起来国内的coder看起来真的好少哎, 所以说写这个教程可以认为是我不想写码想推给别人((</del>
+<del>说起来国内的 coder 看起来真的好少哎, 所以说写这个教程可以认为是我不想写码想推给别人((</del>
+
+----
+
+在网站中的代码块中的一些高亮在横向滚动时会发生截断, 即高亮并没有覆盖整行, 这个是 `mkdocs-material` 自身的 bug, 而且看上去说是修复起来很困难,
+issue 链接: [mkdocs-material issue #452](https://github.com/squidfunk/mkdocs-material/issues/452).  
+
+bug 复现于下:
+``` hl_lines="1 2 3 4"
+t11ntpj808mbc1gu4lx7n9d8tj5q3ck3t1c0aclc    Liquorice oat cake carrot cake. Halvah lemon drops bear claw fruitcake. Marshmallow danish jelly-o toffee.
+jqlksiohper0brg9x2ajcm7ajjf8ptjxprqstvda    Apple pie cake jelly-o sugar plum.
+x3mjly0wn48wy7lgf2bfymbykommv8dbyp7an1n8    Toffee candy brownie carrot cake jujubes sweet roll chocolate gingerbread.
+q0b5pj6eacuwj3t1i4jv7yxf00mi6osc0h5etcfz    Cupcake tiramisu danish brownie danish jujubes gingerbread toffee gummi bears.
+u25qzla31ahqxd2x6b2wgpbxvw88h5w6mujoqtuq    Fruitcake jelly beans candy canes icing pastry liquorice. Bear claw tart chocolate sweet soufflé sweet roll marshmallow ice cream liquorice.
+9xcjy4nvh1jinka64lkdr1nhagm8odp0frr56nks    Bear claw tootsie roll toffee biscuit cotton candy macaroon. 
+5rmcwguz3jzws8w1hh2jbfdau74jip3f8rbu10oy    Pudding caramels carrot cake sweet roll danish oat cake.
+s50wqctf9059ets5ezp4oeq7p6pfr24ntww2d15v    Oat cake macaroon pastry cheesecake. Dessert topping chocolate bar. 
+vue3y73jcwsg5um4pw8aqhuv3njgtg9iq0ortx5p    Sesame snaps candy canes muffin lollipop wafer. 
+1o6edje4xcb7vtcvct4ghawafdvmvgkx4r0scny5    Macaroon pudding gingerbread. 
+```
