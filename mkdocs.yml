@@ -32,7 +32,6 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
   - pymdownx.highlight: # 语法高亮
-      auto_title: true
       pygments_lang_class: true
       linenums: true
 
