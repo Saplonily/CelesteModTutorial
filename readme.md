@@ -14,7 +14,7 @@ mkdocs serve
 
 ```sh
 pip install mkdocs
-pip install material
+pip install mkdocs-material
 ```
 
 默认开放在 `localhost:8000`.
