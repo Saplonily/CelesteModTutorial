@@ -83,7 +83,9 @@ public static class Program
 上述代码其实是在在代码中动态定义了一个程序集, 然后动态定义了一个类, 并向里面动态定义了一个 `MyMethod` 方法,
 之后我们动态地 "编译" 了这个程序集并将其装载到我们的程序集域中, 其中,
 `MyMethod` 方法的 `IL` 的内容就是在我们的 `Main` 方法中 `GenerateMethod` 参数中的委托定义的.  
-往简单来说就是我们在代码中反射创建了一段新的代码并执行, 这听起来是不是酷极了?(  
+往简单来说就是我们在代码中反射创建了一段新的代码并执行, 这听起来是不是酷极了?  
+上面这个动态定义程序集的库叫做 `System.Reflection.Emit`, 在这里我们只是为了学习一点 `IL` 知识而使用,
+到后面修改蔚蓝的程序集时我们需要使用 Everest 带的 `Mono.Cecil` 库, 不过他们大同小异.
 
 ## 基本 `IL`
 
@@ -338,11 +340,10 @@ public static class Program
     你可能已经发现的一个比较舒服的点是, 相减的顺序刚好就是压入的顺序, 也即弹出的逆顺序, 这点会让我们在某些情况下手写 `IL` 的更符合直觉一点.
 
 ----
-## 方法的调用, 字段、属性的访问
 
-### 静态方法的调用
+## 方法的调用
 
-现在我们的 `IL` 指令只能缩写加加减减是不是很无聊? 那么现在我们来试试在 `IL` 中调用方法.  
+现在我们的 `IL` 指令只能做些加加减减是不是很无聊? 那么现在我们来试试在 `IL` 中调用方法.  
 在 `IL` 中有三种调用方法指令:
 
 | 操作符 | 参数 | 描述 |
@@ -375,4 +376,366 @@ public static MethodInfo GenerateMethod(Action<ILGenerator> generateAction)
 }
 ```
 
+顺便把下面也改成这样, 以贴合我们在上面的定义, 顺便清空一下我们的方法体:
+```cs
+MethodInfo methodInfo = GenerateMethod(il =>
+{
+    il.Emit(OpCodes.Ret);
+});
+var action = methodInfo.CreateDelegate<Action>();
+action();
+```
+
+现在, 我们打算使用 `IL` 写一个 HelloWorld 程序, 那么就需要调用 `System.Console.WriteLine(string)` 这个方法,
+注意此时我们必须清楚我们调用的方法的具体某个重载, 现在使用反射知识, 获取这个静态方法的 `MethodInfo`:
+```cs
+var cws = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) })!;
+```
+
+然后我们观察它的参数, 发现需要一个 `string`, 所以我们得使用 `ldstr` `IL` 指令, 它会将它参数 token 对应的字符串压入评估栈,
+在这里我们不需要关心这个 token 如何生成, `System.Reflection.Emit` 会帮我们做好这些, 在这里只需要传入 `string`:
+```cs
+il.Emit(OpCodes.Ldstr, "Hello World in IL!");
+```
+
+一切就绪, 调用我们的方法:
+
+```cs
+il.Emit(OpCodes.Call, cws);
+```
+
+总的代码如下:
+```cs
+ar cws = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) })!;
+il.Emit(OpCodes.Ldstr, "Hello World in IL!");
+il.Emit(OpCodes.Call, cws);
+il.Emit(OpCodes.Ret);
+```
+
+现在, 运行程序, 你应该会看到如下输出:
+```txt title="哇你太强了你做到了这个神仙操作你怎么可以这么强！！！&emsp;待会儿我说我自己呢"
+Hello World in IL!
+```
+
+对于有返回值的方法, `call` 调用完后会将返回值压入堆栈, 比如要将以下 `C#` 代码转为 `IL` 代码:
+```cs
+Console.WriteLine(Console.ReadLine());
+```
+
+只需要这样:
+```cs
+var cws = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) })!;
+var cr = typeof(Console).GetMethod("ReadLine")!;
+il.Emit(OpCodes.Call, cr);
+il.Emit(OpCodes.Call, cws);
+il.Emit(OpCodes.Ret);
+```
+
+当我们不需要返回值时, 我们必须显式使用 `pop` 指令舍弃它, 防止它"污染"我们的评估栈:
+```cs
+// 等待用户的一个回车输入
+Console.ReadLine();
+Console.WriteLine("Hey, I see you pressed the Enter!");
+```
+
+```cs hl_lines="4"
+var cws = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) })!;
+var cr = typeof(Console).GetMethod("ReadLine")!;
+il.Emit(OpCodes.Call, cr);
+il.Emit(OpCodes.Pop);
+il.Emit(OpCodes.Ldstr, "Hey, I see you pressed the Enter!");
+il.Emit(OpCodes.Call, cws);
+il.Emit(OpCodes.Ret);
+```
+
+方法的参数列表顺序和压栈顺序一致, 调用多参数方法也会显得很自然:
+```cs
+double a = Math.Pow(123, 4);
+Console.WriteLine(a);
+```
+
+```cs
+var cw = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(double) })!;
+var powMethod = typeof(Math).GetMethod("Pow")!;
+il.Emit(OpCodes.Ldc_R8, 123.0);
+il.Emit(OpCodes.Ldc_R8, 4.0);
+il.Emit(OpCodes.Call, powMethod);
+il.Emit(OpCodes.Call, cw);
+il.Emit(OpCodes.Ret);
+```
+
+`ldc.r8` 指令将参数中的 `float64`, 即 `double` 字面量压入评估栈中, 类似的操作符还有 `ldc.i4`, 它将参数中的 `int32` 即 `int` 字面量压入评估栈中,
+注意在这里传参我们**必须明确写明**参数类型, 比如上面的 `IL` 如果使用 `123` 而不是 `123.0` 会发生 jit 异常或行为非期望,
+因为参数类型不匹配, `123` 匹配到了 `il.Emit` 的 `int` 重载, 而我们需要的是 `double` 重载, 所以我们写明 `123.0` 或 `123d` 以使其成为 `double` 类型的字面量.  
+对于 `float` `long` `double` 等这些有对应字面量后缀的(`f`, `l`, `d`) 类型我们直接加后缀就行了, 但对于 `short` 和 `byte` 这些, 我们必须进行显式强转:
+
+```cs
+public static void Main()
+{
+    MethodInfo methodInfo = GenerateMethod(il =>
+    {
+        // il 中没有对应的加载 `int16` 和 `int8` 的指令, 我们得使用 `ldc.i4`, 
+        // 虽然它本来是用来加载 `int32` 的, 但 jit 会知道我们想要干什么
+        // 对于小一点的整数字面量 IL 还提供了一个 `ldc.i4.s` 指令
+        // 其参数为 `int8` 即 `byte` 或 `sbyte` 类型
+        var printByte = typeof(Program).GetMethod("PrintByte")!;
+        il.Emit(OpCodes.Ldc_I4_S, (byte)12);
+        il.Emit(OpCodes.Call, printByte);
+        il.Emit(OpCodes.Ldc_I4, (int)12);
+        il.Emit(OpCodes.Call, printByte);
+        il.Emit(OpCodes.Ret);
+    });
+    var action = methodInfo.CreateDelegate<Action>();
+    action();
+
+}
+
+public static void PrintByte(byte v)
+{
+    Console.WriteLine($"Your byte is {v}");
+}
+```
+
+## 对象实例化
+
+这一步很简单, 为了实例化一个对象, 我们需要使用 `newobj` 操作符, 其参数为对应对象的一个构造器, 该指令执行后会将我们要的对象压入评估栈, 比如如下 `C#` 代码:
+
+```cs
+new StringBuilder();
+```
+
+我们需要这样生成它的 `IL`:
+
+```cs
+var sbctor = typeof(StringBuilder).GetConstructor(Type.EmptyTypes)!;
+il.Emit(OpCodes.Newobj, sbctor);
+```
+
+## 成员方法的调用
+
+现在, 我们在评估栈上有了一个对象, 我们就可以用它调用它的成员方法了.  
+成员方法的调用与静态方法调用基本一致, 但是每次调用之前我们都**必须**记得将 `this` 的值作为第0个参数压入堆栈, 顺便,
+记住这里的 `this` 是作为参数传递的, 每次调用都会被弹出评估栈, 所以在连续调用它的成员方法时记得将 `this` 再次压入.  
+通常我们会使用 `callvirt` 来调用成员方法, 一方面为了确保调用到了重写后的虚函数, 一方面为了尽可能早的检测出 `this` 为 null.
+
+```cs
+Console.WriteLine(new StringBuilder().Append("abc").Append("def").Append("ghi").ToString());
+```
+
+```cs hl_lines="8 10 12 13"
+var cw = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) })!;
+var sbctor = typeof(StringBuilder).GetConstructor(Type.EmptyTypes)!;
+var appendMethod = typeof(StringBuilder).GetMethod("Append", new Type[] { typeof(string) })!;
+var toStringMethod = typeof(StringBuilder).GetMethod("ToString", Type.EmptyTypes)!;
+// StringBuilder.Append 方法会返回自身, 所以这里的 `this` 在方法被调用后又被弹出又被压入
+il.Emit(OpCodes.Newobj, sbctor);
+il.Emit(OpCodes.Ldstr, "abc");
+il.Emit(OpCodes.Callvirt, appendMethod);
+il.Emit(OpCodes.Ldstr, "def");
+il.Emit(OpCodes.Callvirt, appendMethod);
+il.Emit(OpCodes.Ldstr, "ghi");
+il.Emit(OpCodes.Callvirt, appendMethod);
+il.Emit(OpCodes.Callvirt, toStringMethod);
+il.Emit(OpCodes.Call, cw);
+il.Emit(OpCodes.Ret);
+```
+
+但是实际上, 我们明确知道 `StringBuilder` 是密封的, 没人会重写它的虚方法, 以及这里我们明确知道这里的 `this` 不为 null,
+所以实际上上面的 `callvirt` 都能换成 `call`:
+
+```cs hl_lines="8 10 12 13"
+var cw = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) })!;
+var sbctor = typeof(StringBuilder).GetConstructor(Type.EmptyTypes)!;
+var appendMethod = typeof(StringBuilder).GetMethod("Append", new Type[] { typeof(string) })!;
+var toStringMethod = typeof(StringBuilder).GetMethod("ToString", Type.EmptyTypes)!;
+// StringBuilder.Append 方法会返回自身, 所以这里的 `this` 在方法被调用后又被弹出又被压入
+il.Emit(OpCodes.Newobj, sbctor);
+il.Emit(OpCodes.Ldstr, "abc");
+il.Emit(OpCodes.Call, appendMethod);
+il.Emit(OpCodes.Ldstr, "def");
+il.Emit(OpCodes.Call, appendMethod);
+il.Emit(OpCodes.Ldstr, "ghi");
+il.Emit(OpCodes.Call, appendMethod);
+il.Emit(OpCodes.Call, toStringMethod);
+il.Emit(OpCodes.Call, cw);
+il.Emit(OpCodes.Ret);
+```
+
+## 局部变量
+
+也许你也发现了, 我们上面的代码都有些"憋屈", 这是因为我们在上面的代码中没有用到局部变量.  
+在 `System.Reflection.Emit` 中, 我们必须显式指定我们可能用到几个局部变量以及对应的类型, 比如如下 C# 代码:
+```cs
+StringBuilder sb = new();
+sb.Append("abc");
+sb.Append("def");
+sb.Append("ghi");
+string str = sb.ToString();
+Console.WriteLine(str);
+```
+
+我们进行分析, 发现它使用了两个局部变量: `sb` 和 `str`, 所以我们在调用 `il.Emit` 之前调用 `il.DeclareLocal`:
+
+```cs
+il.DeclareLocal(typeof(StringBuilder)); // 0
+il.DeclareLocal(typeof(string)); // 1
+```
+
+注意我们调用 `DeclareLocal` 的顺序, 这个顺序我们在下面的 `IL` 中就会使用它:
+
+```cs title="哦天哪它真的太长了" hl_lines="11 13 20 24 28 30 31"
+var cw = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) })!;
+var sbctor = typeof(StringBuilder).GetConstructor(Type.EmptyTypes)!;
+var appendMethod = typeof(StringBuilder).GetMethod("Append", new Type[] { typeof(string) })!;
+var toStringMethod = typeof(StringBuilder).GetMethod("ToString", Type.EmptyTypes)!;
+
+il.DeclareLocal(typeof(StringBuilder)); // 0
+il.DeclareLocal(typeof(string)); // 1
+
+il.Emit(OpCodes.Newobj, sbctor);
+// 将我们的 StringBuilder 对象存到 0 号位的局部变量上
+il.Emit(OpCodes.Stloc_0); 
+// 把我们之前在 0 号位局部变量上存的 StringBuilder 对象读取出来并压入评估栈上
+il.Emit(OpCodes.Ldloc_0); 
+// 准备 StringBuilder.Append 的那个参数作为其内部 ldarg.1 会读取的值(ldarg.0 是 this)
+il.Emit(OpCodes.Ldstr, "abc");
+il.Emit(OpCodes.Call, appendMethod);
+// 我们在这里不会使用 StringBuilder.Append 的那个用于链式调用的返回值
+// 所以我们使用 `pop` 弹出它避免"污染"我们的评估栈.
+il.Emit(OpCodes.Pop);
+il.Emit(OpCodes.Ldloc_0);
+il.Emit(OpCodes.Ldstr, "def");
+il.Emit(OpCodes.Call, appendMethod);
+il.Emit(OpCodes.Pop);
+il.Emit(OpCodes.Ldloc_0);
+il.Emit(OpCodes.Ldstr, "ghi");
+il.Emit(OpCodes.Call, appendMethod);
+il.Emit(OpCodes.Pop);
+il.Emit(OpCodes.Ldloc_0);
+il.Emit(OpCodes.Call, toStringMethod);
+il.Emit(OpCodes.Stloc_1);
+il.Emit(OpCodes.Ldloc_1);
+il.Emit(OpCodes.Call, cw);
+il.Emit(OpCodes.Ret);
+```
+
+在上面的 `IL` 中, `stloc.0` 将栈顶的值弹出并存到局部变量 0 号位上, `ldloc.0` 读取局部变量 0 号位的值然后将其压入评估栈上.  
+不过实际上这里用不着局部变量, 除了使用 `Append` 返回的 `this` 之外, 我们还可以使用 `dup` 指令来简化大量的 `ldloc.0` 操作.
+除此之外 `string` 那个局部变量也用不着, 我们在 `ToString` 后直接调用 `Console.WriteLine` 即可, 因为这时的 `string` 刚好就在栈顶.
+
+```cs hl_lines="3 8 13 18"
+il.Emit(OpCodes.Newobj, sbctor);
+
+il.Emit(OpCodes.Dup);
+il.Emit(OpCodes.Ldstr, "abc");
+il.Emit(OpCodes.Call, appendMethod);
+il.Emit(OpCodes.Pop);
+
+il.Emit(OpCodes.Dup);
+il.Emit(OpCodes.Ldstr, "def");
+il.Emit(OpCodes.Call, appendMethod);
+il.Emit(OpCodes.Pop);
+
+il.Emit(OpCodes.Dup);
+il.Emit(OpCodes.Ldstr, "ghi");
+il.Emit(OpCodes.Call, appendMethod);
+il.Emit(OpCodes.Pop);
+
+il.Emit(OpCodes.Dup);
+il.Emit(OpCodes.Call, toStringMethod);
+il.Emit(OpCodes.Call, cw);
+
+// 记得弹出最初 newobj 指令压入的那个元素, 否则此时 ret 栈就不是空的了
+// 这会导致 jit 抛出 InvalidProgramException
+il.Emit(OpCodes.Pop);
+
+il.Emit(OpCodes.Ret);
+```
+
+`dup` 指令弹出栈顶的元素, 然后压入两遍这个元素, 也就是它会复制栈顶的元素一遍并压入, 在这里, 
+我们使用 `dup` 指令在每次需要 `this` 对象时复制最初 `newobj` 指令压入的元素, 这样就无需使用局部变量而复杂化我们的 `IL` 了.
+
+## 属性的访问
+
+在 `IL` 中, 其实没有一条指令是关于属性的, 因为我们知道属性实际上就是一对 getter 和 setter 而已.  
+通常, 一个名为 `MyProp` 的属性的 getter 方法叫做 `get_MyProp`, setter 方法叫做 `set_MyProp`,
+如果你在 C# 中尝试给方法这样起名你会发现编译器会为了防止方法重名而报错, 顺便,
+这一对方法它们各自都有一个 `special name` 的特殊标记以便编译器知晓它们归属于一个属性.  
+
+比如如下 `C#` 代码:
+
+```cs
+Console.WriteLine("123".Length);
+```
+
+```cs
+var cwInt = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(int) })!;
+var stringGetLength = typeof(string).GetMethod("get_Length")!;
+il.Emit(OpCodes.Ldstr, "123");
+il.Emit(OpCodes.Call, stringGetLength);
+il.Emit(OpCodes.Call, cwInt);
+il.Emit(OpCodes.Ret);
+```
+
+在这里我们调用的就是 `string` 的 `get_Length` 方法. 就是这么简单.
+
+## 字段的访问
+
+对于静态字段的访问, 我们需要使用 `ldsfld` 操作符, 比如 `Path.DirectorySeparatorChar` 这个静态字段:
+```cs
+Console.WriteLine(Path.DirectorySeparatorChar);
+```
+
+```cs
+// 注意下这里 WriteLine 的重载换了, 因为 Path.DirectorySeparatorChar 是 char 类型的
+var cw = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(char) })!;
+var pathStfld = typeof(Path).GetField("DirectorySeparatorChar")!;
+il.Emit(OpCodes.Ldsfld, pathStfld);
+il.Emit(OpCodes.Call, cw);
+il.Emit(OpCodes.Ret);
+```
+
+`ldsfld` 会将参数中的静态字段的 token 对应的静态字段的值压入评估栈上.
+
+对于成员字段的访问也是类似的, 不过它会需要弹出一个 `this` 元素, 比如对于如下 C# 类:  
+
+<!--坏, 三波浪号中间还不能直接夹空格, 还得用&nbsp;转义一下-->
+~~~其实是找不到&nbsp;bcl&nbsp;里经常访问成员字段的例子才被迫声明新类的~~~
+
+```cs
+public class SomeClass
+{
+    public string SomeString;
+    public SomeClass()
+        => SomeString = "这里是一个字符串!";
+}
+```
+
+```cs
+var someClassCtor = typeof(SomeClass).GetConstructor(Type.EmptyTypes)!;
+var cwString = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) })!;
+var someClassFld = typeof(SomeClass).GetField("SomeString")!;
+il.Emit(OpCodes.Newobj, someClassCtor);
+il.Emit(OpCodes.Ldfld, someClassFld);
+il.Emit(OpCodes.Call, cwString);
+il.Emit(OpCodes.Ret);
+```
+
+## 条件跳转
+
 // TODO
+
+## 结尾
+
+至此, 一些基本的 `IL` 你已了解, 我们在这里介绍的 `IL` 指令不过是冰山一角, 还有很多其他的 `IL` 指令没有介绍,
+不过它们大同小异, 基本都是对评估栈的各种各样的操作, 我们只需要在用到时或者偶尔翻阅一下 `IL` 指令表就能了解.  
+此外, 在 dnSpy 的 `IL` 代码的视角时, 点击 `IL` 操作符的名称可以很方便地跳转到 msdn 上对这个指令的描述.
+那么, 在了解使用 `System.Reflection.Emit` 库后, 我们就可以使用 `Mono.Cecil` 在蔚蓝中更改蔚蓝的程序集了.  
+
+----
+
+一些可能有用的资源:
+
+- [OpCodes Fields - Microsoft Learn (https://learn.microsoft.com/...)](https://learn.microsoft.com/zh-cn/dotnet/api/system.reflection.emit.opcodes.add?view=net-7.0)
+- [理解IL - Rorschach - 知乎 (https://zhuanlan.zhihu.com/...)](https://zhuanlan.zhihu.com/p/100233990)
+- [IL指令详细 - Zery - 博客园 (https://www.cnblogs.com/...)](https://www.cnblogs.com/zery/p/3368460.html)
