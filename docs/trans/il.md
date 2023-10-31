@@ -5,7 +5,8 @@
 
 ## 简介
 
-`IL` 全称 `Intermediate Language`, 在一些较老的文档里面它可能也会被叫做 `MSIL`, 即 `Microsoft Intermediate Language`.  
+`IL` 全称 `Intermediate Language`, 即中间语言, 在一些较老的文档里面它可能也会被叫做 `MSIL`, 即 `Microsoft Intermediate Language`,
+偶尔还会有一些地方叫做 `CIL`, 即 `Common Intermediate Language`, 这三种叫法通常意义上都是指一个东西.  
 在前面我们就已经提到过 `IL` 了([阅读代码2](../begin/reading_2.md)), 但是并没有深入的讲解它到底是什么样的.  
 `IL` 通常来说可以理解成两个部分, 一个 "执行" 部分, 一个 "声明" 部分, "执行" 部分规定了一个函数内部的代码应该怎么操控我们的程序,
 而 "声明" 部分则规定了一个函数的返回值, 参数列表, 访问修饰符, 所在类, 类的访问修饰符, 名称等这些**元数据**, 获取这些元数据其实你早在学习**反射**的时候就进行过.
