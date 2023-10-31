@@ -655,7 +655,14 @@
       
         <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
-    条件跳转
+    跳转指令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s" class="md-nav__link">
+    .s 系指令
   </a>
   
 </li>
@@ -818,7 +825,7 @@
         
   
   <span class="md-ellipsis">
-    XML简单速成
+    XML简单介绍
   </span>
   
 
@@ -947,7 +954,14 @@
       
         <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
-    条件跳转
+    跳转指令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s" class="md-nav__link">
+    .s 系指令
   </a>
   
 </li>
@@ -983,7 +997,8 @@
 <p>如果你在之前已经学习过 <code>IL</code> 并且使用过类 <code>System.Reflection.Emit</code> 这些 api 的话你可以跳过这一节.</p>
 </div>
 <h2 id="_1">简介</h2>
-<p><code>IL</code> 全称 <code>Intermediate Language</code>, 在一些较老的文档里面它可能也会被叫做 <code>MSIL</code>, 即 <code>Microsoft Intermediate Language</code>.<br />
+<p><code>IL</code> 全称 <code>Intermediate Language</code>, 即中间语言, 在一些较老的文档里面它可能也会被叫做 <code>MSIL</code>, 即 <code>Microsoft Intermediate Language</code>,
+偶尔还会有一些地方叫做 <code>CIL</code>, 即 <code>Common Intermediate Language</code>, 这三种叫法通常意义上都是指一个东西.<br />
 在前面我们就已经提到过 <code>IL</code> 了(<a href="../../begin/reading_2/">阅读代码2</a>), 但是并没有深入的讲解它到底是什么样的.<br />
 <code>IL</code> 通常来说可以理解成两个部分, 一个 "执行" 部分, 一个 "声明" 部分, "执行" 部分规定了一个函数内部的代码应该怎么操控我们的程序,
 而 "声明" 部分则规定了一个函数的返回值, 参数列表, 访问修饰符, 所在类, 类的访问修饰符, 名称等这些<strong>元数据</strong>, 获取这些元数据其实你早在学习<strong>反射</strong>的时候就进行过.
@@ -1888,8 +1903,280 @@
 <span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Call</span><span class="p">,</span><span class="w"> </span><span class="n">cwString</span><span class="p">);</span>
 <span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ret</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="_11">条件跳转</h2>
-<p>// TODO</p>
+<h2 id="_11">跳转指令</h2>
+<p>在这里我们会介绍这一节的最后一个东西 —— 跳转指令. 它是 C# 中 <code>if</code> <code>switch</code> <code>for</code> <code>while</code> <code>goto</code> 等流程控制语句都十分依赖的东西.  </p>
+<p>在 <code>IL</code> 中, 为了方便 大于, 小于, 大于等于, 小于等于, 是否 null, 是否非0 等众多条件表达式的判断,
+<code>IL</code> 引入了大量有关的指令, 具体如下表(摘自 MSDN):</p>
+<table>
+<thead>
+<tr>
+<th align="left">指令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">beq   </td>
+<td align="left">如果两个值相等，则将控制转移到目标指令。</td>
+</tr>
+<tr>
+<td align="left">beq.s  </td>
+<td align="left">如果两个值相等，则将控制转移到目标指令（短格式）。</td>
+</tr>
+<tr>
+<td align="left">bge   </td>
+<td align="left">如果第一个值大于或等于第二个值，则将控制转移到目标指令。</td>
+</tr>
+<tr>
+<td align="left">bge.s    </td>
+<td align="left">如果第一个值大于或等于第二个值，则将控制转移到目标指令（短格式）。</td>
+</tr>
+<tr>
+<td align="left">bge.un   </td>
+<td align="left">当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令。</td>
+</tr>
+<tr>
+<td align="left">bge.un.s </td>
+<td align="left">当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。</td>
+</tr>
+<tr>
+<td align="left">bgt    </td>
+<td align="left">如果第一个值大于第二个值，则将控制转移到目标指令。</td>
+</tr>
+<tr>
+<td align="left">bgt.s   </td>
+<td align="left">如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。</td>
+</tr>
+<tr>
+<td align="left">bgt.un   </td>
+<td align="left">当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令。</td>
+</tr>
+<tr>
+<td align="left">bgt.un.s </td>
+<td align="left">当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。</td>
+</tr>
+<tr>
+<td align="left">ble    </td>
+<td align="left">如果第一个值小于或等于第二个值，则将控制转移到目标指令。</td>
+</tr>
+<tr>
+<td align="left">ble.s    </td>
+<td align="left">如果第一个值小于或等于第二个值，则将控制转移到目标指令（短格式）。</td>
+</tr>
+<tr>
+<td align="left">ble.un   </td>
+<td align="left">当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于或等于第二个值，则将控制转移到目标指令。</td>
+</tr>
+<tr>
+<td align="left">ble.un.s </td>
+<td align="left">当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于或等于第二个值，则将控制权转移到目标指令（短格式）。</td>
+</tr>
+<tr>
+<td align="left">blt    </td>
+<td align="left">如果第一个值小于第二个值，则将控制转移到目标指令。</td>
+</tr>
+<tr>
+<td align="left">blt.s   </td>
+<td align="left">如果第一个值小于第二个值，则将控制转移到目标指令（短格式）。</td>
+</tr>
+<tr>
+<td align="left">blt.un   </td>
+<td align="left">当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于第二个值，则将控制转移到目标指令。</td>
+</tr>
+<tr>
+<td align="left">blt.un.s </td>
+<td align="left">当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于第二个值，则将控制转移到目标指令（短格式）。</td>
+</tr>
+<tr>
+<td align="left">bne.un   </td>
+<td align="left">当两个无符号整数值或不可排序的浮点型值不相等时，将控制转移到目标指令。</td>
+</tr>
+<tr>
+<td align="left">bne.un.s </td>
+<td align="left">当两个无符号整数值或不可排序的浮点型值不相等时，将控制转移到目标指令（短格式）。</td>
+</tr>
+<tr>
+<td align="left">br    </td>
+<td align="left">无条件地将控制转移到目标指令。</td>
+</tr>
+<tr>
+<td align="left">br.s    </td>
+<td align="left">无条件地将控制转移到目标指令（短格式）。</td>
+</tr>
+<tr>
+<td align="left">brfalse  </td>
+<td align="left">如果 value 为 false、空引用（Visual Basic 中的 Nothing）或零，则将控制转移到目标指令。</td>
+</tr>
+<tr>
+<td align="left">brfalse.s</td>
+<td align="left">如果 value 为 false、空引用或零，则将控制转移到目标指令。</td>
+</tr>
+<tr>
+<td align="left">brtrue   </td>
+<td align="left">如果 value 为 true、非空或非零，则将控制转移到目标指令。</td>
+</tr>
+<tr>
+<td align="left">brtrue.s </td>
+<td align="left">如果 value 为 true、非空或非零，则将控制转移到目标指令（短格式）。</td>
+</tr>
+</tbody>
+</table>
+<p>可以发现, 基本都是各种大于小于等于非空非0等以及有符号无符号这些情况的排列组合.<br />
+上表中我们称除了 <code>br</code> 与 <code>br.s</code> 指令外的指令为 "条件跳转指令", 反之我们称为 "无条件跳转指令".
+这里我们只会简单举例 <code>br</code> <code>brfalse</code> 这两个指令的使用. 其他指令基本只是几个条件不同类型不同的差别.</p>
+<hr />
+<p><code>brfalse</code> 指令会从评估栈上弹出一个值, 然后查看该值是否为 <code>false</code> 或者 <code>null</code> 或者 <code>0</code>, 如果是则跳转到参数所指的目标位置, 否则不做任何事.<br />
+比如如下 C# 代码:</p>
+<div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">MyMethod</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="k">value</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;value is 0!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;value is not 0.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>顺便记得更改我们的方法定义:</p>
+<div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">MethodInfo</span><span class="w"> </span><span class="nf">GenerateMethod</span><span class="p">(</span><span class="n">Action</span><span class="o">&lt;</span><span class="n">ILGenerator</span><span class="o">&gt;</span><span class="w"> </span><span class="n">generateAction</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">AssemblyBuilder</span><span class="w"> </span><span class="n">asmBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssemblyBuilder</span><span class="p">.</span><span class="n">DefineDynamicAssembly</span><span class="p">(</span><span class="k">new</span><span class="p">(</span><span class="s">&quot;MyAssembly&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">AssemblyBuilderAccess</span><span class="p">.</span><span class="n">RunAndCollect</span><span class="p">);</span>
+<span class="w">    </span><span class="n">ModuleBuilder</span><span class="w"> </span><span class="n">moduleBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">asmBuilder</span><span class="p">.</span><span class="n">DefineDynamicModule</span><span class="p">(</span><span class="s">&quot;MyTestModule&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">TypeBuilder</span><span class="w"> </span><span class="n">typeBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">moduleBuilder</span><span class="p">.</span><span class="n">DefineType</span><span class="p">(</span><span class="s">&quot;MyType&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">MethodBuilder</span><span class="w"> </span><span class="n">methodBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">typeBuilder</span><span class="p">.</span><span class="n">DefineMethod</span><span class="p">(</span><span class="s">&quot;MyMethod&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">MethodAttributes</span><span class="p">.</span><span class="n">Public</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">MethodAttributes</span><span class="p">.</span><span class="n">Static</span>
+<span class="hll"><span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="k">typeof</span><span class="p">(</span><span class="k">void</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Type</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">typeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">});</span>
+</span><span class="w">    </span><span class="n">generateAction</span><span class="p">(</span><span class="n">methodBuilder</span><span class="p">.</span><span class="n">GetILGenerator</span><span class="p">());</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">typeBuilder</span><span class="p">.</span><span class="n">CreateType</span><span class="p">().</span><span class="n">GetMethod</span><span class="p">(</span><span class="s">&quot;MyMethod&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">MethodInfo</span><span class="w"> </span><span class="n">methodInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GenerateMethod</span><span class="p">(</span><span class="n">il</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// TODO implement the IL body</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="hll"><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">methodInfo</span><span class="p">.</span><span class="n">CreateDelegate</span><span class="o">&lt;</span><span class="n">Action</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">();</span>
+</span><span class="hll"><span class="w">    </span><span class="n">action</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>其对应 <code>IL</code> 为:</p>
+<div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">cw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typeof</span><span class="p">(</span><span class="n">Console</span><span class="p">).</span><span class="n">GetMethod</span><span class="p">(</span><span class="s">&quot;WriteLine&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Type</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">typeof</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">})</span><span class="o">!</span><span class="p">;</span>
+<span class="hll"><span class="kt">var</span><span class="w"> </span><span class="n">valueIs0Target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">il</span><span class="p">.</span><span class="n">DefineLabel</span><span class="p">();</span>
+</span><span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ldarg_0</span><span class="p">);</span>
+<span class="hll"><span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Brfalse</span><span class="p">,</span><span class="w"> </span><span class="n">valueIs0Target</span><span class="p">);</span>
+</span><span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ldstr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value is not 0.&quot;</span><span class="p">);</span>
+<span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Call</span><span class="p">,</span><span class="w"> </span><span class="n">cw</span><span class="p">);</span>
+<span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ret</span><span class="p">);</span>
+<span class="hll"><span class="n">il</span><span class="p">.</span><span class="n">MarkLabel</span><span class="p">(</span><span class="n">valueIs0Target</span><span class="p">);</span>
+</span><span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ldstr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value is 0!&quot;</span><span class="p">);</span>
+<span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Call</span><span class="p">,</span><span class="w"> </span><span class="n">cw</span><span class="p">);</span>
+<span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ret</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>在这里, 在使用 <code>System.Reflection.Emit</code> 库的情况下, 我们在代码的第 2 行定义了一个 Label, 用来之后作为条件跳转指令的参数传入,
+不过目前这个 Label 没有指向任何 <code>IL</code> 指令位置, 所以我们在第 8 行调用 <code>MarkLabel</code> 方法, 调用完该方法后的下一次 <code>Emit</code> 的 <code>IL</code> 指令的位置信息就会被设置到 Label 中,
+观察上述代码不难发现, 我们读取的第一个参数, 如果为 0 那么跳转到输出 <code>value is 0!</code> 的 <code>IL</code> 指令段前, 而当非 0 时不做任何事让其自然执行到输出 <code>value is not 0.</code> 的 <code>IL</code> 指令段前,
+你可以更改调用这个方法的代码的地方传入的参数来观察它的输出(比如将 <code>action(1)</code> 改为 <code>action(0)</code>).<br />
+顺便, 在这个指令段后面紧跟一个 <code>ret</code> 指令直接返回该方法防止误执行到后面的 <code>IL</code> 段. 不过这只在后面没有代码需要执行的情况下奏效, 
+如果后面依然有代码的话我们就得使用 <code>br</code> 指令了.</p>
+<hr />
+<p><code>br</code> 指令执行后会将目前的执行位置无条件的跳转到对应位置, 比如刚才介绍 <code>brfalse</code> 指令末尾的一点小问题, 即比如如下 C# 代码:</p>
+<div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;value is 0!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;value is not 0.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;always execute me!&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>在末尾我们有一个方法调用是无关 <code>value</code> 的值的, 之前的代码我们为了防止误执行 <code>IL</code> 我们使用了 <code>ret</code> 指令直接返回整个方法,
+但是现在这里我们无法这么干, 不过现在有 <code>br</code> 指令可以使用了:</p>
+<div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">cw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typeof</span><span class="p">(</span><span class="n">Console</span><span class="p">).</span><span class="n">GetMethod</span><span class="p">(</span><span class="s">&quot;WriteLine&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Type</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">typeof</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">})</span><span class="o">!</span><span class="p">;</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">valueIs0Target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">il</span><span class="p">.</span><span class="n">DefineLabel</span><span class="p">();</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">afterIfTarget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">il</span><span class="p">.</span><span class="n">DefineLabel</span><span class="p">();</span>
+<span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ldarg_0</span><span class="p">);</span>
+<span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Brfalse</span><span class="p">,</span><span class="w"> </span><span class="n">valueIs0Target</span><span class="p">);</span>
+<span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ldstr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value is not 0.&quot;</span><span class="p">);</span>
+<span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Call</span><span class="p">,</span><span class="w"> </span><span class="n">cw</span><span class="p">);</span>
+<span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Br</span><span class="p">,</span><span class="w"> </span><span class="n">afterIfTarget</span><span class="p">);</span>
+<span class="n">il</span><span class="p">.</span><span class="n">MarkLabel</span><span class="p">(</span><span class="n">valueIs0Target</span><span class="p">);</span>
+<span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ldstr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value is 0!&quot;</span><span class="p">);</span>
+<span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Call</span><span class="p">,</span><span class="w"> </span><span class="n">cw</span><span class="p">);</span>
+<span class="n">il</span><span class="p">.</span><span class="n">MarkLabel</span><span class="p">(</span><span class="n">afterIfTarget</span><span class="p">);</span>
+<span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ldstr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;always execute me!&quot;</span><span class="p">);</span>
+<span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Call</span><span class="p">,</span><span class="w"> </span><span class="n">cw</span><span class="p">);</span>
+<span class="n">il</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ret</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="s"><code>.s</code> 系指令</h2>
+<p>你可能发现了就是一些 <code>IL</code> 指令同时还有一个带 <code>.s</code> 后缀的版本, 这个我们一般叫它的 "短格式" 版本, 反之叫 "长格式" 版本, 比如就刚才的 <code>br</code> 对应的 <code>br.s</code>,
+通常类似这一对 <code>IL</code> 指令的区别就是 <code>.s</code> 版本的参数会短一点, 比如长格式版本的参数长度是 4 字节, 而短格式版本的参数长度可能就是 2 字节,
+注意这里不是说的是压入评估栈的值的类型, 长短格式版本所做的事情是完全一样的, 只是传参允许你用短一点的参数. 这其实就是一个对 <code>IL</code> 指令的大小优化,
+编译器通常就会能用 <code>.s</code> 版本就用 <code>.s</code> 版本, 当参数需求超过短格式参数表达范围时才会使用长格式, 对于我们的话如果你想微微的优化一下你的 <code>IL</code> 的大小的话,
+你可以选择在参数范围够用的情况下使用 <code>.s</code> 版本.</p>
 <h2 id="_12">结尾</h2>
 <p>至此, 一些基本的 <code>IL</code> 你已了解, 我们在这里介绍的 <code>IL</code> 指令不过是冰山一角, 还有很多其他的 <code>IL</code> 指令没有介绍,
 不过它们大同小异, 基本都是对评估栈的各种各样的操作, 我们只需要在用到时或者偶尔翻阅一下 <code>IL</code> 指令表就能了解.<br />
