@@ -721,9 +721,157 @@ il.Emit(OpCodes.Call, cwString);
 il.Emit(OpCodes.Ret);
 ```
 
-## 条件跳转
+## 跳转指令
 
-// TODO
+在这里我们会介绍这一节的最后一个东西 —— 跳转指令. 它是 C# 中 `if` `switch` `for` `while` `goto` 等流程控制语句都十分依赖的东西.  
+
+在 `IL` 中, 为了方便 大于, 小于, 大于等于, 小于等于, 是否 null, 是否非0 等众多条件表达式的判断,
+`IL` 引入了大量有关的指令, 具体如下表(摘自 MSDN):
+
+| 指令 | 描述 |
+| :--- | :--- |
+| beq       | 如果两个值相等，则将控制转移到目标指令。 |
+| beq.s     | 如果两个值相等，则将控制转移到目标指令（短格式）。 |
+| bge       | 如果第一个值大于或等于第二个值，则将控制转移到目标指令。 |
+| bge.s     | 如果第一个值大于或等于第二个值，则将控制转移到目标指令（短格式）。 |
+| bge.un    | 当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令。 |
+| bge.un.s  | 当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。 |
+| bgt       | 如果第一个值大于第二个值，则将控制转移到目标指令。 |
+| bgt.s     | 如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。 |
+| bgt.un    | 当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令。 |
+| bgt.un.s  | 当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。 |
+| ble       | 如果第一个值小于或等于第二个值，则将控制转移到目标指令。 |
+| ble.s     | 如果第一个值小于或等于第二个值，则将控制转移到目标指令（短格式）。 |
+| ble.un    | 当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于或等于第二个值，则将控制转移到目标指令。 |
+| ble.un.s  | 当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于或等于第二个值，则将控制权转移到目标指令（短格式）。 |
+| blt       | 如果第一个值小于第二个值，则将控制转移到目标指令。 |
+| blt.s     | 如果第一个值小于第二个值，则将控制转移到目标指令（短格式）。 |
+| blt.un    | 当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于第二个值，则将控制转移到目标指令。 |
+| blt.un.s  | 当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于第二个值，则将控制转移到目标指令（短格式）。 |
+| bne.un    | 当两个无符号整数值或不可排序的浮点型值不相等时，将控制转移到目标指令。 |
+| bne.un.s  | 当两个无符号整数值或不可排序的浮点型值不相等时，将控制转移到目标指令（短格式）。 |
+| br        | 无条件地将控制转移到目标指令。 |
+| br.s      | 无条件地将控制转移到目标指令（短格式）。 |
+| brfalse   | 如果 value 为 false、空引用（Visual Basic 中的 Nothing）或零，则将控制转移到目标指令。 |
+| brfalse.s | 如果 value 为 false、空引用或零，则将控制转移到目标指令。 |
+| brtrue    | 如果 value 为 true、非空或非零，则将控制转移到目标指令。 |
+| brtrue.s  | 如果 value 为 true、非空或非零，则将控制转移到目标指令（短格式）。 |
+
+可以发现, 基本都是各种大于小于等于非空非0等以及有符号无符号这些情况的排列组合.  
+上表中我们称除了 `br` 与 `br.s` 指令外的指令为 "条件跳转指令", 反之我们称为 "无条件跳转指令".
+这里我们只会简单举例 `br` `brfalse` 这两个指令的使用. 其他指令基本只是几个条件不同类型不同的差别.
+
+---
+
+`brfalse` 指令会从评估栈上弹出一个值, 然后查看该值是否为 `false` 或者 `null` 或者 `0`, 如果是则跳转到参数所指的目标位置, 否则不做任何事.  
+比如如下 C# 代码:
+
+```cs
+public static void MyMethod(int value)
+{
+    if (value == 0)
+    {
+        Console.WriteLine("value is 0!");
+    }
+    else
+    {
+        Console.WriteLine("value is not 0.");
+    }
+}
+```
+
+顺便记得更改我们的方法定义:
+
+```cs hl_lines="7 18-19"
+public static MethodInfo GenerateMethod(Action<ILGenerator> generateAction)
+{
+    AssemblyBuilder asmBuilder = AssemblyBuilder.DefineDynamicAssembly(new("MyAssembly"), AssemblyBuilderAccess.RunAndCollect);
+    ModuleBuilder moduleBuilder = asmBuilder.DefineDynamicModule("MyTestModule");
+    TypeBuilder typeBuilder = moduleBuilder.DefineType("MyType");
+    MethodBuilder methodBuilder = typeBuilder.DefineMethod("MyMethod", MethodAttributes.Public | MethodAttributes.Static
+        , typeof(void), new Type[] { typeof(int) });
+    generateAction(methodBuilder.GetILGenerator());
+    return typeBuilder.CreateType().GetMethod("MyMethod")!;
+}
+
+public static void Main()
+{
+    MethodInfo methodInfo = GenerateMethod(il =>
+    {
+        // TODO implement the IL body
+    });
+    var action = methodInfo.CreateDelegate<Action<int>>();
+    action(1);
+}
+```
+
+其对应 `IL` 为:
+
+```cs hl_lines="2 4 8"
+var cw = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) })!;
+var valueIs0Target = il.DefineLabel();
+il.Emit(OpCodes.Ldarg_0);
+il.Emit(OpCodes.Brfalse, valueIs0Target);
+il.Emit(OpCodes.Ldstr, "value is not 0.");
+il.Emit(OpCodes.Call, cw);
+il.Emit(OpCodes.Ret);
+il.MarkLabel(valueIs0Target);
+il.Emit(OpCodes.Ldstr, "value is 0!");
+il.Emit(OpCodes.Call, cw);
+il.Emit(OpCodes.Ret);
+```
+
+在这里, 在使用 `System.Reflection.Emit` 库的情况下, 我们在代码的第 2 行定义了一个 Label, 用来之后作为条件跳转指令的参数传入,
+不过目前这个 Label 没有指向任何 `IL` 指令位置, 所以我们在第 8 行调用 `MarkLabel` 方法, 调用完该方法后的下一次 `Emit` 的 `IL` 指令的位置信息就会被设置到 Label 中,
+观察上述代码不难发现, 我们读取的第一个参数, 如果为 0 那么跳转到输出 `value is 0!` 的 `IL` 指令段前, 而当非 0 时不做任何事让其自然执行到输出 `value is not 0.` 的 `IL` 指令段前,
+你可以更改调用这个方法的代码的地方传入的参数来观察它的输出(比如将 `action(1)` 改为 `action(0)`).  
+顺便, 在这个指令段后面紧跟一个 `ret` 指令直接返回该方法防止误执行到后面的 `IL` 段. 不过这只在后面没有代码需要执行的情况下奏效, 
+如果后面依然有代码的话我们就得使用 `br` 指令了.
+
+---
+
+`br` 指令执行后会将目前的执行位置无条件的跳转到对应位置, 比如刚才介绍 `brfalse` 指令末尾的一点小问题, 即比如如下 C# 代码:
+
+```cs
+if (value == 0)
+{
+    Console.WriteLine("value is 0!");
+}
+else
+{
+    Console.WriteLine("value is not 0.");
+}
+Console.WriteLine("always execute me!");
+```
+
+在末尾我们有一个方法调用是无关 `value` 的值的, 之前的代码我们为了防止误执行 `IL` 我们使用了 `ret` 指令直接返回整个方法,
+但是现在这里我们无法这么干, 不过现在有 `br` 指令可以使用了:
+
+```cs
+var cw = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) })!;
+var valueIs0Target = il.DefineLabel();
+var afterIfTarget = il.DefineLabel();
+il.Emit(OpCodes.Ldarg_0);
+il.Emit(OpCodes.Brfalse, valueIs0Target);
+il.Emit(OpCodes.Ldstr, "value is not 0.");
+il.Emit(OpCodes.Call, cw);
+il.Emit(OpCodes.Br, afterIfTarget);
+il.MarkLabel(valueIs0Target);
+il.Emit(OpCodes.Ldstr, "value is 0!");
+il.Emit(OpCodes.Call, cw);
+il.MarkLabel(afterIfTarget);
+il.Emit(OpCodes.Ldstr, "always execute me!");
+il.Emit(OpCodes.Call, cw);
+il.Emit(OpCodes.Ret);
+```
+
+## `.s` 系指令
+
+你可能发现了就是一些 `IL` 指令同时还有一个带 `.s` 后缀的版本, 这个我们一般叫它的 "短格式" 版本, 反之叫 "长格式" 版本, 比如就刚才的 `br` 对应的 `br.s`,
+通常类似这一对 `IL` 指令的区别就是 `.s` 版本的参数会短一点, 比如长格式版本的参数长度是 4 字节, 而短格式版本的参数长度可能就是 2 字节,
+注意这里不是说的是压入评估栈的值的类型, 长短格式版本所做的事情是完全一样的, 只是传参允许你用短一点的参数. 这其实就是一个对 `IL` 指令的大小优化,
+编译器通常就会能用 `.s` 版本就用 `.s` 版本, 当参数需求超过短格式参数表达范围时才会使用长格式, 对于我们的话如果你想微微的优化一下你的 `IL` 的大小的话,
+你可以选择在参数范围够用的情况下使用 `.s` 版本.
 
 ## 结尾
 

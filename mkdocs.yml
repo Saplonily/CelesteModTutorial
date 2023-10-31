@@ -60,4 +60,4 @@ nav:
       - 基础环境配置: "arc/basic_env.md"
       - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
   - 其他:
-      - XML简单速成: "other/xml-speedrun.md"
+      - XML简单介绍: "other/xml-speedrun.md"
