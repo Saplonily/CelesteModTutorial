@@ -18,3 +18,7 @@ pip install mkdocs-material
 ```
 
 默认开放在 `localhost:8000`.
+
+----
+
+本系列内容依据[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)许可证进行授权

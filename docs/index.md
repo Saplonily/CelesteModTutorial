@@ -27,7 +27,7 @@
 在网站中的代码块中的一些高亮在横向滚动时会发生截断, 即高亮并没有覆盖整行, 这个是 `mkdocs-material` 自身的 bug, 而且看上去说是修复起来很困难,
 issue 链接: [mkdocs-material issue #452](https://github.com/squidfunk/mkdocs-material/issues/452).  
 
-bug 复现于下:
+bug 于下:
 ``` hl_lines="1 2 3 4"
 t11ntpj808mbc1gu4lx7n9d8tj5q3ck3t1c0aclc    Liquorice oat cake carrot cake. Halvah lemon drops bear claw fruitcake. Marshmallow danish jelly-o toffee.
 jqlksiohper0brg9x2ajcm7ajjf8ptjxprqstvda    Apple pie cake jelly-o sugar plum.
@@ -40,3 +40,7 @@ s50wqctf9059ets5ezp4oeq7p6pfr24ntww2d15v    Oat cake macaroon pastry cheesecake.
 vue3y73jcwsg5um4pw8aqhuv3njgtg9iq0ortx5p    Sesame snaps candy canes muffin lollipop wafer. 
 1o6edje4xcb7vtcvct4ghawafdvmvgkx4r0scny5    Macaroon pudding gingerbread. 
 ```
+
+-----
+
+本系列内容依据[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)许可证进行授权
