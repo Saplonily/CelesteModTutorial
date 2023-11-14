@@ -1,6 +1,7 @@
 # 偏好
 
-在本系列教程中本人可能会偶尔习惯性的使用一些比较新的 C# 语法或者是特性, 通常这是大部分 C# 教程中很少提及的, 所以为了避免你的困惑我会在这里提及他们.
+在本系列教程中本人可能会偶尔习惯性的使用一些比较新的 C# 语法或者是特性, 通常这是大部分 C# 教程中很少提及的, 所以为了避免困惑我会在这里提及他们.
+
 !!! note
     为了使用这些语法你可能需要安装 [`.NET 6 SDK`](https://dotnet.microsoft.com/zh-cn/download),
     如果你无法理解某些东西,
@@ -11,6 +12,7 @@
 在解决方案资源管理器中, 双击你的项目, 按理来说你应该会打开该项目的 `.csproj` 文件,
 通常也叫做项目文件, 它描述了这个项目的各方面的信息, 并且以下几小节的内容也依赖于此.  
 如果你使用的是从模板配置的环境, 那么你应该会看到如下内容:
+
 ```xml title=".csproj"
 <Project Sdk="Microsoft.NET.Sdk">
 	<Import Project="CelesteMod.props" />
@@ -29,9 +31,10 @@
 
 	<Import Project="CelesteMod.targets" />
 </Project>
+
 ```
 !!! note
-    这个文件是 XML 格式的, 如果你不熟悉 XML 的话你可以到[这里](../other/xml-speedrun.md)速成一下, 免得你不知道我们讨论的东西都是什么
+    这个文件是 XML 格式的, 如果你不熟悉 XML 的话你可以到[这里](../other/xml-speedrun.md)简单看一下, 免得你不知道我们讨论的东西都是什么
 
 其中我们只需要关注里面的 `PropertyGroup` 以及 `ItemGroup` 节点  
 `PropertyGroup` 节点定义了这个项目有哪些属性, 比如项目框架版本, 语言版本, 程序集昵称等  

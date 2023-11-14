@@ -39,7 +39,7 @@ nav:
   - 入门:
       - Celeste, Everest, MonoMod: "begin/celeste_everest_monomod.md"
       - 基础环境配置: "begin/basic_env.md"
-      - 偏好: "begin/prefer.md"
+      - 偏好: "begin/preference.md"
       - 钩子, 阅读代码 I: "begin/hook,reading_1.md"
       - 简单自定义实体: "begin/simple_entity.md"
       - 简单自定义Trigger: "begin/simple_trigger.md"

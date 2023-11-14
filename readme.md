@@ -5,7 +5,8 @@
 
 ## 自行 host
 
-仓库使用 `mkdocs`, 自行 host 很简单:
+文档网页使用 python 工具 `mkdocs` 构建, 自行 host 很简单:
+
 ```sh
 mkdocs serve
 ```

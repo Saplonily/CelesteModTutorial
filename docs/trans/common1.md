@@ -1,7 +1,5 @@
 # Alarm, Tween, Coroutine
 
-那么经过前面这么多废话(确信)之后我们终于来到了介绍一些常见的蔚蓝类和 Monocle 类的地方(wuwu), 那么...就开始吧.
-
 ## Tween
 
 Tween 是一个在 Monocle 中用来实现**缓动**的 `Component`, 在这里你可以进行所有 [easings.net](https://easings.net/) 上的缓动, 它的使用方法很简单:

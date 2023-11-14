@@ -52,9 +52,9 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(  
 所以呢这里就推荐一种新的配置环境的方式 - **使用模板**  
 考虑到 nuget 安装模板也需要一定的命令行基础...  
-所以我觉得还是[提供直接的下载链接更好](https://hongshitieli.lanzouc.com/i1WYg15srr7g),
-或者你也可以到[Github源](https://github.com/Saplonily/celeste-mod-template-sdkstyled), 
-下载解压后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:
+所以这里考虑[提供直接的下载链接](https://hongshitieli.lanzouj.com/ijwYD1evq8cd),
+或者[Github源](https://github.com/Saplonily/celeste-mod-template-sdkstyled), 
+下载解压/clone后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:
 
 !!! note
     你可能还需要安装 `.NET 6 SDK` 来使用该模板, 你可以[点击这里](https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/sdk-6.0.411-windows-x64-installer)下载
@@ -68,7 +68,6 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 以及你的项目, 它的名字是 `MyCelesteMod`, 不同于旧的方法, 在这里你的配置过程很简单:
 
 - 首先打开 `Common.props`, **将里面的 `CelesteRootPath` 内的内容改成你的蔚蓝安装位置**
-- 好像就没了...
 
 ```xml hl_lines="3"
 <Project>
@@ -81,7 +80,7 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 </Project>
 ```
 
-咳咳这就是新方法的便利(啊?), 现在你可以按下 `Ctrl+B` 或者手动点击 `生成->生成解决方案`,
+现在你可以按下 `Ctrl+B` 或者手动点击 `生成->生成解决方案`,
 如果你在你的 vs 输出里面看到了类似这一句:
 ```
 1>Copied files in 'ModFolder' to 'C:\Program Files (x86)\Steam\steamapps\common\Celeste\Mods\MyCelesteMod'
@@ -94,7 +93,6 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
     然后将整个 `ModFolder` 复制到蔚蓝的 `Mods\{你的mod名}` 文件夹下!
     所以当我们需要更改一些比如说 loenn 的配置文件, `everest.yaml` 的内容, 你的测试地图等时, 
     你只需要简单地重新编译一遍项目, 然后等待模板来帮你做剩下的活!  
-
 
 
 ## 更改细节
@@ -190,8 +188,8 @@ ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没�
 - 向里面写入 `--console`
 - 搞定, 走你!
 
-现在, 重新编译项目, 让 `msbuild` 带着你的 `ModFolder` 的内容飞往蔚蓝 Mods 文件夹下, 启动蔚蓝.  
-在同时启动的黑乎乎的窗口上你应该能在这附近看到那句熟悉的 Hello world:
+现在, 重新编译项目, 让 `msbuild` 带着你的 `ModFolder` 的内容前往蔚蓝 Mods 文件夹下, 启动蔚蓝.  
+在同时启动的黑乎乎的命令行窗口上你应该能在这附近看到那句熟悉的 Hello world:
 ```log hl_lines="7"
 (07/08/2023 21:18:59) [Everest] [Info] [core] Module DialogCutscene 1.0.0 registered.
 (07/08/2023 21:18:59) [Everest] [Info] [core] Module UpdateChecker 1.0.2 registered.
@@ -205,7 +203,7 @@ ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没�
 FNA3D Driver: D3D11
 D3D11 Adapter: Intel(R) UHD Graphics 630
 ```
-
+<!-- 肯定会有人在意怎么是 630 核显( -->
 ## 还没完
 
 在经过如上的配置后, 你会发现在蔚蓝启动的时候, 进行编译并复制资源时会报错, 
@@ -237,4 +235,6 @@ D3D11 Adapter: Intel(R) UHD Graphics 630
 如果你没有更改你的项目而只更改了资源文件时你会发现编译项目会因为"所有文件都是最新的"而跳过编译, 而同时也会跳过我们的资源复制, 对此的话我们有两种解决方案:
 
 - 直接强制重新构建项目 (vs中 "生成" -> "重新生成项目")
-- 在项目根目录执行 `msbuild -target:CopyModAssets` 命令行
+- 在项目根目录执行 `msbuild -target:PostModBuild` 命令行
+
+> 好像是有更好的解决方法, 不过鉴于本人 MSBuild 知识不足只能做成这样了(x
