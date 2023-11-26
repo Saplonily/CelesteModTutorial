@@ -52,9 +52,9 @@ nav:
       # - Sprite, Image: "trans/common3.md"
       - IL: "trans/il.md"
       - IL 钩子与随意钩取: "trans/adv_hooks.md"
-  #   - 私有访问: "trans/private_access.md"
-  #   - 额外:
-  #     - 调试: "extra/debug.md"
+      # - 协程的钩取与私有成员访问: "trans/adv_hooks2.md"
+  # - 额外:
+  #   - 调试: "extra/debug.md"
   - 历史归档:
       - 基础环境配置: "arc/basic_env.md"
       - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
