@@ -47,15 +47,14 @@ nav:
       - 简单贴图: "begin/simple_texturing.md"
   - 过渡:
       - 更多EC: "trans/ec_common.md"
+      - Alarm, Tween, Coroutine: "trans/common1.md"
       # - Flag, Tag, Tracker: "trans/common2.md"
       # - Sprite, Image: "trans/common3.md"
-      -  IL: "trans/il.md"
-  #   - IL 钩子与随意钩取: "trans/adv_hooks.md"
+      - IL: "trans/il.md"
+      - IL 钩子与随意钩取: "trans/adv_hooks.md"
   #   - 私有访问: "trans/private_access.md"
   #   - 额外:
   #     - 调试: "extra/debug.md"
-  - 杂项:
-      - Alarm, Tween, Coroutine: "trans/common1.md"
   - 历史归档:
       - 基础环境配置: "arc/basic_env.md"
       - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"

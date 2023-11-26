@@ -52,7 +52,7 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(  
 所以呢这里就推荐一种新的配置环境的方式 - **使用模板**  
 考虑到 nuget 安装模板也需要一定的命令行基础...  
-所以这里考虑[提供直接的下载链接](https://hongshitieli.lanzouj.com/ijwYD1evq8cd),
+所以这里考虑[提供直接的下载链接](https://hongshitieli.lanzouj.com/ioc4f1fy4iad),
 或者[Github源](https://github.com/Saplonily/celeste-mod-template-sdkstyled), 
 下载解压/clone后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:
 
@@ -82,9 +82,11 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 
 现在你可以按下 `Ctrl+B` 或者手动点击 `生成->生成解决方案`,
 如果你在你的 vs 输出里面看到了类似这一句:
+
 ```
 1>Copied files in 'ModFolder' to 'C:\Program Files (x86)\Steam\steamapps\common\Celeste\Mods\MyCelesteMod'
 ```
+
 并且你在你的蔚蓝 Mod 目录下找到了这个被创建的目录,
 那么你的环境就算是配完了, 如果你很感兴趣这之中发生了什么, 要引用哪些程序集, 这个模板背后干了什么, 你可以去看那复杂的旧的配置方法.
 !!! note
