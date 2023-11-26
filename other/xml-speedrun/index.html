@@ -839,17 +839,17 @@ XML 被设计用来传输和存储数据, 不用于表现和展示数据, HTML �
 <span class="nt">&lt;/books&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>这段 XML 用中文解释起来是这样的:</p>
-<p>首先我们定义了一个<strong>节点</strong> A, 它的名字叫做"books", 它有很多<strong>子节点</strong>, 分别是:</p>
+<p>首先我们定义了一个<strong>节点</strong>, 它的名字叫做 "books", 它有很多<strong>子节点</strong>, 分别是:</p>
 <ul>
-<li>一个"book"<strong>节点</strong>, 它的 id <strong>特性</strong>是 123, 它的内容是"这是第一本书"</li>
-<li>一个"book"<strong>节点</strong>, 它的 id <strong>特性</strong>是 456, 它的内容是"这是第二本书"</li>
-<li>一个"book"<strong>节点</strong>, 它的 id <strong>特性</strong>是 114, 它的内容是"这是第三本书"</li>
-<li>一个"book"<strong>节点</strong>, 它的 id <strong>特性</strong>是 514, 它的内容是"这是不知道第几本书"</li>
+<li>一个 "book" <strong>节点</strong>, 它的 id <strong>特性</strong>是 123, 它的内容是 "这是第一本书"</li>
+<li>一个 "book" <strong>节点</strong>, 它的 id <strong>特性</strong>是 456, 它的内容是 "这是第二本书"</li>
+<li>一个 "book" <strong>节点</strong>, 它的 id <strong>特性</strong>是 114, 它的内容是 "这是第三本书"</li>
+<li>一个 "book" <strong>节点</strong>, 它的 id <strong>特性</strong>是 514, 它的内容是 "这是不知道第几本书"</li>
 </ul>
-<p>在这里, 最外层的"books"以及里面的"book"都称为<strong>节点</strong>, 其中"books"节点内部有很多"book"节点, 而"book"节点内部只有一串文本.
-每个"book"节点都有一个叫做 id 的<strong>特性</strong>(有时也叫做<strong>属性</strong>).  </p>
+<p>在这里, 最外层的 "books" 以及里面的 "book" 都称为<strong>节点</strong>, 其中 "books" 节点内部有很多 "book" 节点, 而 "book" 节点内部只有一串文本.
+每个 "book" 节点都有一个叫做 id 的<strong>特性</strong>(有时也叫做<strong>属性</strong>, 不过注意别与 C# 的属性/特性相混淆).  </p>
 <p>在语法层面上, 一个节点以 &lt;名字&gt; 开始声明, 在叙述完它的内容后以 &lt;/名字&gt; 结束.<br />
-属性则在节点名称之后以空格分隔排列: &lt;名字 属性1="值1" 属性2="值2"&gt;, 属性的值需要由<code>"</code>包裹.
+属性则在节点名称之后以空格分隔排列: &lt;名字 属性1="值1" 属性2="值2"&gt;, 属性的值需要由 <code>"</code> 包裹.
 对于一些没有内部内容的节点, 我们可以使用自结束语法:
 <div class="language-xml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
