@@ -601,11 +601,51 @@
   
   
     <li class="md-nav__item">
+      <a href="../../trans/common1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alarm, Tween, Coroutine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../trans/il/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     IL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trans/adv_hooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IL 钩子与随意钩取
   </span>
   
 
@@ -644,7 +684,7 @@
             
   
   <span class="md-ellipsis">
-    杂项
+    历史归档
   </span>
   
 
@@ -653,69 +693,6 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            杂项
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../trans/common1/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Alarm, Tween, Coroutine
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    历史归档
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             历史归档
           </label>
@@ -783,10 +760,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -797,8 +774,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             其他
           </label>
@@ -990,7 +967,7 @@
 根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(<br />
 所以呢这里就推荐一种新的配置环境的方式 - <strong>使用模板</strong><br />
 考虑到 nuget 安装模板也需要一定的命令行基础...<br />
-所以这里考虑<a href="https://hongshitieli.lanzouj.com/ijwYD1evq8cd">提供直接的下载链接</a>,
+所以这里考虑<a href="https://hongshitieli.lanzouj.com/ioc4f1fy4iad">提供直接的下载链接</a>,
 或者<a href="https://github.com/Saplonily/celeste-mod-template-sdkstyled">Github源</a>, 
 下载解压/clone后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:</p>
 <div class="admonition note">
@@ -1025,10 +1002,10 @@
 <span class="nt">&lt;/Project&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>现在你可以按下 <code>Ctrl+B</code> 或者手动点击 <code>生成-&gt;生成解决方案</code>,
-如果你在你的 vs 输出里面看到了类似这一句:
+如果你在你的 vs 输出里面看到了类似这一句:</p>
 <div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1&gt;Copied files in &#39;ModFolder&#39; to &#39;C:\Program Files (x86)\Steam\steamapps\common\Celeste\Mods\MyCelesteMod&#39;
 </code></pre></div></td></tr></table></div>
-并且你在你的蔚蓝 Mod 目录下找到了这个被创建的目录,
+<p>并且你在你的蔚蓝 Mod 目录下找到了这个被创建的目录,
 那么你的环境就算是配完了, 如果你很感兴趣这之中发生了什么, 要引用哪些程序集, 这个模板背后干了什么, 你可以去看那复杂的旧的配置方法.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
