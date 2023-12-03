@@ -1,4 +1,4 @@
-site_name: 蔚蓝Code Mod教程
+site_name: Celeste Code Mod 教程
 repo_url: https://github.com/Saplonily/CelesteModTourial
 site_description: Celeste Code Mod Tourial
 site_author: Saplonily
@@ -60,3 +60,5 @@ nav:
       - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
   - 其他:
       - XML简单介绍: "other/xml-speedrun.md"
+  - 额外 - LuaCutscene:
+      - 首页: "extra_luacs/index.md"
