@@ -1,0 +1,1529 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Celeste Code Mod Tourial">
+      
+      
+        <meta name="author" content="Saplonily">
+      
+      
+      
+        <link rel="prev" href="../other/xml-speedrun/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>首页 - Celeste Code Mod 教程</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.35e1ed30.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/content.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#-luacutscene" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="Celeste Code Mod 教程" class="md-header__button md-logo" aria-label="Celeste Code Mod 教程" data-md-component="logo">
+      
+  <img src="../assets/images/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Celeste Code Mod 教程
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              首页
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Saplonily/CelesteModTourial" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Celeste Code Mod 教程" class="md-nav__button md-logo" aria-label="Celeste Code Mod 教程" data-md-component="logo">
+      
+  <img src="../assets/images/favicon.png" alt="logo">
+
+    </a>
+    Celeste Code Mod 教程
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Saplonily/CelesteModTourial" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    入门
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../begin/celeste_everest_monomod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Celeste, Everest, MonoMod
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../begin/basic_env/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础环境配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../begin/preference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    偏好
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../begin/hook%2Creading_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    钩子, 阅读代码 I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../begin/simple_entity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简单自定义实体
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../begin/simple_trigger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简单自定义Trigger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../begin/reading_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    阅读代码 II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../begin/simple_texturing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简单贴图
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    过渡
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            过渡
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trans/ec_common/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    更多EC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trans/common1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alarm, Tween, Coroutine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trans/il/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trans/adv_hooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IL 钩子与随意钩取
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    历史归档
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            历史归档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arc/basic_env/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础环境配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arc/sdk-styled-proj/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    偏好-sdk-styled-proj
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    其他
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            其他
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other/xml-speedrun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    XML简单介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    额外 - LuaCutscene
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            额外 - LuaCutscene
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    配置环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hello-world" class="md-nav__link">
+    Hello World
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hello-world_1" class="md-nav__link">
+    对话 Hello World
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基础概念
+  </a>
+  
+    <nav class="md-nav" aria-label="基础概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    变量, 返回值, if
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    更多函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    逻辑运算符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    其他特殊函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    其他函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    C# 交互
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    配置环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hello-world" class="md-nav__link">
+    Hello World
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hello-world_1" class="md-nav__link">
+    对话 Hello World
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基础概念
+  </a>
+  
+    <nav class="md-nav" aria-label="基础概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    变量, 返回值, if
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    更多函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    逻辑运算符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    其他特殊函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    其他函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    C# 交互
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="-luacutscene">额外 - LuaCutscene</h1>
+<h2 id="_1">前言</h2>
+<p>欢迎来到这个额外章节, 虽然它被我扔到了 code mod 教程之中, 但是它实际上不需要太多的 C# 能力.<br />
+在这里会主要包含一些 LuaCutscene 本身以及使用其调用 C# 代码实现的有趣的效果,
+如果你想要你的剧情拥有更多的炫酷效果, 而不是局限于只有对话框和 Madeline 无聊的走动,
+比如炫酷的镜头缓动, 周边实体的花样表演, 甚至是拥有改变 gp 能力的剧情! 那么或许这里刚好就适合你.
+那么现在就开始吧.  </p>
+<h2 id="_2">配置环境</h2>
+<p>这一步事实上是可选的, 不过为了更愉快的 lua 代码的书写,
+我个人还是觉得挺有必要的.<br />
+在这里我会推荐使用 <a href="https://code.visualstudio.com/Download">VSCode</a> 配上 <a href="https://marketplace.visualstudio.com/items?itemName=sumneko.lua">Lua(sumneko.lua)</a>
+插件.<br />
+<img alt="lua-in-vscode" src="lua-in-vscode.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>我个人不太会配置这种 lua 环境, 所以如果你遇到了大量的未定义警告你可以选择在设置中搜索 <code>Lua.diagnostics.enable</code> 并将其关闭.</p>
+</div>
+<h2 id="hello-world">Hello World</h2>
+<p>那么, 老传统. 现在, 在你的地图中放置一个 <code>LuaCutscene</code> 的 <code>LuaCutscene/LuaCutsceneTrigger</code>, 然后设置其 <code>Filename</code> 参数为一个 lua 文件的路径比如 <code>Luas/testlua</code>(注意没有后缀.lua),
+然后 Save Changes. 然后我们根据刚才设置的路径正确放置我们的 lua 文件:</p>
+<ul>
+<li>&lt;你的 mod 名字&gt;<ul>
+<li>Luas<ul>
+<li>testlua.lua</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>然后写上我们的 Hello World!</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[Cutscene] Hello from the Cutscene!&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>保存后按下 F3 键重载你的地图, 然后走进你摆放的 trigger 内, 之后, 检查你的控制台, 或者检查你最新的 log.txt, 你应该会在茫茫日志海中看到这一行输出:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>(12/03/2023 10:36:35) [Everest] [Info] [LevelLoader] Loading Saplonily/FunnyButFuckingMaps/MaybeAFunnyMap
+(12/03/2023 10:36:35) [Everest] [Warn] [Content] CONFLICT in C:\Program Files (x86)\Steam\steamapps\common\Celeste\Mods\MaxHelpingHand v1.28.3.zip\Graphics\Sprites.xml: Overriding element player_playback.
+<span class="hll">[Cutscene] Hello from the Cutscene!
+</span>(12/03/2023 10:36:45) [Everest] [Info] [LevelLoader] Loading Saplonily/FunnyButFuckingMaps/MaybeAFunnyMapOverriding element player_playback.
+</code></pre></div></td></tr></table></div>
+<p>高亮行便是我们的 lua 代码打印出来的.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>在之后的过程中虽然你可以反复翻看 log.txt 来知晓你的 lua 代码的运行情况, 不过这显然不如你有一个控制台窗口直接能看到输出.<br />
+对于在 windows 上, 你可以向蔚蓝根目录下的文件 <code>everest-launch.txt</code> 新加入一行 <code>--console</code> 来在蔚蓝每次启动时附带一个控制台窗口.</p>
+</div>
+<h2 id="hello-world_1">对话 Hello World</h2>
+<p>当然, 在控制台里看无聊的日志打印是没意思的, 所以现在我们向它加入几条对话.<br />
+首先为你这一段对话起一段名字, 比如 <code>TESTDIALOG_HELLO</code>, 通常我们建议前缀是你的地图名以防命名冲突, 后缀你可以根据你的爱好来取,
+比如加上剧情所在面名, 或者干脆是剧情的自增序号. 然后新建一个 <code>Simplified Chinese.txt</code>, 也就是对话文件:</p>
+<ul>
+<li>&lt;你的 mod 名字&gt;<ul>
+<li>Dialog<ul>
+<li>Simplified Chinese.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>以及它的内容:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>TESTDIALOG_HELLO=
+    [MADELINE left normal]
+    我是 {+MADELINE}.
+</code></pre></div></td></tr></table></div>
+<p>然后更改 lua 代码:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="n">say</span><span class="p">(</span><span class="s2">&quot;TESTDIALOG_HELLO&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>现在重载资源, 进入 trigger, 你就能看到 Madeline <sub>~微笑</sub>~着说 "我是 &lt;你的存档名&gt;." 了.<br />
+在这里对话状态时玩家依然能动, 可以通过将 lua 代码改成这样来在对话进行时禁止移动:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="n">disableMovement</span><span class="p">()</span>
+    <span class="n">say</span><span class="p">(</span><span class="s2">&quot;TESTDIALOG_HELLO&quot;</span><span class="p">)</span>
+    <span class="n">enableMovement</span><span class="p">()</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_3">基础概念</h2>
+<p><del>相信在前面的阅读中你肯定是一头雾水的</del>, 因为你对 lua 代码通常依然是一无所知的, 那就对了, 现在我们就来介绍几个简单的概念.</p>
+<h3 id="_4">函数</h3>
+<p>在我们刚刚的 lua 代码中, 最外围的由 <code>function</code> 到 <code>end</code> 围起来的东西我们就叫一个函数:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="n">disableMovement</span><span class="p">()</span>
+    <span class="n">say</span><span class="p">(</span><span class="s2">&quot;TESTDIALOG_HELLO&quot;</span><span class="p">)</span>
+    <span class="n">enableMovement</span><span class="p">()</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p><code>function</code> 和 <code>end</code> 这种关系到代码结构的东西我们就叫它 '关键字', <code>function</code> 关键字后面到左括号之内的内容就是这个函数的函数名,
+在这里即 <code>onBegin</code>, 在这里这个函数名是特殊的, 它会被 LuaCutscene 在玩家进入 trigger 时且剧情可以播放时 '调用'.
+括号内的内容我们叫参数, 这里 LuaCutscene 要求我们 <code>onBegin</code> 这个特殊函数不能带参数或者带一个参数, 这里我们暂时置空, 也就是只有一对括号, 不带参数.
+而这之中的内容便是函数的内容物, 也即主体, 它会从上到下顺序执行我们的代码.  </p>
+<p>通常主体是我们所聚焦的东西, 在这里, 我们的主体包含三行代码. 第一行代码是 <code>disableMovement()</code>, 也就是一个名称加上一对括号,
+它表示调用一个名为 <code>disableMovement</code> 的函数, 并且不带参数, 这和刚才函数的声明有点相像,
+<code>disableMovement</code> 是一个 LuaCutscene 为我们提前准备好的, 也即 '定义' 好的函数,
+它的作用是禁止玩家的移动, 与之相对的就是 <code>enableMovement</code> 函数, 它会允许玩家移动.
+中间的第二行代码调用了 <code>say</code> 这个函数, 它表示播放一个对话, 那么这里对话名就需要作为参数传递了,
+所以我们在括号中写入刚才我们的对话名 <code>TESTDIALOG_HELLO</code>, 记住要带双引号, 因为它是一个 '字符串'.  </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><code>disableMovement</code> 与 <code>enableMovement</code> 函数都是瞬间执行完毕的, 函数会马上继续执行下面的代码,
+而 <code>say</code> 函数调用后直到玩家看完对话才会继续执行下面的代码. 对于后者我们特别地称为 <code>协程函数</code>.</p>
+</div>
+<h3 id="if">变量, 返回值, if</h3>
+<p>现在, 我们观察下面代码:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">hasFlag</span> <span class="o">=</span> <span class="n">getFlag</span><span class="p">(</span><span class="s2">&quot;MY_AWESOME_FLAG&quot;</span><span class="p">)</span>
+    <span class="kr">if</span> <span class="n">hasFlag</span> <span class="kr">then</span>
+        <span class="n">disableMovement</span><span class="p">()</span>
+        <span class="n">say</span><span class="p">(</span><span class="s2">&quot;TESTDIALOG_HELLO&quot;</span><span class="p">)</span>
+        <span class="n">enableMovement</span><span class="p">()</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>在函数开头我们使用了 <code>local a = b()</code> 这种语法, 开头的 <code>local</code> 关键字表示我们要声明一个变量, 紧跟的 <code>hasFlag</code> 表示这个变量的名称,
+随后再次跟上一个 <code>=</code> 号, 这表示我们想以 <code>=</code> 号后边的值作为这个变量的值, 在这里它是 <code>getFlag</code> 这个预先定义的函数的返回值,
+函数通常用于做一些事情, 而它的返回值就表示这件事做的如何, 在这里 <code>getFlag</code> 函数用于检测它的参数指代的那个 flag 是否存在,
+当检测到 flag 存在时它会返回 <code>true</code>, 否之则返回 <code>false</code>. 这里这个返回值的 '类型' 是 <code>bool</code>, 它只有刚才提到的两个值, 所以同样地 <code>hasFlag</code> 这个变量的类型是 <code>bool</code>.  </p>
+<p>当我们从 <code>getFlag</code> 得到了对应 flag 是否存在的信息后, 我们使用 if 语句来检测它, 首先我们以 <code>if</code> 开头, 然后紧跟一个 <code>bool</code> 类型的值,
+也就是这里的 <code>hasFlag</code> 变量, 然后再跟上一个 <code>then</code> 关键字, 随后再次跟上一小段代码, 随后以 <code>end</code> 结束, 这里的意思就是我们希望 <code>then</code> 到 <code>end</code>
+所包围起来 '代码块' 仅在 <code>hasFlag</code> 为 <code>true</code>, 也即 <code>getFlag</code> 返回 <code>true</code>, 也即 flag <code>MY_AWESOME_FLAG</code> 存在时执行. 现在你可以试试复制上述的代码,
+然后在你的地图中放置两个 flag Trigger, 一个开启 <code>MY_AWESOME_FLAG</code> 这个 flag, 一个关闭 flag, 然后分别尝试走进剧情 trigger,
+你很容易会发现仅在 <code>MY_AWESOME_FLAG</code> flag 开启时剧情才会被播放, 也就是播放剧情的那三行代码才会被执行.  </p>
+<p>实际上既然 <code>if</code> 到 <code>then</code> 之间只需要一个类型为 <code>bool</code> 的值, 那么这里其实不需要 <code>hasFlag</code> 这个变量作为过渡:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="kr">if</span> <span class="n">getFlag</span><span class="p">(</span><span class="s2">&quot;MY_AWESOME_FLAG&quot;</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="n">disableMovement</span><span class="p">()</span>
+        <span class="n">say</span><span class="p">(</span><span class="s2">&quot;TESTDIALOG_HELLO&quot;</span><span class="p">)</span>
+        <span class="n">enableMovement</span><span class="p">()</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>这行代码与上面是等效的.  </p>
+<p>通常有时候我们希望 flag 拥有情况不一的时候播放不同的剧情, 比如上面拥有 <code>MY_AWESOME_FLAG</code> flag 时播放剧情 A, 而没有时播放剧情 B. 首先我们先更新我们的对话文件:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>TESTDIALOG_HELLO=
+    [MADELINE left normal]
+    拥有 flag
+
+TESTDIALOG_HELLO_NOFLAG=
+    [MADELINE left normal]
+    没有 flag
+</code></pre></div></td></tr></table></div>
+<p>然后更新 lua 代码:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="kr">if</span> <span class="n">getFlag</span><span class="p">(</span><span class="s2">&quot;MY_AWESOME_FLAG&quot;</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="n">disableMovement</span><span class="p">()</span>
+        <span class="n">say</span><span class="p">(</span><span class="s2">&quot;TESTDIALOG_HELLO&quot;</span><span class="p">)</span>
+        <span class="n">enableMovement</span><span class="p">()</span>
+    <span class="kr">else</span>
+        <span class="n">disableMovement</span><span class="p">()</span>
+        <span class="n">say</span><span class="p">(</span><span class="s2">&quot;TESTDIALOG_HELLO_NOFLAG&quot;</span><span class="p">)</span>
+        <span class="n">enableMovement</span><span class="p">()</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>现在在游戏中尝试一下, 符合我们的期望: 没有 flag 时播放 <code>TESTDIALOG_HELLO_NOFLAG</code> 这个对话, 拥有 flag 时播放 <code>TESTDIALOG_HELLO</code> 这个对话.  </p>
+<p>观察上述代码, 我们发现禁止和允许移动的那一对函数调用没必要重复两遍写在 if 里, 因为无论 if 的条件是否成立它们都是先禁止移动, 然后再允许移动,
+所以我们将那一对代码抽离并放置在最上下:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="n">disableMovement</span><span class="p">()</span>
+    <span class="kr">if</span> <span class="n">getFlag</span><span class="p">(</span><span class="s2">&quot;MY_AWESOME_FLAG&quot;</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="n">say</span><span class="p">(</span><span class="s2">&quot;TESTDIALOG_HELLO&quot;</span><span class="p">)</span>
+    <span class="kr">else</span>
+        <span class="n">say</span><span class="p">(</span><span class="s2">&quot;TESTDIALOG_HELLO_NOFLAG&quot;</span><span class="p">)</span>
+    <span class="kr">end</span>
+    <span class="n">enableMovement</span><span class="p">()</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>当然, 效果是一样的, 但是我们的代码简洁了不少.</p>
+<h3 id="_5">更多函数</h3>
+<p>现在, 回忆一下我们已经了解到了哪些函数:</p>
+<ul>
+<li>一个最上面使用过的函数 <code>print</code>, 作用为将它的参数内容输出出来</li>
+<li><code>disableMovement</code>, 没有参数, 作用为禁止玩家的移动</li>
+<li><code>enableMovement</code>, 没有参数, 作用为允许玩家的移动</li>
+<li><code>say</code>, 作用为播放参数所指的对话</li>
+<li><code>getFlag</code>, 作用为检测参数所指的 flag 是否存在, 并且返回该值</li>
+</ul>
+<p>当然, 函数的参数不可能只有一个, 比如 <code>cassetteFly</code> 函数:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="n">disableMovement</span><span class="p">()</span>
+    <span class="n">cassetteFly</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+    <span class="c1">-- cassetteFly 调用完后并不会等待...</span>
+    <span class="n">enableMovement</span><span class="p">()</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>-- 并加上空格起头的一行表示一行注释, 当代码执行到这时会直接忽略这一行, 此外还有块注释, 即忽略块所包围的一整块代码:
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="cm">--[[</span>
+<span class="cm">        在这里</span>
+<span class="cm">        写</span>
+<span class="cm">        任意</span>
+<span class="cm">        多</span>
+<span class="cm">        的注释!</span>
+<span class="cm">    ]]</span><span class="c1">--</span>
+    <span class="n">say</span><span class="p">(</span><span class="s2">&quot;SOMETHING_INTERESTING&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div></p>
+</div>
+<p><code>cassetteFly</code> 函数作用为乘坐泡泡飞行一段距离(收集磁带后的动作), 它需要接收两个参数, 它们均为 <code>number</code> 类型, 表示一个数字,
+多个参数之间使用 <code>,</code> 逗号分隔开来, 注意这里参数类型是数字, 所以不需要加上双引号表示为字符串. 第一个参数表示横向的相对飞行距离, 单位 px,
+正值向右, 负值向左, 第二个参数表示纵向的相对飞行距离, 正值向<strong>下</strong>, 负值向<strong>上</strong>.  </p>
+<p>不过不太好的是 <code>cassetteFly</code> 不是协程函数, 这会造成调用了该函数后马上调用 <code>enableMovement</code> 函数, 这会打断泡泡飞行的过程,
+所以我们先暂时删掉 <code>enableMovement</code> 的调用, 不过不要担心, 泡泡飞行结束后会自动帮我们允许移动:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="n">disableMovement</span><span class="p">()</span>
+    <span class="n">cassetteFly</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>然后到游戏中观察这个泡泡飞行进行所需的大概时间, 发现大概是 1.5 秒, 所以我们在泡泡飞行的调用后面紧跟一个 <code>wait</code> 的调用:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="n">disableMovement</span><span class="p">()</span>
+    <span class="n">cassetteFly</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>顺便, 泡泡飞行结束后会自动允许移动, 所以我们还得再次禁掉移动:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="n">disableMovement</span><span class="p">()</span>
+    <span class="n">cassetteFly</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">disableMovement</span><span class="p">()</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>以及, 我们还希望在这个过程之后再播放一段对话:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="n">disableMovement</span><span class="p">()</span>
+    <span class="n">cassetteFly</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">disableMovement</span><span class="p">()</span>
+    <span class="n">say</span><span class="p">(</span><span class="s2">&quot;TESTDIALOG_FLY&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>这是对应的 dialog:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>TESTDIALOG_FLY=
+    [MADELINE left normal]
+    嘿我刚才完成了一次泡泡飞行哎
+</code></pre></div></td></tr></table></div>
+<p>顺便不要忘了再允许移动:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="n">disableMovement</span><span class="p">()</span>
+    <span class="n">cassetteFly</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">disableMovement</span><span class="p">()</span>
+    <span class="n">say</span><span class="p">(</span><span class="s2">&quot;TESTDIALOG_FLY&quot;</span><span class="p">)</span>
+    <span class="n">enableMovement</span><span class="p">()</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>现在在游戏里试一下, 是不是先向左上角进行一个 (-100, -100) 的泡泡飞行,
+然后过了 1.5 秒后准时播放 <code>TESTDIALOG_FLY</code> 这个对话, 然后仅在对话结束后才能移动?</p>
+<hr />
+<p>除了使用 flag trigger 设置 flag 以外, 还可以在 lua 中设置 flag:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="n">setFlag</span><span class="p">(</span><span class="s2">&quot;FLAG_FROM_LUA&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p><code>setFlag</code> 函数接收两个参数, 第一个参数为 string 类型, 指代一个 flag, 第二个参数为 bool 类型, 表示要设置为开启还是关闭.
+那么显而易见, 效果就是经过这个 "剧情" trigger 时 <code>FLAG_FROM_LUA</code> 这个 flag 会被开启. 你可以找一些其他的 flag 驱动的实体来验证一下.  </p>
+<p>顺便我们还可以做一个有趣的效果, 经过 trigger 时反转开启状态:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="n">setFlag</span><span class="p">(</span><span class="s2">&quot;FLAG_FROM_LUA&quot;</span><span class="p">,</span> <span class="ow">not</span> <span class="n">getFlag</span><span class="p">(</span><span class="s2">&quot;FLAG_FROM_LUA&quot;</span><span class="p">))</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p><code>getFlag</code> 返回了一个 bool 类型的值, 然后我们在这个值, 在这里是函数调用的返回值左侧写一个 not, 它表示翻转 bool 的值,
+即 true -&gt; false, false -&gt; true, 那么在这里就是每次触发 trigger 时 <code>FLAG_FROM_LUA</code> 的开启状态被反转.  </p>
+<h3 id="_6">逻辑运算符</h3>
+<p>对于这些 lua 通用内容就直接丢个 w3c 的链接了:<br />
+<a href="https://www.w3cschool.cn/lua/lua-miscellaneous-operator.html">Lua 运算符 w3cschool - https://www.w3cschool.cn/...</a></p>
+<p>运用上面的知识你可以写一个 if 使得仅在两个 flag 同时成立时才执行内部的代码:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">flagA</span> <span class="o">=</span> <span class="n">getFlag</span><span class="p">(</span><span class="s2">&quot;MY_FLAG_A&quot;</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">flagB</span> <span class="o">=</span> <span class="n">getFlag</span><span class="p">(</span><span class="s2">&quot;MY_FLAG_B&quot;</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">flagA</span> <span class="ow">and</span> <span class="n">flagB</span> <span class="kr">then</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;同时成立!&quot;</span><span class="p">)</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_7">其他特殊函数</h2>
+<p>除了上文提到的 <code>onBegin</code> 这个特殊函数外, 还有另外一个经常用到的 <code>onEnd</code> 函数,
+顾名思义, 就是剧情结束时被调用的函数, 它通常会带两个参数:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onEnd</span><span class="p">(</span><span class="n">room</span><span class="p">,</span> <span class="n">wasSkipped</span><span class="p">)</span>
+    <span class="c1">-- 做一些清理工作...</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>通常我们只会在 <code>onEnd</code> 调用中做清理工作, 比如说删掉剧情中出现的额外实体, 设置玩家的位置到最终位置等等,
+注意的是, 跳过剧情这个动作实际上会直接打断 <code>onBegin</code> 的执行, 并且也会调用 <code>onEnd</code>, 这个打断位置是不可预知.<br />
+其中第一个参数是 <code>Level</code> 类型的值, 它是一个蔚蓝代码中的类型, 这里我们暂时忽略, 来关注第二个参数, 它是一个 <code>bool</code> 类型的值,
+它表示这个剧情是自然结束的还是被跳过的, 比如在一些移动较多的剧情中<sub>~(多动症)</sub>~, 其 <code>onEnd</code> 就会通常是设置玩家的位置到最终位置,
+顺带一提, 官图中有些剧情的位置设置只设置了横坐标, 所以比如 5a 进入内部那段路的在半空中跳过剧情来直接横向移动到按钮上的速通技巧才得以实现.  </p>
+<p>注意的是, <code>onEnd</code> 函数中<strong>不能</strong>使用协程函数, 如果你这么做了你会得到一个 <code>attempt to yield from outside a coroutine</code> 的报错,
+这是因为 <code>onBegin</code> 函数本身也是一个协程函数, 这才允许你在内部使用协程函数.</p>
+<h2 id="_8">其他函数</h2>
+<p>除了上述提到的 <code>say</code>, <code>getFlag</code>, <code>setFlag</code> 等外, 还有非常多预先定义好的函数, 你可以在下面这个链接中找到:<br />
+<a href="https://maddie480.ovh/lua-cutscenes-documentation/modules/helper_functions.html">Lua Cutscenes Documentaion - https://maddie480.ovh/...</a>  </p>
+<p>在上面这个文档中比如这个函数:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>helpers.die([direction={0, 0}[, evenIfInvincible=false[, registerDeathInStats=true]]])</td>
+<td>Kills the player.</td>
+</tr>
+</tbody>
+</table>
+<p>其中 helpers.die 说明这个函数名是 die, 后面圆括号围起来的表示它的参数, 一层层中括号围起来的表示可选参数,
+参数名后面加等于号表示该可选参数的默认值, 比如上述函数的调用可以有:</p>
+<table>
+<thead>
+<tr>
+<th>调用方式</th>
+<th>等效调用方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>die()</td>
+<td>die(vector2(0, 0), false, true)</td>
+</tr>
+<tr>
+<td>die(vector2(1, 1))</td>
+<td>die(vector2(1, 1), false, true)</td>
+</tr>
+<tr>
+<td>die(vector2(1, 1), true)</td>
+<td>die(vector2(1, 1), true, true)</td>
+</tr>
+<tr>
+<td>die(vector2(1, 1), true, false)</td>
+<td>die(vector2(1, 1), true, false)</td>
+</tr>
+</tbody>
+</table>
+<p>顺便, 其中第一个参数的类型是个 <code>Vector2</code>, 表示一个二维向量, 这种类型的值你可以调用 <code>vector2(1, 1)</code> 函数来从返回值得到,
+顾名思义它的第一个参数是 x 坐标, y 坐标. 这里它的含义是玩家死亡时的特效方向.</p>
+<h2 id="c">C# 交互</h2>
+<p>// TODO</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+    <div class="md-footer-meta md-typeset">
+        <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+                Made with
+                <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+                    Material for MkDocs
+                </a>
+            </div>
+            <a href="https://icp.gov.moe/?keyword=20221437" class="md-copyright" target="_blank" rel="noopener">
+                萌ICP备20221437号
+            </a>
+        </div>
+    </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
