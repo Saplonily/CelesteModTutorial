@@ -475,6 +475,10 @@ end
 
 ----
 
-对于私有成员的访问, 在 Everest wiki 中的 [LuaCutscene Recipe Book](https://github.com/EverestAPI/ModResources/wiki/Lua-Cutscenes-Recipe-Book#static-vs-instance-methods--fields) 中写的是没有限制地就像公开的一样访问, 不过我这里实测任何私有字段只会读取出 `nil`, 私有方法都会报 `nil` 错误, 考虑是个 bug 或者需要其他额外操作, 这里暂时略过.
+对于私有成员的访问, 在 Everest Core (截止 4446) 上有一些问题导致完全不能访问,
+经过询问似乎是 Core 的一些缓存问题, 在 Stable 上不会出现, 故这里暂时跳过,
+相关私有成员访问可在 C# 侧操作作为替代.
 
-// TODO
+----
+
+相信如果你没有太多 C# 知识的话, 这一小节你肯定是很困惑不知道发生了什么的, 不过没关系, 你依然可以直接使用后续提到的代码段和现成的函数来做你喜欢的事.
