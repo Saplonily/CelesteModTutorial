@@ -131,7 +131,7 @@ if (cur.TryGotoNext(ins => ins.MatchLdcR4(-160f), ins => ins.MatchStfld<Vector2>
 ```cs
 if (cur.TryGotoNext(ins => ins.MatchLdcR4(-160f), ins => ins.MatchStfld<Vector2>("Y")))
 {
-    // 注意没有cur.Index++;了, 记住 Emit 时新代码被添加到上一行, 而 Remove 时则移除当前行
+    // 注意没有 cur.Index++ 了, 记住 Emit 时新代码被添加到上一行, 而 Remove 时则移除当前行
     cur.Remove();
     // 当前一行的 IL 已经被移除了, 现在指针实际上指向之前的下一行, 所以我们可以直接 Emit
     cur.Emit(OpCodes.Ldc_R4, -300.0f);

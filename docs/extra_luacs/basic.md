@@ -8,11 +8,15 @@
 比如炫酷的镜头缓动, 周边实体的花样表演, 甚至是拥有改变 gp 能力的剧情! 那么或许这里刚好就适合你.
 那么现在就开始吧.  
 
+!!! note
+    本章的 lua 部分是计划从零开始的, 不过最终写出来的似乎不是很适合入门...  
+    所以必要时你可能需要查找外部的 lua 教程, 比如 [w3cschool 的 lua 教程](https://www.w3cschool.cn/lua/).
+
 ## 配置环境
 
 这一步事实上是可选的, 不过为了更愉快的 lua 代码的书写,
 我个人还是觉得挺有必要的.  
-在这里我会推荐使用 [VSCode](https://code.visualstudio.com/Download) 配上 [Lua(sumneko.lua)](https://marketplace.visualstudio.com/items?itemName=sumneko.lua)
+在这里我会推荐使用 [VSCode](https://code.visualstudio.com/Download) 配上 [Lua (sumneko.lua)](https://marketplace.visualstudio.com/items?itemName=sumneko.lua)
 插件.  
 ![lua-in-vscode](./lua-in-vscode.png)
 
@@ -28,7 +32,7 @@
     - Luas
         - testlua.lua
 
-然后写上我们的 Hello World!
+然后写上我们的 Hello World:
 
 ```lua
 function onBegin()
@@ -77,7 +81,8 @@ function onBegin()
 end
 ```
 
-现在重载资源, 进入 trigger, 你就能看到 Madeline ~~微笑~~着说 "我是 <你的存档名>." 了.  
+<!--idk 为什么这里需要 &#8203; 但是它确实需要-->
+现在重载资源, 进入 trigger, 你就能看到 Madeline ~~微笑~~&#8203;着说 "我是 <你的存档名>." 了.  
 在这里对话状态时玩家依然能动, 可以通过将 lua 代码改成这样来在对话进行时禁止移动:
 
 ```lua
@@ -87,6 +92,8 @@ function onBegin()
     enableMovement()
 end
 ```
+
+对话文件的介绍这里就不细写了, 推荐参考蔚蓝制图教程的冬菜教程, 你可以到蔚蓝的制图群中取得, 或者也可以在[这个网盘链接](https://hongshitieli.lanzouj.com/ieZOF1gtlabe)中取得.
 
 ## 基础概念
 
