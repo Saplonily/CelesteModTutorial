@@ -127,8 +127,7 @@ public override void Unload()
 
 ## 阅读代码 I
 
-到这里你是否有很多问号(((,
-比如这些函数都是干什么的? 
+到这里相信你肯定有很多问号, 比如这些函数都是干什么的? 
 
 - `Player` 是什么?
 - `Player.Update` 是什么?
@@ -142,7 +141,7 @@ public override void Unload()
 
 - 打开它
 - 点击左上角的`文件`, `打开`
-- 选择 `Celeste.exe`
+- 选择 `Celeste.exe` (如果你使用 core 版本的 everest, 你需要选择 `Celeste.dll`)
 - 展开蔚蓝的程序集
 - 你现在可以看到蔚蓝都有哪些类了
 - 你现在也可以看到蔚蓝都有哪些函数了
