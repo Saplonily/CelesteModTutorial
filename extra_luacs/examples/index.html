@@ -6,14 +6,14 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Celeste Code Mod Tourial">
+        <meta name="description" content="Celeste Code Mod Tutorial">
       
       
         <meta name="author" content="Saplonily">
       
       
       
-        <link rel="prev" href="../basic/">
+        <link rel="prev" href="../cs_access/">
       
       
       
@@ -152,7 +152,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/Saplonily/CelesteModTourial" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/Saplonily/CelesteModTutorial" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -197,7 +197,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/Saplonily/CelesteModTourial" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/Saplonily/CelesteModTutorial" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -745,11 +745,31 @@
   
   
     <li class="md-nav__item">
-      <a href="../basic/" class="md-nav__link">
+      <a href="../begin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    基本
+    开始
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cs_access/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C# 交互
   </span>
   
 
@@ -811,8 +831,133 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#luacutscene" class="md-nav__link">
+    LuaCutscene 函数
+  </a>
+  
+    <nav class="md-nav" aria-label="LuaCutscene 函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wait" class="md-nav__link">
+    wait
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#walkto" class="md-nav__link">
+    walkTo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#walk" class="md-nav__link">
+    walk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runto" class="md-nav__link">
+    runTo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postcard" class="md-nav__link">
+    postcard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choice" class="md-nav__link">
+    choice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die" class="md-nav__link">
+    die
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jump" class="md-nav__link">
+    jump
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waituntilonground" class="md-nav__link">
+    waitUntilOnGround
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changeroom" class="md-nav__link">
+    changeRoom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teleportto" class="md-nav__link">
+    teleportTo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teleport" class="md-nav__link">
+    teleport
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instantteleportto" class="md-nav__link">
+    instantTeleportTo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instantteleport" class="md-nav__link">
+    instantTeleport
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#completearea" class="md-nav__link">
+    completeArea
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    
+    一些介绍
   </a>
   
 </li>
@@ -860,8 +1005,133 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#luacutscene" class="md-nav__link">
+    LuaCutscene 函数
+  </a>
+  
+    <nav class="md-nav" aria-label="LuaCutscene 函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wait" class="md-nav__link">
+    wait
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#walkto" class="md-nav__link">
+    walkTo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#walk" class="md-nav__link">
+    walk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runto" class="md-nav__link">
+    runTo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postcard" class="md-nav__link">
+    postcard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choice" class="md-nav__link">
+    choice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die" class="md-nav__link">
+    die
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jump" class="md-nav__link">
+    jump
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waituntilonground" class="md-nav__link">
+    waitUntilOnGround
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changeroom" class="md-nav__link">
+    changeRoom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teleportto" class="md-nav__link">
+    teleportTo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teleport" class="md-nav__link">
+    teleport
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instantteleportto" class="md-nav__link">
+    instantTeleportTo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instantteleport" class="md-nav__link">
+    instantTeleport
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#completearea" class="md-nav__link">
+    completeArea
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    
+    一些介绍
   </a>
   
 </li>
@@ -885,10 +1155,190 @@
 
 
 <h1 id="_1">例子</h1>
-<p>在这一小节中会较多的介绍更多的一些预定义函数, 以及定义一些自己的工具函数等等,
+<p>在这一小节中会更多地介绍一些预定义函数, 以及一些工具函数等等,
 在后面的节中还会包含一些 helper 在 C# 侧协助实现的函数.</p>
-<h2 id="_2"></h2>
-<p>// TODO</p>
+<h2 id="luacutscene">LuaCutscene 函数</h2>
+<p>在前面的小节中我们已经提到过 LuaCutscene 提供了<a href="https://maddie480.ovh/lua-cutscenes-documentation/modules/helper_functions.html">大量的函数</a>,
+那么这里我们将介绍其中常用的一部分(之前已介绍过的将不再提及).</p>
+<h3 id="wait">wait</h3>
+<p><code>wait(duration)</code>  </p>
+<p>协程函数, 暂停函数执行几秒</p>
+<ul>
+<li>duration: 要暂停的时间(秒)</li>
+</ul>
+<h3 id="walkto">walkTo</h3>
+<p><code>walkTo(x, walkBackwards=false, speedMultiplier=1.0, keepWalkingIntoWalls=false)</code>  </p>
+<p>协程函数, 让玩家行走到坐标 x</p>
+<ul>
+<li>x: 目标 x 绝对坐标, 单位 px</li>
+<li>walkBackwards: 是否播放为倒走动画</li>
+<li>speedMultiplier: 速度倍率</li>
+<li>keepWalkingIntoWalls: 撞墙时是否保持状态直到墙被移除</li>
+</ul>
+<p>如果在行走过程中碰到墙那么会该函数会立即结束执行, 除非 <code>keepWalkingIntoWalls</code> 被设置为 <code>true</code>,
+如果不幸地碰到了不可能会被移除的墙, 例如前景砖, 那么剧情就会永久卡住.</p>
+<h3 id="walk">walk</h3>
+<p><code>walkTo(x, walkBackwards=false, speedMultiplier=1.0, keepWalkingIntoWalls=false)</code>  </p>
+<p>与 <a href="#walkto"><code>walkTo</code></a> 相同, 但 x 为相对值, 例如 <code>100</code> 会使得玩家向右行走 100 px</p>
+<h3 id="runto">runTo</h3>
+<p><code>runTo(x, fastAnimation=false)</code></p>
+<p>协程函数, 让玩家跑到坐标 x</p>
+<ul>
+<li>x: 目标 x 绝对坐标, 单位 px</li>
+<li>fastAnimation: 是否使用快跑的动画</li>
+</ul>
+<p>与 <a href="#walkto"><code>walkTo</code></a> 类似, 但是动画变为跑步. 注意此函数没有同等的 <code>keepWalkingIntoWalls</code> 参数, 其等效于为 <code>true</code> 的情况,
+也就是撞墙后不会结束该函数的执行.</p>
+<h3 id="run">run</h3>
+<p><code>run(x, fastAnimation=false)</code></p>
+<p>与 <a href="#runto"><code>runTo</code></a> 相同, 但 x 为相对值.</p>
+<h3 id="postcard">postcard</h3>
+<p><code>postcard(dialog, sfxIn, sfxOut=nil)</code></p>
+<p>协程函数, 向玩家显示明信片</p>
+<ul>
+<li>dialog: 明信片所使用的 dialog id, 与 <code>say</code> 的是同一种 id</li>
+<li>sfxIn: 展示明信片时播放的音频 event id.</li>
+<li>sfxOut: 明信片移开时播放的音频 event id.</li>
+</ul>
+<p>对于音频相关的内容, 例如获取 event id, 可参考电箱制图教程中的:</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/av986769059">av986769059 - 自定义音乐(基础篇)</a></li>
+<li><a href="https://www.bilibili.com/video/av60439761">av604397615 - 自定义音乐(进阶篇)</a></li>
+<li><a href="https://www.bilibili.com/video/av517096099">av517096099 - 自定义音乐(拓展篇)</a></li>
+</ul>
+<blockquote>
+<p>截止 <code>0.2.11</code>, <code>postcard</code> 函数存在编码问题, 个人已开 <a href="https://github.com/Cruor/LuaCutscenes/pull/7">pr</a> 修复</p>
+</blockquote>
+<h3 id="choice">choice</h3>
+<p><code>choice(...)</code></p>
+<p>协程函数, 向玩家展示几个对话选项(类似 6a 开头那种), 返回玩家选择的对话序号(注意从 1 开始).</p>
+<ul>
+<li>...: dialog id</li>
+</ul>
+<p>这是一个可变参数的函数, 例如以下使用:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">local</span> <span class="n">chosen</span> <span class="o">=</span> <span class="n">choice</span><span class="p">(</span><span class="s2">&quot;CHOICE_1&quot;</span><span class="p">,</span> <span class="s2">&quot;CHOICE_2&quot;</span><span class="p">,</span> <span class="s2">&quot;CHOICE_3&quot;</span><span class="p">);</span>
+<span class="n">say</span><span class="p">(</span><span class="s2">&quot;CHOICE_SAY_&quot;</span> <span class="o">..</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">chosen</span><span class="p">));</span>
+</code></pre></div></td></tr></table></div>
+<p>会向玩家展示三个选项, 并且在玩家选择完后展示对应序号对应的对话:</p>
+<ul>
+<li><code>CHOICE_1</code> -&gt; <code>CHOICE_SAY_1</code></li>
+<li><code>CHOICE_2</code> -&gt; <code>CHOICE_SAY_2</code></li>
+<li><code>CHOICE_3</code> -&gt; <code>CHOICE_SAY_3</code></li>
+</ul>
+<h3 id="die">die</h3>
+<p><code>die(direction={0, 0}, evenIfInvincible=false, registerDeathInStats=true)</code></p>
+<p>非协程函数, 杀死玩家</p>
+<ul>
+<li>direction: 死亡方向, 例如 <code>{1, 0}</code> 表示水平向右, <code>{-1, -1}</code> 表示左上方</li>
+<li>evenIfInvincible: 是否在玩家是无敌时也杀死</li>
+<li>registerDeathInStats: 是否记录本次死亡, 否则本次死亡不会增加存档死亡数</li>
+</ul>
+<p>就如此函数所做的, 直接杀死玩家, 不过此函数调用后依然会执行后面的代码, 虽然同时后面的代码会被玩家死亡后的自动重开直接打断.</p>
+<h3 id="jump">jump</h3>
+<p><code>jump(duration=2.0)</code></p>
+<p>协程函数, 使玩家跳跃</p>
+<ul>
+<li>duration: 跳跃时长, 等价于你按跳键的时长</li>
+</ul>
+<p>有趣的是, 此函数即使玩家在空中也会起效, 不过此函数导致的跳不会触发 super 与 hyper 等技巧.</p>
+<h3 id="waituntilonground">waitUntilOnGround</h3>
+<p><code>waitUntilOnGround()</code></p>
+<p>协程函数, 等待玩家触碰到地板</p>
+<h3 id="changeroom">changeRoom</h3>
+<p><code>changeRoom(name)</code>
+<code>changeRoom(name, spawnX, spawnY)</code></p>
+<p>更改玩家所在面</p>
+<ul>
+<li>name: 目标面名称</li>
+<li>spawnX: 新重生点 x 坐标</li>
+<li>spawnY: 新重生点 y 坐标</li>
+</ul>
+<p>如果不传入新重生点坐标则默认为房间左下角. 不过经个人测试这个重生点的设置会马上就被新面的进入而覆盖,
+不过有趣的是, 此函数允许传入一个 filler 面, 此时重生点就不会被覆盖了.</p>
+<h3 id="teleportto">teleportTo</h3>
+<p>非协程函数, 传送玩家到目标位置</p>
+<p><code>teleportTo(x, y)</code></p>
+<ul>
+<li>x: 目标 x 坐标</li>
+<li>y: 目标 y 坐标</li>
+</ul>
+<p>此外这个函数还有另外两个重载, 不过我个人还没弄懂它的用法, 故这里就不写了.</p>
+<h3 id="teleport">teleport</h3>
+<p>与 <a href="#teleportto"><code>teleportTo</code></a> 相同, 但是坐标是相对坐标</p>
+<h3 id="instantteleportto">instantTeleportTo</h3>
+<p><code>instantTeleportTo(x, y)</code></p>
+<p>非协程函数, 立即传送玩家到目标位置</p>
+<ul>
+<li>x: 目标 x 坐标</li>
+<li>y: 目标 y 坐标</li>
+</ul>
+<p>此函数与 <a href="#teleportto"><code>teleportTo</code></a> 类似, 但是它会在传送的同时立即调整视野, 也就是摄像机的位置.<br />
+此外这个函数也有另外一个有关面的重载(<code>(x, y, room)</code>), 但是传入其他面后玩家会进入一种奇怪的剧情状态.</p>
+<h3 id="instantteleport">instantTeleport</h3>
+<p>与 <a href="#instantteleportto"><code>instantTeleportTo</code></a> 相同, 但是坐标是相对坐标</p>
+<h3 id="completearea">completeArea</h3>
+<p><code>completeArea(spotlightWipe=false, skipScreenWipe=false, skipCompleteScreen=false)</code></p>
+<p>非协程函数, 结束当前章节, 此函数调用后会重新允许玩家移动.</p>
+<ul>
+<li><code>spotlightWipe</code>: <code>true</code> 时为聚光灯型切换到黑屏, <code>false</code> 为渐变型.</li>
+<li><code>skipScreenWipe</code>: 是否跳过切换到黑屏的过程</li>
+<li><code>skipCompleteScreen</code>: 是否跳过结算屏</li>
+</ul>
+<h2 id="_2">一些介绍</h2>
+<p>就如之前所说的, 移动的禁止状态并不会在剧情结束时自动解除, 在分支复杂容易在末尾忘记调用 <code>enableMovement</code> 的情况下, 通常建议在 <code>onEnd</code> 函数中重新允许移动:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onEnd</span><span class="p">()</span>
+    <span class="n">enableMovement</span><span class="p">()</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>对于部分要求绝对坐标的函数, 你可以通过按下键盘上的 <code>~</code> 键来打开调试面板, 在界面左上角会有一栏类似如下的信息:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>Area: 04 @ 12 (SID: Celeste/Saplonily/Test)
+Cursor @
+  screen: 792, 407
+  world:       -618, 213
+  level:       1142, 397
+  level, /8:   142, 49
+  level, snap: 1136, 392
+</code></pre></div></td></tr></table></div>
+<p>其中 <code>Area: 04 @ 12</code> 中的 <code>04</code> 为当前房间名, <code>12</code> 为当前章节 ID, 通常对于 B 面它还会以 <code>H</code> 结尾, C 面以 <code>HH</code> 结尾. 
+<code>screen</code> 表示目前光标所在的屏幕坐标, <code>(0, 0)</code> 表示屏幕左上角. <code>level</code> 表示目前光标所在的世界坐标, 也就是 <code>walkTo</code> 等函数要求我们传入的绝对坐标.
+<code>level, /8</code> 表示光标所在的世界坐标除以 8 取整的结果, 这通常用于定位以 8px 为单位的 tile. <code>level, snap</code> 的值为 <code>level, /8</code> 的值乘以 8,
+在数值上表现为光标所在世界坐标与 8x8 网格进行对齐的结果.  </p>
+<p>在装了 <code>CelesteTAS</code> mod 的情况下, 你还可以左击地图上的实体来获取更多信息:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>Area: 04 @ 12 (SID: Celeste/Saplonily/Test)
+Cursor @
+  screen: 792, 407
+  entity type: Celeste.Glider
+  entity name: glider
+  entity id  : 04:14
+  mod name   : Celeste
+  world:       -618, 213
+  level:       1142, 397
+  level, /8:   142, 49
+  level, snap: 1136, 392
+</code></pre></div></td></tr></table></div>
+<p>其中 <code>entity type</code> 为左击到的实体的实体类名, 也即代码类名. <code>entity name</code> 为实体的名称, 也是在地图文件中实际保存的名字, 通常在与代码类名相似的使用场景中会用到.
+<code>entity id</code> 为实体的 ID, 通常用于某些需要传入实体 ID 参数的 helper 实体. <code>mod name</code> 为该实体所属 mod 名, 对于原版实体为 <code>Celeste</code>.</p>
+<p>以防你还不知道, 游戏的坐标系与常规的数学坐标系不同, 其 y 坐标经过了竖直翻转:</p>
+<p><img alt="game-coord" src="../../begin/game_coord.png" /></p>
 
 
 
