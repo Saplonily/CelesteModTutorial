@@ -1,6 +1,6 @@
 site_name: Celeste Code Mod 教程
-repo_url: https://github.com/Saplonily/CelesteModTourial
-site_description: Celeste Code Mod Tourial
+repo_url: https://github.com/Saplonily/CelesteModTutorial
+site_description: Celeste Code Mod Tutorial
 site_author: Saplonily
 
 theme:
@@ -61,6 +61,7 @@ nav:
   - 其他:
       - XML简单介绍: "other/xml-speedrun.md"
   - 额外 - LuaCutscene:
-      - 基本: "extra_luacs/basic.md"
+      - 开始: "extra_luacs/begin.md"
+      - C# 交互: "extra_luacs/cs_access.md"
       - 例子: "extra_luacs/examples.md"
       # - 高级对话: "ok 我觉得这个一时半会写不完毕竟我自己都不会"

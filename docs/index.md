@@ -1,7 +1,7 @@
 # 首页
 
 本系列教程主要写自于个人在制作蔚蓝 CodeMod 的一些经验  
-本网站内容开源在: [github.com/Saplonily/CelesteModTourial](https://github.com/Saplonily/CelesteModTourial)  
+本网站内容开源在: [github.com/Saplonily/CelesteModTutorial](https://github.com/Saplonily/CelesteModTutorial)  
 十分欢迎来提 pr 和 issue 以修复各种语法错误, 用词错误和内容错误以及建议_(:з」∠)_  
 
 大部分文章可能会写的不明不白以至于需要频繁修改, 如果你有更好的修改建议的话欢迎来提 issue.  
