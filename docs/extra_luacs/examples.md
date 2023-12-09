@@ -225,3 +225,72 @@ Cursor @
 以防你还不知道, 游戏的坐标系与常规的数学坐标系不同, 其 y 坐标经过了竖直翻转:
 
 ![game-coord](../begin/game_coord.png)
+
+## 片段
+
+### 播放玩家动画
+
+```lua
+function playSprite(sprite, duration)
+    player.Sprite:Play(sprite, false, false)
+    if duration then
+        wait(duration)
+    end
+end
+```
+
+上述代码封装了一个函数, 使得你可以向玩家播放一个动画并等待几秒, 例如让玩家播放 `swimIdle`, 也就是在水中时播放的动画:
+
+```lua
+player.DummyAutoAnimate = false
+playSprite("swimIdle", 1)
+player.DummyAutoAnimate = true
+```
+
+在玩家被禁止移动后游戏依然会处理玩家的动画, 所以我们的 `swimIdle` 动画会立刻被替换为默认动画,
+这可以通过设置 `DummyAutoAnimate` 为 `false` 来禁止这一行为.
+
+此外还可以有反向播放动画:
+
+```lua
+function playSpriteReversed(sprite, duration, from)
+    player.Sprite:Reverse(sprite, false)
+    -- from 还要再 +1, 避免游戏跳过最后一帧而从倒数第二帧开始
+    player.Sprite:SetAnimationFrame(from + 1)
+    if duration then
+        wait(duration)
+    end
+end
+```
+
+蔚蓝的引擎 `Monocle` 的 `Sprite` 有个反向播放的方法, 但是它只会修改方向为反方向,
+不会跳到最后一帧开始, 所以这里你可以需要手动查询你想要反向播放的动画的最后一帧的位置.  
+
+例如让玩家抬头, 结束后等待 0.5 秒然后再低头然后结束剧情:
+
+```lua
+function onBegin()
+    disableMovement()
+    local level = player.Scene;
+    player.DummyAutoAnimate = false
+    playSprite("lookUp", 0.5)
+    wait(0.5)
+    -- <Anim id="lookUp" path="lookUp" delay="0.1" frames="2-7"/>, 最后一帧是 7
+    playSpriteReversed("lookUp", 0.5, 7)
+    player.DummyAutoAnimate = true
+end
+```
+
+此外你还会发现此时依然有重力, 但是你依然想让玩家在空中游动(~~陆游~~), 你可以这样禁用重力:
+
+```lua
+function onBegin()
+    disableMovement()
+    local level = player.Scene;
+    player.DummyAutoAnimate = false
+    player.DummyGravity = false
+    playSprite("swimIdle", 0.5)
+    player.DummyGravity = true
+    player.DummyAutoAnimate = true
+end
+```
