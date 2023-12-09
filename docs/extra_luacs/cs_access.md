@@ -79,6 +79,31 @@ end
 经过询问似乎是 Core 的一些缓存问题, 在 Stable 上不会出现, 故这里暂时跳过,
 相关私有成员访问可在 C# 侧操作作为替代.
 
+## 协程
+
+lua 与 c# 两侧都有协程的概念, 不过不能直接使用, 需要一定的转换, 例如使用 `Level.ZoomTo` 函数, 它会返回一个将摄像机缩放至某一点的协程:
+
+```lua
+function onBegin()
+    disableMovement()
+    local level = player.Scene
+    local c = level:ZoomTo(vector2(160, 90), 1.5, 2.0)
+    coroutine.yield(c)
+end
+```
+
+上述代码调用了 `level` 的 `ZoomTo` 函数, 并将返回值储存起来, 然后使用 `coroutine.yield` 将其转换为 lua 协程并等待.
+游戏中的效果则为相机在 2s 内向屏幕中心放大 1.5 倍. 顺便这个函数还有个配套的缩放回来的版本:
+
+```lua
+function onBegin()
+    disableMovement()
+    local level = player.Scene;
+    coroutine.yield(level:ZoomTo(vector2(160, 90), 1.5, 2.0))
+    coroutine.yield(level:ZoomBack(2.0))
+end
+```
+
 ## 最后
 
 相信如果你没有太多 C# 知识的话, 这一小节你肯定是很困惑不知道发生了什么的,
