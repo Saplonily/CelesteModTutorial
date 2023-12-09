@@ -126,7 +126,7 @@ say("CHOICE_SAY_" .. tostring(chosen));
 `changeRoom(name)`
 `changeRoom(name, spawnX, spawnY)`
 
-更改玩家所在面
+非协程函数 ,更改玩家所在面
 
 - name: 目标面名称
 - spawnX: 新重生点 x 坐标
