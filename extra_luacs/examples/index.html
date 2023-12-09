@@ -962,6 +962,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    片段
+  </a>
+  
+    <nav class="md-nav" aria-label="片段">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    播放玩家动画
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1133,6 +1153,26 @@
   <a href="#_2" class="md-nav__link">
     一些介绍
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    片段
+  </a>
+  
+    <nav class="md-nav" aria-label="片段">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    播放玩家动画
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1339,6 +1379,88 @@ Cursor @
 <code>entity id</code> 为实体的 ID, 通常用于某些需要传入实体 ID 参数的 helper 实体. <code>mod name</code> 为该实体所属 mod 名, 对于原版实体为 <code>Celeste</code>.</p>
 <p>以防你还不知道, 游戏的坐标系与常规的数学坐标系不同, 其 y 坐标经过了竖直翻转:</p>
 <p><img alt="game-coord" src="../../begin/game_coord.png" /></p>
+<h2 id="_3">片段</h2>
+<h3 id="_4">播放玩家动画</h3>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">playSprite</span><span class="p">(</span><span class="n">sprite</span><span class="p">,</span> <span class="n">duration</span><span class="p">)</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">Sprite</span><span class="p">:</span><span class="n">Play</span><span class="p">(</span><span class="n">sprite</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
+    <span class="kr">if</span> <span class="n">duration</span> <span class="kr">then</span>
+        <span class="n">wait</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>上述代码封装了一个函数, 使得你可以向玩家播放一个动画并等待几秒, 例如让玩家播放 <code>swimIdle</code>, 也就是在水中时播放的动画:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">player</span><span class="p">.</span><span class="n">DummyAutoAnimate</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="n">playSprite</span><span class="p">(</span><span class="s2">&quot;swimIdle&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">player</span><span class="p">.</span><span class="n">DummyAutoAnimate</span> <span class="o">=</span> <span class="kc">true</span>
+</code></pre></div></td></tr></table></div>
+<p>在玩家被禁止移动后游戏依然会处理玩家的动画, 所以我们的 <code>swimIdle</code> 动画会立刻被替换为默认动画,
+这可以通过设置 <code>DummyAutoAnimate</code> 为 <code>false</code> 来禁止这一行为.</p>
+<p>此外还可以有反向播放动画:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">playSpriteReversed</span><span class="p">(</span><span class="n">sprite</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">from</span><span class="p">)</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">Sprite</span><span class="p">:</span><span class="n">Reverse</span><span class="p">(</span><span class="n">sprite</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
+    <span class="c1">-- from 还要再 +1, 避免游戏跳过最后一帧而从倒数第二帧开始</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">Sprite</span><span class="p">:</span><span class="n">SetAnimationFrame</span><span class="p">(</span><span class="n">from</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="kr">if</span> <span class="n">duration</span> <span class="kr">then</span>
+        <span class="n">wait</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>蔚蓝的引擎 <code>Monocle</code> 的 <code>Sprite</code> 有个反向播放的方法, 但是它只会修改方向为反方向,
+不会跳到最后一帧开始, 所以这里你可以需要手动查询你想要反向播放的动画的最后一帧的位置.  </p>
+<p>例如让玩家抬头, 结束后等待 0.5 秒然后再低头然后结束剧情:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="n">disableMovement</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">level</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="n">Scene</span><span class="p">;</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">DummyAutoAnimate</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">playSprite</span><span class="p">(</span><span class="s2">&quot;lookUp&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="c1">-- &lt;Anim id=&quot;lookUp&quot; path=&quot;lookUp&quot; delay=&quot;0.1&quot; frames=&quot;2-7&quot;/&gt;, 最后一帧是 7</span>
+    <span class="n">playSpriteReversed</span><span class="p">(</span><span class="s2">&quot;lookUp&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">DummyAutoAnimate</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
+<p>此外你还会发现此时依然有重力, 但是你依然想让玩家在空中游动(<del>陆游</del>), 你可以这样禁用重力:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
+    <span class="n">disableMovement</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">level</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="n">Scene</span><span class="p">;</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">DummyAutoAnimate</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">DummyGravity</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">playSprite</span><span class="p">(</span><span class="s2">&quot;swimIdle&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">DummyGravity</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">DummyAutoAnimate</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="kr">end</span>
+</code></pre></div></td></tr></table></div>
 
 
 
