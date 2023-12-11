@@ -193,14 +193,18 @@ say("CHOICE_SAY_" .. tostring(chosen));
 `enableRetry()`
 `disableRetry()`
 
-非协程函数, 禁用 / 启用 重试功能.
+非协程函数, 禁用 / 启用 重试功能.  
+
+注意此函数的效果在剧情结束后不会恢复, 建议手动在 `onEnd()` 处重新启用.
 
 ### disablePause / enablePause
 
 `helpers.disablePause()`
 `helpers.enablePause()`
 
-非协程函数, 禁用 / 启用 暂停功能.
+非协程函数, 禁用 / 启用 暂停功能.  
+
+注意此函数的效果在剧情结束后不会恢复, 建议手动在 `onEnd()` 处重新启用.
 
 ### endCutscene
 
