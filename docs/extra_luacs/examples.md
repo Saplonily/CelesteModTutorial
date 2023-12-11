@@ -70,6 +70,8 @@
 - [av604397615 - 自定义音乐(进阶篇)](https://www.bilibili.com/video/av60439761)
 - [av517096099 - 自定义音乐(拓展篇)](https://www.bilibili.com/video/av517096099)
 
+在明信片出现时尝试暂停并跳过剧情会使关卡处于一种很奇怪的状态, 你可以选择[禁用关卡的暂停](#disableretry--enableretry)来避免它.
+
 > 截止 `0.2.11`, `postcard` 函数存在编码问题, 个人已开 [pr](https://github.com/Cruor/LuaCutscenes/pull/7) 修复
 
 ### choice
@@ -109,11 +111,11 @@ say("CHOICE_SAY_" .. tostring(chosen));
 
 `jump(duration=2.0)`
 
-协程函数, 使玩家跳跃
+**非**协程函数, 使玩家跳跃
 
 - duration: 跳跃时长, 等价于你按跳键的时长
 
-有趣的是, 此函数即使玩家在空中也会起效, 不过此函数导致的跳不会触发 super 与 hyper 等技巧.
+有趣的是, 此函数即使玩家在空中也会起效, 不过此函数导致的跳不会触发 super 与 hyper 等机制.
 
 ### waitUntilOnGround
 
@@ -137,9 +139,9 @@ say("CHOICE_SAY_" .. tostring(chosen));
 
 ### teleportTo
 
-非协程函数, 传送玩家到目标位置
-
 `teleportTo(x, y)`
+
+非协程函数, 传送玩家到目标位置
 
 - x: 目标 x 坐标
 - y: 目标 y 坐标
@@ -175,6 +177,43 @@ say("CHOICE_SAY_" .. tostring(chosen));
 - `spotlightWipe`: `true` 时为聚光灯型切换到黑屏, `false` 为渐变型.
 - `skipScreenWipe`: 是否跳过切换到黑屏的过程
 - `skipCompleteScreen`: 是否跳过结算屏
+
+### giveKey
+
+`giveKey()`
+
+非协程函数, 给予玩家一把钥匙.
+
+### makeUnskippable
+
+`makeUnskippable()`
+
+非协程函数, 使当前剧情无法跳过  
+
+有些时候你的剧情过于复杂, 以至于你无法良好地预测直接跳过剧情应该做什么, 比如玩家到底移动到哪了,
+那么使它无法跳过可能是个不错的选择.
+
+### disableRetry / enableRetry
+
+`enableRetry()`
+`disableRetry()`
+
+非协程函数, 禁用 / 启用 重试功能.
+
+### disablePause / enablePause
+
+`helpers.disablePause()`
+`helpers.enablePause()`
+
+非协程函数, 禁用 / 启用 暂停功能.
+
+### endCutscene
+
+`endCutscene()`
+
+非协程函数, 结束当前剧情.  
+
+注意该函数调用后后面的代码**依然会执行**, 直到遇到一个协程函数, 或者函数被返回或到达末尾.
 
 ## 一些介绍
 
@@ -292,5 +331,40 @@ function onBegin()
     playSprite("swimIdle", 0.5)
     player.DummyGravity = true
     player.DummyAutoAnimate = true
+end
+```
+
+上述例子的完整 lua 文件:
+
+```lua title="testCutscene.lua"
+function playSprite(sprite, duration)
+    player.Sprite:Play(sprite, false, false)
+    if duration then
+        wait(duration)
+    end
+end
+
+function playSpriteReversed(sprite, duration, from)
+    player.Sprite:Reverse(sprite, false)
+    player.Sprite:SetAnimationFrame(from + 1)
+    if duration then
+        wait(duration)
+    end
+end
+
+function onBegin()
+    disableMovement()
+    local level = player.Scene;
+    waitUntilOnGround()
+    wait(1)
+    player.DummyAutoAnimate = false
+    player.DummyGravity = false
+    playSprite("swimIdle", 0.5)
+    player.DummyGravity = true
+    player.DummyAutoAnimate = true
+end
+
+function onEnd()
+    enableMovement()
 end
 ```
