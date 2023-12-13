@@ -7,15 +7,29 @@
 
 文档网页使用 python 工具 `mkdocs` 构建, 自行 host 很简单:
 
+首先 clone 仓库:
+
 ```sh
-mkdocs serve
+git clone https://github.com/Saplonily/CelesteModTutorial
 ```
 
-如果你还没有 `mkdocs` 环境的话:
+记得子模块也要拉下来:
+
+```sh
+git submodule update --init --recursive
+```
+
+安装 `mkdocs` python 工具环境, 如果你还没有的话:
 
 ```sh
 pip install mkdocs
 pip install mkdocs-material
+```
+
+开放网页服务:
+
+```sh
+mkdocs serve
 ```
 
 默认开放在 `localhost:8000`.
