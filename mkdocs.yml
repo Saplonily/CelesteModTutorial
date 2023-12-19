@@ -55,11 +55,6 @@ nav:
       # - 协程的钩取与私有成员访问: "trans/adv_hooks2.md"
   # - 额外:
   #   - 调试: "extra/debug.md"
-  - 历史归档:
-      - 基础环境配置: "arc/basic_env.md"
-      - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
-  - 其他:
-      - XML简单介绍: "other/xml-speedrun.md"
   - 额外 - LuaCutscene:
       - 开始: "extra_luacs/begin.md"
       - 参考: "extra_luacs/reference.md"
@@ -70,3 +65,8 @@ nav:
       - readme: "extra_cmcc/cmcc/ReadMe.md"
       - FAQ: "extra_cmcc/cmcc/todo.md"
       # - 高级对话: "ok 我觉得这个一时半会写不完毕竟我自己都不会"
+  - 其他:
+      - XML简单介绍: "other/xml-speedrun.md"
+  - 历史归档:
+    - 基础环境配置: "arc/basic_env.md"
+    - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
