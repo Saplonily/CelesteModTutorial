@@ -10,7 +10,7 @@
 
 [开始 - Celeste Everest MonoMod](./begin/celeste_everest_monomod.md)
 
-最后, 感谢一些为本教程贡献的人:
+顺便感谢一些为本教程贡献的人:
 
 - Apple Sheep - 在写作初期提供了大量修改建议 ([Bilibili](https://space.bilibili.com/227488539))
 - 夜谷紫幽 - 为配置环境节提供了使用模板的建议 ([Bilibili](https://space.bilibili.com/346379712))
@@ -20,7 +20,14 @@
 
 - Saplonily ([Bilibili](https://space.bilibili.com/39046375), [Outlook](mailto:Saplonily@outlook.com))
 
-<del>说起来国内的 coder 看起来真的好少哎, 所以说写这个教程可以认为是我不想写码想推给别人((</del>
+以及教程大部分内容的来源:
+
+- [Everest Wiki](https://github.com/EverestAPI/Resources/wiki/Code-Mod-Setup)
+
+和一切的基础:
+
+- [Celeste](https://www.celestegame.com/)
+- [Everest API](https://github.com/EverestAPI)
 
 ----
 
