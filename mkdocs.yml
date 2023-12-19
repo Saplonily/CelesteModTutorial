@@ -52,7 +52,7 @@ nav:
       # - Sprite, Image: "trans/common3.md"
       - IL: "trans/il.md"
       - IL 钩子与随意钩取: "trans/adv_hooks.md"
-      # - 协程的钩取与私有成员访问: "trans/adv_hooks2.md"
+      - 协程的钩取与私有成员访问: "trans/adv_hooks2.md"
   # - 额外:
   #   - 调试: "extra/debug.md"
   - 额外 - LuaCutscene:
