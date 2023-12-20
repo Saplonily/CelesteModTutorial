@@ -1342,7 +1342,7 @@ Everest 为我们把几乎所有可能钩取的函数放到了命名空间 <code
 <h3 id="monocle-ec">Monocle, EC 架构</h3>
 <p>在这里我会简单介绍一下整个蔚蓝是怎么组织起来的.<br />
 首先蔚蓝基于 <code>Monocle</code> 引擎, 这是 <code>matt</code> 自己开发的一个引擎, 所以别指望你能在网上找到它的教程(,
-其次 <code>Monocle</code> 再次依赖 <code>Monogame</code> 或者 <code>FNA</code>, 它们都是微软的 <code>XNA</code> 框架的重新实现(因为 <code>XNA</code> 早停更了),
+其次 <code>Monocle</code> 再次依赖 <code>XNA</code> (已停止维护) 或者 <code>FNA</code> (<code>XNA</code> 框架的重新实现),
 <code>XNA</code> 提供的 api 都非常原始, 甚至连最基本的场景组织之类的都没有, 那么 <code>Monocle</code> 就是来实现这些的.  </p>
 <p>通常来说一个正在运行的 <code>Monocle</code> 游戏的结构就像:
 <pre class="mermaid"><code>graph LR
