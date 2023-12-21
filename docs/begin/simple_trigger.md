@@ -210,3 +210,8 @@ triggers.MyCelesteMod/SetPassByRefillDashesTrigger.placements.name.normal=SetPas
 ![b4-enter](b4_enter.png)  
 **进入 trigger 后** (被设置为 1 了):  
 ![af-enter](af_enter.png)
+
+## 最后
+
+我们目前实现的那个 Entity 与这个 Trigger 的搭配其实问题繁多, 比如 Entity 如果在 Trigger 触发后才被放置到场上,
+那么冲刺数会保持它的默认, 为了解决这个问题最佳的方案是使用蔚蓝中的 `Session`, 我们会在后面提到它.

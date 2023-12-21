@@ -51,29 +51,29 @@ public PassByRefill(Vector2 position, Vector2 size, int dashes)
 ```
 
 这里的 `position` 参数会被用于设置它的 `Position` 字段, 这个字段从 `Monocle.Entity` 继承而来, 它表示这个 `Entity` 在场景中所在的位置(世界坐标).  
-`Vector2` 是一个 XNA 中的结构体, 包含一个 `X` 和一个 `Y` 的 `float` 字段, 它用于描述空间中的位置, 就像你在平面直角坐标系中所做的一样!  
-不过这里需要注意, 游戏中的坐标系和我们通常数学中的坐标系**不同**, 它的顶点在**左上角**, **X 轴水平向右**但是 **Y 轴竖直向下**! 切记不要搞混了.  
-`Vector2` 同时也可能表示大小, 即 `X` 字段表示宽度, `Y` 字段表示长度, 在这里我们用它来接收它的大小.  
-你可能注意到我们并没有理 `size` 这个表示大小参数, 稍等一下, 我们在本节后边就会使用它了.
+`Vector2` 是一个 XNA 中的结构体, 包含一个 `X` 和一个 `Y` 的 `float` 字段, 它用于描述一个平面向量, 就像你在平面直角坐标系中所做的一样!  
+不过这里需要注意, 游戏中的坐标系和我们通常数学中的坐标系**不同**, 它的原点在**左上角**, **X 轴水平向右**但是 **Y 轴竖直向下**! 记住不要搞混了.  
+你可能注意到我们并没有理 `size` 这个表示大小参数, 稍等一下, 我们等会就会使用它了.
 
 ![game-coord](game_coord.png)
-![room-coord](room_entity_coord.png)
 
-接下来, 我们需要声明一个特殊的构造函数, 这个构造函数**由 Everest 反射调用**, 用于将作图软件那边的数据传递给我们:
+接下来, 我们需要声明一个特殊的构造函数, 以让 Everest 反射调用并使得我们的实体可以正常获取地图的数据:
 ```cs title="PassByRefill.cs"
 public PassByRefill(EntityData data, Vector2 offset) 
         : this(data.Position + offset, new Vector2(data.Width, data.Height), data.Int("dashes"))
     { }
 ```
-在这里, `EntityData data` 储存了作图软件保存的相关数据, 我们要提取它们很简单,
-比如说我们要提取一个名为 `dashes` 的 `int` 类型的数据, 我们就简单地调用它的方法 `Int(string name)` 就得到了,
-然后是它的大小数据, 由于大小是个特殊的东西, 这里我们可以直接通过 `Width` 和 `Height` 属性提取并 `new` 一个 `Vector2` 结构体来传递给我们上面的构造函数.
+在这里, `EntityData data` 储存了作图软件保存的相关数据, 我们要提取它们很简单.  
+比如说我们要提取一个名为 `dashes` 的 `int` 类型的数据, 我们就简单地调用它的方法 `Int(string name)`,
+然后是它的大小数据, 大小在这是个特殊的东西, 得需要通过 `Width` 和 `Height` 字段来提取, 然后我们扔进 `Vector2` 里并传递给我们上面的构造函数.
 对于更多方法以及这部分数据该如何自定义我们会在本节后半部分说明.  
-`Vector2 offset` 表示这一面的最左上角的**世界坐标**, `EntityData` 的 `Position` 是物体**相对**于这一面最左上角的坐标,
-所以我们需要把它相加来得到世界坐标.(因为 `Entity.Position` 永远只接受世界坐标!)
+`Vector2 offset` 参数表示这一面的最左上角的**世界坐标**, `EntityData` 的 `Position` 字段表示物体**相对**于这一面最左上角的位置,
+所以我们需要把它相加来得到世界坐标. (因为 `Entity.Position` 通常只允许世界坐标!)
+
+![room-coord](room_entity_coord.png)
 
 !!! info
-    这个构造函数的参数列表也能为其他的样子, 但是我们最最最常用的一个版本就是上面这个
+    这个构造函数的签名也能为其他的样子, 但是我们最最最常用的一个版本就是上面这个
 
 ### 让 Everest 找到它
 
@@ -141,8 +141,9 @@ return entity
         - 第三个 `dashes` 属性就是我们的自定义属性
 
 在 `data` 对象里的属性, 后面的等号就表示它的默认值, 比如 `width` 默认为 16, `dashes` 默认为 1.
+
 !!! note tip
-    如果你不声明 `width` 和 `height` 属性的话 Loenn 似乎会直接禁止你放置这个实体.
+    如果你不声明 `width` 和 `height` 属性并且不加贴图的话 Loenn 似乎会直接禁止你放置这个实体.
 
 好吧看起来上面这一坨\*非常难懂\*, 不过没关系, 只要你会直接复制上面的东西, 改一下 `entity.name`, 向 `data` 里加一些属性就行了. 实际上我也是这么做的.  
 
@@ -206,14 +207,16 @@ public override void Update()
 
 ### 告诉游戏它长什么样
 
-那么, 功能做好后, 的让玩家看见, 为了简单起见这里我们不打算使用图片, 只是像前面描述的一样, 它是个"透明的红色物体",
+那么, 功能做好后, 得让玩家看见, 为了简单起见这里我们不打算使用图片, 只是像前面描述的一样, 它是个"透明的红色物体",
 在这里我们需要重写 `Entity` 的 `Render()` 方法来绘制一个纯色长方形,
 它会在游戏中每帧都会被调用, 就像 `Update()` 一样,
 不过切记不要在这两个方法里干不相关的事! 你应该在 `Update()` 里**只**更新你的逻辑, 而在 `Render()` 里**只**做绘制.  
 这里我们选择绘制一个透明的红色长方形, 我们需要借助这个函数:
+
 ```cs title="Monocle.Draw.Rect"
 Draw.Rect(Vector2 position, float width, float height, Color color)
 ```
+
 - 第一个参数是我们希望绘制的位置(世界坐标)
 - 第二个参数是我们希望绘制的宽度 
 - 第三个参数是我们希望绘制的高度

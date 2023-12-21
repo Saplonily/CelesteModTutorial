@@ -18,6 +18,10 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
     Everest 会在运行时将你以 FNA 版本制作的 mod 重链接为 XNA, 所有你不是很需要在意这俩的差距  
     注意更换版本后通常会变回原版, 记得重新安装 Everest
 
+!!! info
+    在 2023.12.16 之后 Everest 将 Core 分支并入了 Stable 分支, 这也意味着这部分内容可能会不再适用,
+    不过好在 Everest 为我们提供了旧 mod 的兼容, 如果你使用了 12.16 之后的 Everest 版本,
+    请确保你点击了 Everest Mod 设置中的 `Setup LegacyRef` 按钮以确保下文的模板可以正常工作.  
 
 ## C# 编程能力 与 开发环境
 
@@ -48,6 +52,10 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 
 ## 通过模板创建项目
 
+!!! info
+    在蔚蓝 discord 社区流行着另一个 mod 项目模板, 不过我个人不太喜欢它, 因为它有一小些...繁重?  
+    所以这里主要使用我个人制作也是个人最常用的一个.  
+
 \_(:з」∠)\_  
 根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(  
 所以呢这里就推荐一种新的配置环境的方式 - **使用模板**  
@@ -57,7 +65,7 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 下载解压/clone后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:
 
 !!! note
-    你可能还需要安装 `.NET 6 SDK` 来使用该模板, 你可以[点击这里](https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/sdk-6.0.411-windows-x64-installer)下载
+    你可能还需要安装 `.NET 8 SDK` 来使用该模板, 你可以[在这里](https://get.dot.net)找到它
 
 - CelesteMod.props
 - CelesteMod.targets
