@@ -664,6 +664,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trans/session_settings_savedata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Session, Settings, SaveData
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1141,7 +1162,7 @@
 <p>在本系列教程中本人可能会偶尔习惯性的使用一些比较新的 C# 语法或者是特性, 通常这是大部分 C# 教程中很少提及的, 所以为了避免困惑我会在这里提及他们.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>为了使用这些语法你可能需要安装 <a href="https://dotnet.microsoft.com/zh-cn/download"><code>.NET 6 SDK</code></a>,
+<p>为了使用这些语法你可能需要安装 <a href="https://dotnet.microsoft.com/zh-cn/download"><code>.NET 8 SDK</code></a>,
 如果你无法理解某些东西,
 没关系, 你依然可以使用同时提及到的等效方法</p>
 </div>
@@ -1295,15 +1316,16 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<blockquote>
-<p>如果你收到错误 <code>CS8370</code>, 那你就需要在 <code>PropertyGroup</code> 下添加这一行:
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>如果你收到错误 <code>CS8370</code>, 那你可能需要在 <code>PropertyGroup</code> 下添加这一行:<br />
 <div class="language-xml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;LangVersion&gt;</span>preview<span class="nt">&lt;/LangVersion&gt;</span>
 </code></pre></div></td></tr></table></div></p>
-</blockquote>
+</div>
 <h2 id="_3">方法? 函数?</h2>
-<p>嗯这个是后来加的, 因为我发现我在整个文档里都在混用"方法"和"函数"这两个名字, 但是修改起来比较麻烦所以我还是选择在这里说几句:<br />
-"函数"是源自古早的面向过程语言的概念, 后来随着 OOP 面向对象思想的流行, 函数逐渐被封装到类里, 而类里的这些函数在习惯上我们会称之为"方法",
-但是也有人仍然将这些东西称之为"函数", 所以实际上在面向对象的语言里你可以将"方法"和"函数"看为一个东西, 或者仅在本文档中这么看.</p>
+<p>嗯这个是后来加的, 因为我发现我在整个文档里都在混用 "方法" 和 "函数" 这两个名字, 但是修改起来比较麻烦所以我还是选择在这里说几句:<br />
+"函数" 是源自古早的面向过程语言的概念, 后来随着 OOP 面向对象思想的流行, 函数逐渐被封装到类里, 而类里的这些函数在习惯上我们才会称之为 "方法",
+但是也有人仍然将这些东西称之为 "函数", 所以实际上在面向对象的语言里你可以将 "方法" 和 "函数" 看为一个东西, 或者仅在本文档中这么看.</p>
 
 
 

@@ -709,6 +709,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trans/session_settings_savedata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Session, Settings, SaveData
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1248,6 +1269,12 @@
 <p>Everest 会在运行时将你以 FNA 版本制作的 mod 重链接为 XNA, 所有你不是很需要在意这俩的差距<br />
 注意更换版本后通常会变回原版, 记得重新安装 Everest</p>
 </div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>在 2023.12.16 之后 Everest 将 Core 分支并入了 Stable 分支, 这也意味着这部分内容可能会不再适用,
+不过好在 Everest 为我们提供了旧 mod 的兼容, 如果你使用了 12.16 之后的 Everest 版本,
+请确保你点击了 Everest Mod 设置中的 <code>Setup LegacyRef</code> 按钮以确保下文的模板可以正常工作.  </p>
+</div>
 <h2 id="c">C# 编程能力 与 开发环境</h2>
 <p>因为我们是 CodeMod, 嗯, 那么写一些代码是必不可少的, 蔚蓝是使用 <code>C#</code> 基于 <code>.NET framework 4.5.2</code> 来制作的, 那么学习 <code>C#</code> 当然是必不可少的.</p>
 <div class="admonition info">
@@ -1275,6 +1302,11 @@
 </div>
 <p>相信在上面的教程中你应该已经被推荐了一些编辑器/IDE, 那么在本教程中我个人会为了方便<strong>仅</strong>在 <code>Windows</code> 上使用 <code>Visual Studio</code>, 那你遇到了什么奇怪的问题可以到任何能联系到我的地方问我_(:з」∠)_</p>
 <h2 id="_2">通过模板创建项目</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>在蔚蓝 discord 社区流行着另一个 mod 项目模板, 不过我个人不太喜欢它, 因为它有一小些...繁重?<br />
+所以这里主要使用我个人制作也是个人最常用的一个.  </p>
+</div>
 <p>_(:з」∠)_<br />
 根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(<br />
 所以呢这里就推荐一种新的配置环境的方式 - <strong>使用模板</strong><br />
@@ -1284,7 +1316,7 @@
 下载解压/clone后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>你可能还需要安装 <code>.NET 6 SDK</code> 来使用该模板, 你可以<a href="https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/sdk-6.0.411-windows-x64-installer">点击这里</a>下载</p>
+<p>你可能还需要安装 <code>.NET 8 SDK</code> 来使用该模板, 你可以<a href="https://get.dot.net">在这里</a>找到它</p>
 </div>
 <ul>
 <li>CelesteMod.props</li>

@@ -429,16 +429,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#-demo1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      锁定单冲 - demo1
+      锁定单冲
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       钩子的最佳实践
     </span>
@@ -679,6 +679,27 @@
   
   <span class="md-ellipsis">
     协程的钩取与私有成员访问
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trans/session_settings_savedata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Session, Settings, SaveData
   </span>
   
 
@@ -1150,16 +1171,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#-demo1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      锁定单冲 - demo1
+      锁定单冲
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       钩子的最佳实践
     </span>
@@ -1370,7 +1391,7 @@ C --- J[Component ...];</code></pre></p>
 <code>Scene.Update()</code> 内部会遍历它所有的 <code>Entity</code> 并调用它们的 <code>Update()</code> 函数,
 <code>Entity.Update()</code> 内部还会遍历它所有的 <code>Component</code> 并调用它们的 <code>Update()</code> 函数.  </p>
 <p>那么自然, <code>Player.Update()</code> 就是玛德琳每帧的更新逻辑所在的地方了. 现在我们做一个小 demo, 将玩家的冲刺数量锁死为单冲.  </p>
-<h2 id="-demo1">锁定单冲 - demo1</h2>
+<h2 id="_2">锁定单冲</h2>
 <p>通过简单的浏览蔚蓝的代码, 你了解到(没了解到也正常, 后面会说一些常见类和结构帮助你理解) <code>Player.Dashes</code> 这个字段储存了玩家的冲刺数量, 那么现在我们将它锁定为 1, 也就是单冲.<br />
 首先我们钩取 <code>Player.Update()</code>, 然后在确保调用回原来的函数后直接将 <code>Dashes</code> 强制修改为 1.</p>
 <div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">锁定冲刺为1!</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1404,7 +1425,7 @@ C --- J[Component ...];</code></pre></p>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>那么现在编译, 按之前的内容操作, 并重启蔚蓝, 你应该就会看到你的玛德琳永远都会有单冲了(即使是在空中!).</p>
-<h2 id="_2">钩子的最佳实践</h2>
+<h2 id="_3">钩子的最佳实践</h2>
 <p>我们应该尽可能一次性地就将我们所需要的所有钩子在 <code>Load</code> 里加载完, 因为创建钩子实际上的开销并不小,
 如果你需要某些 "某些条件不成立不启动钩子, 条件成立再启动钩子" 的逻辑的话, 我建议你应该始终保持钩子,
 然后在钩子内部判断你的条件, 不成立时你应该直接回调原来的方法并不做任何其他事情.</p>

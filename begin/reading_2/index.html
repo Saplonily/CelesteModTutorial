@@ -685,6 +685,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trans/session_settings_savedata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Session, Settings, SaveData
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1195,17 +1216,21 @@
 其实这并不罕见, 由于 Everest 对蔚蓝程序的修改并不只是停留在表面, 而更是深入到了 <strong>IL 代码层</strong>, 这是一种相对底层的代码,
 你的 <code>C#</code> 代码最终<strong>都</strong>会被编译为 <code>IL</code> 然后扔给<strong>运行时(runtime)</strong>来执行, 同样地, 所有其他的 <code>.NET</code> 系语言比如 <code>VB.NET</code> 和 <code>F#</code> 也都会被编译为 IL.<br />
 那么既然这里的 IL 是由 <code>C#</code> 编译而来的, 那么这样的 IL 多多少少会有一种 "C# 味", 反编译器就是靠这种一定的 "C# 味" 来逆推出可能的 <code>C#</code> 源码. 
-但是既然这里 Everest 直接在 IL 代码层进行了修改, 破坏了这种 "C# 味", 那自然反编译器就会生成奇奇怪怪的代码.</p>
-<p>那么原因说完了, 接下来就来解决这些 "是什么" 的问题:</p>
+但是既然这里 Everest 直接在 IL 代码层进行了修改, 破坏了这种 "C# 味", 那自然反编译器就会生成奇奇怪怪甚至非法的代码.  </p>
+<p>那么这里生成的奇怪非法的代码是什么?  </p>
 <h3 id="ctor-cctor">.ctor / .cctor</h3>
-<p><code>.ctor</code> 是一种特殊的函数名称, 表示类的<strong>构造函数</strong>, 比如 <code>Player..ctor(a, b)</code> 就表示这里调用了 <code>Player..ctor</code> 这个函数, 虽然你自己在 C# 中是做不到的.<br />
-所以我们经常也会用 <code>ctor</code> 或者 <code>.ctor</code> 来指代 "构造函数".  </p>
-<p><code>.cctor</code> 也是一种特殊的函数名称, 表示类的<strong>静态构造函数</strong>, 比如 <code>Input..cctor()</code> 就表示调用 <code>Input</code> 类的无参静态构造函数.
-同样地我们通常也会用 <code>cctor</code> 或者 <code>.cctor</code> 来指代 "静态构造函数".</p>
+<p><code>.ctor</code> 是一个特殊的函数名称, 表示该类的<strong>构造函数</strong>, 比如 <code>Player..ctor(a, b)</code> 即表示调用 <code>Player</code> 类的 <code>.ctor</code> 函数, 虽然你自己是做不到的.  </p>
+<p><code>.cctor</code> 也是一个特殊的函数名称, 表示该类的<strong>静态构造函数</strong>, 比如 <code>Input..cctor()</code> 即表示调用 <code>Input</code> 类的无参静态构造函数.  </p>
 <p>这一类函数在 <code>IL</code> 层有个标记叫 <code>special name</code>, 当反编译器发现一个方法名为 <code>.ctor</code> 且带有 <code>special name</code> 标记的方法时,
 反编译器就会认为它是一个构造函数, 如果反编译器发现这个方法在一个构造函数开头调用了, 那么反编译器就会认为这个构造函数带一个构造函数链,
-但是如果它的调用位置在其他位置, 同时又因为 <code>C#</code> 编译器是不可能编译, 那么反编译器就会不知所措, 只能无奈的生成 <code>xxx..ctor()</code> 这种错误的语法.
-这也是我们上面看到的 <code>this..ctor</code> 这种语法被生成的原因, 因为这个构造函数调用不在构造函数里出现, 而是在一个正常的 <code>orig_ctor</code> 方法里面!</p>
+但是如果它的调用位置在其他位置, 同时又因为 <code>C#</code> 编译器是不可能这么编译的, 那么反编译器就会不知所措, 只能无奈的生成 <code>xxx..ctor()</code> 这种错误的语法.
+这也是我们上面看到的 <code>this..ctor</code> 这种语法被生成的原因, 因为这个构造函数调用不在构造函数里出现, 而是在一个正常的 <code>orig_ctor</code> 方法里面!  </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><code>ctor</code> 这个奇怪的缩写来自单词 <code>constructor</code>, 直译即 <code>构造器</code>.</p>
+</div>
+<p>所以我们通常也会用 <code>.ctor</code> <code>ctor</code> 来指代构造函数, <code>.cctor</code> <code>cctor</code> 指代静态构造函数. 此外, Visual Studio 中有个自带的代码片段就是 <code>ctor</code>,
+在类中打出 ctor 并双击 Tab 键, vs 就会自动生成该类的构造函数, 这里的 <code>ctor</code> 来源也就在此. </p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>在前面的钩子节我们没有探讨过构造函数如何钩取, 在这里你可能就会明白, 钩取名字为 <code>ctor</code> 的函数就是钩取了构造函数, 静态构造函数同理.</p>

@@ -778,6 +778,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trans/session_settings_savedata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Session, Settings, SaveData
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1419,28 +1440,27 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div></p>
 <p>这里的 <code>position</code> 参数会被用于设置它的 <code>Position</code> 字段, 这个字段从 <code>Monocle.Entity</code> 继承而来, 它表示这个 <code>Entity</code> 在场景中所在的位置(世界坐标).<br />
-<code>Vector2</code> 是一个 XNA 中的结构体, 包含一个 <code>X</code> 和一个 <code>Y</code> 的 <code>float</code> 字段, 它用于描述空间中的位置, 就像你在平面直角坐标系中所做的一样!<br />
-不过这里需要注意, 游戏中的坐标系和我们通常数学中的坐标系<strong>不同</strong>, 它的顶点在<strong>左上角</strong>, <strong>X 轴水平向右</strong>但是 <strong>Y 轴竖直向下</strong>! 切记不要搞混了.<br />
-<code>Vector2</code> 同时也可能表示大小, 即 <code>X</code> 字段表示宽度, <code>Y</code> 字段表示长度, 在这里我们用它来接收它的大小.<br />
-你可能注意到我们并没有理 <code>size</code> 这个表示大小参数, 稍等一下, 我们在本节后边就会使用它了.</p>
-<p><img alt="game-coord" src="../game_coord.png" />
-<img alt="room-coord" src="../room_entity_coord.png" /></p>
-<p>接下来, 我们需要声明一个特殊的构造函数, 这个构造函数<strong>由 Everest 反射调用</strong>, 用于将作图软件那边的数据传递给我们:
+<code>Vector2</code> 是一个 XNA 中的结构体, 包含一个 <code>X</code> 和一个 <code>Y</code> 的 <code>float</code> 字段, 它用于描述一个平面向量, 就像你在平面直角坐标系中所做的一样!<br />
+不过这里需要注意, 游戏中的坐标系和我们通常数学中的坐标系<strong>不同</strong>, 它的原点在<strong>左上角</strong>, <strong>X 轴水平向右</strong>但是 <strong>Y 轴竖直向下</strong>! 记住不要搞混了.<br />
+你可能注意到我们并没有理 <code>size</code> 这个表示大小参数, 稍等一下, 我们等会就会使用它了.</p>
+<p><img alt="game-coord" src="../game_coord.png" /></p>
+<p>接下来, 我们需要声明一个特殊的构造函数, 以让 Everest 反射调用并使得我们的实体可以正常获取地图的数据:
 <div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PassByRefill.cs</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nf">PassByRefill</span><span class="p">(</span><span class="n">EntityData</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">Vector2</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span><span class="w"> </span>
 <span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="k">this</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">Position</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vector2</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">Width</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Height</span><span class="p">),</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Int</span><span class="p">(</span><span class="s">&quot;dashes&quot;</span><span class="p">))</span>
 <span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-在这里, <code>EntityData data</code> 储存了作图软件保存的相关数据, 我们要提取它们很简单,
-比如说我们要提取一个名为 <code>dashes</code> 的 <code>int</code> 类型的数据, 我们就简单地调用它的方法 <code>Int(string name)</code> 就得到了,
-然后是它的大小数据, 由于大小是个特殊的东西, 这里我们可以直接通过 <code>Width</code> 和 <code>Height</code> 属性提取并 <code>new</code> 一个 <code>Vector2</code> 结构体来传递给我们上面的构造函数.
+在这里, <code>EntityData data</code> 储存了作图软件保存的相关数据, 我们要提取它们很简单.<br />
+比如说我们要提取一个名为 <code>dashes</code> 的 <code>int</code> 类型的数据, 我们就简单地调用它的方法 <code>Int(string name)</code>,
+然后是它的大小数据, 大小在这是个特殊的东西, 得需要通过 <code>Width</code> 和 <code>Height</code> 字段来提取, 然后我们扔进 <code>Vector2</code> 里并传递给我们上面的构造函数.
 对于更多方法以及这部分数据该如何自定义我们会在本节后半部分说明.<br />
-<code>Vector2 offset</code> 表示这一面的最左上角的<strong>世界坐标</strong>, <code>EntityData</code> 的 <code>Position</code> 是物体<strong>相对</strong>于这一面最左上角的坐标,
-所以我们需要把它相加来得到世界坐标.(因为 <code>Entity.Position</code> 永远只接受世界坐标!)</p>
+<code>Vector2 offset</code> 参数表示这一面的最左上角的<strong>世界坐标</strong>, <code>EntityData</code> 的 <code>Position</code> 字段表示物体<strong>相对</strong>于这一面最左上角的位置,
+所以我们需要把它相加来得到世界坐标. (因为 <code>Entity.Position</code> 通常只允许世界坐标!)</p>
+<p><img alt="room-coord" src="../room_entity_coord.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>这个构造函数的参数列表也能为其他的样子, 但是我们最最最常用的一个版本就是上面这个</p>
+<p>这个构造函数的签名也能为其他的样子, 但是我们最最最常用的一个版本就是上面这个</p>
 </div>
 <h3 id="everest">让 Everest 找到它</h3>
 <p>现在我们只定义了一个类 Everest 那边是啥也不知道的, 所以我们得告诉它, 而这个过程我们一般就叫 <code>注册</code>.<br />
@@ -1528,7 +1548,7 @@ _(:з」∠)_, 这里我不怎么想重复它的基础使用, 所以我推荐你
 <p>在 <code>data</code> 对象里的属性, 后面的等号就表示它的默认值, 比如 <code>width</code> 默认为 16, <code>dashes</code> 默认为 1.</p>
 <div class="admonition note tip">
 <p class="admonition-title">Note</p>
-<p>如果你不声明 <code>width</code> 和 <code>height</code> 属性的话 Loenn 似乎会直接禁止你放置这个实体.</p>
+<p>如果你不声明 <code>width</code> 和 <code>height</code> 属性并且不加贴图的话 Loenn 似乎会直接禁止你放置这个实体.</p>
 </div>
 <p>好吧看起来上面这一坨*非常难懂*, 不过没关系, 只要你会直接复制上面的东西, 改一下 <code>entity.name</code>, 向 <code>data</code> 里加一些属性就行了. 实际上我也是这么做的.  </p>
 <p>那么, 重新编译我们的项目, 让 <code>msbuild</code> 把我们的东西复制过去, 这时打开我们的 Loenn (或者重启 Loenn), 搜索一下 <code>@MyCelesteMod</code>.
@@ -1598,17 +1618,19 @@ _(:з」∠)_, 这里我不怎么想重复它的基础使用, 所以我推荐你
 <p>在玩家死亡后的"烟花"并不是 <code>Player</code> 实例, 所以此时我们会得到一个 <code>null</code> 的结果, 如果你不想让你的游戏崩溃的话记得检查它是否为 <code>null</code>.</p>
 </div>
 <h3 id="_8">告诉游戏它长什么样</h3>
-<p>那么, 功能做好后, 的让玩家看见, 为了简单起见这里我们不打算使用图片, 只是像前面描述的一样, 它是个"透明的红色物体",
+<p>那么, 功能做好后, 得让玩家看见, 为了简单起见这里我们不打算使用图片, 只是像前面描述的一样, 它是个"透明的红色物体",
 在这里我们需要重写 <code>Entity</code> 的 <code>Render()</code> 方法来绘制一个纯色长方形,
 它会在游戏中每帧都会被调用, 就像 <code>Update()</code> 一样,
 不过切记不要在这两个方法里干不相关的事! 你应该在 <code>Update()</code> 里<strong>只</strong>更新你的逻辑, 而在 <code>Render()</code> 里<strong>只</strong>做绘制.<br />
-这里我们选择绘制一个透明的红色长方形, 我们需要借助这个函数:
+这里我们选择绘制一个透明的红色长方形, 我们需要借助这个函数:</p>
 <div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Monocle.Draw.Rect</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Draw</span><span class="p">.</span><span class="n">Rect</span><span class="p">(</span><span class="n">Vector2</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-- 第一个参数是我们希望绘制的位置(世界坐标)
-- 第二个参数是我们希望绘制的宽度 
-- 第三个参数是我们希望绘制的高度
-- 第四个参数是我们希望绘制的颜色</p>
+<ul>
+<li>第一个参数是我们希望绘制的位置(世界坐标)</li>
+<li>第二个参数是我们希望绘制的宽度 </li>
+<li>第三个参数是我们希望绘制的高度</li>
+<li>第四个参数是我们希望绘制的颜色</li>
+</ul>
 <p>我们在这里会这样用它:</p>
 <div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PassByRefill.Render()</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
