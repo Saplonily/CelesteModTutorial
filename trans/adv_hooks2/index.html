@@ -16,7 +16,7 @@
         <link rel="prev" href="../adv_hooks/">
       
       
-        <link rel="next" href="../../extra_luacs/begin/">
+        <link rel="next" href="../session_settings_savedata/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -674,6 +674,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session_settings_savedata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Session, Settings, SaveData
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1398,11 +1419,24 @@
 <div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">DynamicData</span><span class="w"> </span><span class="n">inputData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DynamicData</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Input</span><span class="p">));</span>
 </code></pre></div></td></tr></table></div>
 <p>随后静态方法, 字段, 属性的访问也与实例的相同.  </p>
-<p>当字符串指定的成员不存在时, 注意并不会报错, 对于其的非泛型 <code>Get</code> 方法会简单地返回 null 值,
-对于值类型泛型 <code>Get</code> 方法会引发空引用异常, 对于引用类型泛型 <code>Get</code> 方法返回 null.
-不过对于 <code>Set</code> 方法, 如果指定的成员不存在时它会将这个成员 "粘附" 到对象上,
-就像给对象动态加了一条字段一样, 随后使用 <code>Get</code> 方法也能获取到这个值,
-你可以使用将这个行为当"动态添加字段"一样使用.</p>
+<p>当字符串指定的成员不存在时, 注意并不会报错, 对于其的非泛型 <code>Get</code> 方法会简单地返回 null 值, 对于值类型泛型 <code>Get</code> 方法会引发空引用异常, 对于引用类型泛型 <code>Get</code> 方法返回 null.
+不过对于 <code>Set</code> 方法, 如果指定的成员不存在时它会将这个成员 "粘附" 到对象上, 就像给对象动态加了一条字段一样, 随后使用 <code>Get</code> 方法也能获取到这个值,
+你可以使用将这个行为当 "动态添加字段" 一样使用. 例如:</p>
+<div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">DynamicData</span><span class="w"> </span><span class="n">dd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DynamicData</span><span class="p">.</span><span class="n">For</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+<span class="n">dd</span><span class="p">.</span><span class="n">Set</span><span class="p">(</span><span class="s">&quot;mcm_attached&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;some attached data...&quot;</span><span class="p">);</span>
+
+
+<span class="c1">// ...一些其他地方</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dd</span><span class="p">.</span><span class="n">Get</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;mcm_attached&quot;</span><span class="p">);</span>
+<span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">$&quot;data is {data}&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>不过记得添加自己 mod 独特的命名前缀以防重名, <code>DynamicData</code> 在不同 mod 间是共享的.</p>
 
 
 

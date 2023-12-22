@@ -709,6 +709,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trans/session_settings_savedata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Session, Settings, SaveData
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1290,7 +1311,7 @@
 根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(<br />
 所以呢这里就推荐一种新的配置环境的方式 - <strong>使用模板</strong><br />
 考虑到 nuget 安装模板也需要一定的命令行基础...<br />
-所以这里考虑<a href="https://hongshitieli.lanzouj.com/ioc4f1fy4iad">提供直接的下载链接</a>,
+所以这里考虑<a href="https://hongshitieli.lanzouj.com/irGTK1iodagd">提供直接的下载链接</a>,
 或者<a href="https://github.com/Saplonily/celeste-mod-template-sdkstyled">Github源</a>, 
 下载解压/clone后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:</p>
 <div class="admonition note">
@@ -1326,7 +1347,7 @@
 </code></pre></div></td></tr></table></div>
 <p>现在你可以按下 <code>Ctrl+B</code> 或者手动点击 <code>生成-&gt;生成解决方案</code>,
 如果你在你的 vs 输出里面看到了类似这一句:</p>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1&gt;Copied files in &#39;ModFolder&#39; to &#39;C:\Program Files (x86)\Steam\steamapps\common\Celeste\Mods\MyCelesteMod&#39;
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1&gt;Copied files in &#39;ModFolder&#39; to &#39;C:\Program Files (x86)\Steam\steamapps\common\Celeste\Mods\MyCelesteMod_copy&#39;
 </code></pre></div></td></tr></table></div>
 <p>并且你在你的蔚蓝 Mod 目录下找到了这个被创建的目录,
 那么你的环境就算是配完了, 如果你很感兴趣这之中发生了什么, 要引用哪些程序集, 这个模板背后干了什么, 你可以去看那复杂的旧的配置方法.</p>
@@ -1334,7 +1355,7 @@
 <p class="admonition-title">Note</p>
 <p>这个模板使用 <code>msbuild</code> 帮助了你很多事!<br />
 比如当你编译完项目之后它会复制编译结果到项目目录的 <code>ModFolder</code> 目录下,
-然后将整个 <code>ModFolder</code> 复制到蔚蓝的 <code>Mods\{你的mod名}</code> 文件夹下!
+然后将整个 <code>ModFolder</code> 复制到蔚蓝的 <code>Mods\{你的mod名}_copy</code> 文件夹下!
 所以当我们需要更改一些比如说 loenn 的配置文件, <code>everest.yaml</code> 的内容, 你的测试地图等时, 
 你只需要简单地重新编译一遍项目, 然后等待模板来帮你做剩下的活!  </p>
 </div>
@@ -1346,10 +1367,9 @@
 顺便别忘了把类似 <code>MyCelesteModModule.cs</code> 的文件名也改成类似 <code>MyAwesomeModModule.cs</code>,
 以及改名后清理一下 ModFolder 下面可能有的一些以过去名字命名的 .dll 和 .pdb 文件!  </p>
 <h2 id="module">Module 类</h2>
-<!--草啊, 新的环境配置教程还得再写一遍这俩个b东西-->
-<p>就像我们的经典的控制台 C# 应用程序一样有个 <code>Main</code> 方法, 我们的蔚蓝 Mod 也有一个 类似的东西, 
+<p>就像我们的经典的控制台 C# 应用程序一样有个 <code>Main</code> 方法, 我们的蔚蓝 Mod 也有一个类似的东西, 
 那就是 Everest 提供给我们的 <code>EverestModule</code> 类.<br />
-那么, 现在打开你的 <code>Module.cs</code> 那个文件, 你应该会看到结构这样的代码:
+那么, 现在打开你的 <code>MyCelesteModModule.cs</code> 那个文件, 你应该会看到类似结构这样的代码:
 <div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1362,14 +1382,12 @@
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span><span class="p">;</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span><span class="p">;</span>
 
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyCelesteModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
 
 <span class="w">    </span><span class="p">}</span>
 

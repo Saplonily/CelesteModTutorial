@@ -13,8 +13,10 @@
       
       
       
-        <link rel="prev" href="../basic_env/">
+        <link rel="prev" href="../adv_hooks2/">
       
+      
+        <link rel="next" href="../../extra_luacs/begin/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +24,7 @@
     
     
       
-        <title>偏好-sdk-styled-proj - Celeste Code Mod 教程</title>
+        <title>Session, Settings, SaveData - Celeste Code Mod 教程</title>
       
     
     
@@ -66,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#-sdk-styled-csproj" class="md-skip">
+        <a href="#session-settings-savedata" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              偏好-sdk-styled-proj
+              Session, Settings, SaveData
             
           </span>
         </div>
@@ -446,19 +448,21 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -472,7 +476,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             过渡
@@ -486,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trans/ec_common/" class="md-nav__link">
+      <a href="../ec_common/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -507,7 +511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trans/common1/" class="md-nav__link">
+      <a href="../common1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -528,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trans/il/" class="md-nav__link">
+      <a href="../il/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -549,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trans/adv_hooks/" class="md-nav__link">
+      <a href="../adv_hooks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -570,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trans/adv_hooks2/" class="md-nav__link">
+      <a href="../adv_hooks2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -588,10 +592,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../trans/session_settings_savedata/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Session, Settings, SaveData
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -600,6 +624,68 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      本地化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -916,21 +1002,19 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -944,7 +1028,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             历史归档
@@ -958,7 +1042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../basic_env/" class="md-nav__link">
+      <a href="../../arc/basic_env/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -976,30 +1060,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    偏好-sdk-styled-proj
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../arc/sdk-styled-proj/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1008,35 +1072,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sdk-style-csproj" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sdk-style csproj
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1076,9 +1111,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sdk-style-csproj" class="md-nav__link">
+  <a href="#settings" class="md-nav__link">
     <span class="md-ellipsis">
-      Sdk-style csproj
+      Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      本地化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session
     </span>
   </a>
   
@@ -1102,10 +1170,52 @@
   
 
 
-<h1 id="-sdk-styled-csproj">偏好 - sdk-styled csproj</h1>
-<h2 id="sdk-style-csproj">Sdk-style csproj</h2>
-<p>现在打开你的项目目录中的 <code>.csproj</code> 文件(通常也会被叫作*项目文件*), 它用于组织描述你的项目是什么样子的, 你可能会发现非常的杂乱不可读, 就像:</p>
-<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.csproj</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<h1 id="session-settings-savedata">Session, Settings, SaveData</h1>
+<p><del>这部分内容在 Everest Wiki 里是在配置环境的同时说的, 我个人认为应该推后一点但是似乎现在推后的有点过头.</del></p>
+<p>你应该还记得我们最开始的那个继承于 <code>EverestModule</code> 的类 <code>MyCelesteModModule</code>, 到目前为止我们只使用了它的 <code>Load</code> 方法和 <code>Unload</code> 方法用于加载初始化我们的钩子.
+当然, 这肯定是不止的, 那么这一节将会聚焦于 <code>EverestModule</code> 的更多的内容.</p>
+<h2 id="settings">Settings</h2>
+<h3 id="_1">基本</h3>
+<p>Settings, 顾名思义就是选项的意思. Everest 为我们封装了一个非常便利的系统, 我们要做的只是简单地加入属性,
+然后装饰几个简单的特性, 就能创建出易用的菜单选项, 剩下的 ui 方面和保存读取的工作都由 Everest 负责.</p>
+<p>在此之前, 我们先保存一下我们的 <code>EverestModule</code> 实例以方便我们访问它的实例(Everest 会确保它是单例的):</p>
+<div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyCelesteModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">MyCelesteModModule</span><span class="w"> </span><span class="n">Instance</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>然后新建一个名字最好以 mod 开头, <code>Settings</code> 结尾的 <code>MyCelesteModSettings</code> 类并继承 <code>EverestModuleSettings</code>:</p>
+<div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyCelesteModSettings</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModuleSettings</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>然后在 module 类里这样注册这个类:</p>
+<div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -1120,111 +1230,37 @@
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;Project</span><span class="w"> </span><span class="na">ToolsVersion=</span><span class="s">&quot;15.0&quot;</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;Import</span><span class="w"> </span><span class="na">Project=</span><span class="s">&quot;$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props&quot;</span><span class="w"> </span><span class="na">Condition=</span><span class="s">&quot;Exists(&#39;$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props&#39;)&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
-<span class="w">    </span><span class="nt">&lt;Configuration</span><span class="w"> </span><span class="na">Condition=</span><span class="s">&quot; &#39;$(Configuration)&#39; == &#39;&#39; &quot;</span><span class="nt">&gt;</span>Debug<span class="nt">&lt;/Configuration&gt;</span>
-<span class="w">    </span><span class="nt">&lt;Platform</span><span class="w"> </span><span class="na">Condition=</span><span class="s">&quot; &#39;$(Platform)&#39; == &#39;&#39; &quot;</span><span class="nt">&gt;</span>AnyCPU<span class="nt">&lt;/Platform&gt;</span>
-<span class="w">    </span><span class="nt">&lt;ProjectGuid&gt;</span>{100E625E-04C6-434F-865C-3E6E50A379B5}<span class="nt">&lt;/ProjectGuid&gt;</span>
-<span class="hll"><span class="w">    </span><span class="nt">&lt;OutputType&gt;</span>Library<span class="nt">&lt;/OutputType&gt;</span>
-</span><span class="w">    </span><span class="nt">&lt;AppDesignerFolder&gt;</span>Properties<span class="nt">&lt;/AppDesignerFolder&gt;</span>
-<span class="hll"><span class="w">    </span><span class="nt">&lt;RootNamespace&gt;</span>MyCelesteMod<span class="nt">&lt;/RootNamespace&gt;</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&lt;AssemblyName&gt;</span>MyCelesteMod<span class="nt">&lt;/AssemblyName&gt;</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&lt;TargetFrameworkVersion&gt;</span>v4.5.2<span class="nt">&lt;/TargetFrameworkVersion&gt;</span>
-</span><span class="w">    </span><span class="nt">&lt;FileAlignment&gt;</span>512<span class="nt">&lt;/FileAlignment&gt;</span>
-<span class="w">    </span><span class="nt">&lt;Deterministic&gt;</span>true<span class="nt">&lt;/Deterministic&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
-<span class="w">  </span><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Condition=</span><span class="s">&quot; &#39;$(Configuration)|$(Platform)&#39; == &#39;Debug|AnyCPU&#39; &quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;DebugSymbols&gt;</span>true<span class="nt">&lt;/DebugSymbols&gt;</span>
-<span class="w">    </span><span class="nt">&lt;DebugType&gt;</span>full<span class="nt">&lt;/DebugType&gt;</span>
-<span class="w">    </span><span class="nt">&lt;Optimize&gt;</span>false<span class="nt">&lt;/Optimize&gt;</span>
-<span class="w">    </span><span class="nt">&lt;OutputPath&gt;</span>bin\Debug\<span class="nt">&lt;/OutputPath&gt;</span>
-<span class="w">    </span><span class="nt">&lt;DefineConstants&gt;</span>DEBUG;TRACE<span class="nt">&lt;/DefineConstants&gt;</span>
-<span class="w">    </span><span class="nt">&lt;ErrorReport&gt;</span>prompt<span class="nt">&lt;/ErrorReport&gt;</span>
-<span class="w">    </span><span class="nt">&lt;WarningLevel&gt;</span>4<span class="nt">&lt;/WarningLevel&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
-<span class="w">  </span><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Condition=</span><span class="s">&quot; &#39;$(Configuration)|$(Platform)&#39; == &#39;Release|AnyCPU&#39; &quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;DebugType&gt;</span>pdbonly<span class="nt">&lt;/DebugType&gt;</span>
-<span class="w">    </span><span class="nt">&lt;Optimize&gt;</span>true<span class="nt">&lt;/Optimize&gt;</span>
-<span class="w">    </span><span class="nt">&lt;OutputPath&gt;</span>bin\Release\<span class="nt">&lt;/OutputPath&gt;</span>
-<span class="w">    </span><span class="nt">&lt;DefineConstants&gt;</span>TRACE<span class="nt">&lt;/DefineConstants&gt;</span>
-<span class="w">    </span><span class="nt">&lt;ErrorReport&gt;</span>prompt<span class="nt">&lt;/ErrorReport&gt;</span>
-<span class="w">    </span><span class="nt">&lt;WarningLevel&gt;</span>4<span class="nt">&lt;/WarningLevel&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
-<span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
-<span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Celeste&quot;</span><span class="nt">&gt;</span>
-</span><span class="hll"><span class="w">      </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\Celeste.exe<span class="nt">&lt;/HintPath&gt;</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&lt;/Reference&gt;</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;FNA&quot;</span><span class="nt">&gt;</span>
-</span><span class="hll"><span class="w">      </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\FNA.dll<span class="nt">&lt;/HintPath&gt;</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&lt;/Reference&gt;</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;MMHOOK_Celeste&quot;</span><span class="nt">&gt;</span>
-</span><span class="hll"><span class="w">      </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\MMHOOK_Celeste.dll<span class="nt">&lt;/HintPath&gt;</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&lt;/Reference&gt;</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;YamlDotNet&quot;</span><span class="nt">&gt;</span>
-</span><span class="hll"><span class="w">      </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\YamlDotNet.dll<span class="nt">&lt;/HintPath&gt;</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&lt;/Reference&gt;</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Core&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Xml.Linq&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Microsoft.CSharp&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Xml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
-<span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
-<span class="w">    </span><span class="nt">&lt;Compile</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;MyModModule.cs&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;Compile</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Properties\AssemblyInfo.cs&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
-<span class="w">  </span><span class="nt">&lt;Import</span><span class="w"> </span><span class="na">Project=</span><span class="s">&quot;$(MSBuildToolsPath)\Microsoft.CSharp.targets&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/Project&gt;</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyCelesteModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">MyCelesteModModule</span><span class="w"> </span><span class="n">Instance</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="hll"><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="n">Type</span><span class="w"> </span><span class="n">SettingsType</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">typeof</span><span class="p">(</span><span class="n">MyCelesteModSettings</span><span class="p">);</span>
+</span><span class="hll"><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">MyCelesteModSettings</span><span class="w"> </span><span class="n">Settings</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">MyCelesteModSettings</span><span class="p">)</span><span class="n">Instance</span><span class="p">.</span><span class="n">_Settings</span><span class="p">;</span>
+</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>对于此部分的内容你可能需要阅读了解一下 <code>XML</code> 格式文件</p>
-</div>
-<p>实际上对于我们真正经常修改的属性只有上面标亮的行, 那么如果这时候使用 <code>Sdk-style csproj</code> 会好很多, 它看上去是这样的:</p>
-<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Sdk-style csproj</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<p>现在, 我们向选项中新加一条<strong>公开</strong>的 bool 类型的属性:</p>
+<div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyCelesteModSettings</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModuleSettings</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">AnInterestingSwitch</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>现在直接编译你的项目, 然后你应该会看到 Everest 为你在 mod 选项中生成了这样一条有趣的设置:</p>
+<p><img alt="interesting-switch" src="../interesting-switch.png" /></p>
+<p>随后你就能在你 mod 的任何地方用 <code>MyCelesteModSettings.Settings.AnInterestingSwitch</code> 来访问这个开关了.  </p>
+<p>除此之外 Everest 还支持枚举, 字符串和数字, 它们分别会生成这样的选项:</p>
+<div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -1234,83 +1270,111 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">&quot;Microsoft.NET.Sdk&quot;</span><span class="nt">&gt;</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyCelesteModSettings</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModuleSettings</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">AnInterestingSwitch</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nt">&lt;PropertyGroup&gt;</span>
-<span class="w">        </span><span class="nt">&lt;OutputType&gt;</span>Library<span class="nt">&lt;/OutputType&gt;</span>
-<span class="w">        </span><span class="nt">&lt;RootNamespace&gt;</span>MyCelesteMod<span class="nt">&lt;/RootNamespace&gt;</span>
-<span class="w">        </span><span class="nt">&lt;AssemblyName&gt;</span>MyCelesteMod<span class="nt">&lt;/AssemblyName&gt;</span>
-<span class="w">        </span><span class="nt">&lt;TargetFramework&gt;</span>net452<span class="nt">&lt;/TargetFramework&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span>
+<span class="w">    </span><span class="na">[SettingRange(0, 100)]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">AnInteger</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nt">&lt;ItemGroup&gt;</span>
-<span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Celeste&quot;</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\Celeste.exe<span class="nt">&lt;/HintPath&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/Reference&gt;</span>
-<span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;FNA&quot;</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\FNA.dll<span class="nt">&lt;/HintPath&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/Reference&gt;</span>
-<span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;MMHOOK_Celeste&quot;</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\MMHOOK_Celeste.dll<span class="nt">&lt;/HintPath&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/Reference&gt;</span>
-<span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;YamlDotNet&quot;</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;HintPath&gt;</span>..\..\..\..\..\..\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste\YamlDotNet.dll<span class="nt">&lt;/HintPath&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/Reference&gt;</span>
-<span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Core&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Xml.Linq&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Microsoft.CSharp&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Xml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/ItemGroup&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">AString</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="nt">&lt;/Project&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">DayOfWeek</span><span class="w"> </span><span class="n">DayOfWeek</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>你会发现其实这里只留下了我们上面标黄的东西,
-是的, 这就是 <code>Sdk-style csproj</code> 的优点.<br />
-迁移至 <code>Sdk-style csproj</code> 非常简单, 你只需要:</p>
+<p><img alt="more-options" src="../more-options.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><code>AString</code> 那条选项是一个按钮, 按下后会进入文字输入界面, 冒号后面会跟玩家输入了的文字.<br />
+<code>DayOfWeek</code> 选项允许你左右选择 <code>DayOfWeek</code> 枚举中的每一项.</p>
+</div>
+<p>其中 int 那条属性需要装饰 <code>SettingRange</code> 特性并指定最大最小值, 否则 Everest 会拒绝生成它, 此外它还有个参数可以用来指定该选项是否需要 "大的范围" (<code>LargeRange</code>),
+如果指定为 true, 则长按调整该值时的增长速度会慢慢增加以便快速调整至更大/小的值.  </p>
+<p>除了 <code>SettingRange</code> 特性, 还有更多其他的特性用于指示该选项的一些性质:</p>
 <ul>
-<li>删除 <code>PropertyGroup</code> 和 <code>ItemGroup</code> 及旁边的非标黄节点</li>
-<li>删除 <code>Project</code> 节点下的两个 <code>Import</code></li>
-<li>删除 <code>Project</code> 节点的所有属性</li>
-<li>重新在 <code>Project</code> 节点上加入属性: <code>Sdk = "Microsoft.NET.Sdk"</code></li>
-<li><code>TargetFrameworkVersion</code> 更改为新版的 <code>TargetFramework</code>, <code>v4.5.2</code> 更改为 <code>net452</code></li>
+<li><code>SettingNeedsRelauch</code>: 指示该选项需要重启游戏生效.</li>
+<li><code>SettingNumberInput</code>: 如果该选项对应的属性是个数字(int, float), 那么使用输入文字的菜单来输入数字而不是左右切换数字.<ul>
+<li><code>allowNegatives</code>: 是否允许负数</li>
+<li><code>maxLength</code>: 字符串最大长度</li>
+</ul>
+</li>
+<li><code>SettingMaxLength</code>: 设置该字符串选项的最大长度. 否则默认 12 个字符.<ul>
+<li><code>max</code>: 最大长度</li>
+</ul>
+</li>
+<li><code>SettingInGame</code>: 指示该选项是否出现在游戏内(图内)菜单中.<ul>
+<li><code>inGame</code>: 如上.</li>
+</ul>
+</li>
+<li><code>SettingIgnore</code>: 指示是否忽略该选项被加入菜单, 注意忽略后依然会被 Everest 正常读取保存.</li>
+<li><code>YamlIgnore</code>: 指示是否忽略该属性的保存.</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>不用担心删掉这么多东西会出现问题, 实际上我们删掉的东西只是合并入 <code>Sdk = "Microsoft.NET.Sdk"</code> 这一句了而已</p>
+<p><code>YamlIgnore</code> 位于命名空间 <code>YamlDotNet.Serialization</code> 内.</p>
 </div>
-<p>这个时候整个文件清晰可读:</p>
-<ul>
-<li>根节点的 <code>Project</code> 下挂载着 <code>PropertyGroup</code> 以及 <code>ItemGroup</code>,</li>
-<li><code>PropertyGroup</code> 描述了我们项目的一些通用属性, 比如输出类型, 命名空间, 程序集昵称以及项目框架版本,</li>
-<li><code>ItemGroup</code> 则描述了我们项目中的一些引用等.</li>
-</ul>
-<p>在这里提及这个是因为在后面部分我们会需要修改 <code>.csproj</code> 文件,
-通过对比你可以发现这两个 xml 文件都有 <code>PropertyGroup</code> 和 <code>ItemGroup</code> 节点 (如果有多个节点的话, 任意一个都行),
-所以我们之后对项目文件的修改的描述都会基于<strong>这两个节点</strong>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>记得删除 <code>Properties</code> 文件夹里的 cs 文件, 它可能会与 sdk-styled csproj 自动生成的文件相冲突</p>
+<hr />
+<h3 id="_2">本地化</h3>
+<p>你可能会发现默认生成的选项名字就是属性名, 尽管我们通常能猜到它的意思以及它会干什么, 但是玩家们通常不会, 所以我们还得为其配置本地化,
+其就包含了我们通常讲的 "汉化", "中文翻译".  </p>
+<p>在这里, 我们需要的本地化键名是 <code>modoptions_{类名}_{属性名}</code>, 例如如下类:</p>
+<div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyCelesteModSettings</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModuleSettings</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">EnableFunnyThing</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>其中那条属性对应的本地化键名则是: <code>modoptions_mycelestemod_enablefunnything</code>, 所以我们将其写在 Dialog 文件里:</p>
+<!--别问为啥是 ini 高亮-->
+<div class="language-ini highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">ModFolder/Dialog/Simplified Chinese.txt</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">modoptions_mycelestemod_enablefunnything</span><span class="o">=</span><span class="s">开启有趣的东西</span>
+</code></pre></div></td></tr></table></div>
+<div class="language-ini highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">ModFolder/Dialog/english.txt</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">modoptions_mycelestemod_enablefunnything</span><span class="o">=</span><span class="s">Enable funny thing</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果你不知道 dialog 文件是什么的话, 你可以询问 mapper 们, 或者在这里你就干脆照做, 也就是新建如其标题所展示的文件然后粘贴对应内容.</p>
 </div>
+<p>此外, mod 选项的大标题也有个本地化键名, 相对于上面的键名只是将属性名换成了 <code>title</code>, 例如以下 dialog 文件:</p>
+<div class="language-ini highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">ModFolder/Dialog/Simplified Chinese.txt</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">modoptions_mycelestemod_enablefunnything</span><span class="o">=</span><span class="s">开启有趣的东西</span>
+<span class="na">modoptions_mycelestemod_title</span><span class="o">=</span><span class="s">我的有趣 mod 的设置 (MyCelesteMod)</span>
+</code></pre></div></td></tr></table></div>
+<div class="language-ini highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">ModFolder/Dialog/english.txt</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">modoptions_mycelestemod_enablefunnything</span><span class="o">=</span><span class="s">Enable funny thing</span>
+<span class="na">modoptions_mycelestemod_title</span><span class="o">=</span><span class="s">funny MyCelesteMod</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>时刻记得填充 <code>english.txt</code>, 因为如果其他语言没找到这个键名会默认回退到 <code>english</code>, 如果再没有的话就会直接展示丑陋的键名.</p>
+</div>
+<p><img alt="dialog" src="../dialog.png" /></p>
+<p>本地化键名并不是固定的, 你可以使用 <code>SettingName</code> 装饰到类上或者属性上来修改它, 不过我个人不是很建议修改它, 因为默认的值作为键名完全够用,
+此外还有一个 <code>SettingSubText</code> 特性, 它可以向该选项被选中时在底下显示一行小字, 它的参数同样是个本地化键名,
+类似的还有 <code>SettingSubHeader</code> 特性, 它会向该选项之前加入一个小标题.  </p>
+<p>对于枚举每一项的值可以使用 <code>modoptions_{类名}_{属性名}_{枚举项名}</code> 来指定, 例如对于 <code>DayOfWeek</code> 枚举类型的 <code>Day</code> 属性:</p>
+<div class="language-ini highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">ModFolder/Dialog/Simplified Chinese.txt</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">modoptions_mycelestemod_day_sunday</span><span class="o">=</span><span class="s">星期日</span>
+<span class="na">modoptions_mycelestemod_day_monday</span><span class="o">=</span><span class="s">星期一</span>
+<span class="na">modoptions_mycelestemod_day_tuesday</span><span class="o">=</span><span class="s">星期二</span>
+<span class="na">modoptions_mycelestemod_day_wednesday</span><span class="o">=</span><span class="s">星期三</span>
+<span class="na">modoptions_mycelestemod_day_thursday</span><span class="o">=</span><span class="s">星期四</span>
+<span class="na">modoptions_mycelestemod_day_friday</span><span class="o">=</span><span class="s">星期五</span>
+<span class="na">modoptions_mycelestemod_day_saturday</span><span class="o">=</span><span class="s">星期六</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>如果你实际测试的话你会发现 <code>三</code> 字和 <code>五</code> 字没有渲染出来, 这是正常的, 因为蔚蓝的字库中没有这两个字,
+这里我就不赘述如何解决这个问题了, 具体可以咨询 mapper 们.(日常偷懒.jpg)</p>
+</div>
+<h2 id="session">Session</h2>
+<p>// TODO</p>
 
 
 
