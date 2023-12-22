@@ -1,7 +1,7 @@
 # IL
 
 !!! info
-    如果你在之前已经学习过 `IL` 并且使用过类 `System.Reflection.Emit` 这些 api 的话你可以跳过这一节.
+    如果你在之前已经学习过 `IL` 并且使用过类似的 `System.Reflection.Emit` 这些 api 的话你可以跳过这一节.
 
 ## 简介
 
