@@ -53,7 +53,7 @@ nav:
       - IL: "trans/il.md"
       - IL 钩子与随意钩取: "trans/adv_hooks.md"
       - 协程的钩取与私有成员访问: "trans/adv_hooks2.md"
-      # - Session, Settings: "trans/session_settings.md"
+      - Session, Settings, SaveData: "trans/session_settings_savedata.md"
       # - 调试: "extra/debug.md"
   - 额外 - LuaCutscene:
       - 开始: "extra_luacs/begin.md"

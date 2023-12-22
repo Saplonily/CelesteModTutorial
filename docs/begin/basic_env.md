@@ -60,7 +60,7 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(  
 所以呢这里就推荐一种新的配置环境的方式 - **使用模板**  
 考虑到 nuget 安装模板也需要一定的命令行基础...  
-所以这里考虑[提供直接的下载链接](https://hongshitieli.lanzouj.com/ioc4f1fy4iad),
+所以这里考虑[提供直接的下载链接](https://hongshitieli.lanzouj.com/irGTK1iodagd),
 或者[Github源](https://github.com/Saplonily/celeste-mod-template-sdkstyled), 
 下载解压/clone后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:
 
@@ -92,7 +92,7 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 如果你在你的 vs 输出里面看到了类似这一句:
 
 ```
-1>Copied files in 'ModFolder' to 'C:\Program Files (x86)\Steam\steamapps\common\Celeste\Mods\MyCelesteMod'
+1>Copied files in 'ModFolder' to 'C:\Program Files (x86)\Steam\steamapps\common\Celeste\Mods\MyCelesteMod_copy'
 ```
 
 并且你在你的蔚蓝 Mod 目录下找到了这个被创建的目录,
@@ -100,12 +100,13 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 !!! note
     这个模板使用 `msbuild` 帮助了你很多事!  
     比如当你编译完项目之后它会复制编译结果到项目目录的 `ModFolder` 目录下,
-    然后将整个 `ModFolder` 复制到蔚蓝的 `Mods\{你的mod名}` 文件夹下!
+    然后将整个 `ModFolder` 复制到蔚蓝的 `Mods\{你的mod名}_copy` 文件夹下!
     所以当我们需要更改一些比如说 loenn 的配置文件, `everest.yaml` 的内容, 你的测试地图等时, 
     你只需要简单地重新编译一遍项目, 然后等待模板来帮你做剩下的活!  
 
 
 ## 更改细节
+
 通过模板的话依然有些东西需要自行更改, 比如这个 Mod 的名字.  
 更改 Mod 的名字很简单, 你只需要简单地在 vs 里重命名项目的名字
 比如我想叫做 `MyAwesomeMod`, 那么你可以通过这样:  
@@ -115,18 +116,16 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 
 ## Module 类
 
-<!--草啊, 新的环境配置教程还得再写一遍这俩个b东西-->
-就像我们的经典的控制台 C# 应用程序一样有个 `Main` 方法, 我们的蔚蓝 Mod 也有一个 类似的东西, 
+就像我们的经典的控制台 C# 应用程序一样有个 `Main` 方法, 我们的蔚蓝 Mod 也有一个类似的东西, 
 那就是 Everest 提供给我们的 `EverestModule` 类.  
-那么, 现在打开你的 `Module.cs` 那个文件, 你应该会看到结构这样的代码:
+那么, 现在打开你的 `MyCelesteModModule.cs` 那个文件, 你应该会看到类似结构这样的代码:
 ```cs
 namespace MyCelesteMod;
 
-public class MyAwesomeModModule : EverestModule
+public class MyCelesteModModule : EverestModule
 {
     public override void Load()
     {
-        Logger.Log(LogLevel.Info, "MyCelesteMod", "Hello World!");
         
     }
 
