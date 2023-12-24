@@ -1312,12 +1312,29 @@
 所以呢这里就推荐一种新的配置环境的方式 - <strong>使用模板</strong><br />
 考虑到 nuget 安装模板也需要一定的命令行基础...<br />
 所以这里考虑<a href="https://hongshitieli.lanzouj.com/irGTK1iodagd">提供直接的下载链接</a>,
-或者<a href="https://github.com/Saplonily/celeste-mod-template-sdkstyled">Github源</a>, 
-下载解压/clone后, 使用你的 vs 打开其中的 csproj 文件, 那么按理来说你会看到这几个文件:</p>
+或者如果你会的话也可以使用 dotnet cil 来使用 nuget 上的模板:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>你可能还需要安装 <code>.NET 8 SDK</code> 来使用该模板, 你可以<a href="https://get.dot.net">在这里</a>找到它</p>
 </div>
+<details class="info">
+<summary>使用 dotnet cil 从模板新建项目</summary>
+<p>首先在一个你喜欢的位置放置你的项目文件夹, 名字即为你的项目名, 例如 <code>MyCelesteMod</code>:
+<div class="language-bat highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">mkdir</span> MyCelesteMod
+<span class="k">cd</span> MyCelesteMod
+</code></pre></div></td></tr></table></div>
+然后在此位置安装 nuget 上我的 mod 模板(如果你没有安装的话):
+<div class="language-bat highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet new install Saladim.CelesteModTemplate
+</code></pre></div></td></tr></table></div>
+然后你就能使用这条指令直接创建项目了:
+<div class="language-bat highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet new sapcelestemod
+</code></pre></div></td></tr></table></div>
+名字即为上层文件夹名, 或者你可以使用 <code>-n</code> 参数重写项目名字:
+<div class="language-bat highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet new sapcelestemod -n MySuperCelesteMod
+</code></pre></div></td></tr></table></div></p>
+</details>
+<p>完成后使用你喜欢的编辑器打开项目(对于 vs 直接打开 .csproj 文件), 那么按理来说你会看到这几个文件:</p>
 <ul>
 <li>CelesteMod.props</li>
 <li>CelesteMod.targets</li>

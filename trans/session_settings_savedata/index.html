@@ -668,6 +668,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      最后
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1138,6 +1147,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      最后
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1373,6 +1391,10 @@
 <p>如果你实际测试的话你会发现 <code>三</code> 字和 <code>五</code> 字没有渲染出来, 这是正常的, 因为蔚蓝的字库中没有这两个字,
 这里我就不赘述如何解决这个问题了, 具体可以咨询 mapper 们.(日常偷懒.jpg)</p>
 </div>
+<h3 id="_3">最后</h3>
+<p>或许你也已经猜到了, Everest 正是使用的 Yaml 来序列化/反序列化你的 <code>Settings</code> 类,
+所以请务必不要在你的 <code>Settings</code> 类中放置奇怪的类和结构体! 如果你要这么做请确保 Everest 能正确地序列化/反序列化你的 <code>Settings</code> 类,
+否则你的设置将<strong>不会</strong>被正常保存, 永远都是默认值.</p>
 <h2 id="session">Session</h2>
 <p>// TODO</p>
 
