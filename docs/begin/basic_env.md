@@ -60,13 +60,13 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(  
 所以呢这里就推荐一种新的配置环境的方式 - **使用模板**  
 考虑到 nuget 安装模板也需要一定的命令行基础...  
-所以这里考虑[提供直接的下载链接](https://hongshitieli.lanzouj.com/irGTK1iodagd),
+所以这里考虑[提供直接的下载链接](https://hongshitieli.lanzouj.com/isc5e1it3t1c),
 或者如果你会的话也可以使用 dotnet cil 来使用 nuget 上的模板:
 
 !!! note
     你可能还需要安装 `.NET 8 SDK` 来使用该模板, 你可以[在这里](https://get.dot.net)找到它
 
-??? info "使用 dotnet cil 从模板新建项目"
+??? info "使用 dotnet cli 从模板新建项目"
     首先在一个你喜欢的位置放置你的项目文件夹, 名字即为你的项目名, 例如 `MyCelesteMod`:
     ```bat
     mkdir MyCelesteMod
