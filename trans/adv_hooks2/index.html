@@ -1375,8 +1375,7 @@
 <span class="w">    </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Test&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;does not execute.&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>直接将协程返回并在其执行完后做一些事, 看起来似乎没什么问题? 实际上后面的代码根本执行不到, 因为 <code>NPC01_Theo.Talk</code> 这个协程函数最后  <code>yield break</code> 了,
-直接停掉了整个协程, 那么自然我们后面的代码自然也不能执行. 所以这种方法只能在没有出现 <code>yield break</code> 的协程函数中使用...但是! 如果你看过 <code>Coroutine</code> 的实现的话,
+<p>直接将协程返回并在其执行完后做一些事, 看起来似乎没什么问题? 但是! 如果你看过 <code>Coroutine</code> 的实现的话,
 你会发现协程返回另一个协程时, 另一个协程并不是马上执行的, 而是等到了下一帧, 为了更好的兼容 tas, 我们要么使用方法 2, 要么使用如下类似的代码(方法 4):</p>
 <div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -1388,8 +1387,11 @@
 <span class="w">    </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&quot;TestMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;I left file select!&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>也就是在获取协程后再用 everest 为我们提供的 <code>SwapImmediately</code> 包起来, 这会让内部的协程立刻前进一次. 不过缺点依然和上一种方法相同, 也就是协程随时会被打断,
-所以为了通用性, 建议通常选择方法 2, 当然如果你的目的就是仅在没有 break 之后才执行, 那么选择方法 4 也是可行的.</p>
+<p>也就是在获取协程后再用 everest 为我们提供的 <code>SwapImmediately</code> 包起来, 这会让内部的协程立刻前进一次. 而不会等待多余的 1 帧.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>具体上述方法的行为描述的可能并不是很准确, 因为我个人很少会出现需要钩取协程的案例, 很感谢如果你能完善它的话!</p>
+</div>
 <h3 id="il">IL 协程钩子</h3>
 <p>对协程使用 IL 钩子相对会复杂很多, 因为对原函数使用 IL 钩子通常是没有意义的, 为此, 我们需要获取到背后实际储存方法体的状态机的 <code>MoveNext</code> 方法:</p>
 <div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
