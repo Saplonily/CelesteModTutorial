@@ -407,7 +407,7 @@ il.Emit(OpCodes.Call, cws);
 
 总的代码如下:
 ```cs
-ar cws = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) })!;
+var cws = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) })!;
 il.Emit(OpCodes.Ldstr, "Hello World in IL!");
 il.Emit(OpCodes.Call, cws);
 il.Emit(OpCodes.Ret);
