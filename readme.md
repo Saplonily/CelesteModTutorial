@@ -1,7 +1,13 @@
 # 蔚蓝CodeMod教程
 
 个人的一些经验写成的教程, 仅此.  
-好像就没啥要说的了(?
+好像就没啥要说的了(?  
+目前 host 在两个位置:
+
+https://celestemod.saplonily.link  
+https://sapcelestemod.netlify.app  
+
+~~前者的域名 2024.7 月就要过期了, 记得那之后别去点它~~
 
 ## 自行 host
 
