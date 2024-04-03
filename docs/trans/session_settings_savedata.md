@@ -143,6 +143,7 @@ modoptions_mycelestemod_enablefunnything=开启有趣的东西
 modoptions_mycelestemod_enablefunnything=Enable funny thing
 ```
 
+<!--TODO 写一篇介绍 dialog 的-->
 !!! note
     如果你不知道 dialog 文件是什么的话, 你可以询问 mapper 们, 或者在这里你就干脆照做, 也就是新建如其标题所展示的文件然后粘贴对应内容.
 
@@ -189,6 +190,87 @@ modoptions_mycelestemod_day_saturday=星期六
 所以请务必不要在你的 `Settings` 类中放置奇怪的类和结构体! 如果你要这么做请确保 Everest 能正确地序列化/反序列化你的 `Settings` 类,
 否则你的设置将**不会**被正常保存, 永远都是默认值.
 
+<!--TODO 高级 Settings, 例如自定义菜单之类的-->
+
 ## Session
 
-// TODO
+### 基本
+
+Session 是一个蔚蓝中保存数据的概念, 它用于保存 "保存并退出" 按钮按下后所保存的数据, 例如当前已激活的 Flag, 重生点, 已拾取的钥匙, 草莓, 核心的模式等.
+在自定义你自己的 `Session` 后, 你可以在这里保存你自己独有的收集物信息, 或者是一些实体需要临时保存于关卡的数据.  
+与 Settings 相同, 我们需要先创建一个继承于 `EverestModuleSession` 的类, 然后在模块类中声明它:
+
+```cs title="MyCelesteModSession.cs"
+namespace Celeste.Mod.MyCelesteMod;
+
+public class MyCelesteModSession : EverestModuleSession
+{
+}
+```
+
+```cs title="MyCelesteModModule.cs"
+namespace Celeste.Mod.MyCelesteMod;
+
+public class MyCelesteModModule : EverestModule
+{
+    public static MyCelesteModModule Instance { get; private set; }
+
+    public override Type SettingsType => typeof(MyCelesteModSettings);
+    public static MyCelesteModSettings Settings => (MyCelesteModSettings)Instance._Settings;
+
+    public override Type SessionType => typeof(MyCelesteModSession);
+    public static MyCelesteModSession Session => (MyCelesteModSession)Instance._Session;
+
+    public override void Load()
+    {
+        Instance = this;
+    }
+
+    public override void Unload()
+    {
+    }
+}
+```
+
+然后我们就可以在任何游戏处于关卡内的时候使用 `MyCelesteModModule.Session` 来访问我们的 Session 了.
+如果你尝试在游戏不在关卡内时读取它, 那么你会得到一个 `null` 值.
+
+## SaveData
+
+顾名思义, `SaveData` 用来保存一些持久化数据, 例如当前存档总时间, 总死亡数, 总草莓数等.
+使用它与使用 `Session` 极其相似:
+
+```cs title="MyCelesteModSaveData.cs"
+namespace Celeste.Mod.MyCelesteMod;
+
+public class MyCelesteModSaveData : EverestModuleSaveData
+{
+}
+```
+
+```cs title="MyCelesteModModule.cs"
+namespace Celeste.Mod.MyCelesteMod;
+
+public class MyCelesteModModule : EverestModule
+{
+    public static MyCelesteModModule Instance { get; private set; }
+
+    public override Type SettingsType => typeof(MyCelesteModSettings);
+    public static MyCelesteModSettings Settings => (MyCelesteModSettings)Instance._Settings;
+
+    public override Type SessionType => typeof(MyCelesteModSession);
+    public static MyCelesteModSession Session => (MyCelesteModSession)Instance._Session;
+
+    public override Type SaveDataType => typeof(MyCelesteModSaveData);
+    public static MyCelesteModSaveData SaveData => (MyCelesteModSaveData)Instance._SaveData;
+
+    public override void Load()
+    {
+        Instance = this;
+    }
+
+    public override void Unload()
+    {
+    }
+}
+```
