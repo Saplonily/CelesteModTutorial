@@ -15,7 +15,7 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 - 在 Epic 上: 已经是 FNA 版本了
 
 !!! note
-    Everest 会在运行时将你以 FNA 版本制作的 mod 重链接为 XNA, 所有你不是很需要在意这俩的差距  
+    Everest 会在运行时将你以 FNA 版本制作的 mod 重链接为 XNA, 所以你不是很需要在意这俩的差距  
     注意更换版本后通常会变回原版, 记得重新安装 Everest
 
 !!! info
