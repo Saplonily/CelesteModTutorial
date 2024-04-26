@@ -1389,7 +1389,7 @@
 <p>现在我们需要一个环境来书写我们的 <code>IL</code> 代码, 当然你虽然完全可以就在 dnSpy 对着那一大堆 <code>C#</code> 编译后的 <code>IL</code> 进行修改, 
 并频繁保存修改然后运行来查看效果, 但是这总归没有我们直接在 <code>C#</code> 代码里写 <code>IL</code> 代码里方便!</p>
 <p>首先, 我们现在可以不再在 mod 工程里工作了, 这部分内容是独立开来的, 所以我会推荐你新建一个项目来做这些.<br />
-这里我给项目取的名是 <code>DynamicAssemblyTest</code>, 目标框架是 <code>.net 7</code>.<br />
+这里我给项目取的名是 <code>DynamicAssemblyTest</code>, 目标框架是 <code>.net 8</code>.<br />
 完成后, 复制粘贴以下代码(之后我们会慢慢解释的):
 <div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1461,7 +1461,7 @@
 上面这个动态定义程序集的库叫做 <code>System.Reflection.Emit</code>, 在这里我们只是为了学习一点 <code>IL</code> 知识而使用,
 到后面修改蔚蓝的程序集时我们需要使用 Everest 带的 <code>Mono.Cecil</code> 库, 不过他们大同小异.</p>
 <h2 id="il_1">基本 <code>IL</code></h2>
-<!-- mkdocs 似乎没有为 IL 代码的高亮 -->
+<!-- mkdocs 似乎没有为 IL 代码的高亮, 但是 c 的高亮意外的适合 -->
 <div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2533,7 +2533,8 @@
 <h2 id="_12">结尾</h2>
 <p>至此, 一些基本的 <code>IL</code> 你已了解, 我们在这里介绍的 <code>IL</code> 指令不过是冰山一角, 还有很多其他的 <code>IL</code> 指令没有介绍,
 不过它们大同小异, 基本都是对评估栈的各种各样的操作, 我们只需要在用到时或者偶尔翻阅一下 <code>IL</code> 指令表就能了解.<br />
-此外, 在 dnSpy 的 <code>IL</code> 代码的视角时, 点击 <code>IL</code> 操作符的名称可以很方便地跳转到 msdn 上对这个指令的描述.
+此外, 还有很多比如方法的签名, <code>fixed</code>, <code>try-catch</code> 等内容我们还没有涉及到, 不过到目前为止对于蔚蓝 modding 已经勉强够用了.<br />
+再此外, 在 dnSpy 的 <code>IL</code> 代码的视角时, 点击 <code>IL</code> 操作符的名称可以很方便地跳转到 msdn 上对这个指令的描述.
 那么, 在了解使用 <code>System.Reflection.Emit</code> 库后, 我们就可以使用 <code>Mono.Cecil</code> 在蔚蓝中更改蔚蓝的程序集了.  </p>
 <hr />
 <p>一些可能有用的资源:</p>
