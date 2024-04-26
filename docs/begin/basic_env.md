@@ -8,6 +8,9 @@
 !!! note
     如果你不是 Windows 用户的话这一步你可以直接跳过.
 
+!!! info
+    在 Everest Core 版本后(Stable 版本号大于 4465)强制切换为了 FNA 版本, 如果你已是 Core 版本你可以跳过这一步.
+
 Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝已经就是 FNA 版本了, 而在 Windows 上则是 XNA 版本, 所以我们需要一些方法切换到 FNA 版本:
 
 - 在 Steam 上:  库->Celeste, 右键菜单属性->测试版->Opengl
@@ -16,21 +19,17 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 
 !!! note
     Everest 会在运行时将你以 FNA 版本制作的 mod 重链接为 XNA, 所以你不是很需要在意这俩的差距  
-    注意更换版本后通常会变回原版, 记得重新安装 Everest
-
-!!! info
-    在 2023.12.16 之后 Everest 将 Core 分支并入了 Stable 分支, 这也意味着这部分内容可能会不再适用,
-    不过好在 Everest 为我们提供了旧 mod 的兼容, 如果你使用了 12.16 之后的 Everest 版本,
-    请确保你点击了 Everest Mod 设置中的 `Setup LegacyRef` 按钮以确保下文的模板可以正常工作.  
+    注意更换版本后会变回原版, 你需要重新安装 Everest
 
 ## C# 编程能力 与 开发环境
 
-因为我们是 CodeMod, 嗯, 那么写一些代码是必不可少的, 蔚蓝是使用 `C#` 基于 `.NET framework 4.5.2` 来制作的, 那么学习 `C#` 当然是必不可少的.
-
+因为我们是 Code Mod, 嗯, 那么写一些代码是必不可少的, 蔚蓝是使用 `C#` 基于 `.NET Framework 4.5.2` 来制作的, 那么学习 `C#` 当然是必不可少的.  
+!!! info
+    在 Everest Core 版本上蔚蓝被迁移到了 `.NET 7` 上, 不过基于旧框架的 mod 会尽可能地被 Everest 自动转换为基于新框架的 mod.
 !!! info
     理论上所有 **.NET 系**语言比如 `VB.NET` `F#` 都可以, 不过为了方便起见我们还是使用 C#.
 
-好吧这句话可能说的太平淡了(wuwu), 毕竟大部分<del>蔚批</del>蔚蓝 mod 爱好者就是被这一步卡住的, 那么这里...只能给你推荐几个学习渠道了,
+好吧这句话可能说的太平淡了(, 毕竟大部分<del>蔚批</del>蔚蓝 mod 爱好者就是被这一步卡住的, 那么这里...只能给你推荐几个学习渠道了,
 毕竟在这里没必要让这个教程过于全能.
 
 1. 视频: [Bilibili - 丑萌气质狗 - 【C#零基础入门教程 Visual Studio 2022】人生低谷来学C#](https://www.bilibili.com/video/av895726228) (全p, 稍微不全)
@@ -43,17 +42,17 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 !!! info
     如果你没有能力支持正版书籍的话, 你可以到一些 C# 开发者群内寻找它的电子非正版(比如视频 `1.` up 的群内)  
     上面几个我更加推荐的是 `1.` 和 `3.`  
-    借用 `4.` 的目录, 确保你对下面这些概念(画 × 的暂时在蔚蓝 CodeMod 中用不到)有足够清晰的了解在开始你的蔚蓝 CodeMod 之旅之前:  
+    借用 `4.` 的目录, 确保你对下面这些概念(画 × 的暂时在蔚蓝 Code Mod 中用不到)有足够清晰的了解在开始你的蔚蓝 Code Mod 之旅之前:  
     ![runnob-1](runnob-1.png)
     ![runnob-2](runnob-2.png)
     ![runnob-3](runnob-3.png)
 
-相信在上面的教程中你应该已经被推荐了一些编辑器/IDE, 那么在本教程中我个人会为了方便**仅**在 `Windows` 上使用 `Visual Studio`, 那你遇到了什么奇怪的问题可以到任何能联系到我的地方问我_(:з」∠)_
+相信在上面的教程中你应该已经被推荐了一些编辑器 / IDE, 那么在本教程中我个人会为了方便**仅**在 `Windows` 上使用 `Visual Studio`, 当然不保证在其他地方会遇到奇奇怪怪的问题. \_(:з」∠)\_
 
 ## 通过模板创建项目
 
 !!! info
-    在蔚蓝 discord 社区流行着另一个 mod 项目模板, 不过我个人不太喜欢它, 因为它有一小些...繁重?  
+    在蔚蓝国外社区流行着另一个 mod 项目模板, 不过我个人不太喜欢它, 不过你需要的话[这是 Github 主页](https://github.com/EverestAPI/CelesteModTemplate)
     所以这里主要使用我个人制作也是个人最常用的一个.  
 
 \_(:з」∠)\_  
@@ -61,7 +60,7 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 所以呢这里就推荐一种新的配置环境的方式 - **使用模板**  
 考虑到 nuget 安装模板也需要一定的命令行基础...  
 所以这里考虑[提供直接的下载链接](https://hongshitieli.lanzouj.com/iJfRz1l0iffg),
-或者你也可以选择使用 dotnet cli 从 nuget 上的模板安装:
+或者你也可以选择使用 `dotnet cli` 从 nuget 上的模板安装:
 
 !!! note
     你可能还需要安装 `.NET 8 SDK` 来使用该模板, 你可以[在这里](https://get.dot.net)找到它
@@ -83,6 +82,10 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
     名字即为上层文件夹名, 或者你可以使用 `-n` 参数重写项目名字:
     ```bat
     dotnet new sapcelestemod -n MySuperCelesteMod
+    ```
+    模板目前默认不会创建针对 Everest Core 的 Code Mod, 如果你需要的话你可以传入 `--core-only true` 参数:
+    ```bat
+    dotnet new sapcelestemod --core-only true
     ```
 
 完成后使用你喜欢的编辑器打开项目(对于 vs 直接打开 .csproj 文件), 那么按理来说你会看到这几个文件:
@@ -109,10 +112,11 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 ```
 
 现在你可以按下 `Ctrl+B` 或者手动点击 `生成->生成解决方案`,
-如果你在你的 vs 输出里面看到了类似这一句:
+如果你在你的 vs 输出里面看到了类似这两句:
 
 ```
-1>Copied files in 'ModFolder' to 'C:\Program Files (x86)\Steam\steamapps\common\Celeste\Mods\MyCelesteMod_copy'
+1>MyCelesteMod -> D:\User\temp\cm\bin\x86\Debug\net452\MyCelesteMod.dll
+1>MyCelesteMod -> C:/Program Files (x86)/Steam/steamapps/common/Celeste/Mods/MyCelesteMod_copy/MyCelesteMod.dll
 ```
 
 并且你在你的蔚蓝 Mod 目录下找到了这个被创建的目录,
@@ -207,7 +211,8 @@ ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没�
 - `Version`: 你的 mod 的版本
 - `DLL`: 如果你是 code mod 的话, 这里填入你的 code (也就是 dll 文件) 的位置, 这里我们是直接把 .dll 文件放到这个 yaml 的旁边了, 所以直接写名字就好
 
-最后是最底下的那个依赖, 这里我们只依赖最基础的 Everest, 版本填上你目前使用的 Everest 版本, 这里我就填写 3971 了.  
+最后是最底下的那个依赖, 这里我们只依赖最基础的 Everest, 版本填上你目前使用的 Everest 版本, 这里我就填写 3971 了.
+如果你的 mod 依赖 Everest Core, 你需要在这里将 `Everest` 更改为 `EverestCore`, 并将版本号填写大于 4465 的值.
 
 ## 最后一步!
 
@@ -236,13 +241,13 @@ D3D11 Adapter: Intel(R) UHD Graphics 630
 ## 还没完
 
 在经过如上的配置后, 你会发现在蔚蓝启动的时候, 进行编译并复制资源时会报错, 
-这是因为 everest 锁定占用了它们, 导致你不得不让这一切在蔚蓝关闭时进行,
+这是因为 Everest 锁定占用了它们, 导致你不得不让这一切在蔚蓝关闭时进行,
 同时由于蔚蓝的重启速度不是很理想, 这大大的拉低了 mod 开发效率.  
- 不过好在 everest 提供了一个技术叫做 `hot reload`,
+不过好在 Everest 提供了一个技术叫做 `code hot reload`,
 即热重载, 它允许你在游戏运行期间替换你的代码并重载资源, 它目前还在 wip 状态.  
 要开启这项功能, 首先到你的蔚蓝根目录下的 Saves 目录, 找到并打开 `modsettings-Everest.celeste` 这个文件,
 翻到大概中间的位置, 找到属性 `CodeReload_WIP`, 将其更改为 `true`, 此时重新编译你的项目,
-你应该就不会再得到任何错误, 并且 everest 也正确地热重载了你的 mod 和你的 mod 资源.
+你应该就不会再得到任何错误, 并且 Everest 也正确地热重载了你的 mod 和你的 mod 资源.
 
 ## 最后一些碎碎念
 
@@ -259,11 +264,11 @@ D3D11 Adapter: Intel(R) UHD Graphics 630
     - MyCelesteMod.csproj
     - MyCelesteModModule.cs
 
-其中正如之前所介绍的, 我推荐如果你使用该模板的话, mod 的资源文件应该放在 `ModFolder` 中, 然后就像往常一样放置你的 mod 资源,
-当你的项目在构建时它们会自动被复制.  
-如果你没有更改你的项目而只更改了资源文件时你会发现编译项目会因为"所有文件都是最新的"而跳过编译, 而同时也会跳过我们的资源复制, 对此的话我们有两种解决方案:
+其中正如之前所介绍的, 我推荐如果你使用该模板的话, mod 的资源文件应该放在 `ModFolder` 中, 然后就像往常一样放置你的 mod 资源, 当你的项目在构建时它们会自动被复制.
+并且将代码文件放置在 .csproj 同目录下或嵌套文件夹下,
+如果你没有更改你的项目而只更改了资源文件时你会发现编译项目会因为 "所有文件都是最新的" 而跳过编译, 而同时也会跳过我们的资源复制, 对此的话我们有两种解决方案:
 
-- 直接强制重新构建项目 (vs中 "生成" -> "重新生成项目")
+- 直接强制重新构建项目 (vs 中 "生成" -> "重新生成项目")
 - 在项目根目录执行 `msbuild -target:PostModBuild` 命令行
 
 > 好像是有更好的解决方法, 不过鉴于本人 MSBuild 知识不足只能做成这样了(x
