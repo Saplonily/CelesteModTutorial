@@ -44,7 +44,7 @@ public static class Program
 并频繁保存修改然后运行来查看效果, 但是这总归没有我们直接在 `C#` 代码里写 `IL` 代码里方便!
 
 首先, 我们现在可以不再在 mod 工程里工作了, 这部分内容是独立开来的, 所以我会推荐你新建一个项目来做这些.  
-这里我给项目取的名是 `DynamicAssemblyTest`, 目标框架是 `.net 7`.  
+这里我给项目取的名是 `DynamicAssemblyTest`, 目标框架是 `.net 8`.  
 完成后, 复制粘贴以下代码(之后我们会慢慢解释的):
 ```cs hl_lines="22-24"
 using System.Reflection;
@@ -90,7 +90,7 @@ public static class Program
 
 ## 基本 `IL`
 
-<!-- mkdocs 似乎没有为 IL 代码的高亮 -->
+<!-- mkdocs 似乎没有为 IL 代码的高亮, 但是 c 的高亮意外的适合 -->
 ```c
 IL_0000: nop
 IL_0001: ldstr     "Hello world!"
@@ -878,7 +878,8 @@ il.Emit(OpCodes.Ret);
 
 至此, 一些基本的 `IL` 你已了解, 我们在这里介绍的 `IL` 指令不过是冰山一角, 还有很多其他的 `IL` 指令没有介绍,
 不过它们大同小异, 基本都是对评估栈的各种各样的操作, 我们只需要在用到时或者偶尔翻阅一下 `IL` 指令表就能了解.  
-此外, 在 dnSpy 的 `IL` 代码的视角时, 点击 `IL` 操作符的名称可以很方便地跳转到 msdn 上对这个指令的描述.
+此外, 还有很多比如方法的签名, `fixed`, `try-catch` 等内容我们还没有涉及到, 不过到目前为止对于蔚蓝 modding 已经勉强够用了.  
+再此外, 在 dnSpy 的 `IL` 代码的视角时, 点击 `IL` 操作符的名称可以很方便地跳转到 msdn 上对这个指令的描述.
 那么, 在了解使用 `System.Reflection.Emit` 库后, 我们就可以使用 `Mono.Cecil` 在蔚蓝中更改蔚蓝的程序集了.  
 
 ----
