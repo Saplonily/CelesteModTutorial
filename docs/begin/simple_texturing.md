@@ -56,8 +56,8 @@ ok 那么现在我们该在代码这边来点贴图了, 这里我们会用到之
 首先我们得让游戏找到并加载到我们的贴图, 这一步很简单并类似, 只需要套几层文件夹:
 
 - ModFolder
-    - Atlases
-        - Graphics
+    - Graphics
+        - Atlases
             - Gameplay
                 - `MyCelesteMod`
                     - pass_by_refill.png
