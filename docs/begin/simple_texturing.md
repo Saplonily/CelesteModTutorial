@@ -112,7 +112,7 @@ public class PassByRefill : Entity
     {
         base.Update();
         var player = Scene.Tracker.GetEntity<Player>();
-        if (this.CollideCheck(player))
+        if (player is not null && this.CollideCheck(player))
         {
             player.Dashes = this.Dashes;
         }
