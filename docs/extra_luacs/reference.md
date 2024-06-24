@@ -22,7 +22,7 @@
 - speedMultiplier: 速度倍率
 - keepWalkingIntoWalls: 撞墙时是否保持状态直到墙被移除
 
-如果在行走过程中碰到墙那么会该函数会立即结束执行, 除非 `keepWalkingIntoWalls` 被设置为 `true`,
+如果在行走过程中碰到墙那么该函数会立即结束执行, 除非 `keepWalkingIntoWalls` 被设置为 `true`,
 如果不幸地碰到了不可能会被移除的墙, 例如前景砖, 那么剧情就会永久卡住.
 
 ### walk

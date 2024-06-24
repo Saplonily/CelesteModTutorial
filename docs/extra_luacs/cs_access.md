@@ -59,7 +59,7 @@ function onStay()
 end
 ```
 
-这会让这段代码在玩家接触到 trigger 的每一帧都执行代码, 符合我们目前的需求. 初次之外还有另外两个: `onEnter` 和 `onLeave`,
+这会让这段代码在玩家接触到 trigger 的每一帧都执行代码, 符合我们目前的需求. 除此之外还有另外两个: `onEnter` 和 `onLeave`,
 它们都不是协程函数, 前者在玩家进入 trigger 时触发(这与 `onBegin` 不同, 比如在剧情进行时你依然可以控制进出 trigger),
 后者在玩家离开 trigger 时执行.  
 

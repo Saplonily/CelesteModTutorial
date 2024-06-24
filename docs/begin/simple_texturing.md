@@ -173,6 +173,10 @@ public class PassByRefill : Entity
 ```lua
 entity.texture = "MyCelesteMod/pass_by_refill"
 ```
+顺便设置贴图原点为左上角, 否则 Loenn 中的显示可能会与实际游戏中的不同:
+```lua
+entity.justification = { 0.0, 0.0 }
+```
 这里的路径与我们之前在代码中的类似.  
 那么现在总体上看上去应该是这样的:
 ```lua
@@ -194,6 +198,7 @@ entity.fieldInformation =
 }
 
 entity.texture = "MyCelesteMod/pass_by_refill"
+entity.justification = { 0.0, 0.0 }
 
 return entity
 ```
