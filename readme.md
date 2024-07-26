@@ -4,10 +4,8 @@
 好像就没啥要说的了(?  
 目前 host 在两个位置:
 
-https://celestemod.saplonily.link  
+https://saplonily.elecho.dev/celeste_mod_tutorial  
 https://sapcelestemod.netlify.app  
-
-~~前者的域名 2024.7 月就要过期了, 记得那之后别去点它~~
 
 ## 自行 host
 
@@ -42,4 +40,4 @@ mkdocs serve
 
 ----
 
-本系列内容依据[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)许可证进行授权
+本系列内容依据 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) 许可证进行授权
