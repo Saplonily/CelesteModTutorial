@@ -1,3 +1,4 @@
 site/**
 .VSCodeCounter/**
 .vs/**
+.idea/
