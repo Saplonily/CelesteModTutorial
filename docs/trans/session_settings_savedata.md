@@ -73,7 +73,7 @@ public class MyCelesteModSettings : EverestModuleSettings
 
 ![interesting-switch](interesting-switch.png)
 
-随后你就能在你 mod 的任何地方用 `MyCelesteModSettings.Settings.AnInterestingSwitch` 来访问这个开关了.  
+随后你就能在你 mod 的任何地方用 `MyCelesteModSettings.Settings.AnInterestingSwitch` 来访问这个开关了.
 
 除此之外 Everest 还支持枚举, 字符串和数字, 它们分别会生成这样的选项:
 
@@ -94,11 +94,11 @@ public class MyCelesteModSettings : EverestModuleSettings
 ![more-options](more-options.png)
 
 !!! info
-    `AString` 那条选项是一个按钮, 按下后会进入文字输入界面, 冒号后面会跟玩家输入了的文字.  
-    `DayOfWeek` 选项允许你左右选择 `DayOfWeek` 枚举中的每一项.
+`AString` 那条选项是一个按钮, 按下后会进入文字输入界面, 冒号后面会跟玩家输入了的文字.  
+`DayOfWeek` 选项允许你左右选择 `DayOfWeek` 枚举中的每一项.
 
 其中 int 那条属性需要装饰 `SettingRange` 特性并指定最大最小值, 否则 Everest 会拒绝生成它, 此外它还有个参数可以用来指定该选项是否需要 "大的范围" (`LargeRange`),
-如果指定为 true, 则长按调整该值时的增长速度会慢慢增加以便快速调整至更大/小的值.  
+如果指定为 true, 则长按调整该值时的增长速度会慢慢增加以便快速调整至更大/小的值.
 
 除了 `SettingRange` 特性, 还有更多其他的特性用于指示该选项的一些性质:
 
@@ -114,14 +114,14 @@ public class MyCelesteModSettings : EverestModuleSettings
 - `YamlIgnore`: 指示是否忽略该属性的保存.
 
 !!! note
-    `YamlIgnore` 位于命名空间 `YamlDotNet.Serialization` 内.
+`YamlIgnore` 位于命名空间 `YamlDotNet.Serialization` 内.
 
 ----
 
 ### 本地化
 
 你可能会发现默认生成的选项名字就是属性名, 尽管我们通常能猜到它的意思以及它会干什么, 但是玩家们通常不会, 所以我们还得为其配置本地化,
-其就包含了我们通常讲的 "汉化", "中文翻译".  
+其就包含了我们通常讲的 "汉化", "中文翻译".
 
 在这里, 我们需要的本地化键名是 `modoptions_{类名}_{属性名}`, 例如如下类:
 
@@ -135,54 +135,55 @@ public class MyCelesteModSettings : EverestModuleSettings
 其中那条属性对应的本地化键名则是: `modoptions_mycelestemod_enablefunnything`, 所以我们将其写在 Dialog 文件里:
 
 <!--别问为啥是 ini 高亮-->
+
 ```ini title="ModFolder/Dialog/Simplified Chinese.txt"
-modoptions_mycelestemod_enablefunnything=开启有趣的东西
+modoptions_mycelestemod_enablefunnything = 开启有趣的东西
 ```
 
 ```ini title="ModFolder/Dialog/english.txt"
-modoptions_mycelestemod_enablefunnything=Enable funny thing
+modoptions_mycelestemod_enablefunnything = Enable funny thing
 ```
 
 <!--TODO 写一篇介绍 dialog 的-->
 !!! note
-    如果你不知道 dialog 文件是什么的话, 你可以询问 mapper 们, 或者在这里你就干脆照做, 也就是新建如其标题所展示的文件然后粘贴对应内容.
+如果你不知道 dialog 文件是什么的话, 你可以询问 mapper 们, 或者在这里你就干脆照做, 也就是新建如其标题所展示的文件然后粘贴对应内容.
 
 此外, mod 选项的大标题也有个本地化键名, 相对于上面的键名只是将属性名换成了 `title`, 例如以下 dialog 文件:
 
 ```ini title="ModFolder/Dialog/Simplified Chinese.txt"
-modoptions_mycelestemod_enablefunnything=开启有趣的东西
-modoptions_mycelestemod_title=我的有趣 mod 的设置 (MyCelesteMod)
+modoptions_mycelestemod_enablefunnything = 开启有趣的东西
+modoptions_mycelestemod_title = 我的有趣 mod 的设置 (MyCelesteMod)
 ```
 
 ```ini title="ModFolder/Dialog/english.txt"
-modoptions_mycelestemod_enablefunnything=Enable funny thing
-modoptions_mycelestemod_title=funny MyCelesteMod
+modoptions_mycelestemod_enablefunnything = Enable funny thing
+modoptions_mycelestemod_title = funny MyCelesteMod
 ```
 
 !!! note
-    时刻记得填充 `english.txt`, 因为如果其他语言没找到这个键名会默认回退到 `english`, 如果再没有的话就会直接展示丑陋的键名.
+时刻记得填充 `english.txt`, 因为如果其他语言没找到这个键名会默认回退到 `english`, 如果再没有的话就会直接展示丑陋的键名.
 
 ![dialog](dialog.png)
 
 本地化键名并不是固定的, 你可以使用 `SettingName` 装饰到类上或者属性上来修改它, 不过我个人不是很建议修改它, 因为默认的值作为键名完全够用,
 此外还有一个 `SettingSubText` 特性, 它可以向该选项被选中时在底下显示一行小字, 它的参数同样是个本地化键名,
-类似的还有 `SettingSubHeader` 特性, 它会向该选项之前加入一个小标题.  
+类似的还有 `SettingSubHeader` 特性, 它会向该选项之前加入一个小标题.
 
 对于枚举每一项的值可以使用 `modoptions_{类名}_{属性名}_{枚举项名}` 来指定, 例如对于 `DayOfWeek` 枚举类型的 `Day` 属性:
 
 ```ini title="ModFolder/Dialog/Simplified Chinese.txt"
-modoptions_mycelestemod_day_sunday=星期日
-modoptions_mycelestemod_day_monday=星期一
-modoptions_mycelestemod_day_tuesday=星期二
-modoptions_mycelestemod_day_wednesday=星期三
-modoptions_mycelestemod_day_thursday=星期四
-modoptions_mycelestemod_day_friday=星期五
-modoptions_mycelestemod_day_saturday=星期六
+modoptions_mycelestemod_day_sunday = 星期日
+modoptions_mycelestemod_day_monday = 星期一
+modoptions_mycelestemod_day_tuesday = 星期二
+modoptions_mycelestemod_day_wednesday = 星期三
+modoptions_mycelestemod_day_thursday = 星期四
+modoptions_mycelestemod_day_friday = 星期五
+modoptions_mycelestemod_day_saturday = 星期六
 ```
 
 !!! info
-    如果你实际测试的话你会发现 `三` 字和 `五` 字没有渲染出来, 这是正常的, 因为蔚蓝的字库中没有这两个字,
-    这里我就不赘述如何解决这个问题了, 具体可以咨询 mapper 们.(日常偷懒.jpg)
+如果你实际测试的话你会发现 `三` 字和 `五` 字没有渲染出来, 这是正常的, 因为蔚蓝的字库中没有这两个字,
+这里我就不赘述如何解决这个问题了, 具体可以咨询 mapper 们.([日常偷懒.jpg](https://www.bilibili.com/video/BV1A14y1W7hr))
 
 ### 最后
 
@@ -234,6 +235,90 @@ public class MyCelesteModModule : EverestModule
 
 然后我们就可以在任何游戏处于关卡内的时候使用 `MyCelesteModModule.Session` 来访问我们的 Session 了.
 如果你尝试在游戏不在关卡内时读取它, 那么你会得到一个 `null` 值.
+
+假设我们碰了`SetPassByRefillDashesTrigger` 之后又碰到`ChangeRespawnTrigger`改变了重生点，用`Save and Quit`
+退出了游戏，再次进入时你会发现重生点是新的，而`PassByRefill` 的冲次数又变回`1`了，所以接下来我们尝试通过`Session`来修正这个错误.
+
+```cs title="MyCelesteModSession.cs"
+namespace Celeste.Mod.MyCelesteMod;
+
+public class MyCelesteModSession : EverestModuleSession
+{
+    public Dictionary<string, int> RoomIdToPassByRefillDahes = new();  // 我们将记录每个房间名对应的PassByRefill的冲刺数
+}
+```
+
+```cs title="SetPassByRefillDashesTrigger.cs"
+using Celeste.Mod.Entities;
+
+namespace MyCelesteMod;
+
+[CustomEntity("MyCelesteMod/SetPassByRefillDashesTrigger")]
+public class SetPassByRefillDashesTrigger : Trigger
+{
+    public int Dashes;
+
+    public SetPassByRefillDashesTrigger(EntityData data, Vector2 offset)
+        : base(data, offset)
+    {
+        Dashes = data.Int("dashes");
+    }
+
+    public override void OnEnter(Player player)
+    {
+        base.OnEnter(player);
+        MyCelesteModModule.Session.RoomIdToPassByRefillDahes[SceneAs<Level>().Session.LevelData.Name] = Dashes;
+    }
+}
+```
+
+```cs title="PassByRefill.cs"
+using Celeste.Mod.Entities;
+
+namespace MyCelesteMod;
+
+[CustomEntity("MyCelesteMod/PassByRefill")]
+public class PassByRefill : Entity
+{
+    private int _dashes = 1;
+
+    public int Dashes
+    {
+        get => MyCelesteModModule.Session.RoomIdToPassByRefillDahes.GetValueOrDefault(SceneAs<Level>().Session.LevelData.Name, _dashes);
+        set => _dashes = value;
+    }
+
+    private Image image;
+
+    public PassByRefill(Vector2 position, int dashes)
+    {
+        Depth = 1;
+        Dashes = dashes;
+        Position = position;
+        Hitbox hitbox = new(64, 64);
+        Collider = hitbox;
+
+        MTexture tex = GFX.Game["MyCelesteMod/pass_by_refill"];
+        image = new(tex);
+        Add(image);
+    }
+
+    public PassByRefill(EntityData data, Vector2 offset)
+        : this(data.Position + offset, data.Int("dashes"))
+    {
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        var player = Scene.Tracker.GetEntity<Player>();
+        if (player is not null && CollideCheck(player))
+        {
+            player.Dashes = Dashes;
+        }
+    }
+}
+```
 
 ## SaveData
 
