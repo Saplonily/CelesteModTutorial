@@ -201,7 +201,7 @@ triggers.MyCelesteMod/SetPassByRefillDashesTrigger.placements.name.normal=SetPas
 ## 效果
 
 现在在你的地图上摆放这个 trigger 以及几个 `PassByRefill`.  
-我在这里会摆几个背景砖来帮我们辨识这个 trigger 在哪, 因为 trigger 通常都是不可见的.  
+我在这里会摆几个背景砖来帮我们辨识这个 trigger 在哪, 因为 trigger 通常都是不可见的（你可以通过`~`键或者下载`CelesteTAS Mod`来查看碰撞箱）.
 ![loenn-trigger](loenn_result_trigger.png)  
 那么见证你的杰作吧!  
 <br>
