@@ -94,8 +94,8 @@ public class MyCelesteModSettings : EverestModuleSettings
 ![more-options](more-options.png)
 
 !!! info
-`AString` 那条选项是一个按钮, 按下后会进入文字输入界面, 冒号后面会跟玩家输入了的文字.  
-`DayOfWeek` 选项允许你左右选择 `DayOfWeek` 枚举中的每一项.
+    `AString` 那条选项是一个按钮, 按下后会进入文字输入界面, 冒号后面会跟玩家输入了的文字.  
+    `DayOfWeek` 选项允许你左右选择 `DayOfWeek` 枚举中的每一项.
 
 其中 int 那条属性需要装饰 `SettingRange` 特性并指定最大最小值, 否则 Everest 会拒绝生成它, 此外它还有个参数可以用来指定该选项是否需要 "大的范围" (`LargeRange`),
 如果指定为 true, 则长按调整该值时的增长速度会慢慢增加以便快速调整至更大/小的值.
@@ -114,7 +114,7 @@ public class MyCelesteModSettings : EverestModuleSettings
 - `YamlIgnore`: 指示是否忽略该属性的保存.
 
 !!! note
-`YamlIgnore` 位于命名空间 `YamlDotNet.Serialization` 内.
+      `YamlIgnore` 位于命名空间 `YamlDotNet.Serialization` 内.
 
 ----
 
@@ -146,8 +146,8 @@ modoptions_mycelestemod_enablefunnything=Enable funny thing
 
 <!--TODO 写一篇介绍 dialog 的-->
 !!! note
-如果你不知道 dialog 文件是什么的话, 你可以询问 mapper 们, 或者在这里你就干脆照做, 也就是新建如其标题所展示的文件然后粘贴对应内容.
-
+    如果你不知道 dialog 文件是什么的话, 你可以询问 mapper 们, 或者在这里你就干脆照做, 也就是新建如其标题所展示的文件然后粘贴对应内容.
+    
 此外, mod 选项的大标题也有个本地化键名, 相对于上面的键名只是将属性名换成了 `title`, 例如以下 dialog 文件:
 
 ```ini title="ModFolder/Dialog/Simplified Chinese.txt"
@@ -161,7 +161,7 @@ modoptions_mycelestemod_title=funny MyCelesteMod
 ```
 
 !!! note
-时刻记得填充 `english.txt`, 因为如果其他语言没找到这个键名会默认回退到 `english`, 如果再没有的话就会直接展示丑陋的键名.
+    时刻记得填充 `english.txt`, 因为如果其他语言没找到这个键名会默认回退到 `english`, 如果再没有的话就会直接展示丑陋的键名.
 
 ![dialog](dialog.png)
 
@@ -182,8 +182,8 @@ modoptions_mycelestemod_day_saturday=星期六
 ```
 
 !!! info
-如果你实际测试的话你会发现 `三` 字和 `五` 字没有渲染出来, 这是正常的, 因为蔚蓝的字库中没有这两个字,
-这里我就不赘述如何解决这个问题了, 具体可以咨询 mapper 们.([日常偷懒.jpg](https://www.bilibili.com/video/BV1A14y1W7hr))
+    如果你实际测试的话你会发现 `三` 字和 `五` 字没有渲染出来, 这是正常的, 因为蔚蓝的字库中没有这两个字,
+    这里我就不赘述如何解决这个问题了, 具体可以咨询 mapper 们.([日常偷懒.jpg](https://www.bilibili.com/video/BV1A14y1W7hr))
 
 ### 最后
 
@@ -244,7 +244,7 @@ namespace Celeste.Mod.MyCelesteMod;
 
 public class MyCelesteModSession : EverestModuleSession
 {
-    public Dictionary<string, int> RoomIdToPassByRefillDahes = new();  // 我们将记录每个房间名对应的PassByRefill的冲刺数
+    public Dictionary<string, int> RoomIdToPassByRefillDashes = new();  // 我们将记录每个房间名对应的PassByRefill的冲刺数
 }
 ```
 
@@ -267,7 +267,7 @@ public class SetPassByRefillDashesTrigger : Trigger
     public override void OnEnter(Player player)
     {
         base.OnEnter(player);
-        MyCelesteModModule.Session.RoomIdToPassByRefillDahes[SceneAs<Level>().Session.LevelData.Name] = Dashes;
+        MyCelesteModModule.Session.RoomIdToPassByRefillDashes[SceneAs<Level>().Session.LevelData.Name] = Dashes;
     }
 }
 ```
@@ -282,11 +282,7 @@ public class PassByRefill : Entity
 {
     private int _dashes = 1;
 
-    public int Dashes
-    {
-        get => MyCelesteModModule.Session.RoomIdToPassByRefillDahes.GetValueOrDefault(SceneAs<Level>().Session.LevelData.Name, _dashes);
-        set => _dashes = value;
-    }
+    public int Dashes => MyCelesteModModule.Session.RoomIdToPassByRefillDashes.GetValueOrDefault(SceneAs<Level>().Session.LevelData.Name, _dashes);
 
     private Image image;
 
