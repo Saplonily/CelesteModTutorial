@@ -1,5 +1,14 @@
 # Flag, Tag, Tracker
 
+## Flag
+### 即一个`bool`状态, 我们通过`string`来区分不同的`flag`, 用`Dictionary<string, bool>`来存储flag的开关(这样可能好理解点), 虽然蔚蓝实现上用了`Hashset(详情见Session)`
+### 然后Everest已经为我们提供了一个简单的`FlagTrigger`, 让`player`碰到`trigger`的时候触发某个`flag`, 接着我们就可以在`Session`里读取, 这样对于非常简单的需求就不需要自己写个`trigger`了, 例如"`player`碰到`FlagTrigger`就跳一下"这个需求: 我们可以不断读取`flag`, 如果拿到`true`就删除`flag`并执行跳的动作
+
+
+
+
+
+
 ## Tag(BitTag)
 
 ### 简单理解
