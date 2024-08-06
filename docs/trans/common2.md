@@ -1,31 +1,28 @@
 # Flag, Tag, Tracker
 
 ## Flag
-### 即一个`bool`状态, 我们通过`string`来区分不同的`flag`, 用`Dictionary<string, bool>`来存储flag的开关(这样可能好理解点), 虽然蔚蓝实现上用了`Hashset(详情见Session)`
-### 然后Everest已经为我们提供了一个简单的`FlagTrigger`, 让`player`碰到`trigger`的时候触发某个`flag`, 接着我们就可以在`Session`里读取, 这样对于非常简单的需求就不需要自己写个`trigger`了, 例如"`player`碰到`FlagTrigger`就跳一下"这个需求: 我们可以不断读取`flag`, 如果拿到`true`就删除`flag`并执行跳的动作
 
+### 即一个`bool`状态, 我们可以通过`string`来区分不同的`flag`, 用`Dictionary<string, bool>`来存储`flag`的状态(这样可能好理解点), 以让我们在某个时机做某件事(详情见`Session`).
 
-
-
-
+### 然后Everest已经为我们提供了一个简单的`FlagTrigger`, 让`player`碰到`trigger`的时候触发某个`flag`, 接着我们就可以在`Session`里读取, 这样对于非常简单的需求就不需要自己写个`trigger`了, 例如"`player`碰到`FlagTrigger`就跳一下"这个需求: 我们可以不断读取`flag`, 如果拿到`true`就删除`flag`并执行跳的动作.
 
 ## Tag(BitTag)
 
 ### 简单理解
 
-#### Global: 永久保留(死亡不消失)
+#### Global: 永久保留(死亡不销毁)
 
-#### Persistent: 切板保留(死亡消失)
+#### Persistent: 切板保留(死亡销毁)
 
 #### HUD: 画UI的,切板后销毁
 
 #### TransitionUpdate: 切板过程继续更新(或者说时间流速正常), 切板后销毁
 
-#### FrozenUpdate: 在Frozen状态下更新的实体
+#### FrozenUpdate: 在Frozen状态下还能更新的实体
 
-#### PauseUpdate(Pause的时候还能更新)
+#### PauseUpdate: 在Pause状态下还能更新的实体
 
-###### 注意有些标签只是暂时使用, 所以我一般会用"xxx的时候", 列出来的实体也仅仅是跟这个标签有关, 由于实体很多很杂会有疏漏, 如果你觉得哪里不对或者感兴趣, 直接去看代码就好了
+###### 注意有些标签只是暂时使用, 所以我一般会用"xxx的时候"来描述, 列出来的实体也仅仅是跟这个标签有关, 由于实体很多很杂会有疏漏, 如果你觉得哪里不对或者感兴趣, 直接去看代码就好了
 
 ### Global(该 Entity 是否是全局的, 一个非全局实体在关卡重试后会消失, 全局 Tag 可以避免这件事, 通常全局 Tag 最常见的用法是和 HUD 结合在一起, 这样你就拥有了一个在游戏内持久的 ui 部件了.)
 
@@ -33,7 +30,7 @@
 
 ###### 所以要么是在new的时候逻辑上判断(参考`CassetteBlockManager`)以消除错误(有点单例的感觉)
 
-###### 要么是用代码在Scene上手动添加一个类似Manager的东西, 由于其他场景原先没有摆放你这个类, 自然也不会被加载多次
+###### 要么是用代码在Scene上手动添加一个类似Manager的东西, 由于其他场景原先没有摆放你这个对象, 自然也不会被加载多次
 
 #### 例如
 
@@ -186,7 +183,7 @@
 * #### `Textbox`
 * #### 残影`TrailManager.Snapshot`
 
-### PauseUpdate(Pause的时候还能更新)
+### PauseUpdate(在Pause状态下还能更新的实体)
 
 #### 例如
 
@@ -207,3 +204,9 @@
 * #### `TotalStrawberriesDisplay`
 * #### `UnlockedPico8Message`
 * #### `ViewportAdjustmentUI`
+
+
+## Tracker
+### `Tracker`由`Scene`管理, 在我们使用`Scene.Add(new Entity())`的时候, 会通过`EntityList`向`Tracker`加入`Entity`(当然还有`Component`, 但在后面只提及`Entity`).
+### 所有需要被`Tracked`(或者说被记录) 的`Entity` 需要加上`[Tracked]`特性.
+### 你还可以通过`[TrackedAs(typeof(xxx))]`特性让一个`A`类型被同时当作`B`类型, 这样就可以使用`Scene.Tracker.GetEntity<B>()`来同时拿到`A`和`B`了.
