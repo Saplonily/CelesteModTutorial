@@ -224,3 +224,108 @@ public override void Unload()
 
 !!! note
     关于协程函数的钩取与上述步骤截然不同, 这一点我们会在下一节探讨.
+
+
+### 钩取其他helper(参考[Everest Wiki](https://github.com/EverestAPI/Resources/wiki/Cross-Mod-Functionality))
+首先我们在钩取前需要确保对应helper已加载, 所以得在`everest.yaml`文件里填上对应依赖, 这样Everest就会先加载依赖, 然后再加载我们的dll, 接下来我将以`CommunalHelper`里的`Chain`实体为例钩取它的的`Update`(选这个是因为在Loenn里随便翻了下发现这个名字比较短, 注意放置的时候挂在Solid(例如前景砖)对象下, 不然它会自己删除自己, 看不到效果)
+
+![dependency](imgs/dependency.jpg)
+
+然后在你的Module类里模仿如下代码即可(不要管特性, static什么的, 把load unload函数体里的内容照猫画虎写一下即可)
+```csharp
+using System.Reflection;
+using LuckyHelper.Module;
+using MonoMod.RuntimeDetour;
+
+namespace LuckyHelper.MiscModules;
+
+public class TestModule
+{
+    private static Hook chainUpdateHook;  // 钩子
+
+    private delegate void chainUpdateHookDelegate(Entity self);  // 调用Chain.Update的委托
+
+    [Load]
+    public static void Load()
+    {
+        EverestModuleMetadata communalHelper = new()  // communalHelper的信息
+        {
+            Name = "CommunalHelper",
+            Version = new Version("1.20.4")
+        };
+        bool isLoaded = Everest.Loader.DependencyLoaded(communalHelper);  // 判断communalHelper是否已加载
+        if (isLoaded) 
+        {
+            if (Everest.Loader.TryGetDependency(communalHelper, out EverestModule communalModule))  // 拿到communalHelper的Module
+            {
+                Assembly communalAssembly = communalModule.GetType().Assembly;  // 拿到communalHelper的程序集
+                Type chain = communalAssembly.GetType("Celeste.Mod.CommunalHelper.Entities.Chain");  // 拿到Chain的Type
+                MethodInfo method = chain.GetMethod("Update", BindingFlags.Instance | BindingFlags.Public);  // 拿到Update函数
+                chainUpdateHook = new Hook(method, ChainOnUpdate);
+                // Logger.Log(LogLevel.Info, "Test", "HookChainOnUpdate OK");
+            }
+        }
+    }
+
+    private static void ChainOnUpdate(chainUpdateHookDelegate orig, Entity chain)
+    {
+        orig(chain);
+        // 做一些事
+        // Logger.Log(LogLevel.Info, "Test", "123");
+    }
+
+    [Unload]
+    public static void Unload()
+    {
+        chainUpdateHook.Dispose();
+    }
+}
+```
+
+但是这么写就很难受, 而且chain的类型为Entity不为Chain了, 想类型转成Chain我们又拿不到Chain, 这时就需要我们在IDE里添加`CommunalHelper`的Dll依赖(从你下载的`CommunalHelper.zip`借出来, 然后就像一开始配置蔚蓝code环境那样添加引用即可)(虽然我也不清楚是否应该这样做)
+
+![code_dependency](imgs/code_dependency.jpg)
+
+代码看上去长这样
+```csharp
+using System.Reflection;
+using Celeste.Mod.CommunalHelper.Entities;
+using LuckyHelper.Module;
+using MonoMod.RuntimeDetour;
+
+namespace LuckyHelper.MiscModules;
+
+public class TestModule
+{
+    private static Hook chainUpdateHook;
+
+    private delegate void chainUpdateHookDelegate(Chain self);
+
+    [Load]
+    public static void Load()
+    {
+        EverestModuleMetadata communalHelper = new()
+        {
+            Name = "CommunalHelper",
+            Version = new Version("1.20.4")
+        };
+        bool isLoaded = Everest.Loader.DependencyLoaded(communalHelper);
+        if (isLoaded)
+        {
+            chainUpdateHook = new Hook(typeof(Chain).GetMethod("Update"), ChainOnUpdate);
+        }
+    }
+
+    private static void ChainOnUpdate(chainUpdateHookDelegate orig, Chain chain)
+    {
+        orig(chain);
+        Logger.Log(LogLevel.Info, "Test", "123");
+    }
+
+    [Unload]
+    public static void Unload()
+    {
+        chainUpdateHook.Dispose();
+    }
+}
+```
