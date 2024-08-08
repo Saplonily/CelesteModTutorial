@@ -226,7 +226,8 @@ public override void Unload()
     关于协程函数的钩取与上述步骤截然不同, 这一点我们会在下一节探讨.
 
 
-### 钩取其他helper(参考[Everest Wiki](https://github.com/EverestAPI/Resources/wiki/Cross-Mod-Functionality))
+钩取其他helper(参考[Everest Wiki](https://github.com/EverestAPI/Resources/wiki/Cross-Mod-Functionality))
+
 首先我们在钩取前需要确保对应helper已加载, 所以得在`everest.yaml`文件里填上对应依赖, 这样Everest就会先加载依赖, 然后再加载我们的dll, 接下来我将以`CommunalHelper`里的`Chain`实体为例钩取它的的`Update`(选这个是因为在Loenn里随便翻了下发现这个名字比较短, 注意放置的时候挂在Solid(例如前景砖)对象下, 不然它会自己删除自己, 看不到效果)
 
 ![dependency](imgs/dependency.jpg)
@@ -253,17 +254,14 @@ public class TestModule
             Name = "CommunalHelper",
             Version = new Version("1.20.4")
         };
-        bool isLoaded = Everest.Loader.DependencyLoaded(communalHelper);  // 判断communalHelper是否已加载
-        if (isLoaded) 
+        
+        if (Everest.Loader.TryGetDependency(communalHelper, out EverestModule communalModule))  // 拿到communalHelper的Module
         {
-            if (Everest.Loader.TryGetDependency(communalHelper, out EverestModule communalModule))  // 拿到communalHelper的Module
-            {
-                Assembly communalAssembly = communalModule.GetType().Assembly;  // 拿到communalHelper的程序集
-                Type chain = communalAssembly.GetType("Celeste.Mod.CommunalHelper.Entities.Chain");  // 拿到Chain的Type
-                MethodInfo method = chain.GetMethod("Update", BindingFlags.Instance | BindingFlags.Public);  // 拿到Update函数
-                chainUpdateHook = new Hook(method, ChainOnUpdate);
-                // Logger.Log(LogLevel.Info, "Test", "HookChainOnUpdate OK");
-            }
+            Assembly communalAssembly = communalModule.GetType().Assembly;  // 拿到communalHelper的程序集
+            Type chain = communalAssembly.GetType("Celeste.Mod.CommunalHelper.Entities.Chain");  // 拿到Chain的Type
+            MethodInfo method = chain.GetMethod("Update", BindingFlags.Instance | BindingFlags.Public);  // 拿到Update函数
+            chainUpdateHook = new Hook(method, ChainOnUpdate);
+            // Logger.Log(LogLevel.Info, "Test", "HookChainOnUpdate OK");
         }
     }
 
@@ -282,9 +280,22 @@ public class TestModule
 }
 ```
 
-但是这么写就很难受, 而且chain的类型为Entity不为Chain了, 想类型转成Chain我们又拿不到Chain, 这时就需要我们在IDE里添加`CommunalHelper`的Dll依赖(从你下载的`CommunalHelper.zip`借出来, 然后就像一开始配置蔚蓝code环境那样添加引用即可)(虽然我也不清楚是否应该这样做)
+但是这么写就很难受, 而且chain的类型为Entity不为Chain了, 想类型转成Chain我们又拿不到Chain, 这时就需要我们在IDE里添加`CommunalHelper`的Dll依赖(像一开始配置蔚蓝code环境那样)
 
 ![code_dependency](imgs/code_dependency.jpg)
+
+接下来有两种方法获取依赖
+
+方法一
+
+dc 社区习惯的做法是将这个 dll 的 ref 版本 (stripped 后的版本, 即删除所有方法的实现, 只保留元数据) 放到 mod 目录外面的 lib-stripped 目录里然后引用. 参考[草莓酱](https://github.com/StrawberryJam2021/StrawberryJam2021/tree/main)的源码.
+
+那么我们该如何strip dll呢: 先下载[Mono](https://www.mono-project.com/download/stable/), 然后打开`Open Mono x64 Command Prompt`(一个命令行程序), 输入`mono-cil-strip 原dll路径 strippedDll路径`即可, 大概类似这样`mono-cil-strip C:\Users\你的用户名\Desktop\CommunalHelper.dll C:\Users\你的用户名\Desktop\CommunalHelperStripped.dll`
+
+方法二
+
+"我"个人习惯直接引用 Mods/Cache/xxx.xxx.dll 这里的 dll, 新模板加了个 CelesteModReference 这个 Item, 往 ItemGroup 里加一条 <CelesteModReference Include="FrostHelper" AssemblyName="FrostTempleHelper"/> 就会自动引用, 但我没啥时间写这个了(
+
 
 代码看上去长这样
 ```csharp

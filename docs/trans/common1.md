@@ -293,7 +293,7 @@ private IEnumerator Cutscene(Level level)
     Audio.SetMusic("event:/music/lvl0/title_ping");
     // 继续等待 2s
     yield return 2f;
-    // 向场景中加入显示 "你能做到。" 这句话的实体
+    // 向场景中加入显示 "你能做到." 这句话的实体
     endingText = new PrologueEndingText(false);
     Scene.Add(endingText);
     
@@ -316,7 +316,7 @@ private IEnumerator Cutscene(Level level)
         if (bgSnow != null)
             bgSnow.Alpha -= Engine.DeltaTime * 0.5f;
         level.HiresSnow.Alpha = Calc.Approach(level.HiresSnow.Alpha, 1f, Engine.DeltaTime * 0.5f);
-        // 于此同时 "你能做到。" 这句话也慢慢降下来
+        // 于此同时 "你能做到." 这句话也慢慢降下来
         endingText.Position = new Vector2(960f, 540f - 1080f * (1f - eased));
         // 摄像机也慢慢向上移动
         level.Camera.Y = level.Bounds.Top - 3900f * eased;
