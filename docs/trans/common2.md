@@ -2,22 +2,22 @@
 
 ## Flag
 
-即一个`bool`状态, 我们可以通过`string`来区分不同的`flag`, 用`Dictionary<string, bool>`来存储`flag`的状态(这样可能好理解点), 以让我们在某个时机做某件事(
-详情见`Session`).
+即一个 `bool` 状态, 我们可以通过 `string` 来区分不同的 `flag`, 用 `Dictionary<string, bool>` 来存储 `flag` 的状态(这样可能好理解点), 以让我们在某个时机做某件事(
+详情见 `Session`).
 
-然后Everest已经为我们提供了一个简单的`FlagTrigger`, 让`player`碰到`trigger`的时候触发某个`flag`, 接着我们就可以在`Session`里读取,
-这样对于非常简单的需求就不需要自己写个`trigger`了, 例如"`player`碰到`FlagTrigger`就跳一下"这个需求: 我们可以不断读取`flag`, 如果拿到`true`就删除`flag`并执行跳的动作.
+然后 Everest 已经为我们提供了一个简单的 `FlagTrigger`, 让 `player` 碰到 `trigger` 的时候触发某个 `flag`, 接着我们就可以在 `Session` 里读取,
+这样对于非常简单的需求就不需要自己写个 `trigger` 了, 例如 "`player` 碰到 `FlagTrigger`就跳一下" 这个需求: 我们可以不断读取 `flag`, 如果拿到 `true` 就删除 `flag` 并执行跳的动作.
 
 ## Tag(BitTag)
 
 简单理解
 
-* Global: 永久保留(死亡不销毁)
-* Persistent: 切板保留(死亡销毁)
-* HUD: 画UI的,切板后销毁
-* TransitionUpdate: 切板过程继续更新(或者说时间流速正常), 切板后销毁
-* FrozenUpdate: 在Frozen状态下还能更新的实体
-* PauseUpdate: 在Pause状态下还能更新的实体
+* `Global`: 永久保留(死亡不销毁)
+* `Persistent`: 切板保留(死亡销毁)
+* `HUD`: 画UI的,切板后销毁
+* `TransitionUpdate`: 切板过程继续更新(或者说时间流速正常), 切板后销毁
+* `FrozenUpdate`: 在 Frozen 状态下还能更新的实体
+* `PauseUpdate`: 在 Pause 状态下还能更新的实体
 
 !!! note
     注意有些标签只是暂时使用, 所以我一般会用"xxx的时候"来描述, 列出来的实体也仅仅是跟这个标签有关, 由于实体很多很杂会有疏漏, 如果你觉得哪里不对或者感兴趣, 直接去看代码就好了
@@ -207,8 +207,7 @@ Frozen只是Level里的一个冻结状态(或者说一个bool变量, 而不是�
 
 ## Tracker
 
- `Tracker`由`Scene`管理, 在我们使用`Scene.Add(new Entity())`的时候, 会通过`EntityList`向`Tracker`加入`Entity`(当然还有`Component`, 但在后面只提及`Entity`).
-
- 所有需要被`Tracked`(或者说被记录) 的`Entity` 需要加上`[Tracked]`特性.
-
- 你还可以通过`[TrackedAs(typeof(xxx))]`特性让一个`A`类型被同时当作`B`类型, 这样就可以使用`Scene.Tracker.GetEntity<B>()`来同时拿到`A`和`B`了.
+`Tracker` 由 `Scene` 管理, 在我们使用 `Scene.Add(new Entity())` 的时候, 会通过 `EntityList` 向 `Tracker` 加入 `Entity` (当然还有 `Component`, 但在后面只提及 `Entity`).  
+所有需要被 `Tracked` (或者说被记录) 的 `Entity` 需要加上 `[Tracked]` 特性.  
+你还可以通过 `[TrackedAs(typeof(xxx))]` 特性让一个 `A` 类型被同时当作 `B` 类型, 这样就可以使用 `Scene.Tracker.GetEntity<B>()` 来同时拿到 `A` 和 `B` 了.
+这个特性作为 Everest 的一个拓展存在.

@@ -146,17 +146,7 @@ if (cur.TryGotoNext(ins => ins.MatchLdcR4(-160f), ins => ins.MatchStfld<Vector2>
 相信你已经发现了, 有些方法比如叫做 `orig_xxx` 的方法, 以及属性的 getter 和 setter 你都无法在 On.* 和 IL.* 这两个命名空间中找到,
 同时, 钩取别的 helper 的方法似乎也无法完成.  
 
-这里我们引入两个新类: `Hook` 与 `ILHook`, 前者表示一个 On 钩子, 后者表示一个 IL 钩子.
-
-!!! info
-    `Hook` 与 `ILHook` 位于 `MonoMod.RuntimeDetour` 程序集中, 在旧模板里它没有被默认引用进来, 这是一个我个人的失误,
-    如果你确实无法引用这两个类的话你可以在 `CelesteMod.props` 里的最底下的那个 `ItemGroup` 中加入这一条:
-    ```xml
-    <Reference Include="MonoMod.RuntimeDetour">
-		<HintPath>$(CelesteAssemblyPath)/MonoMod.RuntimeDetour.dll</HintPath>
-		<Private>False</Private>
-    </Reference>
-    ```
+这里我们引入两个新类: `Hook` 与 `ILHook`, 前者表示一个 On 钩子, 后者表示一个 IL 钩子.  
 
 `Hook` 的构造函数拥有非常多重载, 在这里我们只需要那个 `(MethodBase method, Delegate to)` 的重载,
 它表示我们希望钩取第一个参数指定的方法, 钩子方法是第二个参数指定的委托.  
@@ -192,11 +182,10 @@ public override void Unload()
 ```
 
 因为不再是之前方便的事件订阅, 所以钩子的 orig 参数的委托原型你必须得自己声明, 注意钩子方法和钩子 orig 参数的参数列表一定要小心准确的填写,
-否则会直接造成游戏崩溃. 上述代码的效果应该是你无论如何都会拥有 7a/b/c 的 Inventory, 也大概即双冲, 带背包.  
+否则会直接造成游戏崩溃. 上述代码的效果应该是你无论如何都会拥有 7a/b/c 的 Inventory, 也即双冲, 带背包等.  
 
 现在, 拥有了钩子函数, 你可以做任何你之前使用订阅事件来创建钩子一样的事. 顺便, 使用这种方法也允许你钩取别的 helper 的方法,
-甚至是钩取别的 helper 的钩子方法. 不过在此之前你需要为你的 mod 声明依赖或者可选依赖, 声明可选依赖后又需要检测对应 mod 是否加载等等,
-这部分内容我们之后再说.  
+甚至是钩取别的 helper 的钩子方法. 不过在此之前你需要为你的 mod 声明依赖或者可选依赖, 声明可选依赖后又需要检测对应 mod 是否加载等等.  
 
 同样地, IL 钩子的创建也与 On 钩子相同:
 
@@ -225,118 +214,110 @@ public override void Unload()
 !!! note
     关于协程函数的钩取与上述步骤截然不同, 这一点我们会在下一节探讨.
 
+## 钩取其他 helper
 
-钩取其他helper(参考[Everest Wiki](https://github.com/EverestAPI/Resources/wiki/Cross-Mod-Functionality))
+!!! note
+    参考 [Everest Wiki](https://github.com/EverestAPI/Resources/wiki/Cross-Mod-Functionality)  
 
-首先我们在钩取前需要确保对应helper已加载, 所以得在`everest.yaml`文件里填上对应依赖, 这样Everest就会先加载依赖, 然后再加载我们的dll, 接下来我将以`CommunalHelper`里的`Chain`实体为例钩取它的的`Update`(选这个是因为在Loenn里随便翻了下发现这个名字比较短, 注意放置的时候挂在Solid(例如前景砖)对象下, 不然它会自己删除自己, 看不到效果)
+首先我们在钩取前需要确保对应 helper 已被加载, 那么我们先在 `everest.yaml` 文件里加上对应的可选依赖, 这样 Everest 会确保存在该依赖时总是在该依赖加载之后再加载我们的 mod.
 
-![dependency](imgs/dependency.jpg)
+```yaml title="everest.yaml" hl_lines="7-8"
+- Name: MyCelesteMod
+  Version: 0.1.0
+  DLL: Code/MyCelesteMod.dll
+  Dependencies:
+    - Name: EverestCore
+      Version: 1.4465.0
+    - Name: CommunalHelper
+      Version: 1.20.4
+```
 
-然后在你的Module类里模仿如下代码即可(不要管特性, static什么的, 把load unload函数体里的内容照猫画虎写一下即可)
-```csharp
-using System.Reflection;
-using LuckyHelper.Module;
-using MonoMod.RuntimeDetour;
+接下来我们以 `CommunalHelper` 里的 `Chain` 实体为例, 钩取它的 `Update`:
 
-namespace LuckyHelper.MiscModules;
+```cs
+private static Hook chainUpdateHook;
 
-public class TestModule
+private delegate void chainUpdateHookDelegate(Entity self);
+
+public static void Load()
 {
-    private static Hook chainUpdateHook;  // 钩子
-
-    private delegate void chainUpdateHookDelegate(Entity self);  // 调用Chain.Update的委托
-
-    [Load]
-    public static void Load()
+    EverestModuleMetadata communalHelper = new()
     {
-        EverestModuleMetadata communalHelper = new()  // communalHelper的信息
-        {
-            Name = "CommunalHelper",
-            Version = new Version("1.20.4")
-        };
-        
-        if (Everest.Loader.TryGetDependency(communalHelper, out EverestModule communalModule))  // 拿到communalHelper的Module
-        {
-            Assembly communalAssembly = communalModule.GetType().Assembly;  // 拿到communalHelper的程序集
-            Type chain = communalAssembly.GetType("Celeste.Mod.CommunalHelper.Entities.Chain");  // 拿到Chain的Type
-            MethodInfo method = chain.GetMethod("Update", BindingFlags.Instance | BindingFlags.Public);  // 拿到Update函数
-            chainUpdateHook = new Hook(method, ChainOnUpdate);
-            // Logger.Log(LogLevel.Info, "Test", "HookChainOnUpdate OK");
-        }
-    }
-
-    private static void ChainOnUpdate(chainUpdateHookDelegate orig, Entity chain)
+        Name = "CommunalHelper",
+        Version = new Version("1.20.4")
+    };
+    
+    // 尝试获取 CommunalHelper 的 Module 实例
+    if (Everest.Loader.TryGetDependency(communalHelper, out EverestModule communalModule))  
     {
-        orig(chain);
-        // 做一些事
-        // Logger.Log(LogLevel.Info, "Test", "123");
+        Assembly communalAssembly = communalModule.GetType().Assembly;  // 拿到 communalHelper 的程序集
+        Type chain = communalAssembly.GetType("Celeste.Mod.CommunalHelper.Entities.Chain");  // 拿到 Chain 的 Type
+        MethodInfo method = chain.GetMethod("Update", BindingFlags.Instance | BindingFlags.Public);  // 拿到 Update 函数
+        chainUpdateHook = new Hook(method, ChainOnUpdate);
+        // Logger.Log(LogLevel.Info, "Test", "HookChainOnUpdate OK");
     }
+}
 
-    [Unload]
-    public static void Unload()
-    {
-        chainUpdateHook.Dispose();
-    }
+public static void Unload()
+{
+    chainUpdateHook.Dispose();
+}
+
+private static void ChainOnUpdate(chainUpdateHookDelegate orig, Entity chain)
+{
+    orig(chain);
+    // 做一些事
+    // Logger.Log(LogLevel.Info, "Test", "123");
 }
 ```
 
-但是这么写就很难受, 而且chain的类型为Entity不为Chain了, 想类型转成Chain我们又拿不到Chain, 这时就需要我们在IDE里添加`CommunalHelper`的Dll依赖(像一开始配置蔚蓝code环境那样)
+但是这么写就很难受, 而且 chain 的类型为 Entity 不为 Chain 了, 想类型转成 Chain 我们又拿不到 Chain, 这时就需要我们添加 `CommunalHelper` 程序集的依赖(像一开始配置蔚蓝 code 环境那样)  
 
 ![code_dependency](imgs/code_dependency.jpg)
 
-接下来有两种方法获取依赖
+dc 社区习惯的做法是将这个 dll 的 ref 版本 (也就是 stripped 后的版本, 删除了所有方法的实现, 只保留了元数据) 放到 mod 目录外面的 lib-stripped 目录里然后引用. 参考[草莓酱](https://github.com/StrawberryJam2021/StrawberryJam2021/tree/main)的源码. strip 的方法不唯一, 例如你可以使用 mono 的 strip 工具 `mono-cil-strip`, 或者 [`NStrip`](https://github.com/bbepis/NStrip) 这个工具, 具体在这里就不说明了.  
 
-方法一
+我个人习惯直接引用 蔚蓝根目录/Mods/Cache/xxx.xxx.dll 这里的 dll, 如果你的模板是最新的话, 你可以使用 `CelesteModReference` 项来引用, 例如 BetterFreezeFrames 中的使用例子:
 
-dc 社区习惯的做法是将这个 dll 的 ref 版本 (stripped 后的版本, 即删除所有方法的实现, 只保留元数据) 放到 mod 目录外面的 lib-stripped 目录里然后引用. 参考[草莓酱](https://github.com/StrawberryJam2021/StrawberryJam2021/tree/main)的源码.
+```xml title="BetterFreezeFrames.csproj"
+<ItemGroup>
+    <CelesteModReference Include="FemtoHelper" />
+    <CelesteModReference Include="IsaGrabBag" AssemblyName="IsaMods" />
+    <CelesteModReference Include="VivHelper" />
+    <CelesteModReference Include="FlaglinesAndSuch" />
+    <CelesteModReference Include="VortexHelper" />
+</ItemGroup>
+```
 
-那么我们该如何strip dll呢: 先下载[Mono](https://www.mono-project.com/download/stable/), 然后打开`Open Mono x64 Command Prompt`(一个命令行程序), 输入`mono-cil-strip 原dll路径 strippedDll路径`即可, 大概类似这样`mono-cil-strip C:\Users\你的用户名\Desktop\CommunalHelper.dll C:\Users\你的用户名\Desktop\CommunalHelperStripped.dll`
+每一项的 `Include` 表示 mod 名称, 可选的 `AssemblyName` 表示程序集名称, 默认为 `Include` 的值, 这样在构建项目时模板会自动引用 Mods/Cache/(Include).(AssemblyName).dll 这个程序集.  
+现在我们已经引用好了依赖了:
+```cs
+private static Hook chainUpdateHook;
 
-方法二
+private delegate void chainUpdateHookDelegate(Chain self);
 
-"我"个人习惯直接引用 Mods/Cache/xxx.xxx.dll 这里的 dll, 新模板加了个 CelesteModReference 这个 Item, 往 ItemGroup 里加一条 <CelesteModReference Include="FrostHelper" AssemblyName="FrostTempleHelper"/> 就会自动引用, 但我没啥时间写这个了(
-
-
-代码看上去长这样
-```csharp
-using System.Reflection;
-using Celeste.Mod.CommunalHelper.Entities;
-using LuckyHelper.Module;
-using MonoMod.RuntimeDetour;
-
-namespace LuckyHelper.MiscModules;
-
-public class TestModule
+public static void Load()
 {
-    private static Hook chainUpdateHook;
-
-    private delegate void chainUpdateHookDelegate(Chain self);
-
-    [Load]
-    public static void Load()
+    EverestModuleMetadata communalHelper = new()
     {
-        EverestModuleMetadata communalHelper = new()
-        {
-            Name = "CommunalHelper",
-            Version = new Version("1.20.4")
-        };
-        bool isLoaded = Everest.Loader.DependencyLoaded(communalHelper);
-        if (isLoaded)
-        {
-            chainUpdateHook = new Hook(typeof(Chain).GetMethod("Update"), ChainOnUpdate);
-        }
-    }
-
-    private static void ChainOnUpdate(chainUpdateHookDelegate orig, Chain chain)
+        Name = "CommunalHelper",
+        Version = new Version("1.20.4")
+    };
+    bool isLoaded = Everest.Loader.DependencyLoaded(communalHelper);
+    if (isLoaded)
     {
-        orig(chain);
-        Logger.Log(LogLevel.Info, "Test", "123");
+        chainUpdateHook = new Hook(typeof(Chain).GetMethod("Update"), ChainOnUpdate);
     }
+}
 
-    [Unload]
-    public static void Unload()
-    {
-        chainUpdateHook.Dispose();
-    }
+private static void ChainOnUpdate(chainUpdateHookDelegate orig, Chain chain)
+{
+    orig(chain);
+    Logger.Log(LogLevel.Info, "Test", "123");
+}
+
+public static void Unload()
+{
+    chainUpdateHook.Dispose();
 }
 ```

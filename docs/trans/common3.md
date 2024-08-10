@@ -1,8 +1,8 @@
 # Sprite, Image
 
- Sprite你可以把它当作管动画的
+Sprite 你可以把它当作管动画的
 
- Image你可以把它当作管图片的
+Image 你可以把它当作管图片的
 
 ## 继承链
  
@@ -31,7 +31,7 @@
 
 ### Image
 
-对`GraphicsComponent`的进一步封装, 主要提供了`Texture`纹理(图片)相关信息, 此时就可以根据之前的信息渲染出一张图片了, 就像你之前在`PassByRefill`那节做的那样 
+对 `GraphicsComponent` 的进一步封装, 主要提供了 `Texture` 纹理(图片)相关信息, 此时就可以根据之前的信息渲染出一张图片了, 就像你之前在 `PassByRefill` 那节做的那样 
 
 ??? 类的属性字段方法说明
     * MTexture Texture: 材质(你可以把它当成一张`png`图片)
@@ -44,7 +44,7 @@
 
 ### Sprite
 
-对`Image`的进一步封装, 提供了对动画的管理(一连串图片形成一个帧动画, 再用`id`分组, 通过动画状态机实现动画间的跳转或是自身的`loop`)
+对 `Image` 的进一步封装, 提供了对动画的管理(一连串图片形成一个帧动画, 再用 `id` 分组, 通过动画状态机实现动画间的跳转或是自身的 `loop`)
 
 ??? 类的属性字段方法说明
     里面有一层`Animation`类, 是对动画的简单封装
@@ -124,14 +124,14 @@
 ![img00](imgs/img00.png "img00")
 ![img01](imgs/img01.png "img01")
 
-* 接着我们在`PassByRefill`中把跟`Image`有关的部分替换为`Sprite`, 然后你就得到了一个一秒一变的动画啦!
+* 接着我们在 `PassByRefill` 中把跟 `Image` 有关的部分替换为 `Sprite`, 然后你就得到了一个一秒一变的动画啦!
 
 ```csharp
 private Sprite sprite;
 
 public PassByRefill(Vector2 position, int dashes)
 {
-    ...
+    // ...
 
     sprite = new Sprite(GFX.Game, "你的mod名/pass_by_refill/");
     Add(sprite);
