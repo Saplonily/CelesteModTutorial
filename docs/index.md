@@ -15,7 +15,7 @@
 - Apple Sheep - 在写作初期提供了大量修改建议 ([Bilibili](https://space.bilibili.com/227488539))
 - 夜谷紫幽 - 为配置环境节提供了使用模板的建议 ([Bilibili](https://space.bilibili.com/346379712))
 - 电箱 - 制作了包含基础 Loenn 使用教程的作图教程 ([Bilibili](https://space.bilibili.com/240308518))
-- Lucky boy - [Session, Settings, SaveData](trans/session_settings_savedata.md) 节的一些补充 ([GitHub](https://github.com/LuckyBoy-7))
+- Lucky boy - [Session, Settings, SaveData](trans/session_settings_savedata.md) 节的一些补充, 以及钩取 Helper 方法, debug, tracker, flag, tag 节的作者 ([GitHub](https://github.com/LuckyBoy-7))
 
 以及我自己 :D
 
