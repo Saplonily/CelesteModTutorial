@@ -643,6 +643,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../common2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flag, Tag, Tracker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sprite, Image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../il/" class="md-nav__link">
         
   
@@ -711,6 +753,27 @@
   
   <span class="md-ellipsis">
     Session, Settings, SaveData
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    调试
   </span>
   
 
@@ -1267,7 +1330,7 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div></p>
 <h3 id="scene">对于 Scene</h3>
-<p>嗯... 对应 Scene 的一些生命周期函数我个人也不是很了解毕竟我们大部分的时间都在 gameplay 的场景上, 所以这节就暂时咕了(。_。)</p>
+<p>嗯... 对应 Scene 的一些生命周期函数我个人也不是很了解毕竟我们大部分的时间都在 gameplay 的场景上, 所以这节就暂时咕了(._.)</p>
 <h3 id="_2">常见的方法与属性</h3>
 <ul>
 <li><code>Scene.Add</code>: 将一个实体加入到场景中</li>
@@ -1298,12 +1361,12 @@
 </code></pre></div></td></tr></table></div>
 当你的实体拥有这个 Tag 后, 蔚蓝会将你的实体绘制在 ui 层, 比较常见的例子就是左上角的计时器, 它在构造器内就给自己打上了 <code>Tags.HUD</code> 的标签.<br />
 也如上面所说的, 一些蔚蓝常见的所有 Tag 你都可以在 <code>Celeste.Tags</code> 类内找到.</p>
-<p>以下是一些可能地常见的 Tag:</p>
+<p>以下是一些可能地常见的 Tag:(<a href="../common2/">已迁移</a>)</p>
 <ul>
 <li><code>PauseUpdate</code>: 是否在暂停期间依然被调用 <code>Update</code>, 通常用于 ui 层的实体上</li>
 <li><code>FrozenUpdate</code>: 是否在 <code>Frozen</code> 状态下依然被调用 <code>Update</code> (比如草莓籽动画过程, 1a蓝心解密成功过程, 注意此状态与冻结帧无关)</li>
 <li><code>TransitionUpdate</code>: 是否在关卡切板时依然被调用 <code>Update</code>, 通常用于在切板时更新一些视觉上的东西(比如电网的 "放电" 动画不会在切板时静止)</li>
-<li><code>HUD</code>: 即是否是 ui 层, 此项就会更改 <code>Entity</code> 的 <code>Position</code> 的相对坐标系</li>
+<li><code>HUD</code>: 即是否是 ui 层, 此项就会改变 <code>Entity.Render</code> 的绘制逻辑, 使绘制坐标基于屏幕坐标而不是世界坐标</li>
 <li><code>Global</code>: 该 Entity 是否是全局的, 一个非全局实体在关卡重试后会消失, 全局 Tag 可以避免这件事, 通常全局 Tag 最常见的用法是和 HUD 结合在一起,
 这样你就拥有了一个在游戏内持久的 ui 部件了.</li>
 </ul>

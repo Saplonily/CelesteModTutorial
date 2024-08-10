@@ -16,7 +16,7 @@
         <link rel="prev" href="../ec_common/">
       
       
-        <link rel="next" href="../il/">
+        <link rel="next" href="../common2/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -595,6 +595,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../common2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flag, Tag, Tracker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sprite, Image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../il/" class="md-nav__link">
         
   
@@ -663,6 +705,27 @@
   
   <span class="md-ellipsis">
     Session, Settings, SaveData
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    调试
   </span>
   
 
@@ -1606,7 +1669,7 @@
 <span class="w">    </span><span class="n">Audio</span><span class="p">.</span><span class="n">SetMusic</span><span class="p">(</span><span class="s">&quot;event:/music/lvl0/title_ping&quot;</span><span class="p">);</span>
 <span class="w">    </span><span class="c1">// 继续等待 2s</span>
 <span class="w">    </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">2f</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">// 向场景中加入显示 &quot;你能做到。&quot; 这句话的实体</span>
+<span class="w">    </span><span class="c1">// 向场景中加入显示 &quot;你能做到.&quot; 这句话的实体</span>
 <span class="w">    </span><span class="n">endingText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PrologueEndingText</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
 <span class="w">    </span><span class="n">Scene</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">endingText</span><span class="p">);</span>
 
@@ -1629,7 +1692,7 @@
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bgSnow</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
 <span class="w">            </span><span class="n">bgSnow</span><span class="p">.</span><span class="n">Alpha</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">Engine</span><span class="p">.</span><span class="n">DeltaTime</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.5f</span><span class="p">;</span>
 <span class="w">        </span><span class="n">level</span><span class="p">.</span><span class="n">HiresSnow</span><span class="p">.</span><span class="n">Alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Calc</span><span class="p">.</span><span class="n">Approach</span><span class="p">(</span><span class="n">level</span><span class="p">.</span><span class="n">HiresSnow</span><span class="p">.</span><span class="n">Alpha</span><span class="p">,</span><span class="w"> </span><span class="m">1f</span><span class="p">,</span><span class="w"> </span><span class="n">Engine</span><span class="p">.</span><span class="n">DeltaTime</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.5f</span><span class="p">);</span>
-<span class="w">        </span><span class="c1">// 于此同时 &quot;你能做到。&quot; 这句话也慢慢降下来</span>
+<span class="w">        </span><span class="c1">// 于此同时 &quot;你能做到.&quot; 这句话也慢慢降下来</span>
 <span class="w">        </span><span class="n">endingText</span><span class="p">.</span><span class="n">Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vector2</span><span class="p">(</span><span class="m">960f</span><span class="p">,</span><span class="w"> </span><span class="m">540f</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1080f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="m">1f</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">eased</span><span class="p">));</span>
 <span class="w">        </span><span class="c1">// 摄像机也慢慢向上移动</span>
 <span class="w">        </span><span class="n">level</span><span class="p">.</span><span class="n">Camera</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">level</span><span class="p">.</span><span class="n">Bounds</span><span class="p">.</span><span class="n">Top</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">3900f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">eased</span><span class="p">;</span>

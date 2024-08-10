@@ -528,6 +528,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../common2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flag, Tag, Tracker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sprite, Image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../il/" class="md-nav__link">
         
   
@@ -636,6 +678,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#helper" class="md-nav__link">
+    <span class="md-ellipsis">
+      钩取其他 helper
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -678,6 +729,27 @@
   
   <span class="md-ellipsis">
     Session, Settings, SaveData
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    调试
   </span>
   
 
@@ -1140,6 +1212,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#helper" class="md-nav__link">
+    <span class="md-ellipsis">
+      钩取其他 helper
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1327,20 +1408,7 @@
 <h2 id="_1">任意钩取</h2>
 <p>相信你已经发现了, 有些方法比如叫做 <code>orig_xxx</code> 的方法, 以及属性的 getter 和 setter 你都无法在 On.<em> 和 IL.</em> 这两个命名空间中找到,
 同时, 钩取别的 helper 的方法似乎也无法完成.  </p>
-<p>这里我们引入两个新类: <code>Hook</code> 与 <code>ILHook</code>, 前者表示一个 On 钩子, 后者表示一个 IL 钩子.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p><code>Hook</code> 与 <code>ILHook</code> 位于 <code>MonoMod.RuntimeDetour</code> 程序集中, 在旧模板里它没有被默认引用进来, 这是一个我个人的失误,
-如果你确实无法引用这两个类的话你可以在 <code>CelesteMod.props</code> 里的最底下的那个 <code>ItemGroup</code> 中加入这一条:
-<div class="language-xml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;MonoMod.RuntimeDetour&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;HintPath&gt;</span>$(CelesteAssemblyPath)/MonoMod.RuntimeDetour.dll<span class="nt">&lt;/HintPath&gt;</span>
-<span class="w">    </span><span class="nt">&lt;Private&gt;</span>False<span class="nt">&lt;/Private&gt;</span>
-<span class="nt">&lt;/Reference&gt;</span>
-</code></pre></div></td></tr></table></div></p>
-</div>
+<p>这里我们引入两个新类: <code>Hook</code> 与 <code>ILHook</code>, 前者表示一个 On 钩子, 后者表示一个 IL 钩子.  </p>
 <p><code>Hook</code> 的构造函数拥有非常多重载, 在这里我们只需要那个 <code>(MethodBase method, Delegate to)</code> 的重载,
 它表示我们希望钩取第一个参数指定的方法, 钩子方法是第二个参数指定的委托.  </p>
 <p>例如, 我们希望钩取 <code>Player.Inventory</code> 这个属性的 <code>get</code> 方法, 使其总是返回 <code>PlayerInventory.TheSummit</code>,
@@ -1394,10 +1462,9 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>因为不再是之前方便的事件订阅, 所以钩子的 orig 参数的委托原型你必须得自己声明, 注意钩子方法和钩子 orig 参数的参数列表一定要小心准确的填写,
-否则会直接造成游戏崩溃. 上述代码的效果应该是你无论如何都会拥有 7a/b/c 的 Inventory, 也大概即双冲, 带背包.  </p>
+否则会直接造成游戏崩溃. 上述代码的效果应该是你无论如何都会拥有 7a/b/c 的 Inventory, 也即双冲, 带背包等.  </p>
 <p>现在, 拥有了钩子函数, 你可以做任何你之前使用订阅事件来创建钩子一样的事. 顺便, 使用这种方法也允许你钩取别的 helper 的方法,
-甚至是钩取别的 helper 的钩子方法. 不过在此之前你需要为你的 mod 声明依赖或者可选依赖, 声明可选依赖后又需要检测对应 mod 是否加载等等,
-这部分内容我们之后再说.  </p>
+甚至是钩取别的 helper 的钩子方法. 不过在此之前你需要为你的 mod 声明依赖或者可选依赖, 声明可选依赖后又需要检测对应 mod 是否加载等等.  </p>
 <p>同样地, IL 钩子的创建也与 On 钩子相同:</p>
 <div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1438,6 +1505,173 @@
 <p class="admonition-title">Note</p>
 <p>关于协程函数的钩取与上述步骤截然不同, 这一点我们会在下一节探讨.</p>
 </div>
+<h2 id="helper">钩取其他 helper</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>参考 <a href="https://github.com/EverestAPI/Resources/wiki/Cross-Mod-Functionality">Everest Wiki</a>  </p>
+</div>
+<p>首先我们在钩取前需要确保对应 helper 已被加载, 那么我们先在 <code>everest.yaml</code> 文件里加上对应的可选依赖, 这样 Everest 会确保存在该依赖时总是在该依赖加载之后再加载我们的 mod.</p>
+<div class="language-yaml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">everest.yaml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyCelesteMod</span>
+<span class="w">  </span><span class="nt">Version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1.0</span>
+<span class="w">  </span><span class="nt">DLL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Code/MyCelesteMod.dll</span>
+<span class="w">  </span><span class="nt">Dependencies</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EverestCore</span>
+<span class="w">      </span><span class="nt">Version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.4465.0</span>
+<span class="hll"><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CommunalHelper</span>
+</span><span class="hll"><span class="w">      </span><span class="nt">Version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.20.4</span>
+</span></code></pre></div></td></tr></table></div>
+<p>接下来我们以 <code>CommunalHelper</code> 里的 <code>Chain</code> 实体为例, 钩取它的 <code>Update</code>:</p>
+<div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Hook</span><span class="w"> </span><span class="n">chainUpdateHook</span><span class="p">;</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">delegate</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">chainUpdateHookDelegate</span><span class="p">(</span><span class="n">Entity</span><span class="w"> </span><span class="n">self</span><span class="p">);</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">EverestModuleMetadata</span><span class="w"> </span><span class="n">communalHelper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CommunalHelper&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Version</span><span class="p">(</span><span class="s">&quot;1.20.4&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// 尝试获取 CommunalHelper 的 Module 实例</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Everest</span><span class="p">.</span><span class="n">Loader</span><span class="p">.</span><span class="n">TryGetDependency</span><span class="p">(</span><span class="n">communalHelper</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">EverestModule</span><span class="w"> </span><span class="n">communalModule</span><span class="p">))</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Assembly</span><span class="w"> </span><span class="n">communalAssembly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">communalModule</span><span class="p">.</span><span class="n">GetType</span><span class="p">().</span><span class="n">Assembly</span><span class="p">;</span><span class="w">  </span><span class="c1">// 拿到 communalHelper 的程序集</span>
+<span class="w">        </span><span class="n">Type</span><span class="w"> </span><span class="n">chain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">communalAssembly</span><span class="p">.</span><span class="n">GetType</span><span class="p">(</span><span class="s">&quot;Celeste.Mod.CommunalHelper.Entities.Chain&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// 拿到 Chain 的 Type</span>
+<span class="w">        </span><span class="n">MethodInfo</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chain</span><span class="p">.</span><span class="n">GetMethod</span><span class="p">(</span><span class="s">&quot;Update&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span><span class="p">);</span><span class="w">  </span><span class="c1">// 拿到 Update 函数</span>
+<span class="w">        </span><span class="n">chainUpdateHook</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Hook</span><span class="p">(</span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">ChainOnUpdate</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Logger.Log(LogLevel.Info, &quot;Test&quot;, &quot;HookChainOnUpdate OK&quot;);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">chainUpdateHook</span><span class="p">.</span><span class="n">Dispose</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ChainOnUpdate</span><span class="p">(</span><span class="n">chainUpdateHookDelegate</span><span class="w"> </span><span class="n">orig</span><span class="p">,</span><span class="w"> </span><span class="n">Entity</span><span class="w"> </span><span class="n">chain</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">orig</span><span class="p">(</span><span class="n">chain</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 做一些事</span>
+<span class="w">    </span><span class="c1">// Logger.Log(LogLevel.Info, &quot;Test&quot;, &quot;123&quot;);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>但是这么写就很难受, 而且 chain 的类型为 Entity 不为 Chain 了, 想类型转成 Chain 我们又拿不到 Chain, 这时就需要我们添加 <code>CommunalHelper</code> 程序集的依赖(像一开始配置蔚蓝 code 环境那样)  </p>
+<p><img alt="code_dependency" src="../imgs/code_dependency.jpg" /></p>
+<p>dc 社区习惯的做法是将这个 dll 的 ref 版本 (也就是 stripped 后的版本, 删除了所有方法的实现, 只保留了元数据) 放到 mod 目录外面的 lib-stripped 目录里然后引用. 参考<a href="https://github.com/StrawberryJam2021/StrawberryJam2021/tree/main">草莓酱</a>的源码. strip 的方法不唯一, 例如你可以使用 mono 的 strip 工具 <code>mono-cil-strip</code>, 或者 <a href="https://github.com/bbepis/NStrip"><code>NStrip</code></a> 这个工具, 具体在这里就不说明了.  </p>
+<p>我个人习惯直接引用 蔚蓝根目录/Mods/Cache/xxx.xxx.dll 这里的 dll, 如果你的模板是最新的话, 你可以使用 <code>CelesteModReference</code> 项来引用, 例如 BetterFreezeFrames 中的使用例子:</p>
+<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">BetterFreezeFrames.csproj</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;ItemGroup&gt;</span>
+<span class="w">    </span><span class="nt">&lt;CelesteModReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;FemtoHelper&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;CelesteModReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;IsaGrabBag&quot;</span><span class="w"> </span><span class="na">AssemblyName=</span><span class="s">&quot;IsaMods&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;CelesteModReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;VivHelper&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;CelesteModReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;FlaglinesAndSuch&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;CelesteModReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;VortexHelper&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/ItemGroup&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>每一项的 <code>Include</code> 表示 mod 名称, 可选的 <code>AssemblyName</code> 表示程序集名称, 默认为 <code>Include</code> 的值, 这样在构建项目时模板会自动引用 Mods/Cache/(Include).(AssemblyName).dll 这个程序集.<br />
+现在我们已经引用好了依赖了:
+<div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Hook</span><span class="w"> </span><span class="n">chainUpdateHook</span><span class="p">;</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">delegate</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">chainUpdateHookDelegate</span><span class="p">(</span><span class="n">Chain</span><span class="w"> </span><span class="n">self</span><span class="p">);</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">EverestModuleMetadata</span><span class="w"> </span><span class="n">communalHelper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CommunalHelper&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Version</span><span class="p">(</span><span class="s">&quot;1.20.4&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">isLoaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Everest</span><span class="p">.</span><span class="n">Loader</span><span class="p">.</span><span class="n">DependencyLoaded</span><span class="p">(</span><span class="n">communalHelper</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isLoaded</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">chainUpdateHook</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Hook</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Chain</span><span class="p">).</span><span class="n">GetMethod</span><span class="p">(</span><span class="s">&quot;Update&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">ChainOnUpdate</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ChainOnUpdate</span><span class="p">(</span><span class="n">chainUpdateHookDelegate</span><span class="w"> </span><span class="n">orig</span><span class="p">,</span><span class="w"> </span><span class="n">Chain</span><span class="w"> </span><span class="n">chain</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">orig</span><span class="p">(</span><span class="n">chain</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Test&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;123&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">chainUpdateHook</span><span class="p">.</span><span class="n">Dispose</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
 
 
 
