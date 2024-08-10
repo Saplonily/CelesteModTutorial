@@ -48,13 +48,13 @@ nav:
   - 过渡:
       - 更多EC: "trans/ec_common.md"
       - Alarm, Tween, Coroutine: "trans/common1.md"
-      # - Flag, Tag, Tracker: "trans/common2.md"
-      # - Sprite, Image: "trans/common3.md"
+      - Flag, Tag, Tracker: "trans/common2.md"
+      - Sprite, Image: "trans/common3.md"
       - IL: "trans/il.md"
       - IL 钩子与随意钩取: "trans/adv_hooks.md"
       - 协程的钩取与私有成员访问: "trans/adv_hooks2.md"
       - Session, Settings, SaveData: "trans/session_settings_savedata.md"
-      # - 调试: "extra/debug.md"
+      - 调试: "trans/debug.md"
   - 其他:
       - XML简单介绍: "other/xml-speedrun.md"
   - 额外 - LuaCutscene:
