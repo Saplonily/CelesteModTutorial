@@ -71,5 +71,8 @@ nav:
       - readme: "extra_cmcc/cmcc/ReadMe.md"
       - FAQ: "extra_cmcc/cmcc/todo.md"
   - 历史归档:
-    - 基础环境配置: "arc/basic_env.md"
-    - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
+      - 基础环境配置: "arc/basic_env.md"
+      - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
+  - 杂项:
+      - ChangeLog: "misc/change_log.md"
+      - ToDoList: "misc/to_do_list.md"

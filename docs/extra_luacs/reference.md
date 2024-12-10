@@ -65,7 +65,7 @@
 - [av604397615 - 自定义音乐(进阶篇)](https://www.bilibili.com/video/av60439761)
 - [av517096099 - 自定义音乐(拓展篇)](https://www.bilibili.com/video/av517096099)
 
-在明信片出现时尝试暂停并跳过剧情会使关卡处于一种很奇怪的状态, 你可以选择[禁用关卡的暂停](#disableretry--enableretry)来避免它.
+在明信片出现时尝试暂停并跳过剧情会使关卡处于一种很奇怪的状态, 你可以选择禁用关卡的暂停来避免它.
 
 > 截止 `0.2.11`, `postcard` 函数存在编码问题, 个人已开 [pr](https://github.com/Cruor/LuaCutscenes/pull/7) 修复
 
