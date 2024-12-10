@@ -5,7 +5,7 @@
 ### 迭代器函数
 
 迭代器函数, 也即方法体带 `yield return` 或 `yield break` 语句并返回 `IEnumerable` 或 `IEnumerator` 的函数,
-它允许你 "中断" 函数的运行并中途 "返回" 一个值. 经过前面 [Alarm, Tween, Coroutine](../trans/common1.md) 节的介绍相信你也知道到了协程之于迭代器函数的强大.
+它允许你 "中断" 函数的运行并中途 "返回" 一个值. 经过前面 [Alarm, Tween, Coroutine](../components/alarm_tween_coroutine.md) 节的介绍相信你也知道到了协程之于迭代器函数的强大.
 不过对于协程函数的钩取并不是那么简单, 需要一些额外步骤.  
 
 如果你相对了解一点 C# 的底层的话, 你应该会知道迭代器函数最终会被编译为一个状态机类, 而原函数只是做了一个 new 并返回的工作.  

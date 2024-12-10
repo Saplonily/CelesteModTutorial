@@ -55,7 +55,7 @@ public PassByRefill(Vector2 position, Vector2 size, int dashes)
 不过这里需要注意, 游戏中的坐标系和我们通常数学中的坐标系**不同**, 它的原点在**左上角**, **X 轴水平向右**但是 **Y 轴竖直向下**! 记住不要搞混了.  
 你可能注意到我们并没有理 `size` 这个表示大小参数, 稍等一下, 我们等会就会使用它了.
 
-![game-coord](game_coord.png)
+![game-coord](images/simple_entity/game_coord.png)
 
 接下来, 我们需要声明一个特殊的构造函数, 以让 Everest 反射调用并使得我们的实体可以正常获取地图的数据:
 ```cs title="PassByRefill.cs"
@@ -70,7 +70,7 @@ public PassByRefill(EntityData data, Vector2 offset)
 `Vector2 offset` 参数表示这一面的最左上角的**世界坐标**, `EntityData` 的 `Position` 字段表示物体**相对**于这一面最左上角的位置,
 所以我们需要把它相加来得到世界坐标. (因为 `Entity.Position` 通常只允许世界坐标!)
 
-![room-coord](room_entity_coord.png)
+![room-coord](images/simple_entity/room_entity_coord.png)
 
 !!! info
     这个构造函数的签名也能为其他的样子, 但是我们最最最常用的一个版本就是上面这个
@@ -239,7 +239,7 @@ Draw.Rect(Position, Width, Height, c);
 
 那么, 一切就绪, 编译你的项目, 到那个地方, 在半透明红色的区域里享受锁定冲刺数的快乐吧!
 
-![sample](entity_result.png)
+![sample](images/simple_entity/entity_result.png)
 
 如果你遇到了困难, 你可以对比一下最终的代码:
 ```cs title="PassByRefill.cs"
@@ -326,7 +326,7 @@ entities.MyCelesteMod/PassByRefill.placements.name.normal=PassByRefill
 ok 现在我们已经指定了我们想本地化什么东西了, 那么接下来简单的 `={内容}`, 在这里是 `PassByRefill`. 最后, 编译复制, 重启 Loenn,
 你应该就会看到我们的实体终于有个正常名字了:
 
-![our-name!](our_loenn_entity_name.png)
+![our-name!](images/simple_entity/our_loenn_entity_name.png)
 
 !!! info
     对于它的贴图我们之后再说, <del>我知道你很急但是你先别急</del>.

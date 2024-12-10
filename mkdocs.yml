@@ -36,25 +36,28 @@ markdown_extensions:
 
 nav:
   - 首页: "index.md"
-  - 入门:
-      - Celeste, Everest, MonoMod: "begin/celeste_everest_monomod.md"
-      - 基础环境配置: "begin/basic_env.md"
-      - 偏好: "begin/preference.md"
-      - 钩子, 阅读代码 I: "begin/hook,reading_1.md"
-      - 简单自定义实体: "begin/simple_entity.md"
-      - 简单自定义Trigger: "begin/simple_trigger.md"
-      - 阅读代码 II: "begin/reading_2.md"
-      - 简单贴图: "begin/simple_texturing.md"
-  - 过渡:
-      - 更多EC: "trans/ec_common.md"
-      - Alarm, Tween, Coroutine: "trans/common1.md"
-      - Flag, Tag, Tracker: "trans/common2.md"
-      - Sprite, Image: "trans/common3.md"
-      - IL: "trans/il.md"
-      - IL 钩子与随意钩取: "trans/adv_hooks.md"
-      - 协程的钩取与私有成员访问: "trans/adv_hooks2.md"
-      - Session, Settings, SaveData: "trans/session_settings_savedata.md"
-      - 调试: "trans/debug.md"
+  - 一些准备:
+      - 基础环境配置: "coding_setup/basic_env.md"
+      - 偏好: "coding_setup/preference.md"
+      - 调试: "coding_setup/debug.md"
+  - 基础:
+      - Celeste, Everest, MonoMod: "basics/celeste_everest_monomod.md"
+      - 更多EC: "basics/ec_common.md"
+      - Flag, Tag, Tracker: "basics/flag_tag_tracker.md"
+      - Session, Settings, SaveData: "basics/session_settings_savedata.md"
+  - 实战:
+      - 简单自定义实体: "coding_challenges/simple_entity.md"
+      - 简单自定义Trigger: "coding_challenges/simple_trigger.md"
+      - 简单贴图: "coding_challenges/simple_texturing.md"
+  - 钩子:
+      - 钩子, 阅读代码 I: "hooks/hook,reading_1.md"
+      - 阅读代码 II: "hooks/reading_2.md"
+      - IL: "hooks/il.md"
+      - IL 钩子与随意钩取: "hooks/adv_hooks.md"
+      - 协程的钩取与私有成员访问: "hooks/adv_hooks2.md"     
+  - 组件:
+      - Sprite, Image: "components/sprite_image.md"
+      - Alarm, Tween, Coroutine: "components/alarm_tween_coroutine.md"     
   - 其他:
       - XML简单介绍: "other/xml-speedrun.md"
   - 额外 - LuaCutscene:

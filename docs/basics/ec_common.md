@@ -80,7 +80,7 @@ this.AddTag(Tags.HUD);
 当你的实体拥有这个 Tag 后, 蔚蓝会将你的实体绘制在 ui 层, 比较常见的例子就是左上角的计时器, 它在构造器内就给自己打上了 `Tags.HUD` 的标签.  
 也如上面所说的, 一些蔚蓝常见的所有 Tag 你都可以在 `Celeste.Tags` 类内找到.
 
-以下是一些可能地常见的 Tag:([已迁移](common2.md))
+以下是一些可能地常见的 Tag:([已迁移](flag_tag_tracker.md))
 
 - `PauseUpdate`: 是否在暂停期间依然被调用 `Update`, 通常用于 ui 层的实体上
 - `FrozenUpdate`: 是否在 `Frozen` 状态下依然被调用 `Update` (比如草莓籽动画过程, 1a蓝心解密成功过程, 注意此状态与冻结帧无关)

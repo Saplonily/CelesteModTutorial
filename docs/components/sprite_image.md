@@ -121,8 +121,8 @@ Image 你可以把它当作管图片的
                 - img01
 ```
 
-![img00](imgs/img00.png "img00")
-![img01](imgs/img01.png "img01")
+![img00](images/sprite_image/img00.png "img00")
+![img01](images/sprite_image/img01.png "img01")
 
 * 接着我们在 `PassByRefill` 中把跟 `Image` 有关的部分替换为 `Sprite`, 然后你就得到了一个一秒一变的动画啦!
 
