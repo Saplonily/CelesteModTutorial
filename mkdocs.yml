@@ -11,6 +11,27 @@ theme:
   features:
     - content.code.copy
     - content.tabs.link
+    
+  palette: 
+  # Palette toggle for automatic mode
+  - media: "(prefers-color-scheme)"
+    toggle:
+      icon: material/brightness-auto
+      name: Switch to light mode
+
+  # Palette toggle for light mode
+  - media: "(prefers-color-scheme: light)"
+    scheme: default 
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
+
+  # Palette toggle for dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    toggle:
+      icon: material/brightness-4
+      name: Switch to system preference
 
 extra_css:
   - css/content.css
@@ -42,6 +63,7 @@ nav:
       - 调试: "coding_setup/debug.md"
   - 基础:
       - Celeste, Everest, MonoMod: "basics/celeste_everest_monomod.md"
+      - 阅读代码: "basics/code_reading.md"
       - 更多EC: "basics/ec_common.md"
       - Flag, Tag, Tracker: "basics/flag_tag_tracker.md"
       - Session, Settings, SaveData: "basics/session_settings_savedata.md"
