@@ -11,7 +11,7 @@ theme:
   features:
     - content.code.copy
     - content.tabs.link
-    
+
   palette: 
   # Palette toggle for automatic mode
   - media: "(prefers-color-scheme)"
@@ -61,9 +61,9 @@ nav:
       - 基础环境配置: "coding_setup/basic_env.md"
       - 偏好: "coding_setup/preference.md"
       - 调试: "coding_setup/debug.md"
+      - 阅读代码: "coding_setup/code_reading.md"
   - 基础:
       - Celeste, Everest, MonoMod: "basics/celeste_everest_monomod.md"
-      - 阅读代码: "basics/code_reading.md"
       - 更多EC: "basics/ec_common.md"
       - Flag, Tag, Tracker: "basics/flag_tag_tracker.md"
       - Session, Settings, SaveData: "basics/session_settings_savedata.md"
@@ -72,14 +72,14 @@ nav:
       - 简单自定义Trigger: "coding_challenges/simple_trigger.md"
       - 简单贴图: "coding_challenges/simple_texturing.md"
   - 钩子:
-      - 钩子, 阅读代码 I: "hooks/hook,reading_1.md"
-      - 阅读代码 II: "hooks/reading_2.md"
+      - 钩子: "hooks/hook.md"
       - IL: "hooks/il.md"
       - IL 钩子与随意钩取: "hooks/adv_hooks.md"
       - 协程的钩取与私有成员访问: "hooks/adv_hooks2.md"     
   - 组件:
       - Sprite, Image: "components/sprite_image.md"
-      - Alarm, Tween, Coroutine: "components/alarm_tween_coroutine.md"     
+      - Alarm, Tween, Coroutine: "components/alarm_tween_coroutine.md"  
+      - StateMachine: "components/statemachine.md"    
   - 其他:
       - XML简单介绍: "other/xml-speedrun.md"
   - 额外 - LuaCutscene:

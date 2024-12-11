@@ -10,7 +10,7 @@
 
 计划|状态
 |
-分离阅读代码相关|进行中
+完善阅读代码相关|进行中
 跨 mod 交互/ ModInterop 相关|准备中
 everest 自带事件|计划中
 publicizer 的使用|计划中
@@ -18,3 +18,4 @@ publicizer 的使用|计划中
 完善 VisualStudio C# 调试|计划中
 重构 hook 节|计划中
 分离 DynamicData 相关|计划中
+完善 StateMachine |计划中

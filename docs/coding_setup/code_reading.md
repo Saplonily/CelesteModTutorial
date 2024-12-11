@@ -1,8 +1,71 @@
-# 阅读代码 II
+# 阅读代码
 
-一些情况下, 阅读由反编译器生成的代码时可能不是那么顺利, 那么这一节会简单说一些反编译器生成的代码与通常的 C# 代码不一样的地方.
+## 反编译工具
+
+为了进行 Code Mod 的开发, 显然我们需要知道<del>看一眼就能被吓跑的</del>蔚蓝的代码是怎么运行的.
+
+所以这时我们就需要**阅读蔚蓝的代码**以了解这些东西. 当然, 蔚蓝是个商业游戏, 想指望它开源所有代码是不可能的,
+那我们就必须得借助一些反编译工具.  
+
+在这里我会推荐 [`dnSpy`](https://github.com/dnSpyEx/dnSpy) 或 [`ILSpy`](https://github.com/icsharpcode/ILSpy)
+
+!!! warning
+    不要上传反编译后的代码到任何地方, 这可能会不可避免的造成一些争议.
+
+### dnSpy
+
+使用该软件很简单:
+
+- 打开它
+- 点击左上角的`文件`, `打开`
+- 选择 `Celeste.exe` (如果你使用 core 版本的 everest, 你需要选择 `Celeste.dll`)
+- 展开蔚蓝的程序集
+- 你现在可以看到蔚蓝都有哪些类了
+- 你现在也可以看到蔚蓝都有哪些函数了
+
+现在我们浏览蔚蓝的代码就像你在 IDE 里浏览你的项目一样, 虽然这不是我们的项目. 在浏览过程中, 通常可能你会对着一个字段、一个函数发呆,
+大概是因为你根本不知道它是做什么的!
+好在 `dnSpy` 提供了一个很好用的"分析"功能来缓解这个 :  
+![dnSpy-ana](images/code_reading/dnspy_ana.png)  
+在这里你可以看到哪些字段、哪些函数被谁调用了、被谁引用了、被谁更改了:
+![dnSpy-track](images/code_reading/dnspy_track.png)  
+
+### ILSpy
+
+使用该软件的方式与 `dnSpy` 相同:
+
+- 打开它
+- 点击左上角的`文件`, `打开`
+- 选择 `Celeste.exe` (如果你使用 core 版本的 everest, 你需要选择 `Celeste.dll`)
+- 展开蔚蓝的程序集, 浏览类和方法
+
+相应的, `ILSpy` 也提供了"分析"的功能:
+
+![ILSpy-ana](images/code_reading/ILSpy_ana.png)  
+以及对应的分析结果(展开太长了就不展开了):
+
+![ILSpy-track](images/code_reading/ILSpy_track.png)  
+
+??? 分析结果说明
+    因为 `ILSpy` 并没有实现分析结果的翻译, 这里做下简单的翻译:
+
+    - `Uses` 直接依赖于
+    - `Used By` 被调用于
+    - `Assigned By` 赋值于
+    - `Expose By` 暴露于
+    - `Instantiated By` 被实例化于
+    - `Extension Methods` 拓展方法
+
+<!-- umm 等后面再写(?>
+## 反编译代码的结构分析
+wip
+
+至于下面的后续会移除所有钩子相关 标题可能会改成 反编译代码中的"特殊"语法
+<-->
 
 ## 奇奇怪怪的昵称与代码
+
+一些情况下, 阅读由反编译器生成的代码时可能不是那么顺利, 那么这一节会简单说一些反编译器生成的代码与通常的 C# 代码不一样的地方.
 
 在反编译器中可能会出现这种奇怪的语法:
 ```cs title="Celeste.FinalBoss (即 6a 后半段 Badeline Boss 实体)"
@@ -38,7 +101,7 @@ public void orig_ctor(EntityData e, Vector2 offset)
 在类中打出 ctor 并双击 Tab 键, vs 就会自动生成该类的构造函数, 这里的 `ctor` 来源也就在此. 
 
 !!! info
-    在前面的钩子节我们没有探讨过构造函数如何钩取, 在这里你可能就会明白, 钩取名字为 `ctor` 的函数就是钩取了构造函数, 静态构造函数同理.
+    在后面的钩子节我们没有探讨过构造函数如何钩取, 在这里你可能就会明白, 钩取名字为 `ctor` 的函数就是钩取了构造函数, 静态构造函数同理.
 
 ### orig_*
 
@@ -61,67 +124,4 @@ public override void Update()
     如果你自行钩取 `Player.Update` 函数这种已被 everest "钩取" 的函数实际上你钩取的是 everest 的钩子, 这对于 `On` 钩子可能没有大影响,
     但是对于后面我们会说的 `IL` 钩子有很大影响, 不过这些我们等到后面再说.
 
-## StateMachine
 
-这是 Monocle 中的一个 Component 类, 是一个**状态机**的实现, 具体的用法我会在 **常见 Celeste, Monocle 类**~在写了.jpg~ 节说, 这里仅是方便你阅读一下相关的代码:
-
-### `St*` 类字段  
-在阅读 `Player` 类的代码时, 你会看到这些`St`开头名字的常量但是你找不到"被使用"的地方:
-
-- const int StNormal = 0;
-- const int StClimb = 1;
-- const int StDash = 2;
-- const int StSwim = 3;
-- const int StBoost = 4;
-- ......
-
-这些是玩家状态机的状态编号, 至于你找不到"被使用"是因为对于 const 常量成员, c# 编译器在编译期就把引用的这些东西直接替换为了数字, 你能看到的只有保留下来的这些常量的值和名字.  
-那这样代码中就不避免的出现了奇怪的[魔数](https://www.zhihu.com/question/22018894), 比如这里的 24:
-```cs title="int Player.FlingBirdUpdate()"
-private int FlingBirdUpdate()
-{
-	base.MoveTowardsX(this.flingBird.X, 250f * Engine.DeltaTime, null);
-	base.MoveTowardsY(this.flingBird.Y + 8f + base.Collider.Height, 250f * Engine.DeltaTime, null);
-	return 24;
-}
-```
-!!! info
-    FlingBirdUpdate 是一个**状态机的** Update 函数, 所有该类函数的返回值表示下一帧玩家的状态应该是什么.
-
-你肯定很疑惑这个奇怪的 24 是什么, 这里我们已经知道它是个状态机编号了, 我们只需要一下这个编号对应的状态.  
-经过查询, 你会知道编号为 24 的状态是 `StFlingBird `, 即被鸟扔状态(符合这里的函数名!):
-
-```cs
-const int StFlingBird = 24;
-```
-
-在这里会简单列出一下 `Player` 的所有状态便于查询:
-
-```cs
-const int StNormal = 0; // 正常
-const int StClimb = 1; // 攀爬
-const int StDash = 2; // 冲刺
-const int StSwim = 3; // 水中
-const int StBoost = 4; // 绿泡泡中
-const int StRedDash = 5; // 红泡泡中
-const int StHitSquash = 6; // 红泡泡撞墙或撞地
-const int StLaunch = 7; // 被 弹球, 鱼 弹开
-const int StPickup = 8; // 捡起抓取物
-const int StDreamDash = 9; // 穿果冻
-const int StSummitLaunch = 10; // badeline最后一次上抛
-const int StDummy = 11; // 剧情过场状态
-const int StIntroWalk = 12; // Walk 类型的 Intro (Intro 即玩家进入关卡的表现方式)
-const int StIntroJump = 13; // Jump 类型的 Intro (1a)
-const int StIntroRespawn = 14; // Respawn 类型的 Intro (重生)
-const int StIntroWakeUp = 15; // WakeUp 类型的 Intro (2a awake)
-const int StBirdDashTutorial = 16; // 序章教冲刺时冲刺结束后进入的状态
-const int StFrozen = 17; // 未知
-const int StReflectionFall = 18; // 6a-2 掉落剧情段
-const int StStarFly = 19; // 羽毛飞行
-const int StTempleFall = 20; // 5a 镜子后的掉落段
-const int StCassetteFly = 21; // 捡到磁带后的泡泡包裹段
-const int StAttract = 22; // 6a badeline boss 靠近时的吸引段
-const int StIntroMoonJump = 23; // 9a 开场上升剧情段
-const int StFlingBird = 24; // 9a 鸟扔状态
-const int StIntroThinkForABit = 25; // 9a Intro
-```
