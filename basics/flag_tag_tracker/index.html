@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../reference/">
+        <link rel="prev" href="../ec_common/">
       
       
-        <link rel="next" href="../examples/">
+        <link rel="next" href="../session_settings_savedata/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>C# 交互 - Celeste Code Mod 教程</title>
+        <title>Flag, Tag, Tracker - Celeste Code Mod 教程</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c" class="md-skip">
+        <a href="#flag-tag-tracker" class="md-skip">
           跳转至
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C# 交互
+              Flag, Tag, Tracker
             
           </span>
         </div>
@@ -402,17 +402,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -426,7 +428,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             基础
@@ -440,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../basics/celeste_everest_monomod/" class="md-nav__link">
+      <a href="../celeste_everest_monomod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -461,7 +463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../basics/ec_common/" class="md-nav__link">
+      <a href="../ec_common/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -479,10 +481,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../basics/flag_tag_tracker/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Flag, Tag, Tracker
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -491,6 +513,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flag
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tagbittag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag(BitTag)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tag(BitTag)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persistent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hud" class="md-nav__link">
+    <span class="md-ellipsis">
+      HUD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transitionupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      TransitionUpdate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frozenupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      FrozenUpdate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pauseupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      PauseUpdate
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tracker
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -503,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../basics/session_settings_savedata/" class="md-nav__link">
+      <a href="../session_settings_savedata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -927,19 +1056,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -953,7 +1080,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             额外 - LuaCutscene
@@ -967,7 +1094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../begin/" class="md-nav__link">
+      <a href="../../extra_luacs/begin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -988,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/" class="md-nav__link">
+      <a href="../../extra_luacs/reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,30 +1133,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    C# 交互
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../extra_luacs/cs_access/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1038,71 +1145,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#c_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      引入 C# 类
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      方法调用, 字段, 属性访问
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      私有访问
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      协程
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      最后
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1115,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../examples/" class="md-nav__link">
+      <a href="../../extra_luacs/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1436,45 +1478,87 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c_1" class="md-nav__link">
+  <a href="#flag" class="md-nav__link">
     <span class="md-ellipsis">
-      引入 C# 类
+      Flag
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#tagbittag" class="md-nav__link">
     <span class="md-ellipsis">
-      方法调用, 字段, 属性访问
+      Tag(BitTag)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tag(BitTag)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#persistent" class="md-nav__link">
     <span class="md-ellipsis">
-      私有访问
+      Persistent
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#hud" class="md-nav__link">
     <span class="md-ellipsis">
-      协程
+      HUD
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#transitionupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      TransitionUpdate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frozenupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      FrozenUpdate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pauseupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      PauseUpdate
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#tracker" class="md-nav__link">
     <span class="md-ellipsis">
-      最后
+      Tracker
     </span>
   </a>
   
@@ -1498,110 +1582,222 @@
   
 
 
-<h1 id="c">C# 交互</h1>
-<p>从这一小节开始就需要使用一小些 C# 知识了, 不过不需要太多, 你只需要能看懂 C# 侧的函数, 字段, 属性等的定义就行.  </p>
-<h2 id="c_1">引入 C# 类</h2>
-<p>要引用一个 C# 类, 首先需要在文件顶部使用 require 函数:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">local</span> <span class="n">celeste</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;#Celeste.Celeste&quot;</span><span class="p">)</span>
-
-<span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="c1">-- ...</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>参数需要以 "#&lt;完整类名&gt;" 格式传入, 比如上述代码就会得到一个 C# 类 <code>Celeste</code>, 这样我们可以来调用一下产生冻结帧的静态方法:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">local</span> <span class="n">celeste</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;#Celeste.Celeste&quot;</span><span class="p">)</span>
-
-<span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">celeste</span><span class="p">.</span><span class="n">Freeze</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>就像你在 C# 中所做的一样, 不过这里使用上面获取到的 <code>celeste</code> 作为你在 C# 中书写的类名. 上述代码应该会导致你进入 trigger 时冻结 0.5 秒.</p>
-<h2 id="_1">方法调用, 字段, 属性访问</h2>
-<p>通常, 如果你需要访问 C# 代码对玩家做一些有趣的变动, 获取玩家类的实例以及在实例上调用方法是必不可少的.  </p>
-<p>在 LuaCutscene 中我们可以使用预定义和赋值的 <code>player</code> 全局变量, 也就是在任何方法内都能使用的变量, 例如, 在进入 trigger 时将玩家的冲刺设为 2:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">player</span><span class="p">.</span><span class="n">Dashes</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>上述代码访问了 player 全局变量, 并且设置其 <code>Dashes</code> 字段为 2, 也就是设置冲刺数为2, 不过这样会导致在空中也恢复为 2, 所以我们加入在是否在安全地面(草莓能结算的那种)上的检测:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="kr">if</span> <span class="n">player</span><span class="p">.</span><span class="n">OnSafeGround</span> <span class="kr">then</span>
-        <span class="n">player</span><span class="p">.</span><span class="n">Dashes</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="kr">end</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>上述代码中 <code>OnSafeGround</code> 就是一个属性. 不过上面这段代码有一些问题, 当你从上往下掉入 trigger 时, 只有进入的那一帧才会检测并恢复冲刺,
-这有时候就不是我们想要的结果, 所以我们使用一个新的特殊函数 <code>onStay</code>:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onStay</span><span class="p">()</span>
-    <span class="kr">if</span> <span class="n">player</span><span class="p">.</span><span class="n">OnSafeGround</span> <span class="kr">then</span>
-        <span class="n">player</span><span class="p">.</span><span class="n">Dashes</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="kr">end</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>这会让这段代码在玩家接触到 trigger 的每一帧都执行代码, 符合我们目前的需求. 除此之外还有另外两个: <code>onEnter</code> 和 <code>onLeave</code>,
-它们都不是协程函数, 前者在玩家进入 trigger 时触发(这与 <code>onBegin</code> 不同, 比如在剧情进行时你依然可以控制进出 trigger),
-后者在玩家离开 trigger 时执行.  </p>
-<p>当然我们还可以调用一些方法, 比如剧情开始时强制丢弃抓取物:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">player</span><span class="p">:</span><span class="n">Throw</span><span class="p">()</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>注意在调用成员方法时我们需要使用 <strong>:</strong> 符号, 这是到目前为止的一个特例.  </p>
-<h2 id="_2">私有访问</h2>
-<p>对于私有成员的访问, 在 Everest Core (截止 4446) 上似乎是有一些问题导致完全不能访问,
-经过询问似乎是 Core 的一些缓存问题, 在 Stable 上不会出现, 故这里暂时跳过,
-相关私有成员访问可在 C# 侧操作作为替代.</p>
-<h2 id="_3">协程</h2>
-<p>lua 与 c# 两侧都有协程的概念, 不过不能直接使用, 需要一定的转换, 例如使用 <code>Level.ZoomTo</code> 函数, 它会返回一个将摄像机缩放至某一点的协程:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">disableMovement</span><span class="p">()</span>
-    <span class="kd">local</span> <span class="n">level</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="n">Scene</span>
-    <span class="kd">local</span> <span class="n">c</span> <span class="o">=</span> <span class="n">level</span><span class="p">:</span><span class="n">ZoomTo</span><span class="p">(</span><span class="n">vector2</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>上述代码调用了 <code>level</code> 的 <code>ZoomTo</code> 函数, 并将返回值储存起来, 然后使用 <code>coroutine.yield</code> 将其转换为 lua 协程并等待.
-游戏中的效果则为相机在 2s 内向屏幕中心放大 1.5 倍. 顺便这个函数还有个配套的缩放回来的版本:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">disableMovement</span><span class="p">()</span>
-    <span class="kd">local</span> <span class="n">level</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="n">Scene</span><span class="p">;</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">level</span><span class="p">:</span><span class="n">ZoomTo</span><span class="p">(</span><span class="n">vector2</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">level</span><span class="p">:</span><span class="n">ZoomBack</span><span class="p">(</span><span class="mf">2.0</span><span class="p">))</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="_4">最后</h2>
-<p>相信如果你没有太多 C# 知识的话, 这一小节你肯定是很困惑不知道发生了什么的,
-不过没关系, 你依然可以直接使用后续给出的代码段和现成的函数来做你想做的事.</p>
+<h1 id="flag-tag-tracker">Flag, Tag, Tracker</h1>
+<h2 id="flag">Flag</h2>
+<p>即一个 <code>bool</code> 状态, 我们可以通过 <code>string</code> 来区分不同的 <code>flag</code>, 用 <code>Dictionary&lt;string, bool&gt;</code> 来存储 <code>flag</code> 的状态(这样可能好理解点), 以让我们在某个时机做某件事(
+详情见 <code>Session</code>).</p>
+<p>然后 Everest 已经为我们提供了一个简单的 <code>FlagTrigger</code>, 让 <code>player</code> 碰到 <code>trigger</code> 的时候触发某个 <code>flag</code>, 接着我们就可以在 <code>Session</code> 里读取,
+这样对于非常简单的需求就不需要自己写个 <code>trigger</code> 了, 例如 "<code>player</code> 碰到 <code>FlagTrigger</code>就跳一下" 这个需求: 我们可以不断读取 <code>flag</code>, 如果拿到 <code>true</code> 就删除 <code>flag</code> 并执行跳的动作.</p>
+<h2 id="tagbittag">Tag(BitTag)</h2>
+<p>简单理解</p>
+<ul>
+<li><code>Global</code>: 永久保留(死亡不销毁)</li>
+<li><code>Persistent</code>: 切板保留(死亡销毁)</li>
+<li><code>HUD</code>: 画UI的,切板后销毁</li>
+<li><code>TransitionUpdate</code>: 切板过程继续更新(或者说时间流速正常), 切板后销毁</li>
+<li><code>FrozenUpdate</code>: 在 Frozen 状态下还能更新的实体</li>
+<li><code>PauseUpdate</code>: 在 Pause 状态下还能更新的实体</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>注意有些标签只是暂时使用, 所以我一般会用"xxx的时候"来描述, 列出来的实体也仅仅是跟这个标签有关, 由于实体很多很杂会有疏漏, 如果你觉得哪里不对或者感兴趣, 直接去看代码就好了</p>
+</div>
+<h3 id="global">Global</h3>
+<p>表示该 Entity 是否是全局的, 一个非全局实体在关卡重试后会消失, 全局 Tag 可以避免这件事, 通常全局 Tag 最常见的用法是和 HUD 结合在一起, 这样你就拥有了一个在游戏内持久的 ui 部件了</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>由于本质上只是在该卸载的时候取消卸载, 所以如果再次加载场景, 对象依旧会被new一个, 所以要么是在new的时候逻辑上判断(参考<code>CassetteBlockManager</code>)以消除错误(有点单例的感觉), 要么是用代码在Scene上手动添加一个类似Manager的东西, 由于其他场景原先没有摆放你这个对象, 自然也不会被加载多次</p>
+</div>
+<details class="例如">
+<summary>例如</summary>
+<ul>
+<li>背景砖<code>BackgroundTiles</code></li>
+<li>节奏块管理器<code>CassetteBlockManager</code>(你会发现节奏面重生后轴有点怪, 因为manager不会reset)</li>
+<li>4a玩家被镜子吸入的cutscene<code>CS04_MirrorPortal</code>(因为背景是个黑场过渡, 玩家又传送了(或者说在另一个room重生了), 所以要用global标签才能保持fadeout)</li>
+<li>7a结尾的cutscene(同上)<code>CS07_Credits</code></li>
+<li>被<code>DetachStrawberryTrigger</code>(如果Global属性开了的话)作用的<code>Follower</code></li>
+<li>为煤球绘制描边的<code>DustEdges</code></li>
+<li>6a下落面的速度线<code>FallEffects</code></li>
+<li>吃心弹出poem后底下的黑色panel<code>FormationBackdrop</code></li>
+<li>Pause界面下方的草莓记录 <code>GameplayStats</code></li>
+<li>作用于<code>GlassBlock</code>的<code>GlassBlockBg</code>(官图好像`没出现过)</li>
+<li>Grab模式为Toggle的时候的辅助显示对象<code>GrabbyIcon</code></li>
+<li>会在第8章cold模式下在core前景砖上附上冰霜的<code>IceTileOverlay</code></li>
+<li>绘制电网里的闪电<code>LightningRenderer</code></li>
+<li>绘制镜子上的画面<code>MirrorSurfaces</code></li>
+<li>3a和Theo对话完后Theo爬进管道后可以在隔壁看见<code>NPC03_Theo_Escaping</code></li>
+<li><code>OldSiteChaseMusicHandler</code></li>
+<li>冲刺辅助指示器<code>PlayerDashAssist</code></li>
+<li>保存并退出时右下角的Icon<code>SaveLoadIcon</code></li>
+<li>管理Barrier的外部渲染(里面粒子是Barrier自己的)<code>SeekerBarrierRenderer</code></li>
+<li>新浪在的时候RGB分离效果<code>SeekerEffectsController</code></li>
+<li>前景砖<code>SolidTiles</code></li>
+<li>计时器<code>SpeedrunTimerDisplay</code></li>
+<li><code>TempleEndingMusicHandler</code></li>
+<li>草莓计数<code>TotalStrawberriesDisplay</code></li>
+<li>残影<code>TrailManager</code>和<code>TrailManager.Snapshot</code></li>
+</ul>
+</details>
+<h3 id="persistent">Persistent</h3>
+<p>表示需要持久化在场, 切板不卸载的实体, 死亡会卸载, 一般在<code>Coroutine</code>里用来暂时保存下状态</p>
+<details class="例如">
+<summary>例如</summary>
+<ul>
+<li><code>birdNPC</code>最后一次飞走的时候</li>
+<li><code>Booster</code>把player吐出切板的时候</li>
+<li>撞碎<code>DashBlock</code>掉落的<code>Debris</code></li>
+<li>所有被<code>DetachStrawberryTrigger</code>(带金草莓的月梅面会用到)解绑的<code>Follower</code></li>
+<li>所有被玩家拾起的<code>Follower</code>(<code>Strawberry</code>, <code>Key</code>等)</li>
+<li>所有被玩家拾起的<code>Holdable</code>(<code>TheoCrystal</code>, <code>Glider(Jellyfish)</code>等)</li>
+<li>7a 7b 显示500m 1000m的实体<code>HeightDisplay</code></li>
+<li><code>LightningBreakerBox</code>电箱被撞裂的时候</li>
+<li><code>MoonGlitchBackgroundTrigger</code>扫描线Glitch触发的时候(记得把CelesteTAS碰撞箱和光敏模式关了, 不然看不到(乐))</li>
+<li>Player自身(显而易见)</li>
+<li>第八章的<code>SandwichLava</code>熔岩霜冻夹心</li>
+<li><code>SoundEmitter</code>(感觉就比直接用Audio多了个切板销毁)</li>
+<li><code>StrawberryPoints</code>草莓得分点数</li>
+<li>第七章撞碎<code>SummitGem</code>时的闪光</li>
+<li><code>TalkComponentUI</code>(玩家靠近时弹出的prompt, 例如望远镜<code>Lookout</code>上的那个) (但它又是由<code>TalkComponent</code>控制的, 所以好像它的persistent没用?)</li>
+</ul>
+</details>
+<h3 id="hud">HUD</h3>
+<p>即是否是 UI 层, 此项就会改变 <code>Entity.Render</code> 的绘制逻辑(<strong>注意<code>Position</code>不变</strong>), 使绘制坐标基于屏幕坐标(<code>1920 x 1080</code>)而不是世界坐标绘制, 并调整绘制顺序使其置于顶层</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>本质上选择HUD Tag后游戏会在绘制时通过矩阵把坐标从屏幕空间转化到世界空间(参考<code>HiresRenderer</code>, 线性代数最有用的一集~)</p>
+</div>
+<details class="例如">
+<summary>例如</summary>
+<ul>
+<li>鸟的教程框<code>BirdTutorialGui</code></li>
+<li>6a的深呼吸~<code>BreathingMinigame</code></li>
+<li>吃到磁带b面解锁画面<code>UnlockedBSide UnlockedRemixDisplay</code></li>
+<li>2a Awake最上面的诗<code>CS02_Journal.PoemPage</code></li>
+<li>3a(11-a) 的倒闭通知<code>CS03_Memo.MemoPage</code></li>
+<li>6a 的和好抱抱<code>CS06_BossEnd</code></li>
+<li>6a 篝火前和的Theo对话选项<code>CS06_Campfire.Option</code></li>
+<li>7a通关的制作人员名单<code>CS07_Credits</code></li>
+<li>尾声里的草莓蛋糕<code>CS08_Ending</code></li>
+<li>9a尾声 <code>CS10_Ending</code></li>
+<li>收集完草莓籽的合成动画 <code>CSGEN_StrawberrySeeds</code>(但这个类本身并没有render, 所以好像没用?)</li>
+<li>启动游戏时一开始出现的credits 和 logo<code>GameLoader.handler</code></li>
+<li>Pause界面下方的草莓记录 <code>GameplayStats</code></li>
+<li>7a 7b 显示500m 1000m的实体<code>HeightDisplay</code></li>
+<li><code>HudRenderer</code>(管UI显隐的)</li>
+<li>B面入场插磁带<code>BSideTitle</code></li>
+<li>开镜画面<code>Lookout.Hud</code></li>
+<li>纪念碑文字<code>MemorialText</code></li>
+<li>6a badeline迷你对话框<code>MiniTextbox</code></li>
+<li>各种Oui, 各种panel</li>
+<li>吃心后显示的文字<code>Poem</code></li>
+<li>明信片<code>Postcard</code></li>
+<li>prologue结尾<code>PrologueEndingText</code>(You can do this!)</li>
+<li>自拍照<code>Selfie</code></li>
+<li>计时器<code>SpeedrunTimerDisplay</code></li>
+<li>草莓计数<code>TotalStrawberriesDisplay</code></li>
+<li><code>TalkComponentUI</code></li>
+<li>对话框<code>Textbox</code></li>
+<li>凌波微步, 快乐的舞步~<code>WaveDashPresentation</code></li>
+</ul>
+</details>
+<h3 id="transitionupdate">TransitionUpdate</h3>
+<p>切板过程继续更新(或者说时间流速正常), 切板后销毁)(注意: 标签可作用于要被load的或者是要被unload的对象</p>
+<details class="例如">
+<summary>例如</summary>
+<ul>
+<li>第七章管上升切板的<code>AscendManager</code>(好像就对应Loenn里的<code>SummitBackgroundManager</code>)</li>
+<li>6a从主世界cutscene切到6a第二章所用的黑场过渡<code>BackgroundFadeIn</code></li>
+<li>6a瀑布<code>BigWaterfall</code></li>
+<li>9a的<code>BirdPath</code></li>
+<li>篝火<code>Bonfire</code></li>
+<li>红(绿)泡泡<code>Booster</code></li>
+<li>第四章各种旗帜<code>CliffsideWindFlag</code></li>
+<li>3a收拾杂物<code>ClutterAbsorbEffect</code></li>
+<li>3a收拾完杂物把门堵住的那个果冻<code>ClutterDoor</code></li>
+<li>圆刺<code>CrystalStaticSpinner</code></li>
+<li><code>DustEdges</code></li>
+<li>火球<code>FireBall</code></li>
+<li>岩浆墙<code>FireBarrier</code></li>
+<li><code>GameplayStats</code></li>
+<li><code>GrabbyIcon</code></li>
+<li>尾声右侧鸟巢<code>InvisibleBarrier</code></li>
+<li>比如6a蓝心房左边的左边那个房间里的一缕缕光<code>LightBeam</code></li>
+<li>改房间灯光的透明度<code>LightFadeTrigger</code></li>
+<li><code>LightningRenderer</code></li>
+<li>锁块被解锁后<code>LockBlock</code></li>
+<li><code>MiniTextbox</code></li>
+<li>9a小蝌蚪<code>MoonCreature</code></li>
+<li>移动快撞停后掉落的碎片<code>MoveBlock.Debris</code></li>
+<li><code>NPC03_Theo_Vents</code></li>
+<li>5a穿过镜子从上面落下来后的badeline<code>NPC05_Badeline</code></li>
+<li><code>OldSiteChaseMusicHandler</code></li>
+<li>pico-8游戏机<code>PicoConsole</code></li>
+<li>6a触手<code>ReflectionTentacles</code></li>
+<li><code>SandwichLava</code></li>
+<li><code>SeekerBarrierRenderer</code></li>
+<li><code>SoundEmitter</code></li>
+<li><code>SpeedrunTimerDisplay</code></li>
+<li>草莓收集的时候<code>Strawberry</code></li>
+<li><code>StrawberryPoints</code></li>
+<li>5a尾声管音乐的<code>TempleEndingMusicHandler</code></li>
+<li>Theo<code>TheoCrystal</code></li>
+<li>初见Theo水晶的底座<code>TheoCrystalPedestal</code></li>
+<li><code>TotalStrawberriesDisplay</code></li>
+<li>传送带<code>WallBooster</code></li>
+<li>水<code>Water</code></li>
+<li>瀑布<code>WaterFall</code></li>
+<li>9a教凌波的那个堡<code>WaveDashTutorialMachine</code></li>
+<li>第4章管风力和风向的<code>WindController</code></li>
+</ul>
+</details>
+<h3 id="frozenupdate">FrozenUpdate</h3>
+<p>Frozen只是Level里的一个冻结状态(或者说一个bool变量, 而不是真的让游戏freeze的那个冻结帧)</p>
+<details class="例如">
+<summary>例如</summary>
+<ul>
+<li>吃水晶溅射的白球<code>AbsorbOrb</code></li>
+<li>磁带<code>Cassette</code></li>
+<li>草莓籽合成动画<code>CSGEN_StrawberrySeeds</code></li>
+<li><code>FormationBackdrop</code></li>
+<li>解锁1a水晶之心过程<code>ForsakenCitySatellite</code></li>
+<li>水晶之心<code>HeartGem</code></li>
+<li>水晶之心上的文字<code>Poem</code></li>
+<li>保存并退出时右下角的Icon<code>SaveLoadIcon</code></li>
+<li><code>StrawberryPoints</code></li>
+<li><code>StrawberrySeed</code></li>
+<li><code>Textbox</code></li>
+<li>残影<code>TrailManager.Snapshot</code></li>
+</ul>
+</details>
+<h3 id="pauseupdate">PauseUpdate</h3>
+<p>在Pause状态下还能更新的实体</p>
+<details class="例如">
+<summary>例如</summary>
+<ul>
+<li><code>Cassette.UnlockedBSide</code>(由于它是由Cassette控制的, 所以相当于自带一个FrozenUpdate, 但是它在被调用前Pause已经被锁住了, 所以这个状态貌似白加了🤔)</li>
+<li>尾声<code>CS08_Ending</code></li>
+<li><code>GameplayStats</code></li>
+<li><code>GrabbyIcon</code></li>
+<li><code>LanguageSelectUI</code></li>
+<li>1a尾, 2a头的纪念碑<code>Memorial</code>(用到标签的地方主要是2a纪念碑上的乱码)</li>
+<li><code>MemorialText</code>(因为paused的时候不能显示)</li>
+<li><code>OuiChapterSelectIcon</code></li>
+<li><code>OuiFileSelectSlot</code></li>
+<li><code>PicoConsole</code></li>
+<li><code>SaveLoadIcon</code></li>
+<li><code>SpeedrunTimerDisplay</code></li>
+<li><code>Textbox</code></li>
+<li>应该是开始菜单<code>TextMenu</code></li>
+<li><code>TotalStrawberriesDisplay</code></li>
+<li><code>UnlockedPico8Message</code></li>
+<li><code>ViewportAdjustmentUI</code></li>
+</ul>
+</details>
+<h2 id="tracker">Tracker</h2>
+<p><code>Tracker</code> 由 <code>Scene</code> 管理, 在我们使用 <code>Scene.Add(new Entity())</code> 的时候, 会通过 <code>EntityList</code> 向 <code>Tracker</code> 加入 <code>Entity</code> (当然还有 <code>Component</code>, 但在后面只提及 <code>Entity</code>).<br />
+所有需要被 <code>Tracked</code> (或者说被记录) 的 <code>Entity</code> 需要加上 <code>[Tracked]</code> 特性.<br />
+你还可以通过 <code>[TrackedAs(typeof(xxx))]</code> 特性让一个 <code>A</code> 类型被同时当作 <code>B</code> 类型, 这样就可以使用 <code>Scene.Tracker.GetEntity&lt;B&gt;()</code> 来同时拿到 <code>A</code> 和 <code>B</code> 了.
+这个特性作为 Everest 的一个拓展存在.</p>
 
 
 

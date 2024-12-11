@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../reference/">
+        <link rel="prev" href="../simple_entity/">
       
       
-        <link rel="next" href="../examples/">
+        <link rel="next" href="../simple_texturing/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>C# 交互 - Celeste Code Mod 教程</title>
+        <title>简单自定义Trigger - Celeste Code Mod 教程</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c" class="md-skip">
+        <a href="#trigger" class="md-skip">
           跳转至
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C# 交互
+              简单自定义Trigger
             
           </span>
         </div>
@@ -528,17 +528,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -552,7 +554,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             实战
@@ -566,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../coding_challenges/simple_entity/" class="md-nav__link">
+      <a href="../simple_entity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -584,10 +586,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../coding_challenges/simple_trigger/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    简单自定义Trigger
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -596,6 +618,71 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#entity" class="md-nav__link">
+    <span class="md-ellipsis">
+      像对 Entity 一样地做准备工作
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trigger_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trigger 的实际功能
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loenn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loenn 配置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      效果
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      最后
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -608,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../coding_challenges/simple_texturing/" class="md-nav__link">
+      <a href="../simple_texturing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -927,19 +1014,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -953,7 +1038,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             额外 - LuaCutscene
@@ -967,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../begin/" class="md-nav__link">
+      <a href="../../extra_luacs/begin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -988,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/" class="md-nav__link">
+      <a href="../../extra_luacs/reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,30 +1091,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    C# 交互
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../extra_luacs/cs_access/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1038,71 +1103,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#c_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      引入 C# 类
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      方法调用, 字段, 属性访问
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      私有访问
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      协程
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      最后
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1115,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../examples/" class="md-nav__link">
+      <a href="../../extra_luacs/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1436,9 +1436,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c_1" class="md-nav__link">
+  <a href="#entity" class="md-nav__link">
     <span class="md-ellipsis">
-      引入 C# 类
+      像对 Entity 一样地做准备工作
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trigger_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trigger 的实际功能
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loenn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loenn 配置
     </span>
   </a>
   
@@ -1447,7 +1465,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      方法调用, 字段, 属性访问
+      效果
     </span>
   </a>
   
@@ -1455,24 +1473,6 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      私有访问
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      协程
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       最后
     </span>
@@ -1498,110 +1498,280 @@
   
 
 
-<h1 id="c">C# 交互</h1>
-<p>从这一小节开始就需要使用一小些 C# 知识了, 不过不需要太多, 你只需要能看懂 C# 侧的函数, 字段, 属性等的定义就行.  </p>
-<h2 id="c_1">引入 C# 类</h2>
-<p>要引用一个 C# 类, 首先需要在文件顶部使用 require 函数:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">local</span> <span class="n">celeste</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;#Celeste.Celeste&quot;</span><span class="p">)</span>
-
-<span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="c1">-- ...</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>参数需要以 "#&lt;完整类名&gt;" 格式传入, 比如上述代码就会得到一个 C# 类 <code>Celeste</code>, 这样我们可以来调用一下产生冻结帧的静态方法:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">local</span> <span class="n">celeste</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;#Celeste.Celeste&quot;</span><span class="p">)</span>
-
-<span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">celeste</span><span class="p">.</span><span class="n">Freeze</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>就像你在 C# 中所做的一样, 不过这里使用上面获取到的 <code>celeste</code> 作为你在 C# 中书写的类名. 上述代码应该会导致你进入 trigger 时冻结 0.5 秒.</p>
-<h2 id="_1">方法调用, 字段, 属性访问</h2>
-<p>通常, 如果你需要访问 C# 代码对玩家做一些有趣的变动, 获取玩家类的实例以及在实例上调用方法是必不可少的.  </p>
-<p>在 LuaCutscene 中我们可以使用预定义和赋值的 <code>player</code> 全局变量, 也就是在任何方法内都能使用的变量, 例如, 在进入 trigger 时将玩家的冲刺设为 2:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">player</span><span class="p">.</span><span class="n">Dashes</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>上述代码访问了 player 全局变量, 并且设置其 <code>Dashes</code> 字段为 2, 也就是设置冲刺数为2, 不过这样会导致在空中也恢复为 2, 所以我们加入在是否在安全地面(草莓能结算的那种)上的检测:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="kr">if</span> <span class="n">player</span><span class="p">.</span><span class="n">OnSafeGround</span> <span class="kr">then</span>
-        <span class="n">player</span><span class="p">.</span><span class="n">Dashes</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="kr">end</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>上述代码中 <code>OnSafeGround</code> 就是一个属性. 不过上面这段代码有一些问题, 当你从上往下掉入 trigger 时, 只有进入的那一帧才会检测并恢复冲刺,
-这有时候就不是我们想要的结果, 所以我们使用一个新的特殊函数 <code>onStay</code>:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onStay</span><span class="p">()</span>
-    <span class="kr">if</span> <span class="n">player</span><span class="p">.</span><span class="n">OnSafeGround</span> <span class="kr">then</span>
-        <span class="n">player</span><span class="p">.</span><span class="n">Dashes</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="kr">end</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>这会让这段代码在玩家接触到 trigger 的每一帧都执行代码, 符合我们目前的需求. 除此之外还有另外两个: <code>onEnter</code> 和 <code>onLeave</code>,
-它们都不是协程函数, 前者在玩家进入 trigger 时触发(这与 <code>onBegin</code> 不同, 比如在剧情进行时你依然可以控制进出 trigger),
-后者在玩家离开 trigger 时执行.  </p>
-<p>当然我们还可以调用一些方法, 比如剧情开始时强制丢弃抓取物:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">player</span><span class="p">:</span><span class="n">Throw</span><span class="p">()</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>注意在调用成员方法时我们需要使用 <strong>:</strong> 符号, 这是到目前为止的一个特例.  </p>
-<h2 id="_2">私有访问</h2>
-<p>对于私有成员的访问, 在 Everest Core (截止 4446) 上似乎是有一些问题导致完全不能访问,
-经过询问似乎是 Core 的一些缓存问题, 在 Stable 上不会出现, 故这里暂时跳过,
-相关私有成员访问可在 C# 侧操作作为替代.</p>
-<h2 id="_3">协程</h2>
-<p>lua 与 c# 两侧都有协程的概念, 不过不能直接使用, 需要一定的转换, 例如使用 <code>Level.ZoomTo</code> 函数, 它会返回一个将摄像机缩放至某一点的协程:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<h1 id="trigger">简单自定义 Trigger</h1>
+<p>如果你是一位 Mapper 的话那你一定知道 Trigger 是多么重要的存在. 在这里可能不是很能在短篇幅内说明 Trigger 的重要性, 这里只简单举几个例子:</p>
+<ul>
+<li>绝大部分镜头的移动与偏移</li>
+<li>剧情的触发, 无单双冲的切换</li>
+<li>风的改变</li>
+<li>重生点的设置</li>
+<li>音乐参数的设置</li>
+<li>背景的渐变, 前景的各种变换</li>
+</ul>
+<p>以上几个例子不说绝大部分, 也有很大的占比都是由 Trigger 完成的.<br />
+Trigger 是 Entity 的子类, 它带有一个长方形的碰撞箱, 通常它是对玩家不可见的, 当玩家 <code>进入(OnEnter)</code>, <code>保持(OnStay)</code>, <code>离开(OnLeave)</code> 会分别执行不同的动作,
+比如说当玩家 <code>进入</code> 改变风的 Trigger 时会改变场上的风的情况, 当玩家 <code>保持</code> 在镜头偏移改变 Trigger 里时会保持镜头相对于玩家的偏移于一个值.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>在官图第九章假心附近的 Trigger 看上去就像:<br />
+<img alt="9atriggers" src="../images/simple_trigger/9_triggers.png" /><br />
+在这里, 左边有个设置重生点的 Trigger, 中间有个保持镜头位置的 Trigger, 而在右边有个更改背景的 Trigger.</p>
+</div>
+<p>那么, 是时候制作一个属于我们自己的 Trigger 了, 简单起见这里我们只做几个最简单的功能:</p>
+<ul>
+<li>它叫 <code>SetPassByRefillDashesTrigger</code></li>
+<li>玩家进入后修改场上所有我们之前的 <code>PassByRefill</code> 实体的冲刺数</li>
+<li>没了, 是的, 就是这么简单!</li>
+</ul>
+<h2 id="entity">像对 Entity 一样地做准备工作</h2>
+<p>首先在代码中准备我们的类, 不过这次我们继承的是 <code>Trigger</code>. 哦对了, 它还会要求声明一个带参的构造函数,
+因为 <code>Trigger</code> 基类没有无参构造器, 所以你可能需要像如下一样声明一下:
+<div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SetPassByRefillDashesTrigger.cs</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">disableMovement</span><span class="p">()</span>
-    <span class="kd">local</span> <span class="n">level</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="n">Scene</span>
-    <span class="kd">local</span> <span class="n">c</span> <span class="o">=</span> <span class="n">level</span><span class="p">:</span><span class="n">ZoomTo</span><span class="p">(</span><span class="n">vector2</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="kr">end</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[CustomEntity(&quot;MyCelesteMod/SetPassByRefillDashesTrigger&quot;)]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SetPassByRefillDashesTrigger</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Trigger</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">SetPassByRefillDashesTrigger</span><span class="p">(</span><span class="n">EntityData</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">Vector2</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span>
+<span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>上述代码调用了 <code>level</code> 的 <code>ZoomTo</code> 函数, 并将返回值储存起来, 然后使用 <code>coroutine.yield</code> 将其转换为 lua 协程并等待.
-游戏中的效果则为相机在 2s 内向屏幕中心放大 1.5 倍. 顺便这个函数还有个配套的缩放回来的版本:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+你可能会发现其实它要求的就是 Everest 要求我们定义的那个! 那刚好我们就不用再额外定义一个了.<br />
+然后我们稍作更改, 以让它也能提取到一个叫 <code>dashes</code> 的数据:
+<div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SetPassByRefillDashesTrigger.cs</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">disableMovement</span><span class="p">()</span>
-    <span class="kd">local</span> <span class="n">level</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="n">Scene</span><span class="p">;</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">level</span><span class="p">:</span><span class="n">ZoomTo</span><span class="p">(</span><span class="n">vector2</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">level</span><span class="p">:</span><span class="n">ZoomBack</span><span class="p">(</span><span class="mf">2.0</span><span class="p">))</span>
-<span class="kr">end</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Dashes</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="nf">SetPassByRefillDashesTrigger</span><span class="p">(</span><span class="n">EntityData</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">Vector2</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span>
+<span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Dashes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Int</span><span class="p">(</span><span class="s">&quot;dashes&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<div class="admonition info">
+<p class="admonition-title">构造函数链</p>
+<p>形如 <code>: base(data, offset)</code> <code>: this(position)</code> 的这种语法叫做<strong>构造函数链</strong>, 这一部分似乎很多 C# 教程没有特别提及,
+如果你对此不是很了解的话我推荐你去查阅了解该语法.</p>
+</div>
+<p>你可能注意到 Trigger 一般都是有宽度和高度的, 在这里我们并没有用 <code>EntityData data</code> 去获取, 而且我们也没设置它的 <code>Position</code>!
+实际上当你 <code>: base(data, offset)</code> 时这些事情已经由父类 Trigger 的构造函数做了, 如果你好奇可以翻阅 <code>Trigger</code> 构造函数附近的代码.</p>
+<details class="info">
+<summary>Trigger.Trigger(EntityData data, Vector2 offset)</summary>
+<div class="language-cs highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">/// .......</span>
+<span class="k">public</span><span class="w"> </span><span class="nf">Trigger</span><span class="p">(</span><span class="n">EntityData</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">Vector2</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span>
+<span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">Position</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">base</span><span class="p">.</span><span class="n">Collider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Hitbox</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">Width</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Height</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">/// .......</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="_4">最后</h2>
-<p>相信如果你没有太多 C# 知识的话, 这一小节你肯定是很困惑不知道发生了什么的,
-不过没关系, 你依然可以直接使用后续给出的代码段和现成的函数来做你想做的事.</p>
+</details>
+<h2 id="trigger_1">Trigger 的实际功能</h2>
+<p>ok 现在让我们想想我们的 Trigger 的功能如何实现. 它大概就是:</p>
+<ul>
+<li>检测玩家是否进入<ul>
+<li>设置场上所有 <code>PassByRefill</code> 的 <code>Dashes</code> 字段</li>
+</ul>
+</li>
+<li>没了</li>
+</ul>
+<p>在这里我们会使用 Trigger 的 <code>OnEnter</code> 虚函数, 它会在玩家<strong>首次</strong>进入的<strong>1帧</strong>被调用<strong>1次</strong>.
+<div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SetPassByRefillDashesTrigger.cs</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnEnter</span><span class="p">(</span><span class="n">Player</span><span class="w"> </span><span class="n">player</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">base</span><span class="p">.</span><span class="n">OnEnter</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>蔚蓝内部大部分虚函数重写时最好在开头调用一遍基类的实现, 除非你真的知道它做了什么并且你真的<strong>不需要</strong>它.</p>
+</div>
+<p>然后是获取场上所有的 <code>PassByRefill</code>, 以便我们能设置它们的 <code>Dashes</code>. 这里我们会搬出一个你可能眼熟的一串:
+<div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SetPassByRefillDashesTrigger.OnEnter(Player player)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 获取所有的 PassByRefill</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">refills</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Scene</span><span class="p">.</span><span class="n">Tracker</span><span class="p">.</span><span class="n">GetEntities</span><span class="o">&lt;</span><span class="n">PassByRefill</span><span class="o">&gt;</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div></p>
+<p>在这里或许该介绍介绍这一串是什么了, 首先我们通过 <code>Scene</code> 属性获取自身所在的场景, 然后获取它的 <code>Tracker</code>.<br />
+Tracker 是蔚蓝场景内的一个辅助类, 它可以很快的帮你筛选出场上的实体, 在这里我们使用它的 <code>GetEntities&lt;T&gt;</code> 来筛选出所有类型为 <code>T</code>, 也就是 <code>PassByRefill</code> 的实体.<br />
+部分实体在场上可能永远只有一个实例时, 比如说我们的 <code>Player</code>, 除非你安装了奇奇怪怪的 mod, 否则它永远只有一个实例, 这种情况下我们可以使用 <code>GetEntity</code>, 它只会返回一个实例.
+那么你现在应该懂得之前我们写下的 <code>Scene.Tracker.GetEntity&lt;Player&gt;()</code> 是什么意思了: "使用场景的 Tracker 获取场上唯一的那个 Player 实例".  </p>
+<p>哦对了, 我们还得在我们想要 Tracker 获取的实体的类上加一个 <code>Tracked</code> 特性, 就像:
+<div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PassByRefill.cs</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[CustomEntity(&quot;MyCelesteMod/PassByRefill&quot;)]</span>
+<span class="hll"><span class="na">[Tracked]</span>
+</span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PassByRefill</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Entity</span>
+<span class="p">{</span>
+</code></pre></div></td></tr></table></div>
+这一步其实<strong>很容易被忘记</strong>, 就像我写完初稿并做到最后一步游戏崩溃时才想起来(乐).</p>
+<p>好的然后我们该设置 <code>PassByRefill</code> 们的 <code>Dashes</code>... 额等等! 你可能会发现这里的 <code>refills</code> 局部变量其实是个 <code>List&lt;Entity&gt;</code> 类型, 这个我不太清楚为什么,
+估计是一个 <code>Monocle</code> 在实现中的一个小错误, 为了纠正它这里我会使用 <code>Linq</code> 的 <code>Cast</code> 来转换一下类型:</p>
+<div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SetPassByRefillDashesTrigger.OnEnter(Player player)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">refills</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Scene</span><span class="p">.</span><span class="n">Tracker</span><span class="p">.</span><span class="n">GetEntities</span><span class="o">&lt;</span><span class="n">PassByRefill</span><span class="o">&gt;</span><span class="p">().</span><span class="n">Cast</span><span class="o">&lt;</span><span class="n">PassByRefill</span><span class="o">&gt;</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+<p>ok, 现在我们就可以开始遍历并设置了:
+<div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SetPassByRefillDashesTrigger.OnEnter(Player player)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">foreach</span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">refill</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">refills</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">refill</span><span class="p">.</span><span class="n">Dashes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">Dashes</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p>最后, 你的代码应该总体上是这个样子:
+<div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SetPassByRefillDashesTrigger.cs</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Celeste.Mod.Entities</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span><span class="p">;</span>
+
+<span class="na">[CustomEntity(&quot;MyCelesteMod/SetPassByRefillDashesTrigger&quot;)]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SetPassByRefillDashesTrigger</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Trigger</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Dashes</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">SetPassByRefillDashesTrigger</span><span class="p">(</span><span class="n">EntityData</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">Vector2</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span>
+<span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Dashes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Int</span><span class="p">(</span><span class="s">&quot;dashes&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnEnter</span><span class="p">(</span><span class="n">Player</span><span class="w"> </span><span class="n">player</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">base</span><span class="p">.</span><span class="n">OnEnter</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">refills</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Scene</span><span class="p">.</span><span class="n">Tracker</span><span class="p">.</span><span class="n">GetEntities</span><span class="o">&lt;</span><span class="n">PassByRefill</span><span class="o">&gt;</span><span class="p">().</span><span class="n">Cast</span><span class="o">&lt;</span><span class="n">PassByRefill</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">foreach</span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">refill</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">refills</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">refill</span><span class="p">.</span><span class="n">Dashes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">Dashes</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="loenn">Loenn 配置</h2>
+<p>ok 我们的 Trigger 的代码已经写好了, 接下来写一个 Loenn 配置就好了, 这一步与 Entity 的很像, 不过你需要把它放到 triggers 文件夹内:</p>
+<ul>
+<li>ModFolder<ul>
+<li>Loenn<ul>
+<li>entities<ul>
+<li>PassByRefill.lua</li>
+</ul>
+</li>
+<li>triggers<ul>
+<li>SetPassByRefillDashesTrigger.lua</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>内容大同小异:</p>
+<div class="language-lua highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SetPassByRefillDashesTrigger.lua</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">local</span> <span class="n">trigger</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">trigger</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;MyCelesteMod/SetPassByRefillDashesTrigger&quot;</span>
+<span class="n">trigger</span><span class="p">.</span><span class="n">placements</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
+        <span class="n">dashes</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">trigger</span><span class="p">.</span><span class="n">fieldInformation</span> <span class="o">=</span> 
+<span class="p">{</span>
+    <span class="n">dashes</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">fieldType</span> <span class="o">=</span> <span class="s2">&quot;integer&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">return</span> <span class="n">trigger</span>
+</code></pre></div></td></tr></table></div>
+<p>最后记得写个本地化信息, 不然它的名字肯定会很丑! 这一步也是很类似的:
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>entities.MyCelesteMod/PassByRefill.placements.name.normal=PassByRefill
+triggers.MyCelesteMod/SetPassByRefillDashesTrigger.placements.name.normal=SetPassByRefillDashesTrigger
+</code></pre></div></td></tr></table></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>别忘了编译, 不要像我一样对着 Loenn 疑惑我的 trigger/实体 怎么不见了(</p>
+</div>
+<h2 id="_1">效果</h2>
+<p>现在在你的地图上摆放这个 trigger 以及几个 <code>PassByRefill</code>.<br />
+我在这里会摆几个背景砖来帮我们辨识这个 trigger 在哪, 因为 trigger 通常都是不可见的 (你可以通过 <code>~</code> 键或者下载 <code>CelesteTAS</code> 这个 mod 来查看碰撞箱).<br />
+<img alt="loenn-trigger" src="../images/simple_trigger/loenn_result_trigger.png" /><br />
+那么见证你的杰作吧!<br />
+<br></p>
+<p><strong>进入 trigger 前</strong> (PassByRefill 的 Dashes 设置为 2):<br />
+<img alt="b4-enter" src="../images/simple_trigger/b4_enter.png" /><br />
+<strong>进入 trigger 后</strong> (被设置为 1 了):<br />
+<img alt="af-enter" src="../images/simple_trigger/af_enter.png" /></p>
+<h2 id="_2">最后</h2>
+<p>我们目前实现的那个 Entity 与这个 Trigger 的搭配其实问题繁多, 比如 Entity 如果在 Trigger 触发后才被放置到场上,
+那么冲刺数会保持它的默认, 为了解决这个问题最佳的方案是使用蔚蓝中的 <code>Session</code>, 我们会在后面提到它.</p>
 
 
 

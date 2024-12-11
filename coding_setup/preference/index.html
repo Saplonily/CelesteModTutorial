@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../reference/">
+        <link rel="prev" href="../basic_env/">
       
       
-        <link rel="next" href="../examples/">
+        <link rel="next" href="../debug/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>C# 交互 - Celeste Code Mod 教程</title>
+        <title>偏好 - Celeste Code Mod 教程</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C# 交互
+              偏好
             
           </span>
         </div>
@@ -276,17 +276,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -300,7 +302,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             一些准备
@@ -314,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../coding_setup/basic_env/" class="md-nav__link">
+      <a href="../basic_env/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -332,10 +334,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../coding_setup/preference/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    偏好
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -344,6 +366,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      简单了解项目文件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implicit-usings-using" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implicit Usings (隐式 Using)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-scoped-namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Scoped Namespaces
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法? 函数?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -356,7 +434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../coding_setup/debug/" class="md-nav__link">
+      <a href="../debug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -377,7 +455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../coding_setup/code_reading/" class="md-nav__link">
+      <a href="../code_reading/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -927,19 +1005,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -953,7 +1029,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             额外 - LuaCutscene
@@ -967,7 +1043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../begin/" class="md-nav__link">
+      <a href="../../extra_luacs/begin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -988,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/" class="md-nav__link">
+      <a href="../../extra_luacs/reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,30 +1082,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    C# 交互
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../extra_luacs/cs_access/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1038,71 +1094,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#c_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      引入 C# 类
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      方法调用, 字段, 属性访问
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      私有访问
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      协程
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      最后
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1115,7 +1106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../examples/" class="md-nav__link">
+      <a href="../../extra_luacs/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1436,27 +1427,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      引入 C# 类
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      方法调用, 字段, 属性访问
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      私有访问
+      简单了解项目文件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implicit-usings-using" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implicit Usings (隐式 Using)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-scoped-namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Scoped Namespaces
     </span>
   </a>
   
@@ -1465,16 +1456,7 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      协程
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      最后
+      方法? 函数?
     </span>
   </a>
   
@@ -1498,110 +1480,174 @@
   
 
 
-<h1 id="c">C# 交互</h1>
-<p>从这一小节开始就需要使用一小些 C# 知识了, 不过不需要太多, 你只需要能看懂 C# 侧的函数, 字段, 属性等的定义就行.  </p>
-<h2 id="c_1">引入 C# 类</h2>
-<p>要引用一个 C# 类, 首先需要在文件顶部使用 require 函数:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">local</span> <span class="n">celeste</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;#Celeste.Celeste&quot;</span><span class="p">)</span>
+<h1 id="_1">偏好</h1>
+<p>在本系列教程中本人可能会偶尔习惯性的使用一些比较新的 C# 语法或者是特性, 通常这是大部分 C# 教程中很少提及的, 所以为了避免困惑我会在这里提及他们.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>为了使用这些语法你可能需要安装 <a href="https://dotnet.microsoft.com/zh-cn/download"><code>.NET 8 SDK</code></a>,
+如果你无法理解某些东西,
+没关系, 你依然可以使用同时提及到的等效方法</p>
+</div>
+<h2 id="_2">简单了解项目文件</h2>
+<p>在解决方案资源管理器中, 双击你的项目, 按理来说你应该会打开该项目的 <code>.csproj</code> 文件,
+通常也叫做项目文件, 它描述了这个项目的各方面的信息, 并且以下几小节的内容也依赖于此.<br />
+如果你使用的是从模板配置的环境, 那么你应该会看到如下内容:</p>
+<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.csproj</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">&quot;Microsoft.NET.Sdk&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Import</span><span class="w"> </span><span class="na">Project=</span><span class="s">&quot;CelesteMod.props&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Import</span><span class="w"> </span><span class="na">Project=</span><span class="s">&quot;Common.props&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;PropertyGroup&gt;</span>
+<span class="w">        </span><span class="nt">&lt;RootNamespace&gt;</span>$(AssemblyName)<span class="nt">&lt;/RootNamespace&gt;</span>
+<span class="w">        </span><span class="nt">&lt;LangVersion&gt;</span>preview<span class="nt">&lt;/LangVersion&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span>
 
-<span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="c1">-- ...</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>参数需要以 "#&lt;完整类名&gt;" 格式传入, 比如上述代码就会得到一个 C# 类 <code>Celeste</code>, 这样我们可以来调用一下产生冻结帧的静态方法:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">local</span> <span class="n">celeste</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;#Celeste.Celeste&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nt">&lt;ItemGroup&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Core&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Xml.Linq&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Reference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Xml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ItemGroup&gt;</span>
 
-<span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">celeste</span><span class="p">.</span><span class="n">Freeze</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="kr">end</span>
+<span class="w">    </span><span class="nt">&lt;Import</span><span class="w"> </span><span class="na">Project=</span><span class="s">&quot;CelesteMod.targets&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Project&gt;</span>
 </code></pre></div></td></tr></table></div>
-<p>就像你在 C# 中所做的一样, 不过这里使用上面获取到的 <code>celeste</code> 作为你在 C# 中书写的类名. 上述代码应该会导致你进入 trigger 时冻结 0.5 秒.</p>
-<h2 id="_1">方法调用, 字段, 属性访问</h2>
-<p>通常, 如果你需要访问 C# 代码对玩家做一些有趣的变动, 获取玩家类的实例以及在实例上调用方法是必不可少的.  </p>
-<p>在 LuaCutscene 中我们可以使用预定义和赋值的 <code>player</code> 全局变量, 也就是在任何方法内都能使用的变量, 例如, 在进入 trigger 时将玩家的冲刺设为 2:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">player</span><span class="p">.</span><span class="n">Dashes</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>上述代码访问了 player 全局变量, 并且设置其 <code>Dashes</code> 字段为 2, 也就是设置冲刺数为2, 不过这样会导致在空中也恢复为 2, 所以我们加入在是否在安全地面(草莓能结算的那种)上的检测:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="kr">if</span> <span class="n">player</span><span class="p">.</span><span class="n">OnSafeGround</span> <span class="kr">then</span>
-        <span class="n">player</span><span class="p">.</span><span class="n">Dashes</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="kr">end</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>上述代码中 <code>OnSafeGround</code> 就是一个属性. 不过上面这段代码有一些问题, 当你从上往下掉入 trigger 时, 只有进入的那一帧才会检测并恢复冲刺,
-这有时候就不是我们想要的结果, 所以我们使用一个新的特殊函数 <code>onStay</code>:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onStay</span><span class="p">()</span>
-    <span class="kr">if</span> <span class="n">player</span><span class="p">.</span><span class="n">OnSafeGround</span> <span class="kr">then</span>
-        <span class="n">player</span><span class="p">.</span><span class="n">Dashes</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="kr">end</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>这会让这段代码在玩家接触到 trigger 的每一帧都执行代码, 符合我们目前的需求. 除此之外还有另外两个: <code>onEnter</code> 和 <code>onLeave</code>,
-它们都不是协程函数, 前者在玩家进入 trigger 时触发(这与 <code>onBegin</code> 不同, 比如在剧情进行时你依然可以控制进出 trigger),
-后者在玩家离开 trigger 时执行.  </p>
-<p>当然我们还可以调用一些方法, 比如剧情开始时强制丢弃抓取物:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">player</span><span class="p">:</span><span class="n">Throw</span><span class="p">()</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>注意在调用成员方法时我们需要使用 <strong>:</strong> 符号, 这是到目前为止的一个特例.  </p>
-<h2 id="_2">私有访问</h2>
-<p>对于私有成员的访问, 在 Everest Core (截止 4446) 上似乎是有一些问题导致完全不能访问,
-经过询问似乎是 Core 的一些缓存问题, 在 Stable 上不会出现, 故这里暂时跳过,
-相关私有成员访问可在 C# 侧操作作为替代.</p>
-<h2 id="_3">协程</h2>
-<p>lua 与 c# 两侧都有协程的概念, 不过不能直接使用, 需要一定的转换, 例如使用 <code>Level.ZoomTo</code> 函数, 它会返回一个将摄像机缩放至某一点的协程:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>这个文件是 XML 格式的, 如果你不熟悉 XML 的话你可以到<a href="../../other/xml-speedrun/">这里</a>简单看一下, 免得你不知道我们讨论的东西都是什么</p>
+</div>
+<p>其中我们只需要关注里面的 <code>PropertyGroup</code> 以及 <code>ItemGroup</code> 节点<br />
+<code>PropertyGroup</code> 节点定义了这个项目有哪些属性, 比如项目框架版本, 语言版本, 程序集昵称等<br />
+<code>ItemGroup</code> 则定义了这个项目包含什么, 比如引用了哪些程序集、哪些 nuget 包等.</p>
+<h2 id="implicit-usings-using">Implicit Usings (隐式 Using)</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>对于通过模板构建的项目来说这一步已经完成, 你可以尝试将 <code>Common.props</code> 中的 <code>CommonCelesteUsings</code> 更改为 <code>false</code> 来感受没有启用的效果</p>
+</div>
+<p>现在看看你的源文件头顶是不是充满了一大堆 <code>using xxx</code>? 那就对了, 我们可以使用这个特性来让它看起来更简介些.
+那么打开你的项目文件, 向你的 <code>ItemGroup</code> 中加入这些:</p>
+<div class="language-xml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">disableMovement</span><span class="p">()</span>
-    <span class="kd">local</span> <span class="n">level</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="n">Scene</span>
-    <span class="kd">local</span> <span class="n">c</span> <span class="o">=</span> <span class="n">level</span><span class="p">:</span><span class="n">ZoomTo</span><span class="p">(</span><span class="n">vector2</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="kr">end</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Collections.Generic&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.IO&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Linq&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Threading&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;System.Threading.Tasks&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div></td></tr></table></div>
-<p>上述代码调用了 <code>level</code> 的 <code>ZoomTo</code> 函数, 并将返回值储存起来, 然后使用 <code>coroutine.yield</code> 将其转换为 lua 协程并等待.
-游戏中的效果则为相机在 2s 内向屏幕中心放大 1.5 倍. 顺便这个函数还有个配套的缩放回来的版本:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<p>这个时候你就可以移除你的大部分 <code>System</code> 开头的 Using 语句啦, 这被称为 <code>隐式 Using</code>, 因为我们是蔚蓝 mod, 所以我们经常也会 Using 以下几个命名空间:</p>
+<ul>
+<li><code>Celeste.Mod</code>: 包含很多 Everest 相关东西</li>
+<li><code>Celeste</code>: 蔚蓝本体所在命名空间</li>
+<li><code>Monocle</code>: 蔚蓝自己的游戏引擎</li>
+<li><code>Microsoft.Xna.Framework</code>: 蔚蓝自己的游戏引擎的底层框架</li>
+</ul>
+<p>对这些隐式 Using 我们也向 <code>ItemGroup</code> 加入:
+<div class="language-xml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">disableMovement</span><span class="p">()</span>
-    <span class="kd">local</span> <span class="n">level</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="n">Scene</span><span class="p">;</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">level</span><span class="p">:</span><span class="n">ZoomTo</span><span class="p">(</span><span class="n">vector2</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">level</span><span class="p">:</span><span class="n">ZoomBack</span><span class="p">(</span><span class="mf">2.0</span><span class="p">))</span>
-<span class="kr">end</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Celeste.Mod&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Celeste&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Monocle&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Microsoft.Xna.Framework&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>现在打开你的代码文件, 你可以将头顶上的大部分 Using 都删除了, 这样, 你的代码文件变的更加的干净整洁:
+<div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">MyModModule.cs</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+
+<span class="w">            </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World! Hello Everest!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="file-scoped-namespaces">File Scoped Namespaces</h2>
+<p>对于 namespace 命名空间来说我们通常一个文件只有一个命名空间, 那么最外层的 namespace 的缩进就有些浪费横向空间,
+所以我们选择使用 <code>File Scoped Namespaces</code>, 这很简单:</p>
+<ul>
+<li>在 <code>namespace MyCelesteMod</code> 后加上一个分号</li>
+<li>删除 namespace 的两个大括号</li>
+<li>回退 namespace 下的所有缩进</li>
+<li>搞定了, 走你!</li>
+</ul>
+<div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">MyModModule.cs</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">MyCelesteMod</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyModModule</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EverestModule</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Logger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MyCelesteMod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World! Hello Everest!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unload</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="_4">最后</h2>
-<p>相信如果你没有太多 C# 知识的话, 这一小节你肯定是很困惑不知道发生了什么的,
-不过没关系, 你依然可以直接使用后续给出的代码段和现成的函数来做你想做的事.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>如果你收到错误 <code>CS8370</code>, 那你可能需要在 <code>PropertyGroup</code> 下添加这一行:<br />
+<div class="language-xml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;LangVersion&gt;</span>preview<span class="nt">&lt;/LangVersion&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+</div>
+<h2 id="_3">方法? 函数?</h2>
+<p>嗯这个是后来加的, 因为我发现我在整个文档里都在混用 "方法" 和 "函数" 这两个名字, 但是修改起来比较麻烦所以我还是选择在这里说几句:<br />
+"函数" 是源自古早的面向过程语言的概念, 后来随着 OOP 面向对象思想的流行, 函数逐渐被封装到类里, 而类里的这些函数在习惯上我们才会称之为 "方法",
+但是也有人仍然将这些东西称之为 "函数", 所以实际上在面向对象的语言里你可以将 "方法" 和 "函数" 看为一个东西, 或者仅在本文档中这么看.</p>
 
 
 

@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../reference/">
+        <link rel="prev" href="../debug/">
       
       
-        <link rel="next" href="../examples/">
+        <link rel="next" href="../../basics/celeste_everest_monomod/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>C# 交互 - Celeste Code Mod 教程</title>
+        <title>阅读代码 - Celeste Code Mod 教程</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C# 交互
+              阅读代码
             
           </span>
         </div>
@@ -276,17 +276,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -300,7 +302,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             一些准备
@@ -314,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../coding_setup/basic_env/" class="md-nav__link">
+      <a href="../basic_env/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -335,7 +337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../coding_setup/preference/" class="md-nav__link">
+      <a href="../preference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -356,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../coding_setup/debug/" class="md-nav__link">
+      <a href="../debug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -374,10 +376,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../coding_setup/code_reading/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    阅读代码
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -386,6 +408,92 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      反编译工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="反编译工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dnspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      dnSpy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ilspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      ILSpy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      奇奇怪怪的昵称与代码
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="奇奇怪怪的昵称与代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ctor-cctor" class="md-nav__link">
+    <span class="md-ellipsis">
+      .ctor / .cctor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orig_" class="md-nav__link">
+    <span class="md-ellipsis">
+      orig_*
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -927,19 +1035,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -953,7 +1059,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             额外 - LuaCutscene
@@ -967,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../begin/" class="md-nav__link">
+      <a href="../../extra_luacs/begin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -988,7 +1094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/" class="md-nav__link">
+      <a href="../../extra_luacs/reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,30 +1112,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    C# 交互
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../extra_luacs/cs_access/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1038,71 +1124,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#c_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      引入 C# 类
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      方法调用, 字段, 属性访问
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      私有访问
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      协程
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      最后
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1115,7 +1136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../examples/" class="md-nav__link">
+      <a href="../../extra_luacs/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1436,47 +1457,68 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      引入 C# 类
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      方法调用, 字段, 属性访问
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      私有访问
+      反编译工具
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="反编译工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dnspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      dnSpy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ilspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      ILSpy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      协程
+      奇奇怪怪的昵称与代码
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="奇奇怪怪的昵称与代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ctor-cctor" class="md-nav__link">
+    <span class="md-ellipsis">
+      .ctor / .cctor
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#orig_" class="md-nav__link">
     <span class="md-ellipsis">
-      最后
+      orig_*
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1498,110 +1540,123 @@
   
 
 
-<h1 id="c">C# 交互</h1>
-<p>从这一小节开始就需要使用一小些 C# 知识了, 不过不需要太多, 你只需要能看懂 C# 侧的函数, 字段, 属性等的定义就行.  </p>
-<h2 id="c_1">引入 C# 类</h2>
-<p>要引用一个 C# 类, 首先需要在文件顶部使用 require 函数:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">local</span> <span class="n">celeste</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;#Celeste.Celeste&quot;</span><span class="p">)</span>
+<h1 id="_1">阅读代码</h1>
+<h2 id="_2">反编译工具</h2>
+<p>为了进行 Code Mod 的开发, 显然我们需要知道<del>看一眼就能被吓跑的</del>蔚蓝的代码是怎么运行的.</p>
+<p>所以这时我们就需要<strong>阅读蔚蓝的代码</strong>以了解这些东西. 当然, 蔚蓝是个商业游戏, 想指望它开源所有代码是不可能的,
+那我们就必须得借助一些反编译工具.  </p>
+<p>在这里我会推荐 <a href="https://github.com/dnSpyEx/dnSpy"><code>dnSpy</code></a> 或 <a href="https://github.com/icsharpcode/ILSpy"><code>ILSpy</code></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>不要上传反编译后的代码到任何地方, 这可能会不可避免的造成一些争议.</p>
+</div>
+<h3 id="dnspy">dnSpy</h3>
+<p>使用该软件很简单:</p>
+<ul>
+<li>打开它</li>
+<li>点击左上角的<code>文件</code>, <code>打开</code></li>
+<li>选择 <code>Celeste.exe</code> (如果你使用 core 版本的 everest, 你需要选择 <code>Celeste.dll</code>)</li>
+<li>展开蔚蓝的程序集</li>
+<li>你现在可以看到蔚蓝都有哪些类了</li>
+<li>你现在也可以看到蔚蓝都有哪些函数了</li>
+</ul>
+<p>现在我们浏览蔚蓝的代码就像你在 IDE 里浏览你的项目一样, 虽然这不是我们的项目. 在浏览过程中, 通常可能你会对着一个字段、一个函数发呆,
+大概是因为你根本不知道它是做什么的!
+好在 <code>dnSpy</code> 提供了一个很好用的"分析"功能来缓解这个 :<br />
+<img alt="dnSpy-ana" src="../images/code_reading/dnspy_ana.png" /><br />
+在这里你可以看到哪些字段、哪些函数被谁调用了、被谁引用了、被谁更改了:
+<img alt="dnSpy-track" src="../images/code_reading/dnspy_track.png" />  </p>
+<h3 id="ilspy">ILSpy</h3>
+<p>使用该软件的方式与 <code>dnSpy</code> 相同:</p>
+<ul>
+<li>打开它</li>
+<li>点击左上角的<code>文件</code>, <code>打开</code></li>
+<li>选择 <code>Celeste.exe</code> (如果你使用 core 版本的 everest, 你需要选择 <code>Celeste.dll</code>)</li>
+<li>展开蔚蓝的程序集, 浏览类和方法</li>
+</ul>
+<p>相应的, <code>ILSpy</code> 也提供了"分析"的功能:</p>
+<p><img alt="ILSpy-ana" src="../images/code_reading/ILSpy_ana.png" /><br />
+以及对应的分析结果(展开太长了就不展开了):</p>
+<p><img alt="ILSpy-track" src="../images/code_reading/ILSpy_track.png" />  </p>
+<details class="分析结果说明">
+<summary>分析结果说明</summary>
+<p>因为 <code>ILSpy</code> 并没有实现分析结果的翻译, 这里做下简单的翻译:</p>
+<ul>
+<li><code>Uses</code> 直接依赖于</li>
+<li><code>Used By</code> 被调用于</li>
+<li><code>Assigned By</code> 赋值于</li>
+<li><code>Expose By</code> 暴露于</li>
+<li><code>Instantiated By</code> 被实例化于</li>
+<li><code>Extension Methods</code> 拓展方法</li>
+</ul>
+</details>
+<!-- umm 等后面再写(?>
+## 反编译代码的结构分析
+wip
 
-<span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="c1">-- ...</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>参数需要以 "#&lt;完整类名&gt;" 格式传入, 比如上述代码就会得到一个 C# 类 <code>Celeste</code>, 这样我们可以来调用一下产生冻结帧的静态方法:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">local</span> <span class="n">celeste</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;#Celeste.Celeste&quot;</span><span class="p">)</span>
+至于下面的后续会移除所有钩子相关 标题可能会改成 反编译代码中的"特殊"语法
+<-->
 
-<span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">celeste</span><span class="p">.</span><span class="n">Freeze</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>就像你在 C# 中所做的一样, 不过这里使用上面获取到的 <code>celeste</code> 作为你在 C# 中书写的类名. 上述代码应该会导致你进入 trigger 时冻结 0.5 秒.</p>
-<h2 id="_1">方法调用, 字段, 属性访问</h2>
-<p>通常, 如果你需要访问 C# 代码对玩家做一些有趣的变动, 获取玩家类的实例以及在实例上调用方法是必不可少的.  </p>
-<p>在 LuaCutscene 中我们可以使用预定义和赋值的 <code>player</code> 全局变量, 也就是在任何方法内都能使用的变量, 例如, 在进入 trigger 时将玩家的冲刺设为 2:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">player</span><span class="p">.</span><span class="n">Dashes</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>上述代码访问了 player 全局变量, 并且设置其 <code>Dashes</code> 字段为 2, 也就是设置冲刺数为2, 不过这样会导致在空中也恢复为 2, 所以我们加入在是否在安全地面(草莓能结算的那种)上的检测:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<h2 id="_3">奇奇怪怪的昵称与代码</h2>
+<p>一些情况下, 阅读由反编译器生成的代码时可能不是那么顺利, 那么这一节会简单说一些反编译器生成的代码与通常的 C# 代码不一样的地方.</p>
+<p>在反编译器中可能会出现这种奇怪的语法:
+<div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Celeste.FinalBoss (即 6a 后半段 Badeline Boss 实体)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="kr">if</span> <span class="n">player</span><span class="p">.</span><span class="n">OnSafeGround</span> <span class="kr">then</span>
-        <span class="n">player</span><span class="p">.</span><span class="n">Dashes</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="kr">end</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>上述代码中 <code>OnSafeGround</code> 就是一个属性. 不过上面这段代码有一些问题, 当你从上往下掉入 trigger 时, 只有进入的那一帧才会检测并恢复冲刺,
-这有时候就不是我们想要的结果, 所以我们使用一个新的特殊函数 <code>onStay</code>:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onStay</span><span class="p">()</span>
-    <span class="kr">if</span> <span class="n">player</span><span class="p">.</span><span class="n">OnSafeGround</span> <span class="kr">then</span>
-        <span class="n">player</span><span class="p">.</span><span class="n">Dashes</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="kr">end</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>这会让这段代码在玩家接触到 trigger 的每一帧都执行代码, 符合我们目前的需求. 除此之外还有另外两个: <code>onEnter</code> 和 <code>onLeave</code>,
-它们都不是协程函数, 前者在玩家进入 trigger 时触发(这与 <code>onBegin</code> 不同, 比如在剧情进行时你依然可以控制进出 trigger),
-后者在玩家离开 trigger 时执行.  </p>
-<p>当然我们还可以调用一些方法, 比如剧情开始时强制丢弃抓取物:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">player</span><span class="p">:</span><span class="n">Throw</span><span class="p">()</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>注意在调用成员方法时我们需要使用 <strong>:</strong> 符号, 这是到目前为止的一个特例.  </p>
-<h2 id="_2">私有访问</h2>
-<p>对于私有成员的访问, 在 Everest Core (截止 4446) 上似乎是有一些问题导致完全不能访问,
-经过询问似乎是 Core 的一些缓存问题, 在 Stable 上不会出现, 故这里暂时跳过,
-相关私有成员访问可在 C# 侧操作作为替代.</p>
-<h2 id="_3">协程</h2>
-<p>lua 与 c# 两侧都有协程的概念, 不过不能直接使用, 需要一定的转换, 例如使用 <code>Level.ZoomTo</code> 函数, 它会返回一个将摄像机缩放至某一点的协程:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">orig_ctor</span><span class="p">(</span><span class="n">EntityData</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">Vector2</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">..</span><span class="n">ctor</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Position</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">NodesOffset</span><span class="p">(</span><span class="n">offset</span><span class="p">),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">Int</span><span class="p">(</span><span class="s">&quot;patternIndex&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">Float</span><span class="p">(</span><span class="s">&quot;cameraPastY&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">120f</span><span class="p">),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">Bool</span><span class="p">(</span><span class="s">&quot;dialog&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">Bool</span><span class="p">(</span><span class="s">&quot;startHit&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">Bool</span><span class="p">(</span><span class="s">&quot;cameraLockY&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p>嗯...好的, 首先 <code>orig_ctor</code> 这个名字有点怪但是能接受, 但是接下来的 <code>this..ctor</code> 是什么? 它甚至在 <code>C#</code> 中是个非法语法!<br />
+其实这并不罕见, 由于 Everest 对蔚蓝程序的修改并不只是停留在表面, 而更是深入到了 <strong>IL 代码层</strong>, 这是一种相对底层的代码,
+你的 <code>C#</code> 代码最终<strong>都</strong>会被编译为 <code>IL</code> 然后扔给<strong>运行时(runtime)</strong>来执行, 同样地, 所有其他的 <code>.NET</code> 系语言比如 <code>VB.NET</code> 和 <code>F#</code> 也都会被编译为 IL.<br />
+那么既然这里的 IL 是由 <code>C#</code> 编译而来的, 那么这样的 IL 多多少少会有一种 "C# 味", 反编译器就是靠这种一定的 "C# 味" 来逆推出可能的 <code>C#</code> 源码. 
+但是既然这里 Everest 直接在 IL 代码层进行了修改, 破坏了这种 "C# 味", 那自然反编译器就会生成奇奇怪怪甚至非法的代码.  </p>
+<p>那么这里生成的奇怪非法的代码是什么?  </p>
+<h3 id="ctor-cctor">.ctor / .cctor</h3>
+<p><code>.ctor</code> 是一个特殊的函数名称, 表示该类的<strong>构造函数</strong>, 比如 <code>Player..ctor(a, b)</code> 即表示调用 <code>Player</code> 类的 <code>.ctor</code> 函数, 虽然你自己是做不到的.  </p>
+<p><code>.cctor</code> 也是一个特殊的函数名称, 表示该类的<strong>静态构造函数</strong>, 比如 <code>Input..cctor()</code> 即表示调用 <code>Input</code> 类的无参静态构造函数.  </p>
+<p>这一类函数在 <code>IL</code> 层有个标记叫 <code>special name</code>, 当反编译器发现一个方法名为 <code>.ctor</code> 且带有 <code>special name</code> 标记的方法时,
+反编译器就会认为它是一个构造函数, 如果反编译器发现这个方法在一个构造函数开头调用了, 那么反编译器就会认为这个构造函数带一个构造函数链,
+但是如果它的调用位置在其他位置, 同时又因为 <code>C#</code> 编译器是不可能这么编译的, 那么反编译器就会不知所措, 只能无奈的生成 <code>xxx..ctor()</code> 这种错误的语法.
+这也是我们上面看到的 <code>this..ctor</code> 这种语法被生成的原因, 因为这个构造函数调用不在构造函数里出现, 而是在一个正常的 <code>orig_ctor</code> 方法里面!  </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><code>ctor</code> 这个奇怪的缩写来自单词 <code>constructor</code>, 直译即 <code>构造器</code>.</p>
+</div>
+<p>所以我们通常也会用 <code>.ctor</code> <code>ctor</code> 来指代构造函数, <code>.cctor</code> <code>cctor</code> 指代静态构造函数. 此外, Visual Studio 中有个自带的代码片段就是 <code>ctor</code>,
+在类中打出 ctor 并双击 Tab 键, vs 就会自动生成该类的构造函数, 这里的 <code>ctor</code> 来源也就在此. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>在后面的钩子节我们没有探讨过构造函数如何钩取, 在这里你可能就会明白, 钩取名字为 <code>ctor</code> 的函数就是钩取了构造函数, 静态构造函数同理.</p>
+</div>
+<h3 id="orig_">orig_*</h3>
+<p>还有一些函数以 <code>orig_</code> 开头, 这其实是 everest 自己"钩取"的函数. 在这里, 比如 <code>Player.Update</code> 方法就被 everest 进行了"钩取",
+而钩子函数本体就是 <code>Player.Update</code>, 而对应我们钩子的 <code>orig</code> 委托在就体现为 <code>orig_Update</code> 方法.</p>
+<div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Player.Update  (像钩子本体一样!)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">disableMovement</span><span class="p">()</span>
-    <span class="kd">local</span> <span class="n">level</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="n">Scene</span>
-    <span class="kd">local</span> <span class="n">c</span> <span class="o">=</span> <span class="n">level</span><span class="p">:</span><span class="n">ZoomTo</span><span class="p">(</span><span class="n">vector2</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="kr">end</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Update</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">orig_Update</span><span class="p">();</span><span class="w"> </span><span class="c1">// 就像在我们的钩子里调用 orig 委托一样</span>
+<span class="w">    </span><span class="c1">// 就像在我们的钩子里在函数执行完后做些事情一样</span>
+<span class="w">    </span><span class="n">Level</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">base</span><span class="p">.</span><span class="n">Scene</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Level</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">level</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<span class="w">    </span><span class="p">......</span>
+<span class="p">}</span>
+<span class="c1">// Player.orig_Update() 就像我们的钩子钩取的原函数!</span>
 </code></pre></div></td></tr></table></div>
-<p>上述代码调用了 <code>level</code> 的 <code>ZoomTo</code> 函数, 并将返回值储存起来, 然后使用 <code>coroutine.yield</code> 将其转换为 lua 协程并等待.
-游戏中的效果则为相机在 2s 内向屏幕中心放大 1.5 倍. 顺便这个函数还有个配套的缩放回来的版本:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">disableMovement</span><span class="p">()</span>
-    <span class="kd">local</span> <span class="n">level</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="n">Scene</span><span class="p">;</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">level</span><span class="p">:</span><span class="n">ZoomTo</span><span class="p">(</span><span class="n">vector2</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">level</span><span class="p">:</span><span class="n">ZoomBack</span><span class="p">(</span><span class="mf">2.0</span><span class="p">))</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="_4">最后</h2>
-<p>相信如果你没有太多 C# 知识的话, 这一小节你肯定是很困惑不知道发生了什么的,
-不过没关系, 你依然可以直接使用后续给出的代码段和现成的函数来做你想做的事.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>如果你自行钩取 <code>Player.Update</code> 函数这种已被 everest "钩取" 的函数实际上你钩取的是 everest 的钩子, 这对于 <code>On</code> 钩子可能没有大影响,
+但是对于后面我们会说的 <code>IL</code> 钩子有很大影响, 不过这些我们等到后面再说.</p>
+</div>
 
 
 

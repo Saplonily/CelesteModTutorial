@@ -1,3 +1,8 @@
 .md-grid {
     max-width: 65rem;
 }
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color: #04040c;
+    --md-default-bg-color: #13131a;
+    --md-hue: 225; 
+  }

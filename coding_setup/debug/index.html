@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../reference/">
+        <link rel="prev" href="../preference/">
       
       
-        <link rel="next" href="../examples/">
+        <link rel="next" href="../code_reading/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>C# 交互 - Celeste Code Mod 教程</title>
+        <title>调试 - Celeste Code Mod 教程</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c" class="md-skip">
+        <a href="#debug" class="md-skip">
           跳转至
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C# 交互
+              调试
             
           </span>
         </div>
@@ -276,17 +276,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -300,7 +302,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             一些准备
@@ -314,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../coding_setup/basic_env/" class="md-nav__link">
+      <a href="../basic_env/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -335,7 +337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../coding_setup/preference/" class="md-nav__link">
+      <a href="../preference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -353,10 +355,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../coding_setup/debug/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -365,6 +376,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -377,7 +389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../coding_setup/code_reading/" class="md-nav__link">
+      <a href="../code_reading/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -927,19 +939,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -953,7 +963,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             额外 - LuaCutscene
@@ -967,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../begin/" class="md-nav__link">
+      <a href="../../extra_luacs/begin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -988,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/" class="md-nav__link">
+      <a href="../../extra_luacs/reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,30 +1016,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    C# 交互
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../extra_luacs/cs_access/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1038,71 +1028,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#c_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      引入 C# 类
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      方法调用, 字段, 属性访问
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      私有访问
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      协程
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      最后
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1115,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../examples/" class="md-nav__link">
+      <a href="../../extra_luacs/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1429,59 +1354,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#c_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      引入 C# 类
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      方法调用, 字段, 属性访问
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      私有访问
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      协程
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      最后
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1498,110 +1370,30 @@
   
 
 
-<h1 id="c">C# 交互</h1>
-<p>从这一小节开始就需要使用一小些 C# 知识了, 不过不需要太多, 你只需要能看懂 C# 侧的函数, 字段, 属性等的定义就行.  </p>
-<h2 id="c_1">引入 C# 类</h2>
-<p>要引用一个 C# 类, 首先需要在文件顶部使用 require 函数:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">local</span> <span class="n">celeste</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;#Celeste.Celeste&quot;</span><span class="p">)</span>
-
-<span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="c1">-- ...</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>参数需要以 "#&lt;完整类名&gt;" 格式传入, 比如上述代码就会得到一个 C# 类 <code>Celeste</code>, 这样我们可以来调用一下产生冻结帧的静态方法:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">local</span> <span class="n">celeste</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;#Celeste.Celeste&quot;</span><span class="p">)</span>
-
-<span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">celeste</span><span class="p">.</span><span class="n">Freeze</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>就像你在 C# 中所做的一样, 不过这里使用上面获取到的 <code>celeste</code> 作为你在 C# 中书写的类名. 上述代码应该会导致你进入 trigger 时冻结 0.5 秒.</p>
-<h2 id="_1">方法调用, 字段, 属性访问</h2>
-<p>通常, 如果你需要访问 C# 代码对玩家做一些有趣的变动, 获取玩家类的实例以及在实例上调用方法是必不可少的.  </p>
-<p>在 LuaCutscene 中我们可以使用预定义和赋值的 <code>player</code> 全局变量, 也就是在任何方法内都能使用的变量, 例如, 在进入 trigger 时将玩家的冲刺设为 2:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">player</span><span class="p">.</span><span class="n">Dashes</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>上述代码访问了 player 全局变量, 并且设置其 <code>Dashes</code> 字段为 2, 也就是设置冲刺数为2, 不过这样会导致在空中也恢复为 2, 所以我们加入在是否在安全地面(草莓能结算的那种)上的检测:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="kr">if</span> <span class="n">player</span><span class="p">.</span><span class="n">OnSafeGround</span> <span class="kr">then</span>
-        <span class="n">player</span><span class="p">.</span><span class="n">Dashes</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="kr">end</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>上述代码中 <code>OnSafeGround</code> 就是一个属性. 不过上面这段代码有一些问题, 当你从上往下掉入 trigger 时, 只有进入的那一帧才会检测并恢复冲刺,
-这有时候就不是我们想要的结果, 所以我们使用一个新的特殊函数 <code>onStay</code>:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onStay</span><span class="p">()</span>
-    <span class="kr">if</span> <span class="n">player</span><span class="p">.</span><span class="n">OnSafeGround</span> <span class="kr">then</span>
-        <span class="n">player</span><span class="p">.</span><span class="n">Dashes</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="kr">end</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>这会让这段代码在玩家接触到 trigger 的每一帧都执行代码, 符合我们目前的需求. 除此之外还有另外两个: <code>onEnter</code> 和 <code>onLeave</code>,
-它们都不是协程函数, 前者在玩家进入 trigger 时触发(这与 <code>onBegin</code> 不同, 比如在剧情进行时你依然可以控制进出 trigger),
-后者在玩家离开 trigger 时执行.  </p>
-<p>当然我们还可以调用一些方法, 比如剧情开始时强制丢弃抓取物:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">player</span><span class="p">:</span><span class="n">Throw</span><span class="p">()</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>注意在调用成员方法时我们需要使用 <strong>:</strong> 符号, 这是到目前为止的一个特例.  </p>
-<h2 id="_2">私有访问</h2>
-<p>对于私有成员的访问, 在 Everest Core (截止 4446) 上似乎是有一些问题导致完全不能访问,
-经过询问似乎是 Core 的一些缓存问题, 在 Stable 上不会出现, 故这里暂时跳过,
-相关私有成员访问可在 C# 侧操作作为替代.</p>
-<h2 id="_3">协程</h2>
-<p>lua 与 c# 两侧都有协程的概念, 不过不能直接使用, 需要一定的转换, 例如使用 <code>Level.ZoomTo</code> 函数, 它会返回一个将摄像机缩放至某一点的协程:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">disableMovement</span><span class="p">()</span>
-    <span class="kd">local</span> <span class="n">level</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="n">Scene</span>
-    <span class="kd">local</span> <span class="n">c</span> <span class="o">=</span> <span class="n">level</span><span class="p">:</span><span class="n">ZoomTo</span><span class="p">(</span><span class="n">vector2</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<p>上述代码调用了 <code>level</code> 的 <code>ZoomTo</code> 函数, 并将返回值储存起来, 然后使用 <code>coroutine.yield</code> 将其转换为 lua 协程并等待.
-游戏中的效果则为相机在 2s 内向屏幕中心放大 1.5 倍. 顺便这个函数还有个配套的缩放回来的版本:</p>
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">function</span> <span class="nf">onBegin</span><span class="p">()</span>
-    <span class="n">disableMovement</span><span class="p">()</span>
-    <span class="kd">local</span> <span class="n">level</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="n">Scene</span><span class="p">;</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">level</span><span class="p">:</span><span class="n">ZoomTo</span><span class="p">(</span><span class="n">vector2</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">level</span><span class="p">:</span><span class="n">ZoomBack</span><span class="p">(</span><span class="mf">2.0</span><span class="p">))</span>
-<span class="kr">end</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="_4">最后</h2>
-<p>相信如果你没有太多 C# 知识的话, 这一小节你肯定是很困惑不知道发生了什么的,
-不过没关系, 你依然可以直接使用后续给出的代码段和现成的函数来做你想做的事.</p>
+<h1 id="debug">Debug调试</h1>
+<p>只要写程序就免不了bug, 所以我们需要强有力的debug手段</p>
+<p><img alt="code_joke" src="../images/debug/code_joke.jpg" /></p>
+<p>最常见的debug手段是通过 <code>Logger.Log()</code>, 能解决大部分问题, 但当项目做大, 嵌套变多, <code>Logger</code> 输出的信息已经满足不了我们的时候(甚至我们都不知道这个 bug 哪儿来的), 我们一般就要使用断点来调试, 步骤如下:</p>
+<ol>
+<li>打开蔚蓝</li>
+<li>
+<p>在你的IDE上debug选项附近选择<strong>附加到进程</strong>, 然后选择蔚蓝</p>
+<ul>
+<li>VisualStudio</li>
+</ul>
+<p><img alt="p1" src="../images/debug/debug_p1_1.png" /></p>
+<ul>
+<li>Rider</li>
+</ul>
+<p><img alt="p1" src="../images/debug/debug_p1_0.jpg" /></p>
+</li>
+<li>
+<p>接着在旁边打上红红的断点
+   <img alt="p2" src="../images/debug/debug_p2.jpg" /></p>
+</li>
+<li>然后当 <code>madeline</code> 碰到 <code>PassByRefill</code> 的时候, 游戏进程就会被锁住, 接着你可以通过步进, 步入, 步出等方式进行调试, 获取想要的信息</li>
+<li>调试完成后, 你可以直接停止调试, 或者把断点点掉然后点击"恢复程序运行", 之后再打上断点继续调试</li>
+</ol>
 
 
 
