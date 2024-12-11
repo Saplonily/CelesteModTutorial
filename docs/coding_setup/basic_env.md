@@ -43,9 +43,9 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
     如果你没有能力支持正版书籍的话, 你可以到一些 C# 开发者群内寻找它的电子非正版(比如视频 `1.` up 的群内)  
     上面几个我更加推荐的是 `1.` 和 `3.`  
     借用 `4.` 的目录, 确保你对下面这些概念(画 × 的暂时在蔚蓝 Code Mod 中用不到)有足够清晰的了解在开始你的蔚蓝 Code Mod 之旅之前:  
-    ![runnob-1](runnob-1.png)
-    ![runnob-2](runnob-2.png)
-    ![runnob-3](runnob-3.png)
+    ![runnob-1](images/base_env/runnob-1.png)
+    ![runnob-2](images/base_env/runnob-2.png)
+    ![runnob-3](images/base_env/runnob-3.png)
 
 相信在上面的教程中你应该已经被推荐了一些编辑器 / IDE, 那么在本教程中我个人会为了方便**仅**在 `Windows` 上使用 `Visual Studio`, 当然不保证在其他地方会遇到奇奇怪怪的问题. \_(:з」∠)\_
 
@@ -134,7 +134,8 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 通过模板的话依然有些东西需要自行更改, 比如这个 Mod 的名字.  
 更改 Mod 的名字很简单, 你只需要简单地在 vs 里重命名项目的名字
 比如我想叫做 `MyAwesomeMod`, 那么你可以通过这样:  
-![awesome mod!](rename_proj.png)
+![awesome mod!](images/base_env/rename_proj.png)
+
 顺便别忘了把类似 `MyCelesteModModule.cs` 的文件名也改成类似 `MyAwesomeModModule.cs`,
 以及改名后清理一下 ModFolder 下面可能有的一些以过去名字命名的 .dll 和 .pdb 文件!  
 

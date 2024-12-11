@@ -15,7 +15,7 @@ Trigger 是 Entity 的子类, 它带有一个长方形的碰撞箱, 通常它是
 
 !!! info
     在官图第九章假心附近的 Trigger 看上去就像:  
-    ![9atriggers](9_triggers.png)  
+    ![9atriggers](images/simple_trigger/9_triggers.png)  
     在这里, 左边有个设置重生点的 Trigger, 中间有个保持镜头位置的 Trigger, 而在右边有个更改背景的 Trigger.
 
 那么, 是时候制作一个属于我们自己的 Trigger 了, 简单起见这里我们只做几个最简单的功能:
@@ -202,14 +202,14 @@ triggers.MyCelesteMod/SetPassByRefillDashesTrigger.placements.name.normal=SetPas
 
 现在在你的地图上摆放这个 trigger 以及几个 `PassByRefill`.  
 我在这里会摆几个背景砖来帮我们辨识这个 trigger 在哪, 因为 trigger 通常都是不可见的 (你可以通过 `~` 键或者下载 `CelesteTAS` 这个 mod 来查看碰撞箱).  
-![loenn-trigger](loenn_result_trigger.png)  
+![loenn-trigger](images/simple_trigger/loenn_result_trigger.png)  
 那么见证你的杰作吧!  
 <br>
 
 **进入 trigger 前** (PassByRefill 的 Dashes 设置为 2):  
-![b4-enter](b4_enter.png)  
+![b4-enter](images/simple_trigger/b4_enter.png)  
 **进入 trigger 后** (被设置为 1 了):  
-![af-enter](af_enter.png)
+![af-enter](images/simple_trigger/af_enter.png)
 
 ## 最后
 

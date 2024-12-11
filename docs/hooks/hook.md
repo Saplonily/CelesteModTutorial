@@ -83,9 +83,9 @@ Everest 为我们把几乎所有可能钩取的函数放到了命名空间 `On` 
 在这里我们的钩子函数就是`Player_Update`,
 你可能注意到参数很复杂, 是的, 所以一般来说我都是依赖 IDE 帮我自动填写这些参数就像:  
 
-![b4](auto_complete_b4.png)  
+![b4](images/hook_reading_1/auto_complete_b4.png)  
   
-![af](auto_complete_af.png)
+![af](images/hook_reading_1/auto_complete_af.png)
 
 !!! note
     注意 IDE 生成的函数默认包含一句抛出异常语句, 记得把它改掉
@@ -124,37 +124,6 @@ public override void Unload()
     On.Celeste.Player.Update -= Player_Update;
 }
 ```
-
-## 阅读代码 I
-
-到这里相信你肯定有很多问号, 比如这些函数都是干什么的? 
-
-- `Player` 是什么?
-- `Player.Update` 是什么?
-- `Player.Jump` 又是什么??
-
-所以这时我们就需要**阅读蔚蓝的代码**来了解这些东西. 当然, 蔚蓝是个商业游戏, 想指望它开源所有代码是不可能的,
-那我们就必须得借助一些反编译工具.  
-在这里我会推荐 [`dnSpy`](https://github.com/dnSpyEx/dnSpy)
-
-使用该软件很简单:
-
-- 打开它
-- 点击左上角的`文件`, `打开`
-- 选择 `Celeste.exe` (如果你使用 core 版本的 everest, 你需要选择 `Celeste.dll`)
-- 展开蔚蓝的程序集
-- 你现在可以看到蔚蓝都有哪些类了
-- 你现在也可以看到蔚蓝都有哪些函数了
-
-!!! warning
-    不要上传反编译后的代码到任何地方, 这可能会不避免的造成一些争议.
-
-现在我们浏览蔚蓝的代码就像你在 IDE 里浏览你的项目一样, 虽然这不是我们的项目. 在浏览过程中, 通常可能你会对着一个字段、一个函数发呆,
-大概是因为你根本不知道它是做什么的!
-好在 `dnSpy` 提供了一个很好用的"分析"功能来缓解这个 :  
-![dnSpy-ana](dnspy_ana.png)  
-在这里你可以看到哪些字段、哪些函数被谁调用了、被谁引用了、被谁更改了:
-![dnSpy-track](dnspy_track.png)  
 
 ### Monocle, EC 架构
 

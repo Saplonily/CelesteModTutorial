@@ -71,7 +71,7 @@ public class MyCelesteModSettings : EverestModuleSettings
 
 现在直接编译你的项目, 然后你应该会看到 Everest 为你在 mod 选项中生成了这样一条有趣的设置:
 
-![interesting-switch](interesting-switch.png)
+![interesting-switch](images/session_settings_savedata/interesting-switch.png)
 
 随后你就能在你 mod 的任何地方用 `MyCelesteModSettings.Settings.AnInterestingSwitch` 来访问这个开关了.
 
@@ -91,7 +91,7 @@ public class MyCelesteModSettings : EverestModuleSettings
 }
 ```
 
-![more-options](more-options.png)
+![more-options](images/session_settings_savedata/more-options.png)
 
 !!! info
     `AString` 那条选项是一个按钮, 按下后会进入文字输入界面, 冒号后面会跟玩家输入了的文字.  
@@ -162,7 +162,7 @@ modoptions_mycelestemod_title=funny MyCelesteMod
 !!! note
     时刻记得填充 `english.txt`, 因为如果其他语言没找到这个键名会默认回退到 `english`, 如果再没有的话就会直接展示丑陋的键名.
 
-![dialog](dialog.png)
+![dialog](images/session_settings_savedata/dialog.png)
 
 本地化键名并不是固定的, 你可以使用 `SettingName` 装饰到类上或者属性上来修改它, 不过我个人不是很建议修改它, 因为默认的值作为键名完全够用,
 此外还有一个 `SettingSubText` 特性, 它可以向该选项被选中时在底下显示一行小字, 它的参数同样是个本地化键名,

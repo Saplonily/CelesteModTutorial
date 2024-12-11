@@ -273,7 +273,7 @@ private static void ChainOnUpdate(chainUpdateHookDelegate orig, Entity chain)
 
 但是这么写就很难受, 而且 chain 的类型为 Entity 不为 Chain 了, 想类型转成 Chain 我们又拿不到 Chain, 这时就需要我们添加 `CommunalHelper` 程序集的依赖(像一开始配置蔚蓝 code 环境那样)  
 
-![code_dependency](imgs/code_dependency.jpg)
+![code_dependency](images/adv_hooks/code_dependency.jpg)
 
 dc 社区习惯的做法是将这个 dll 的 ref 版本 (也就是 stripped 后的版本, 删除了所有方法的实现, 只保留了元数据) 放到 mod 目录外面的 lib-stripped 目录里然后引用. 参考[草莓酱](https://github.com/StrawberryJam2021/StrawberryJam2021/tree/main)的源码. strip 的方法不唯一, 例如你可以使用 mono 的 strip 工具 `mono-cil-strip`, 或者 [`NStrip`](https://github.com/bbepis/NStrip) 这个工具, 具体在这里就不说明了.  
 
