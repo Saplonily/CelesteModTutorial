@@ -198,7 +198,7 @@ public class SampleTrigger : Trigger
     public SampleTrigger(EntityData data, Vector2 offset)
         : base(data, offset)
     {
-        if (!MyCelesteMod.GravityHelperLoaded)
+        if (!MyCelesteModModule.GravityHelperLoaded)
         {
             throw new Exception("SampleTrigger requires GravityHelper as a dependency!")
         }
