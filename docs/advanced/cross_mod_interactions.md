@@ -34,13 +34,15 @@ public static bool GravityHelperLoaded;
 
 public override void Load()
 {
+    // 获取 GravityHelperModule 的元数据
     EverestModuleMetadata gravityHelper = new()
     {
         Name = "GravityHelper",
         Version = new Version(1, 2, 20)
     };
     
-GravityHelperLoaded = Everest.Loader.DependencyLoaded(gravityHelper);
+    // 判断 GravityHelper 是否成功加载
+    GravityHelperLoaded = Everest.Loader.DependencyLoaded(gravityHelper);
 }
 ```
 
@@ -104,6 +106,10 @@ public override void Load()
 `ModImportName(string name)` 特性用于在你的 Mod 中引入其他 Mod 导出的 API，`name` 参数是我们导入 API 的唯一标识符, 用于指定我们需要导入的 API.
 
 下面我们新建另一个 Mod `AnotherCelesteMod` 导入 `MyCelesteMod` 提供的 API:
+
+!!! info
+    在导入前记得在 `everest.yaml` 中添加 `MyCelesteMod` 的可选依赖.
+    
 ```cs title="MyCelesteModAPI.cs"
 using MonoMod.ModInterop;
 
@@ -156,7 +162,7 @@ if (MyCelesteModAPI.MultiplyByTwo.Invoke(myNumber) > 400)
 
 我们也可以通过 `EverestModule` 反射动态地访问我们希望交互的 Mod 的程序集, 而无需直接引用目标 Mod 的程序集.
 
-下面我们以 `GravityHelper` 为例:
+下面我们以 [`GravityHelper`](https://github.com/swoolcock/GravityHelper/blob/develop/Source/GravityHelperModule.cs) 为例:
 ```cs title="MyCelesteModModule.cs"
 public static bool GravityHelperLoaded;
 
@@ -166,6 +172,7 @@ public static MethodInfo SetPlayerGravity;
 
 public override void Load()
 {
+    // 获取 GravityHelperModule 的元数据
     EverestModuleMetadata gravityHelperMetadata = new()
     {
         Name = "GravityHelper",
@@ -174,14 +181,21 @@ public override void Load()
 
     GravityHelperLoaded = Everest.Loader.DependencyLoaded(gravityHelper);
 
+    // 通过 EverestModule 反射获取 GravityHelper 的程序集
     if (Everest.Loader.TryGetDependency(gravityHelperMetadata, out var gravityModule))
     {
+        // 反射获取 Celeste.Mod.GravityHelper.GravityHelperModule 类型
         Assembly gravityAssembly = gravityModule.GetType().Assembly;
         Type gravityHelperModuleType = gravityAssembly.GetType("Celeste.Mod.GravityHelper.GravityHelperModule");
-        PropertyInfo playerComponent = gravityHelperModuleType?.GetProperty("PlayerComponent", BindingFlags.NonPublic | BindingFlags.Static);
 
+        // 反射获取 GravityHelper.GravityHelperModule.PLayerComponent 属性
+        PropertyInfo playerComponent = gravityHelperModuleType?.GetProperty("PlayerComponent", BindingFlags.NonPublic | BindingFlags.Static);
         PlayerGravityComponent = playerComponent;
+
+        // 反射获取 GravityHelper.Components.SetPlayerGravity 方法
         SetPlayerGravity = playerComponent?.GetValue(null)?.GetType().GetMethod("SetGravity", BindingFlags.Public | BindingFlags.Instance);
+
+        // 反射获取 GravityHelper.GravityHelperModule.ShouldInvertPlayer 属性
         IsPlayerInverted = gravityHelperModuleType?.GetProperty("ShouldInvertPlayer", BindingFlags.Public | BindingFlags.Static);
     }
 }
@@ -198,6 +212,7 @@ public class SampleTrigger : Trigger
     public SampleTrigger(EntityData data, Vector2 offset)
         : base(data, offset)
     {
+        // 判断 GravityHelper 是否成功加载
         if (!MyCelesteModModule.GravityHelperLoaded)
         {
             throw new Exception("SampleTrigger requires GravityHelper as a dependency!")
@@ -208,9 +223,11 @@ public class SampleTrigger : Trigger
     {
         base.OnEnter(player);
 
+        // 设置玩家重力
         object[] parameters = [2, 1f, false];
         MyCelesteModModule.SetPlayerGravity.Invoke(MyCelesteModModule.PlayerGravityComponent.GetValue(null), parameters);
 
+        // 获取玩家是否在反重力状态下
         bool isPlayerInverted = (bool)MyCelesteModModule.IsPlayerInverted.GetValue(null);
         Logger.Log(LogLevel.Info, "MyCelesteMod", $"isPlayerInverted is {isPlayerInverted}!");
     }
@@ -219,8 +236,13 @@ public class SampleTrigger : Trigger
 
 这种方式和 `ModInterop` 类似, 可以在不直接引用目标 Mod 的程序集的情况下进行交互.
 不过代码会变得更复杂, 更脆弱, 可读性也会降低.
+此外, 目标 Mod 的一些改动可能会导致你的 Mod 不能按预期工作, 从而导致崩溃.
 
 我们只建议只需要轻度交互时使用这种方式, 如果目标 Mod 有 `MopInterop` API 时更推荐去使用 `MopInterop` API.
 
 
-<!--## 跨 Mod 钩子-->
+## 跨 Mod 钩子
+我们也可以为另一个 Mod 添加 IL 钩子，参考 [IL 钩子](../hooks/adv_hooks.md).
+
+不过, 一般不鼓励像这样改变另一个 Mod 的行为. 安装 Mod 的用户通常希望它的行为与描述一致, 因此任何外部更改都应尽量少做.
+此外, 这种方法比使用反射调用方法更加脆弱, 因为它依赖于签名和 IL 保持相对稳定.
