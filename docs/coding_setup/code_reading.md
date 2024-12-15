@@ -51,19 +51,13 @@
 
     - `Uses` 直接依赖于
     - `Used By` 被调用于
+    - `Read By` 被读取于
     - `Assigned By` 赋值于
     - `Expose By` 暴露于
     - `Instantiated By` 被实例化于
     - `Extension Methods` 拓展方法
 
-<!-- umm 等后面再写(?>
-## 反编译代码的结构分析
-wip
-
-至于下面的后续会移除所有钩子相关 标题可能会改成 反编译代码中的"特殊"语法
-<-->
-
-## 奇奇怪怪的昵称与代码
+## 反编译代码中的"特殊"语法
 
 一些情况下, 阅读由反编译器生成的代码时可能不是那么顺利, 那么这一节会简单说一些反编译器生成的代码与通常的 C# 代码不一样的地方.
 
@@ -97,7 +91,7 @@ public void orig_ctor(EntityData e, Vector2 offset)
 !!! info
     `ctor` 这个奇怪的缩写来自单词 `constructor`, 直译即 `构造器`.
 
-所以我们通常也会用 `.ctor` `ctor` 来指代构造函数, `.cctor` `cctor` 指代静态构造函数. 此外, Visual Studio 中有个自带的代码片段就是 `ctor`,
+所以我们通常也会用 `.ctor` / `ctor` 来指代构造函数, `.cctor` / `cctor` 指代静态构造函数. 此外, Visual Studio 中有个自带的代码片段就是 `ctor`,
 在类中打出 ctor 并双击 Tab 键, vs 就会自动生成该类的构造函数, 这里的 `ctor` 来源也就在此. 
 
 !!! info
@@ -105,7 +99,7 @@ public void orig_ctor(EntityData e, Vector2 offset)
 
 ### orig_*
 
-还有一些函数以 `orig_` 开头, 这其实是 everest 自己"钩取"的函数. 在这里, 比如 `Player.Update` 方法就被 everest 进行了"钩取",
+还有一些函数以 `orig_` 开头, 这其实是 everest 自己"[钩取](../hooks/hook.md)"的函数. 在这里, 比如 `Player.Update` 方法就被 everest 进行了"钩取",
 而钩子函数本体就是 `Player.Update`, 而对应我们钩子的 `orig` 委托在就体现为 `orig_Update` 方法.
 
 ```cs title="Player.Update  (像钩子本体一样!)"
