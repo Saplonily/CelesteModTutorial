@@ -109,7 +109,7 @@ public override void Load()
 
 !!! info
     在导入前记得在 `everest.yaml` 中添加 `MyCelesteMod` 的可选依赖.
-    
+
 ```cs title="MyCelesteModAPI.cs"
 using MonoMod.ModInterop;
 
@@ -238,7 +238,8 @@ public class SampleTrigger : Trigger
 不过代码会变得更复杂, 更脆弱, 可读性也会降低.
 此外, 目标 Mod 的一些改动可能会导致你的 Mod 不能按预期工作, 从而导致崩溃.
 
-我们只建议只需要轻度交互时使用这种方式, 如果目标 Mod 有 `MopInterop` API 时更推荐去使用 `MopInterop` API.
+我们只建议只需要轻度交互时使用这种方式, 如果目标 Mod 有 `ModInterop` API 时更推荐去使用 `ModInterop` API.
+
 
 
 ## 跨 Mod 钩子
