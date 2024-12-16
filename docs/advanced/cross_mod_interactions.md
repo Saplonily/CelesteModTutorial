@@ -35,14 +35,14 @@ public static bool GravityHelperLoaded;
 public override void Load()
 {
     // 获取 GravityHelperModule 的元数据
-    EverestModuleMetadata gravityHelper = new()
+    EverestModuleMetadata gravityHelperMetadata = new()
     {
         Name = "GravityHelper",
         Version = new Version(1, 2, 20)
     };
     
     // 判断 GravityHelper 是否成功加载
-    GravityHelperLoaded = Everest.Loader.DependencyLoaded(gravityHelper);
+    GravityHelperLoaded = Everest.Loader.DependencyLoaded(gravityHelperMetadata);
 }
 ```
 
@@ -179,7 +179,7 @@ public override void Load()
         Version = new Version(1, 2, 20)
     };
 
-    GravityHelperLoaded = Everest.Loader.DependencyLoaded(gravityHelper);
+    GravityHelperLoaded = Everest.Loader.DependencyLoaded(gravityHelperMetadata);
 
     // 通过 EverestModule 反射获取 GravityHelper 的程序集
     if (Everest.Loader.TryGetDependency(gravityHelperMetadata, out var gravityModule))
