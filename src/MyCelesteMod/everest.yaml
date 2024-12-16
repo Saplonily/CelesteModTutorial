@@ -1,6 +1,0 @@
-- Name: MyCelesteMod
-  Version: 0.0.1
-  DLL: MyCelesteMod.dll
-  Dependencies:
-    - Name: Everest
-      Version: 1.4000.0
