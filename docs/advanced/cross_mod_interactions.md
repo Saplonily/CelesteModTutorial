@@ -192,7 +192,7 @@ public override void Load()
         PlayerGravityComponentProperty = gravityHelperModuleType?.GetProperty("PlayerComponent", BindingFlags.NonPublic | BindingFlags.Static);
 
         // 反射获取 GravityHelper.Components.SetPlayerGravity 方法
-        SetPlayerGravityMethod = playerComponent?.GetValue(null)?.GetType().GetMethod("SetGravity", BindingFlags.Public | BindingFlags.Instance);
+        SetPlayerGravityMethod = PlayerGravityComponentProperty?.GetValue(null)?.GetType().GetMethod("SetGravity", BindingFlags.Public | BindingFlags.Instance);
 
         // 反射获取 GravityHelper.GravityHelperModule.ShouldInvertPlayer 属性
         IsPlayerInvertedProperty = gravityHelperModuleType?.GetProperty("ShouldInvertPlayer", BindingFlags.Public | BindingFlags.Static);
