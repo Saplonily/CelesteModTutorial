@@ -7,7 +7,7 @@
 在与其他 Mod 交互前, 我们需要在 `everest.yaml` 中添加相应的依赖.
 这里我们以 `GravityHelper` 为例:
 
-```yml title="everest.yaml"
+```yaml title="everest.yaml"
 - Name: MyCelesteMod
   Version: 0.1.0
   DLL: MyCelesteMod.dll
@@ -62,9 +62,9 @@ public override void Load()
 
 下面我们将介绍这两种特性的使用.
 
-### ModExportName Attribute
+### ModExportNameAttribute
 
-`ModExportName(string name)` 特性用于导出我们希望提供的方法, `name` 参数是我们提供的一系列 API 的唯一标识符, 用于在其他 Mod 中引用此 API.
+`ModExportNameAttribute(string name)` 特性用于导出我们希望提供的方法, `name` 参数是我们提供的一系列 API 的唯一标识符, 用于在其他 Mod 中引用此 API.
 
 下面我们新建一个 `MyCelesteModExports` 类进行示例:
 ```cs title="MyCelesteModExports.cs"
@@ -79,7 +79,7 @@ public static class MyCelesteModExports
     // 添加于 1.0.1 版本
     public static int MultiplyByTwo(int num) => num * 2;
     // 添加于 1.0.0 版本
-    public static void LogStuff() => Logger.Log(LogLevel.Info, "MyCelesteMod", "Someone is calling this delegate!");
+    public static void LogStuff() => Logger.Log(LogLevel.Info, "MyCelesteMod", "Someone is calling this method!");
 }
 ```
 
@@ -101,9 +101,9 @@ public override void Load()
 
 这样, 我们就完成 `ModInterop` API 的导出.
 
-### ModImportName Attribute
+### ModImportNameAttribute
 
-`ModImportName(string name)` 特性用于在你的 Mod 中引入其他 Mod 导出的 API，`name` 参数是我们导入 API 的唯一标识符, 用于指定我们需要导入的 API.
+`ModImportNameAttribute(string name)` 特性用于在你的 Mod 中引入其他 Mod 导出的 API, `name` 参数是我们导入 API 的唯一标识符, 用于指定我们需要导入的 API.
 
 下面我们新建另一个 Mod `AnotherCelesteMod` 导入 `MyCelesteMod` 提供的 API:
 
@@ -137,11 +137,11 @@ public override void Load()
 
 现在我们可以通过 `MyCelesteModAPI` 中导入的委托以调用我们希望使用的功能:
 ```cs
-int myNumber = MyCelesteModAPI.GetNumber.Invoke();
+int myNumber = MyCelesteModAPI.GetNumber();
 
-if (MyCelesteModAPI.MultiplyByTwo.Invoke(myNumber) > 400)
+if (MyCelesteModAPI.MultiplyByTwo(myNumber) > 400)
 {
-    MyCelesteModAPI.LogStuff.Invoke();
+    MyCelesteModAPI.LogStuff();
 }
 ```
 
@@ -162,13 +162,13 @@ if (MyCelesteModAPI.MultiplyByTwo.Invoke(myNumber) > 400)
 
 我们也可以通过 `EverestModule` 反射动态地访问我们希望交互的 Mod 的程序集, 而无需直接引用目标 Mod 的程序集.
 
-下面我们以 [`GravityHelper`](https://github.com/swoolcock/GravityHelper/blob/develop/Source/GravityHelperModule.cs) 为例:
+下面我们以 [`GravityHelper`](https://github.com/swoolcock/GravityHelper) 为例:
 ```cs title="MyCelesteModModule.cs"
 public static bool GravityHelperLoaded;
 
-public static PropertyInfo PlayerGravityComponent;
-public static PropertyInfo IsPlayerInverted;
-public static MethodInfo SetPlayerGravity;
+public static PropertyInfo PlayerGravityComponentProperty;
+public static PropertyInfo IsPlayerInvertedProperty;
+public static MethodInfo SetPlayerGravityMethod;
 
 public override void Load()
 {
@@ -188,15 +188,14 @@ public override void Load()
         Assembly gravityAssembly = gravityModule.GetType().Assembly;
         Type gravityHelperModuleType = gravityAssembly.GetType("Celeste.Mod.GravityHelper.GravityHelperModule");
 
-        // 反射获取 GravityHelper.GravityHelperModule.PLayerComponent 属性
-        PropertyInfo playerComponent = gravityHelperModuleType?.GetProperty("PlayerComponent", BindingFlags.NonPublic | BindingFlags.Static);
-        PlayerGravityComponent = playerComponent;
+        // 反射获取 GravityHelper.GravityHelperModule.PlayerComponent 属性
+        PlayerGravityComponentProperty = gravityHelperModuleType?.GetProperty("PlayerComponent", BindingFlags.NonPublic | BindingFlags.Static);
 
         // 反射获取 GravityHelper.Components.SetPlayerGravity 方法
-        SetPlayerGravity = playerComponent?.GetValue(null)?.GetType().GetMethod("SetGravity", BindingFlags.Public | BindingFlags.Instance);
+        SetPlayerGravityMethod = playerComponent?.GetValue(null)?.GetType().GetMethod("SetGravity", BindingFlags.Public | BindingFlags.Instance);
 
         // 反射获取 GravityHelper.GravityHelperModule.ShouldInvertPlayer 属性
-        IsPlayerInverted = gravityHelperModuleType?.GetProperty("ShouldInvertPlayer", BindingFlags.Public | BindingFlags.Static);
+        IsPlayerInvertedProperty = gravityHelperModuleType?.GetProperty("ShouldInvertPlayer", BindingFlags.Public | BindingFlags.Static);
     }
 }
 ```
@@ -225,10 +224,10 @@ public class SampleTrigger : Trigger
 
         // 设置玩家重力
         object[] parameters = [2, 1f, false];
-        MyCelesteModModule.SetPlayerGravity.Invoke(MyCelesteModModule.PlayerGravityComponent.GetValue(null), parameters);
+        MyCelesteModModule.SetPlayerGravityMethod.Invoke(MyCelesteModModule.PlayerGravityComponentProperty.GetValue(null), parameters);
 
         // 获取玩家是否在反重力状态下
-        bool isPlayerInverted = (bool)MyCelesteModModule.IsPlayerInverted.GetValue(null);
+        bool isPlayerInverted = (bool)MyCelesteModModule.IsPlayerInvertedProperty.GetValue(null);
         Logger.Log(LogLevel.Info, "MyCelesteMod", $"isPlayerInverted is {isPlayerInverted}!");
     }
 }
@@ -243,7 +242,8 @@ public class SampleTrigger : Trigger
 
 
 ## 跨 Mod 钩子
-我们也可以为另一个 Mod 添加 IL 钩子，参考 [IL 钩子](../hooks/adv_hooks.md).
+
+我们也可以为另一个 Mod 添加 IL 钩子, 参考 [IL 钩子](../hooks/adv_hooks.md).
 
 不过, 一般不鼓励像这样改变另一个 Mod 的行为. 安装 Mod 的用户通常希望它的行为与描述一致, 因此任何外部更改都应尽量少做.
-此外, 这种方法比使用反射调用方法更加脆弱, 因为它依赖于签名和 IL 保持相对稳定.
+此外, 这种方法比使用反射调用方法更加脆弱, 因为它依赖于签名和 IL 的相对稳定.
