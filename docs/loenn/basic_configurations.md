@@ -6,14 +6,3 @@
 
 ## 基础结构
 
-### placements
-
-### fieldInformation
-
-### fieldOrder
-
-## 基础函数
-
-### selection
-
-### sprite

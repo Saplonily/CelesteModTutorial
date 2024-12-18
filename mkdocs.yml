@@ -73,10 +73,10 @@ nav:
  # - Loenn:
  #     - Loenn 目录结构: "loenn/folder_structure.md"
  #     - Loenn 基础配置: "loenn/basic_configurations.md"
- #     - Loenn 节点: "loenn/nodes.md"
  #     - Loenn 绘制: "loenn/rendering.md"
  #     - Entity 结构: "loenn/entity_structs.md" 
  #     - Trigger 结构: "loenn/trigger_structs.md"
+ #     - Loenn 节点: "loenn/nodes.md"
  #     - Effect 结构: "loenn/effect_structs.md"
   - 实战:
       - 简单自定义实体: "coding_challenges/simple_entity.md"
