@@ -6,6 +6,9 @@
 
 大部分文章可能会写的不明不白以至于需要频繁修改, 如果你有更好的修改建议的话欢迎来提 issue.  
 
+实战部分附带一张测试地图供读者下载下来<del>乱弄</del>研究与测试,
+你可以在[这里](resources/CelesteModTutorial.zip)进行下载.
+
 那么一切就绪, 可以开始阅读 入门-第一节 了:
 
 [开始 - Celeste Everest MonoMod](basics/celeste_everest_monomod.md)
