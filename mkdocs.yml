@@ -73,9 +73,9 @@ nav:
  # - Loenn:
  #     - Loenn 目录结构: "loenn/folder_structure.md"
  #     - Loenn 基础配置: "loenn/basic_configurations.md"
- #     - Loenn 绘制: "loenn/rendering.md"
  #     - Entity 结构: "loenn/entity_structs.md" 
  #     - Trigger 结构: "loenn/trigger_structs.md"
+ #     - Loenn 绘制: "loenn/rendering.md"
  #     - Loenn 节点: "loenn/nodes.md"
  #     - Effect 结构: "loenn/effect_structs.md"
   - 实战:
@@ -105,6 +105,7 @@ nav:
       - FAQ: "extra_cmcc/cmcc/todo.md"
   - 历史归档:
       - 基础环境配置: "arc/basic_env.md"
+      - 通过模板创建项目: "arc/project_template.md"
       - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
   - 杂项:
       - ChangeLog: "misc/change_log.md"
