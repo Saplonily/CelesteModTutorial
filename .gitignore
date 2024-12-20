@@ -2,8 +2,7 @@ site/**
 .VSCodeCounter/**
 .vs/**
 .idea/
-**/Code/bin/**
-**/Code/obj/**
-**/Code/.vs/**
-**/Code/MyCelesteMod.sln
-**/Code/CelesteModTutorial.sln
+**/Source/bin/**
+**/Source/obj/**
+**/Source/.vs/**
+**/Source/CelesteModTutorial.sln

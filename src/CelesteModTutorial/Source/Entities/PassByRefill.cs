@@ -5,30 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CelesteModTutorial.Entities;
+namespace Celeste.Mod.CelesteModTutorial.Entities;
 
 [Tracked]
-[CustomEntity("CelesteModTutorial/PassByRefillWithTexture")]
-public class PassByRefillWithTexture : Entity
+[CustomEntity("CelesteModTutorial/PassByRefill")]
+public class PassByRefill : Entity
 {
     public int Dashes = 0;
 
-    public PassByRefillWithTexture(Vector2 position, int dashes)
+    public PassByRefill(Vector2 position, Vector2 size, int dashes)
     {
         Position = position;
         Collider = new Hitbox(64f, 64f);
         Dashes = dashes;
-
-        // 获取材质
-        MTexture tex = GFX.Game["objects/PassByRefill/pass_by_refill"];
-
-        // 向实体添加 Image 组件
-        Image image = new(tex);
-        Add(image);
     }
 
-    public PassByRefillWithTexture(EntityData data, Vector2 offset)
-        : this(data.Position + offset, data.Int("dashes"))
+    public PassByRefill(EntityData data, Vector2 offset)
+        : this(data.Position + offset, new Vector2(data.Width, data.Height), data.Int("dashes"))
     { 
     
     }
@@ -46,5 +39,14 @@ public class PassByRefillWithTexture : Entity
             // 如果碰撞了, 那么设置它的冲刺数
             player.Dashes = Dashes;
         }
+    }
+
+    public override void Render()
+    {
+        base.Render();
+
+        Color c = Color.Red;
+        c.A = 127;
+        Draw.Rect(Position, Width, Height, c);
     }
 }

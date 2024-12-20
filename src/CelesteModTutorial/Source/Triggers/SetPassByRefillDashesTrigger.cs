@@ -1,12 +1,12 @@
-﻿using Celeste.Mod.Entities;
-using CelesteModTutorial.Entities;
+﻿using Celeste.Mod.CelesteModTutorial.Entities;
+using Celeste.Mod.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CelesteModTutorial.Triggers;
+namespace Celeste.Mod.CelesteModTutorial.Triggers;
 
 [CustomEntity("CelesteModTutorial/SetPassByRefillDashesTrigger")]
 public class SetPassByRefillDashesTrigger : Trigger
