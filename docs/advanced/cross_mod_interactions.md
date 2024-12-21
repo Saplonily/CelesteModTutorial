@@ -166,7 +166,7 @@ Everest 会将所有 Code Mod 的程序集使用 MonoMod 进行 patch 处理后�
   <Import Project="CelesteMod.props" />
 
   <PropertyGroup>
-    <RootNamespace>Celeste.Mod.MyTestMod</RootNamespace>
+    <RootNamespace>Celeste.Mod.MyCelesteMod</RootNamespace>
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
@@ -183,6 +183,7 @@ Everest 会将所有 Code Mod 的程序集使用 MonoMod 进行 patch 处理后�
 <ItemGroup>
 	<CelesteModReference Include="GravityHelper" />
 	<CelesteModReference Include="ExtendedVariantMode" />
+    <CelesteModReference Include="FrostHelper" AssemblyName="FrostTempleHelper" />
 </ItemGroup>
 
   <Import Project="CelesteMod.targets" />
@@ -200,7 +201,7 @@ Everest 会将所有 Code Mod 的程序集使用 MonoMod 进行 patch 处理后�
 ### lib-stripped
 
 `lib-stripped` 是指剥离了所有方法实现的程序集, 仅保留类型和方法签名.      
-我们可以通过 [`mono-cil-strip`](https://man.archlinux.org/man/mono-cil-strip.1.en) 等工具对目标程序集进行剥离.     
+我们可以通过 [`NStrip`](https://github.com/bbepis/NStrip) 或 [`BepInEx.AssemblyPublicizer `](https://github.com/BepInEx/BepInEx.AssemblyPublicizer) 的 `strip-only` 模式等工具对目标程序集进行剥离.     
 完成后我们可以直接引用被剥离的程序集.
 
 

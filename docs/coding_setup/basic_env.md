@@ -55,9 +55,6 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
     在蔚蓝国外社区流行着另一个 mod 项目模板, 不过我个人不太喜欢它, 不过你需要的话[这是 Github 主页](https://github.com/EverestAPI/CelesteModTemplate)
     所以这里主要使用我个人制作也是个人最常用的一个.  
 
-!!! note
-    项目模板在重构的教程中进行了更新, 旧版你可以在[归档-通过模板创建项目](../arc/project_template.md)中找到(不推荐)
-
 \_(:з」∠)\_  
 根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(  
 所以呢这里就推荐一种新的配置环境的方式 - **使用模板**  
@@ -67,7 +64,6 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 - 外部: 在蔚蓝根目录外编写代码.
 - 就地: 在 `Celeste/Mods/<你的 Mod 名称>/Source` 中编写代码.
 
-考虑到 nuget 安装模板也需要一定的命令行基础...  
 我们在下面会使用 `Visual Studio` 进行演示.
 或者你也可以选择使用 `dotnet cli` 从 nuget 上的模板安装:
 
@@ -104,7 +100,7 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
     - `-ev`: 指定 `everest.yaml` 中的 `EverestCore` 版本, 默认为 `4465`.
     - `-mv`: 指定 `everest.yaml` 中的你的 Mod 的初始版本, 默认为 `0.1.0`.
 
-首先我们打开命令行(`cmd` 或是 `Windows PowerShell` 都行), 输入以下命令进行安装:
+首先我们打开命令行, 输入以下命令进行安装:
 ```bat
 dotnet new install Saladim.CelesteModTemplate
 ```
