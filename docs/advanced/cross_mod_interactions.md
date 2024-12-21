@@ -158,7 +158,7 @@ if (MyCelesteModAPI.MultiplyByTwo(myNumber) > 400)
 
 ### Cache
 
-`Everest` 会将所有 Code Mod 的程序集解压复制到 `Celeste/Mods/Cache` 中.     
+Everest 会将所有 Code Mod 的程序集使用 MonoMod 进行 patch 处理后放置到 `Celeste/Mods/Cache/<mod名>.<程序集名>.dll` 中.     
 我们可以通过配置模板的 `.csporj` 文件以直接引用它们:
 
 ```xml title="MyCelesteMod.csproj" hl_lines="19 20 21 22"
