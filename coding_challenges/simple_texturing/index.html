@@ -631,6 +631,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../test_map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    测试地图
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../simple_entity/" class="md-nav__link">
         
   
@@ -1373,6 +1394,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../arc/project_template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    通过模板创建项目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../arc/sdk-styled-proj/" class="md-nav__link">
         
   
@@ -1650,7 +1692,8 @@
 <li>Graphics<ul>
 <li>Atlases<ul>
 <li>Gameplay<ul>
-<li><code>MyCelesteMod</code><ul>
+<li>objects<ul>
+<li>PassByRefill<ul>
 <li>pass_by_refill.png</li>
 </ul>
 </li>
@@ -1663,8 +1706,10 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <p><code>pass_by_refill.png</code> 即我们的贴图, 如果你同时也是一位 mapper 的话你一定很熟悉这个文件夹套套乐!<br />
-在代码这边, 我们使用 <code>GFX.Game["MyCelesteMod/pass_by_refill"]</code> 来获取这个贴图, 它是一个 <code>MTexture</code> 类型的实例, 在获取到这个贴图后,
+在代码这边, 我们使用 <code>GFX.Game["objects/PassByRefill/pass_by_refill"]</code> 来获取这个贴图, 它是一个 <code>MTexture</code> 类型的实例, 在获取到这个贴图后,
 我们 <code>new</code> 一个 <code>Monocle.Image</code>, 然后在构造函数中传入它, 然后使用 <code>this.Add</code> 函数挂载到我们的这个实体上, 总的代码应该是这样的:
 <div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PassByRefill.cs</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1683,16 +1728,16 @@
 <span class="w">    </span><span class="n">Hitbox</span><span class="w"> </span><span class="n">hitbox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="m">64</span><span class="p">,</span><span class="w"> </span><span class="m">64</span><span class="p">);</span>
 <span class="w">    </span><span class="n">Collider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hitbox</span><span class="p">;</span>
 
-<span class="w">    </span><span class="n">MTexture</span><span class="w"> </span><span class="n">tex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GFX</span><span class="p">.</span><span class="n">Game</span><span class="p">[</span><span class="s">&quot;MyCelesteMod/pass_by_refill&quot;</span><span class="p">];</span>
+<span class="w">    </span><span class="n">MTexture</span><span class="w"> </span><span class="n">tex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GFX</span><span class="p">.</span><span class="n">Game</span><span class="p">[</span><span class="s">&quot;objects/PassByRefill/pass_by_refill&quot;</span><span class="p">];</span>
 <span class="w">    </span><span class="n">Image</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="n">tex</span><span class="p">);</span>
 <span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">image</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p><code>GFX</code> 是蔚蓝中的一个管理贴图的类, 我们用它获取到一个贴图组 <code>Game</code>, 然后向它检索一个名为 <code>MyCelesteMod/pass_by_refill</code> 的贴图, 你可能会疑惑为什么这里的路径只需要后半部分,
-这是因为 <code>GFX.Game</code> 只会检索 <code>Atlases/Graphics/Gameplay</code> 中的内容.<br />
-同样的, <code>GFX.Portraits</code> 只会检索 <code>Atlases/Graphics/Portraits</code> 中的内容.</p>
+<p><code>GFX</code> 是蔚蓝中的一个管理贴图的类, 我们用它获取到一个贴图组 <code>Game</code>, 然后向它检索一个名为 <code>objects/PassByRefill/pass_by_refill</code> 的贴图, 你可能会疑惑为什么这里的路径只需要后半部分,</p>
+<p>这是因为 <code>GFX.Game</code> 只会检索 <code>Graphics/Atlases/Gameplay</code> 中的内容.<br />
+同样的, <code>GFX.Portraits</code> 只会检索 <code>Graphics/Atlases/Portraits</code> 中的内容.</p>
 </div>
 <p>顺便记得删掉我们重写的 <code>Render</code> 函数, 我们不再需要它了. 总的类应该是这样的:
 <div class="language-cs highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PassByRefill.cs</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1739,7 +1784,7 @@
 <span class="w">        </span><span class="n">Hitbox</span><span class="w"> </span><span class="n">hitbox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="m">64</span><span class="p">,</span><span class="w"> </span><span class="m">64</span><span class="p">);</span>
 <span class="w">        </span><span class="n">Collider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hitbox</span><span class="p">;</span>
 
-<span class="w">        </span><span class="n">MTexture</span><span class="w"> </span><span class="n">tex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GFX</span><span class="p">.</span><span class="n">Game</span><span class="p">[</span><span class="s">&quot;MyCelesteMod/pass_by_refill&quot;</span><span class="p">];</span>
+<span class="w">        </span><span class="n">MTexture</span><span class="w"> </span><span class="n">tex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GFX</span><span class="p">.</span><span class="n">Game</span><span class="p">[</span><span class="s">&quot;objects/PassByRefill/pass_by_refill&quot;</span><span class="p">];</span>
 <span class="w">        </span><span class="n">Image</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="n">tex</span><span class="p">);</span>
 <span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">image</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
@@ -1846,7 +1891,7 @@
 </div>
 </div>
 <p>然后设置 entity 的 <code>texture</code> 属性, 这会让 Loenn 为其设置贴图:
-<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">entity</span><span class="p">.</span><span class="n">texture</span> <span class="o">=</span> <span class="s2">&quot;MyCelesteMod/pass_by_refill&quot;</span>
+<div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">entity</span><span class="p">.</span><span class="n">texture</span> <span class="o">=</span> <span class="s2">&quot;objects/PassByRefill/pass_by_refill&quot;</span>
 </code></pre></div></td></tr></table></div>
 顺便设置贴图原点为左上角, 否则 Loenn 中的显示可能会与实际游戏中的不同:
 <div class="language-lua highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">entity</span><span class="p">.</span><span class="n">justification</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">}</span>
@@ -1890,7 +1935,7 @@
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">entity</span><span class="p">.</span><span class="n">texture</span> <span class="o">=</span> <span class="s2">&quot;MyCelesteMod/pass_by_refill&quot;</span>
+<span class="n">entity</span><span class="p">.</span><span class="n">texture</span> <span class="o">=</span> <span class="s2">&quot;objects/PassByRefill/pass_by_refill&quot;</span>
 <span class="n">entity</span><span class="p">.</span><span class="n">justification</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">}</span>
 
 <span class="kr">return</span> <span class="n">entity</span>

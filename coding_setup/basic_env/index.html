@@ -386,14 +386,29 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="通过模板创建项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      更改细节
+      外部模板
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      就地模板
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -416,7 +431,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       最后一步!
     </span>
@@ -425,7 +440,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       还没完
     </span>
@@ -434,7 +449,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       最后一些碎碎念
     </span>
@@ -744,6 +759,27 @@
             实战
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coding_challenges/test_map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    测试地图
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1403,6 +1439,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../arc/project_template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    通过模板创建项目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../arc/sdk-styled-proj/" class="md-nav__link">
         
   
@@ -1559,14 +1616,29 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="通过模板创建项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      更改细节
+      外部模板
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      就地模板
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1589,7 +1661,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       最后一步!
     </span>
@@ -1598,7 +1670,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       还没完
     </span>
@@ -1607,7 +1679,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       最后一些碎碎念
     </span>
@@ -1691,14 +1763,19 @@
 <h2 id="_2">通过模板创建项目</h2>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>在蔚蓝国外社区流行着另一个 mod 项目模板, 不过我个人不太喜欢它, 不过你需要的话<a href="https://github.com/EverestAPI/CelesteModTemplate">这是 Github 主页</a>
-所以这里主要使用我个人制作也是个人最常用的一个.  </p>
+<p>在蔚蓝国外社区流行着另一个 mod 项目模板, <a href="https://github.com/EverestAPI/CelesteModTemplate">这是它的 Github 主页</a>
+不过这里主要介绍使用我个人制作也是个人最常用的一个.</p>
 </div>
-<p>_(:з」∠)_<br />
-根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(<br />
-所以呢这里就推荐一种新的配置环境的方式 - <strong>使用模板</strong><br />
-考虑到 nuget 安装模板也需要一定的命令行基础...<br />
-所以这里考虑<a href="https://hongshitieli.lanzouj.com/iJfRz1l0iffg">提供直接的下载链接</a>,
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>项目模板在重构的教程中进行了更新, 旧版你可以在<a href="../../arc/project_template/">归档-通过模板创建项目</a>中找到(不推荐)</p>
+</div>
+<p>我们在这里提供两种模板:</p>
+<ul>
+<li>外部: 在蔚蓝根目录外编写代码.</li>
+<li>就地: 在 <code>Celeste/Mods/&lt;你的 Mod 名称&gt;/Source</code> 中编写代码.</li>
+</ul>
+<p>我们在下面会使用 <code>Visual Studio</code> 进行演示.
 或者你也可以选择使用 <code>dotnet cli</code> 从 nuget 上的模板安装:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1714,45 +1791,35 @@
 然后在此位置安装 nuget 上我的 mod 模板(如果你没有安装的话):
 <div class="language-bat highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet new install Saladim.CelesteModTemplate
 </code></pre></div></td></tr></table></div>
-然后你就能使用这条指令直接创建项目了:
-<div class="language-bat highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet new sapcelestemod
+然后你就能使用这条指令直接创建外部模板了:
+<div class="language-bat highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet new sapcelestemode
 </code></pre></div></td></tr></table></div>
-名字即为上层文件夹名, 或者你可以使用 <code>-n</code> 参数重写项目名字:
-<div class="language-bat highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet new sapcelestemod -n MySuperCelesteMod
+如果需要就地模板使用这条指令:
+<div class="language-bat highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet new sapcelestemodi
 </code></pre></div></td></tr></table></div>
-模板目前默认不会创建针对 Everest Core 的 Code Mod, 如果你需要的话你可以传入 <code>--core-only true</code> 参数:
-<div class="language-bat highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet new sapcelestemod --core-only true
-</code></pre></div></td></tr></table></div></p>
+下面是可选择的一些参数:</p>
+<ul>
+<li><code>-n</code>: 你的 Mod 名称, 默认为 <code>MyCelesteMod</code>, 用于重写项目名字, 例如 <code>-n YourCelesteMod</code>.</li>
+<li><code>-c</code>: 指定蔚蓝根目录(只对外部模板生效), 例如 <code>-c "C:\Program Files\steam\steamapps\Celeste"</code>.</li>
+<li><code>-up</code>: 是否使用 Publicize 后的 Celeste 程序集, 默认开启, 关闭可以 <code>-up false</code>.</li>
+<li><code>-ua</code>: 是否使用 Celeste Mod 分析器, 默认开启, 关闭可以 <code>-ua false</code>.</li>
+<li><code>-ss</code>: 向项目中添加 <code>Session</code> 类并在 <code>Module</code> 中自动配置, 默认关闭.</li>
+<li><code>-st</code>: 向项目中添加 <code>Settings</code> 类并在 <code>Module</code> 中自动配置, 默认关闭.</li>
+<li><code>-sd</code>: 向项目中添加 <code>SaveData</code> 类并在 <code>Module</code> 中自动配置, 默认关闭.</li>
+<li><code>-ev</code>: 指定 <code>everest.yaml</code> 中的 <code>EverestCore</code> 版本, 默认为 <code>4465</code>.</li>
+<li><code>-mv</code>: 指定 <code>everest.yaml</code> 中的你的 Mod 的初始版本, 默认为 <code>0.1.0</code>.</li>
+</ul>
 </details>
-<p>完成后使用你喜欢的编辑器打开项目(对于 vs 直接打开 .csproj 文件), 那么按理来说你会看到这几个文件:</p>
-<ul>
-<li>CelesteMod.props</li>
-<li>CelesteMod.targets</li>
-<li>Common.props</li>
-<li>MyCelesteModModule.cs</li>
-<li>MyCelesteMod.csproj</li>
-</ul>
-<p>以及你的项目, 它的名字是 <code>MyCelesteMod</code>, 不同于旧的方法, 在这里你的配置过程很简单:</p>
-<ul>
-<li>首先打开 <code>Common.props</code>, <strong>将里面的 <code>CelesteRootPath</code> 内的内容改成你的蔚蓝安装位置</strong></li>
-</ul>
-<div class="language-xml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;Project&gt;</span>
-<span class="w">    </span><span class="nt">&lt;PropertyGroup&gt;</span>
-<span class="hll"><span class="w">        </span><span class="nt">&lt;CelesteRootPath&gt;</span>C:\Program<span class="w"> </span>Files<span class="w"> </span>(x86)\Steam\steamapps\common\Celeste<span class="nt">&lt;/CelesteRootPath&gt;</span>
-</span><span class="w">        </span><span class="nt">&lt;CommonCelesteUsings&gt;</span>true<span class="nt">&lt;/CommonCelesteUsings&gt;</span>
-<span class="w">        </span><span class="nt">&lt;CommonCelesteReferences&gt;</span>true<span class="nt">&lt;/CommonCelesteReferences&gt;</span>
-<span class="w">        </span><span class="nt">&lt;ModAssetsFolderName&gt;</span>ModFolder<span class="nt">&lt;/ModAssetsFolderName&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span>
-<span class="nt">&lt;/Project&gt;</span>
-</code></pre></div></td></tr></table></div>
-<p>现在你可以按下 <code>Ctrl+B</code> 或者手动点击 <code>生成-&gt;生成解决方案</code>,
+<p>首先我们打开命令行, 输入以下命令进行安装:
+<div class="language-bat highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet new install Saladim.CelesteModTemplate
+</code></pre></div></td></tr></table></div></p>
+<p>完成后打开 <code>Visual Studio</code>, 选择 <code>创建新项目</code>, 然后在搜索框中输入 <code>Celeste</code>, 你应该能看到以下两个模板:
+<img alt="vs_template" src="../images/base_env/vs_template.png" /></p>
+<h3 id="_3">外部模板</h3>
+<p>选择并填写好项目名称之后, 你应该能看到以下内容:
+<img alt="external_template" src="../images/base_env/external_template.png" /></p>
+<p>其中的各选项详细信息可以把鼠标移到旁边的 <code>info</code> 图标进行查看.</p>
+<p>完成创建后你可以按下 <code>Ctrl+B</code> 或者手动点击 <code>生成-&gt;生成解决方案</code>,
 如果你在你的 vs 输出里面看到了类似这两句:</p>
 <div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>1&gt;MyCelesteMod -&gt; D:\User\temp\cm\bin\x86\Debug\net452\MyCelesteMod.dll
@@ -1768,13 +1835,13 @@
 所以当我们需要更改一些比如说 loenn 的配置文件, <code>everest.yaml</code> 的内容, 你的测试地图等时, 
 你只需要简单地重新编译一遍项目, 然后等待模板来帮你做剩下的活!  </p>
 </div>
-<h2 id="_3">更改细节</h2>
-<p>通过模板的话依然有些东西需要自行更改, 比如这个 Mod 的名字.<br />
-更改 Mod 的名字很简单, 你只需要简单地在 vs 里重命名项目的名字
-比如我想叫做 <code>MyAwesomeMod</code>, 那么你可以通过这样:<br />
-<img alt="awesome mod!" src="../images/base_env/rename_proj.png" /></p>
-<p>顺便别忘了把类似 <code>MyCelesteModModule.cs</code> 的文件名也改成类似 <code>MyAwesomeModModule.cs</code>,
-以及改名后清理一下 ModFolder 下面可能有的一些以过去名字命名的 .dll 和 .pdb 文件!  </p>
+<h3 id="_4">就地模板</h3>
+<p>就地模板在进行项目名称填写时你应该会看到以下内容:
+<img alt="inplace_template" src="../images/base_env/inplace_template.png" /></p>
+<p>这里的 <code>项目名称</code> 就是你的 Mod 名称.  <br />
+<code>位置</code> 我们需要改到蔚蓝的 <code>Mods</code> 目录下, 例如 <code>C:\Program Files\steam\steamapps\Celeste\Mods</code>.   <br />
+填写完成后我们还需要勾选 <code>将解决方案和项目放在同一目录中</code>.</p>
+<p>后面的项目配置基本与外部模板一致, 除了 <code>Celeste 所在的目录</code>. 这项已经在上一步的 <code>位置</code> 填写过了所以不需要再填写.</p>
 <h2 id="module">Module 类</h2>
 <p>就像我们的经典的控制台 C# 应用程序一样有个 <code>Main</code> 方法, 我们的蔚蓝 Mod 也有一个类似的东西, 
 那就是 Everest 提供给我们的 <code>EverestModule</code> 类.<br />
@@ -1865,7 +1932,7 @@
 </ul>
 <p>最后是最底下的那个依赖, 这里我们只依赖最基础的 Everest, 版本填上你目前使用的 Everest 版本, 这里我就填写 3971 了.
 如果你的 mod 依赖 Everest Core, 你需要在这里将 <code>Everest</code> 更改为 <code>EverestCore</code>, 并将版本号填写大于 4465 的值.</p>
-<h2 id="_4">最后一步!</h2>
+<h2 id="_5">最后一步!</h2>
 <p>为了方便我们的调试, 我们需要让蔚蓝打开的同时打开控制台, 这一步很简单:</p>
 <ul>
 <li>找到蔚蓝根目录下的 <code>everest-launch.txt</code>, 没有的话新建一个空的就行了</li>
@@ -1897,7 +1964,7 @@ FNA3D Driver: D3D11
 D3D11 Adapter: Intel(R) UHD Graphics 630
 </code></pre></div></td></tr></table></div></p>
 <!-- 肯定会有人在意怎么是 630 核显( -->
-<h2 id="_5">还没完</h2>
+<h2 id="_6">还没完</h2>
 <p>在经过如上的配置后, 你会发现在蔚蓝启动的时候, 进行编译并复制资源时会报错, 
 这是因为 Everest 锁定占用了它们, 导致你不得不让这一切在蔚蓝关闭时进行,
 同时由于蔚蓝的重启速度不是很理想, 这大大的拉低了 mod 开发效率.<br />
@@ -1906,19 +1973,19 @@ D3D11 Adapter: Intel(R) UHD Graphics 630
 要开启这项功能, 首先到你的蔚蓝根目录下的 Saves 目录, 找到并打开 <code>modsettings-Everest.celeste</code> 这个文件,
 翻到大概中间的位置, 找到属性 <code>CodeReload_WIP</code>, 将其更改为 <code>true</code>, 此时重新编译你的项目,
 你应该就不会再得到任何错误, 并且 Everest 也正确地热重载了你的 mod 和你的 mod 资源.</p>
-<h2 id="_6">最后一些碎碎念</h2>
+<h2 id="_7">最后一些碎碎念</h2>
 <p>这一节完成后你的目录结构大概会像是:</p>
 <ul>
 <li>MyCelesteMod (你的根目录)<ul>
 <li>ModFolder<ul>
-<li>everest.yaml</li>
+<li>Code</li>
 <li>MyCelesteMod.dll</li>
 <li>MyCelesteMod.pdb</li>
+<li>everest.yaml</li>
 </ul>
 </li>
 <li>CelesteMod.props</li>
 <li>CelesteMod.targets</li>
-<li>Common.props</li>
 <li>MyCelesteMod.csproj</li>
 <li>MyCelesteModModule.cs</li>
 </ul>

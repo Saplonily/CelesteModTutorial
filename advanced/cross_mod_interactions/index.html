@@ -16,7 +16,7 @@
         <link rel="prev" href="../../basics/session_settings_savedata/">
       
       
-        <link rel="next" href="../../coding_challenges/simple_entity/">
+        <link rel="next" href="../../coding_challenges/test_map/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -656,6 +656,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      直接程序集引用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="直接程序集引用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lib-stripped" class="md-nav__link">
+    <span class="md-ellipsis">
+      lib-stripped
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#everestmodule" class="md-nav__link">
     <span class="md-ellipsis">
       通过 EverestModule 反射获取程序集
@@ -723,6 +756,27 @@
             实战
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coding_challenges/test_map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    测试地图
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1382,6 +1436,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../arc/project_template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    通过模板创建项目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../arc/sdk-styled-proj/" class="md-nav__link">
         
   
@@ -1556,6 +1631,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      直接程序集引用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="直接程序集引用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lib-stripped" class="md-nav__link">
+    <span class="md-ellipsis">
+      lib-stripped
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#everestmodule" class="md-nav__link">
     <span class="md-ellipsis">
       通过 EverestModule 反射获取程序集
@@ -1640,14 +1748,14 @@
 <span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Load</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="c1">// 获取 GravityHelperModule 的元数据</span>
-<span class="w">    </span><span class="n">EverestModuleMetadata</span><span class="w"> </span><span class="n">gravityHelper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">()</span>
+<span class="w">    </span><span class="n">EverestModuleMetadata</span><span class="w"> </span><span class="n">gravityHelperMetadata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;GravityHelper&quot;</span><span class="p">,</span>
 <span class="w">        </span><span class="n">Version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Version</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">)</span>
 <span class="w">    </span><span class="p">};</span>
 
 <span class="w">    </span><span class="c1">// 判断 GravityHelper 是否成功加载</span>
-<span class="w">    </span><span class="n">GravityHelperLoaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Everest</span><span class="p">.</span><span class="n">Loader</span><span class="p">.</span><span class="n">DependencyLoaded</span><span class="p">(</span><span class="n">gravityHelper</span><span class="p">);</span>
+<span class="w">    </span><span class="n">GravityHelperLoaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Everest</span><span class="p">.</span><span class="n">Loader</span><span class="p">.</span><span class="n">DependencyLoaded</span><span class="p">(</span><span class="n">gravityHelperMetadata</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>这样我们就能在使用被依赖的功能前检查 <code>GravityHelperLoaded</code> 以确保被依赖的 Mod 成功加载.</p>
@@ -1769,14 +1877,78 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div></p>
 <p>通过这种方式, 我们可以在自己的 Mod 中访问并调用其他 Mod 提供的功能, 而不需要直接依赖该 Mod 的程序集.</p>
-<!--
-## 直接程序集引用
+<h2 id="_2">直接程序集引用</h2>
+<p>有时候我们需要直接使用目标Mod中的类型和方法, 但目标 Mod 并没有实现 <code>ModInterop</code> API.
+这种情况下, 我们可以直接引用其他 Mod 的程序集.</p>
+<p>下面我们介绍两种方法:</p>
+<h3 id="cache">Cache</h3>
+<p>Everest 会将所有 Code Mod 的程序集使用 MonoMod 进行 patch 处理后放置到 <code>Celeste/Mods/Cache/&lt;mod名&gt;.&lt;程序集名&gt;.dll</code> 中.   <br />
+我们可以通过配置模板的 <code>.csporj</code> 文件以直接引用它们:</p>
+<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">MyCelesteMod.csproj</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">&quot;Microsoft.NET.Sdk&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;Import</span><span class="w"> </span><span class="na">Project=</span><span class="s">&quot;CelesteMod.props&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-### Cache
+<span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
+<span class="w">    </span><span class="nt">&lt;RootNamespace&gt;</span>Celeste.Mod.MyCelesteMod<span class="nt">&lt;/RootNamespace&gt;</span>
+<span class="w">    </span><span class="nt">&lt;LangVersion&gt;</span>latest<span class="nt">&lt;/LangVersion&gt;</span>
+<span class="w">    </span><span class="nt">&lt;ImplicitUsings&gt;</span>enable<span class="nt">&lt;/ImplicitUsings&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
 
-### lib-stripped
--->
+<span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
+<span class="w">    </span><span class="nt">&lt;None</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;CelesteMod.props&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Visible&gt;</span>false<span class="nt">&lt;/Visible&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/None&gt;</span>
+<span class="w">    </span><span class="nt">&lt;None</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;CelesteMod.targets&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Visible&gt;</span>false<span class="nt">&lt;/Visible&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/None&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 
+<span class="hll"><span class="nt">&lt;ItemGroup&gt;</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">&lt;CelesteModReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;GravityHelper&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">&lt;CelesteModReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;ExtendedVariantMode&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">&lt;CelesteModReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;FrostHelper&quot;</span><span class="w"> </span><span class="na">AssemblyName=</span><span class="s">&quot;FrostTempleHelper&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span class="nt">&lt;/ItemGroup&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;Import</span><span class="w"> </span><span class="na">Project=</span><span class="s">&quot;CelesteMod.targets&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Project&gt;</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>在引用之前我们需要确认目标 Mod 在 <code>Cache</code> 中的是否存在, 以上面引用的 Mod 为例. <code>Cache</code> 中应该存在:</p>
+<ul>
+<li>GravityHelper.GravityHelper.dll</li>
+<li>ExtendedVariantMode.ExtendedVariantMode.dll</li>
+</ul>
+<p>我们填写目标 Mod 在 <code>Cache</code> 中名称的前半段就行.</p>
+</div>
+<h3 id="lib-stripped">lib-stripped</h3>
+<p><code>lib-stripped</code> 是指剥离了所有方法实现的程序集, 仅保留类型和方法签名.    <br />
+我们可以通过 <a href="https://github.com/bbepis/NStrip"><code>NStrip</code></a> 或 <a href="https://github.com/BepInEx/BepInEx.AssemblyPublicizer"><code>BepInEx.AssemblyPublicizer</code></a> 的 <code>strip-only</code> 模式等工具对目标程序集进行剥离.   <br />
+完成后我们可以直接引用被剥离的程序集.</p>
 <h2 id="everestmodule">通过 EverestModule 反射获取程序集</h2>
 <p>我们也可以通过 <code>EverestModule</code> 反射动态地访问我们希望交互的 Mod 的程序集, 而无需直接引用目标 Mod 的程序集.</p>
 <p>下面我们以 <a href="https://github.com/swoolcock/GravityHelper"><code>GravityHelper</code></a> 为例:
@@ -1841,7 +2013,7 @@
 <span class="w">        </span><span class="n">PlayerGravityComponentProperty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gravityHelperModuleType</span><span class="o">?.</span><span class="n">GetProperty</span><span class="p">(</span><span class="s">&quot;PlayerComponent&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">BindingFlags</span><span class="p">.</span><span class="n">Static</span><span class="p">);</span>
 
 <span class="w">        </span><span class="c1">// 反射获取 GravityHelper.Components.SetPlayerGravity 方法</span>
-<span class="w">        </span><span class="n">SetPlayerGravityMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">playerComponent</span><span class="o">?.</span><span class="n">GetValue</span><span class="p">(</span><span class="k">null</span><span class="p">)</span><span class="o">?.</span><span class="n">GetType</span><span class="p">().</span><span class="n">GetMethod</span><span class="p">(</span><span class="s">&quot;SetGravity&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">);</span>
+<span class="w">        </span><span class="n">SetPlayerGravityMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PlayerGravityComponentProperty</span><span class="o">?.</span><span class="n">GetValue</span><span class="p">(</span><span class="k">null</span><span class="p">)</span><span class="o">?.</span><span class="n">GetType</span><span class="p">().</span><span class="n">GetMethod</span><span class="p">(</span><span class="s">&quot;SetGravity&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">);</span>
 
 <span class="w">        </span><span class="c1">// 反射获取 GravityHelper.GravityHelperModule.ShouldInvertPlayer 属性</span>
 <span class="w">        </span><span class="n">IsPlayerInvertedProperty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gravityHelperModuleType</span><span class="o">?.</span><span class="n">GetProperty</span><span class="p">(</span><span class="s">&quot;ShouldInvertPlayer&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">BindingFlags</span><span class="p">.</span><span class="n">Static</span><span class="p">);</span>
