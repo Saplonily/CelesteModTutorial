@@ -52,12 +52,11 @@ Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝
 ## 通过模板创建项目
 
 !!! info
-    在蔚蓝国外社区流行着另一个 mod 项目模板, 不过我个人不太喜欢它, 不过你需要的话[这是 Github 主页](https://github.com/EverestAPI/CelesteModTemplate)
-    所以这里主要使用我个人制作也是个人最常用的一个.  
+    在蔚蓝国外社区流行着另一个 mod 项目模板, [这是它的 Github 主页](https://github.com/EverestAPI/CelesteModTemplate)
+    不过这里主要介绍使用我个人制作也是个人最常用的一个.
 
-\_(:з」∠)\_  
-根据一些反馈我们发现旧的手动配置环境的方式非常的复杂难操作(  
-所以呢这里就推荐一种新的配置环境的方式 - **使用模板**  
+!!! note
+    项目模板在重构的教程中进行了更新, 旧版你可以在[归档-通过模板创建项目](../arc/project_template.md)中找到(不推荐)
 
 我们在这里提供两种模板:
 
@@ -260,12 +259,12 @@ D3D11 Adapter: Intel(R) UHD Graphics 630
 
 - MyCelesteMod (你的根目录)
     - ModFolder
+        - Code
+          - MyCelesteMod.dll
+          - MyCelesteMod.pdb
         - everest.yaml
-        - MyCelesteMod.dll
-        - MyCelesteMod.pdb
     - CelesteMod.props
     - CelesteMod.targets
-    - Common.props
     - MyCelesteMod.csproj
     - MyCelesteModModule.cs
 
