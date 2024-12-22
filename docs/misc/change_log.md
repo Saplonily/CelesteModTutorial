@@ -17,9 +17,14 @@
 
 ### 2024.12.11
 * 添加夜间模式
-* 分离阅读代码
-* 分离 StateMachine
+* 分离[阅读代码](../coding_setup/code_reading.md)
+* 分离 [StateMachine](../components/statemachine.md)
 
-### 2024.12.15
+### 2024.12.16
+* 添加[跨 Mod 交互](../advanced/cross_mod_interactions.md)
+
+### 2024.12.21
 * 更新项目模板
-* 添加跨 Mod 交互
+* 归档并重写[基础环境配置-通过模板创建项目](../coding_setup/basic_env.md)
+* 添加[测试地图](../coding_challenges/test_map.md)
+* 完善[跨 Mod 交互](../advanced/cross_mod_interactions.md)

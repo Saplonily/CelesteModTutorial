@@ -1,0 +1,4 @@
+entities.CelesteModTutorial/PassByRefill.placements.name.normal=PassByRefill
+entities.CelesteModTutorial/PassByRefillWithTexture.placements.name.normal=PassByRefillWithTexture
+
+triggers.CelesteModTutorial/SetPassByRefillDashesTrigger.placements.name.normal=SetPassByRefillDashesTrigger

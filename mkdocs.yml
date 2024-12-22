@@ -70,7 +70,16 @@ nav:
       - Session, Settings, SaveData: "basics/session_settings_savedata.md"
   - 进阶:
       - 跨 Mod 交互: "advanced/cross_mod_interactions.md"
+ # - Loenn:
+ #     - Loenn 目录结构: "loenn/folder_structure.md"
+ #     - Loenn 基础配置: "loenn/basic_configurations.md"
+ #     - Entity 结构: "loenn/entity_structs.md" 
+ #     - Trigger 结构: "loenn/trigger_structs.md"
+ #     - Loenn 绘制: "loenn/rendering.md"
+ #     - Loenn 节点: "loenn/nodes.md"
+ #     - Effect 结构: "loenn/effect_structs.md"
   - 实战:
+      - 测试地图: "coding_challenges/test_map.md"
       - 简单自定义实体: "coding_challenges/simple_entity.md"
       - 简单自定义Trigger: "coding_challenges/simple_trigger.md"
       - 简单贴图: "coding_challenges/simple_texturing.md"
@@ -97,6 +106,7 @@ nav:
       - FAQ: "extra_cmcc/cmcc/todo.md"
   - 历史归档:
       - 基础环境配置: "arc/basic_env.md"
+      - 通过模板创建项目: "arc/project_template.md"
       - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
   - 杂项:
       - ChangeLog: "misc/change_log.md"

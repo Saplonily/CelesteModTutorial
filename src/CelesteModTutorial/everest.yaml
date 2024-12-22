@@ -1,0 +1,6 @@
+- Name: CelesteModTutorial
+  Version: 0.1.0
+  DLL: Code/CelesteModTutorial.dll
+  Dependencies:
+    - Name: EverestCore
+      Version: 1.4465.0
