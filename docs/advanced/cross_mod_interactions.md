@@ -161,7 +161,7 @@ if (MyCelesteModAPI.MultiplyByTwo(myNumber) > 400)
 Everest 会将所有 Code Mod 的程序集使用 MonoMod 进行 patch 处理后放置到 `Celeste/Mods/Cache/<mod名>.<程序集名>.dll` 中.     
 我们可以通过配置模板的 `.csporj` 文件以直接引用它们:
 
-```xml title="MyCelesteMod.csproj" hl_lines="19 20 21 22"
+```xml title="MyCelesteMod.csproj" hl_lines="19 20 21 22 23"
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="CelesteMod.props" />
 
@@ -195,6 +195,7 @@ Everest 会将所有 Code Mod 的程序集使用 MonoMod 进行 patch 处理后�
 
     - GravityHelper.GravityHelper.dll
     - ExtendedVariantMode.ExtendedVariantMode.dll
+    ` FrostHelper.FrostTempleHelper.dll
 
     我们填写目标 Mod 在 `Cache` 中名称的前半段就行.
 
