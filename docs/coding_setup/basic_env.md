@@ -206,8 +206,8 @@ ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没�
   Version: 0.1.0
   DLL: MyCelesteMod.dll
   Dependencies:
-    - Name: Everest
-      Version: 1.4000.0
+    - Name: EverestCore
+      Version: 1.4465.0
 ```
 这些参数分别是:
 
@@ -218,7 +218,7 @@ ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没�
 最后是最底下的那个依赖, 这里我们只依赖最基础的 Everest, 版本填上你目前使用的 Everest 版本, 这里我就填写 3971 了.
 如果你的 mod 依赖 Everest Core, 你需要在这里将 `Everest` 更改为 `EverestCore`, 并将版本号填写大于 4465 的值.
 
-## 最后一步!
+## 最后一步
 
 为了方便我们的调试, 我们需要让蔚蓝打开的同时打开控制台, 这一步很简单:
 
@@ -242,7 +242,6 @@ FNA3D Driver: D3D11
 D3D11 Adapter: Intel(R) UHD Graphics 630
 ```
 <!-- 肯定会有人在意怎么是 630 核显( -->
-## 还没完
 
 在经过如上的配置后, 你会发现在蔚蓝启动的时候, 进行编译并复制资源时会报错, 
 这是因为 Everest 锁定占用了它们, 导致你不得不让这一切在蔚蓝关闭时进行,
@@ -253,9 +252,9 @@ D3D11 Adapter: Intel(R) UHD Graphics 630
 翻到大概中间的位置, 找到属性 `CodeReload_WIP`, 将其更改为 `true`, 此时重新编译你的项目,
 你应该就不会再得到任何错误, 并且 Everest 也正确地热重载了你的 mod 和你的 mod 资源.
 
-## 最后一些碎碎念
 
-这一节完成后你的目录结构大概会像是:
+这一节完成后你的目录结构大概会像是          
+外部模板:
 
 - MyCelesteMod (你的根目录)
     - ModFolder
@@ -268,7 +267,21 @@ D3D11 Adapter: Intel(R) UHD Graphics 630
     - MyCelesteMod.csproj
     - MyCelesteModModule.cs
 
-其中正如之前所介绍的, 我推荐如果你使用该模板的话, mod 的资源文件应该放在 `ModFolder` 中, 然后就像往常一样放置你的 mod 资源, 当你的项目在构建时它们会自动被复制.
+或 就地模板:
+
+- MyCelesteMod (你的根目录)
+    - everest.yaml
+    - Source
+        - CelesteMod.props
+        - CelesteMod.targets
+        - MyCelesteMod.csproj
+        - MyCelesteModModule.cs
+        - .everestignore
+    - Code 
+        - MyCelesteMod.dll
+        - MyCelesteMod.pdb
+
+其中正如之前所介绍的, 如果你使用外部模板的话, mod 的资源文件应该放在 `ModFolder` 中, 然后就像往常一样放置你的 mod 资源, 当你的项目在构建时它们会自动被复制.
 并且将代码文件放置在 .csproj 同目录下或嵌套文件夹下,
 如果你没有更改你的项目而只更改了资源文件时你会发现编译项目会因为 "所有文件都是最新的" 而跳过编译, 而同时也会跳过我们的资源复制, 对此的话我们有两种解决方案:
 

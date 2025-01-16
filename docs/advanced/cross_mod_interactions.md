@@ -12,8 +12,8 @@
   Version: 0.1.0
   DLL: MyCelesteMod.dll
   Dependencies:
-    - Name: Everest
-      Version: 1.4000.0
+    - Name: EverestCore
+      Version: 1.4465.0
   OptionalDependencies:
     - Name: GravityHelper
       Version: 1.2.20
@@ -80,6 +80,20 @@ public static class MyCelesteModExports
     public static int MultiplyByTwo(int num) => num * 2;
     // 添加于 1.0.0 版本
     public static void LogStuff() => Logger.Log(LogLevel.Info, "MyCelesteMod", "Someone is calling this method!");
+    // 添加于 1.0.0 版本
+    public static bool TryDoubleIfEven(int number, out int? doubledNumber)
+    {
+        if (number % 2 == 0)
+        {
+            doubledNumber = number * 2;
+            return true;
+        }
+        else
+        {
+            doubledNumber = null;
+            return false;
+        }
+    }
 }
 ```
 
@@ -118,9 +132,17 @@ using MonoMod.ModInterop;
 [ModImportName("MyCelesteMod")]
 public static class MyCelesteModAPI
 {
+    // 导出的方法如果有返回值使用 Func
     public static Func<int> GetNumber;
     public static Func<int, int> MultiplyByTwo;
+
+    // 如果没有返回值, 也就是返回值是 void 则使用 Action
     public static Action LogStuff;
+
+    // 如果导出的方法参数中有 out 或 ref 需要定义自定义委托类型以进行导入
+    // Func 并不支持参数中带有 out 或 ref 的情况
+    public static TryDoubleIfEvenDelegate TryDoubleIfEven;
+    public delegate bool TryDoubleIfEvenDelegate(int number, out int? doubledNumber);
 }
 ```
 
@@ -143,6 +165,13 @@ if (MyCelesteModAPI.MultiplyByTwo(myNumber) > 400)
 {
     MyCelesteModAPI.LogStuff();
 }
+
+int myDoubledNumber;
+
+if (MyCelesteModAPI.TryDoubleIfEven(myNumber, out int? doubledNumber))
+{
+    myDoubledNumber = doubledNumber;
+}
 ```
 
 通过这种方式, 我们可以在自己的 Mod 中访问并调用其他 Mod 提供的功能, 而不需要直接依赖该 Mod 的程序集.
@@ -161,7 +190,7 @@ if (MyCelesteModAPI.MultiplyByTwo(myNumber) > 400)
 Everest 会将所有 Code Mod 的程序集使用 MonoMod 进行 patch 处理后放置到 `Celeste/Mods/Cache/<mod名>.<程序集名>.dll` 中.     
 我们可以通过配置模板的 `.csporj` 文件以直接引用它们:
 
-```xml title="MyCelesteMod.csproj" hl_lines="19 20 21 22"
+```xml title="MyCelesteMod.csproj" hl_lines="19 20 21 22 23"
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="CelesteMod.props" />
 
@@ -195,6 +224,7 @@ Everest 会将所有 Code Mod 的程序集使用 MonoMod 进行 patch 处理后�
 
     - GravityHelper.GravityHelper.dll
     - ExtendedVariantMode.ExtendedVariantMode.dll
+    ` FrostHelper.FrostTempleHelper.dll
 
     我们填写目标 Mod 在 `Cache` 中名称的前半段就行.
 

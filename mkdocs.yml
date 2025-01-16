@@ -70,14 +70,14 @@ nav:
       - Session, Settings, SaveData: "basics/session_settings_savedata.md"
   - 进阶:
       - 跨 Mod 交互: "advanced/cross_mod_interactions.md"
- # - Loenn:
- #     - Loenn 目录结构: "loenn/folder_structure.md"
- #     - Loenn 基础配置: "loenn/basic_configurations.md"
- #     - Entity 结构: "loenn/entity_structs.md" 
- #     - Trigger 结构: "loenn/trigger_structs.md"
- #     - Loenn 绘制: "loenn/rendering.md"
- #     - Loenn 节点: "loenn/nodes.md"
- #     - Effect 结构: "loenn/effect_structs.md"
+  - Loenn:
+      - Loenn 目录结构: "loenn/folder_structure.md"
+      - Loenn 基础配置: "loenn/basic_configurations.md"
+      - Entity 结构: "loenn/entity_structs.md" 
+      - Trigger 结构: "loenn/trigger_structs.md"
+      - Loenn 绘制: "loenn/rendering.md"
+      - Loenn 节点: "loenn/nodes.md"
+      - Effect 结构: "loenn/effect_structs.md"
   - 实战:
       - 测试地图: "coding_challenges/test_map.md"
       - 简单自定义实体: "coding_challenges/simple_entity.md"
