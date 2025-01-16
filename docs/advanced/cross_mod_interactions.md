@@ -80,6 +80,20 @@ public static class MyCelesteModExports
     public static int MultiplyByTwo(int num) => num * 2;
     // 添加于 1.0.0 版本
     public static void LogStuff() => Logger.Log(LogLevel.Info, "MyCelesteMod", "Someone is calling this method!");
+    // 添加于 1.0.0 版本
+    public static bool TryDoubleIfEven(int number, out int? doubledNumber)
+    {
+        if (number % 2 == 0)
+        {
+            doubledNumber = number * 2;
+            return true;
+        }
+        else
+        {
+            doubledNumber = null;
+            return false;
+        }
+    }
 }
 ```
 
@@ -118,9 +132,17 @@ using MonoMod.ModInterop;
 [ModImportName("MyCelesteMod")]
 public static class MyCelesteModAPI
 {
+    // 导出的方法如果有返回值使用 Func
     public static Func<int> GetNumber;
     public static Func<int, int> MultiplyByTwo;
+
+    // 如果没有返回值, 也就是返回值是 void 则使用 Action
     public static Action LogStuff;
+
+    // 如果导出的方法参数中有 out 或 ref 需要定义自定义委托类型以进行导入
+    // Func 并不支持参数中带有 out 或 ref 的情况
+    public static TryDoubleIfEvenDelegate TryDoubleIfEven;
+    public delegate bool TryDoubleIfEvenDelegate(int number, out int? doubledNumber);
 }
 ```
 
@@ -142,6 +164,13 @@ int myNumber = MyCelesteModAPI.GetNumber();
 if (MyCelesteModAPI.MultiplyByTwo(myNumber) > 400)
 {
     MyCelesteModAPI.LogStuff();
+}
+
+int myDoubledNumber;
+
+if (MyCelesteModAPI.TryDoubleIfEven(myNumber, out int? doubledNumber))
+{
+    myDoubledNumber = doubledNumber;
 }
 ```
 

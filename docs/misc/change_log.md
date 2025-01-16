@@ -25,6 +25,10 @@
 
 ### 2024.12.21
 * 更新项目模板
-* 归档并重写[基础环境配置-通过模板创建项目](../coding_setup/basic_env.md)
+* 归档并重写[基础环境配置 - 通过模板创建项目](../coding_setup/basic_env.md)
 * 添加[测试地图](../coding_challenges/test_map.md)
 * 完善[跨 Mod 交互](../advanced/cross_mod_interactions.md)
+
+### 2025.1.
+* 完善[调试](../coding_setup/debug.md)
+- 完善[跨 Mod 交互 - ModInterop](../advanced/cross_mod_interactions.md)
