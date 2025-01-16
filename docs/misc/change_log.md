@@ -29,6 +29,6 @@
 * 添加[测试地图](../coding_challenges/test_map.md)
 * 完善[跨 Mod 交互](../advanced/cross_mod_interactions.md)
 
-### 2025.1.
+### 2025.1.16
 * 完善[调试](../coding_setup/debug.md)
 - 完善[跨 Mod 交互 - ModInterop](../advanced/cross_mod_interactions.md)

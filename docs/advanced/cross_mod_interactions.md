@@ -139,8 +139,8 @@ public static class MyCelesteModAPI
     // 如果没有返回值, 也就是返回值是 void 则使用 Action
     public static Action LogStuff;
 
-    // 如果导出的方法参数中有 out 或 ref 需要定义自定义委托类型以进行导入
-    // Func 并不支持参数中带有 out 或 ref 的情况
+    // 如果导出的方法参数中有 in, out 或 ref 需要定义自定义委托类型以进行导入
+    // Func 并不支持参数中带有 in, out 或 ref 的情况
     public static TryDoubleIfEvenDelegate TryDoubleIfEven;
     public delegate bool TryDoubleIfEvenDelegate(int number, out int? doubledNumber);
 }
