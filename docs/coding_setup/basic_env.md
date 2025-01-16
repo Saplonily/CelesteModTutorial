@@ -206,7 +206,7 @@ ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没�
   Version: 0.1.0
   DLL: MyCelesteMod.dll
   Dependencies:
-    - Name: Everest
+    - Name: EverestCore
       Version: 1.4465.0
 ```
 这些参数分别是:
@@ -281,7 +281,7 @@ D3D11 Adapter: Intel(R) UHD Graphics 630
         - MyCelesteMod.dll
         - MyCelesteMod.pdb
 
-其中正如之前所介绍的, 我推荐如果你使用该外部模板的话, mod 的资源文件应该放在 `ModFolder` 中, 然后就像往常一样放置你的 mod 资源, 当你的项目在构建时它们会自动被复制.
+其中正如之前所介绍的, 如果你使用外部模板的话, mod 的资源文件应该放在 `ModFolder` 中, 然后就像往常一样放置你的 mod 资源, 当你的项目在构建时它们会自动被复制.
 并且将代码文件放置在 .csproj 同目录下或嵌套文件夹下,
 如果你没有更改你的项目而只更改了资源文件时你会发现编译项目会因为 "所有文件都是最新的" 而跳过编译, 而同时也会跳过我们的资源复制, 对此的话我们有两种解决方案:
 

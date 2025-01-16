@@ -12,8 +12,8 @@
   Version: 0.1.0
   DLL: MyCelesteMod.dll
   Dependencies:
-    - Name: Everest
-      Version: 1.4000.0
+    - Name: EverestCore
+      Version: 1.4465.0
   OptionalDependencies:
     - Name: GravityHelper
       Version: 1.2.20
