@@ -95,8 +95,8 @@ nav:
   - 额外:
       - CMCC:
         - 首页: "extra/cmcc/index.md"
-        - readme: "extra/cmcc/ReadMe.md"
-        - FAQ: "extra/cmcc/todo.md"
+        - readme: "extra/cmcc/remote/ReadMe.md"
+        - FAQ: "extra/cmcc/remote/todo.md"
       - LuaCutscene:
         - 开始: "extra/lua_cutscene/begin.md"
         - 参考: "extra/lua_cutscene/reference.md"
