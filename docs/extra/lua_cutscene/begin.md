@@ -1,4 +1,4 @@
-# 额外 - LuaCutscene
+# LuaCutscene
 
 ## 前言
 

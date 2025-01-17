@@ -92,18 +92,18 @@ nav:
       - Sprite, Image: "components/sprite_image.md"
       - Alarm, Tween, Coroutine: "components/alarm_tween_coroutine.md"  
       - StateMachine: "components/statemachine.md"    
-  - 其他:
-      - XML简单介绍: "other/xml-speedrun.md"
-  - 额外 - LuaCutscene:
-      - 开始: "extra_luacs/begin.md"
-      - 参考: "extra_luacs/reference.md"
-      - C# 交互: "extra_luacs/cs_access.md"
-      - 例子: "extra_luacs/examples.md"
-      # - 高级对话: "extra_luacs/advanced_dialog.md"
-  - 额外 - CMCC:
-      - 首页: "extra_cmcc/index.md"
-      - readme: "extra_cmcc/cmcc/ReadMe.md"
-      - FAQ: "extra_cmcc/cmcc/todo.md"
+  - 额外:
+      - CMCC:
+        - 首页: "extra/cmcc/index.md"
+        - readme: "extra/cmcc/ReadMe.md"
+        - FAQ: "extra/cmcc/todo.md"
+      - LuaCutscene:
+        - 开始: "extra/lua_cutscene/begin.md"
+        - 参考: "extra/lua_cutscene/reference.md"
+        - C# 交互: "extra/lua_cutscene/cs_access.md"
+        - 例子: "extra/lua_cutscene/examples.md"
+      - XML:
+        - XML 简单介绍: "extra/xml/xml-speedrun.md"
   - 历史归档:
       - 基础环境配置: "arc/basic_env.md"
       - 通过模板创建项目: "arc/project_template.md"
