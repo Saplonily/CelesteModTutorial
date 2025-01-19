@@ -97,13 +97,16 @@ nav:
         - 首页: "extra/cmcc/index.md"
         - readme: "extra/cmcc/remote/ReadMe.md"
         - FAQ: "extra/cmcc/remote/todo.md"
+      - XML:
+        - XML 简单介绍: "extra/xml/xml-speedrun.md"
+      - Lua:
+        - Lua 简单介绍: "extra/lua/simple_introduce.md"
       - LuaCutscene:
         - 开始: "extra/lua_cutscene/begin.md"
         - 参考: "extra/lua_cutscene/reference.md"
         - C# 交互: "extra/lua_cutscene/cs_access.md"
         - 例子: "extra/lua_cutscene/examples.md"
-      - XML:
-        - XML 简单介绍: "extra/xml/xml-speedrun.md"
+
   - 历史归档:
       - 基础环境配置: "arc/basic_env.md"
       - 通过模板创建项目: "arc/project_template.md"
