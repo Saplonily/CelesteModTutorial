@@ -8,8 +8,11 @@
 
 为了方便我们的调试, 我们需要让蔚蓝打开的同时打开控制台, 这一步很简单:
 
-- 找到蔚蓝根目录下的 `everest-launch.txt`, 没有的话新建一个空的就行了
-- 向里面写入 `--console`
+- 找到蔚蓝根目录下的 `everest-launch.txt`, 没有的话新建一个空的就行了.
+- 向里面写入 `--console`.
+
+!!!info
+    `--console` 项只在 `Windows` 系统上有用.
 
 ```txt title="everest-launch.txt" hl_lines="7"
 # Add any Everest launch flags here.
@@ -33,12 +36,12 @@
 这是因为 Everest 锁定占用了它们, 导致你不得不让这一切在蔚蓝关闭时进行,
 同时由于蔚蓝的重启速度不是很理想, 这大大的拉低了 mod 开发效率.  
 不过好在 Everest 提供了一个技术叫做 `code hot reload`,
-即热重载, 它允许你在游戏运行期间替换你的代码并重载资源, 它目前还在 wip 状态.  
+即热重载, 它允许你在游戏运行期间替换你的代码并重载资源.
 要开启这项功能, 首先到你的蔚蓝根目录下的 Saves 目录, 找到并打开 `modsettings-Everest.celeste` 这个文件,
 翻到大概中间的位置, 找到属性 `CodeReload_WIP`, 将其更改为 `true`.
 
-``` title="modsettings-Everest.celeste" hl_lines="11"
-// 其他设置
+```yaml title="modsettings-Everest.celeste" hl_lines="11"
+# 其他设置
 
 PhotosensitiveMode: false
 PhotosensitivityDistortOverride: false
@@ -55,14 +58,14 @@ CurrentVersion: 1.4465.0
 CurrentBranch: updater_src_stable
 LogLevels: {}
 
-// 其他设置
+# 其他设置
 ```
 
 完成设置后重新编译项目, 你应该就不会再得到任何错误, 并且 Everest 也正确地热重载了你的 mod 和你的 mod 资源.
 
 ## Logger
 
-`Logger` 是一个蔚蓝底层引擎 `Monocle` 的一个工具类, 它帮助你打印输出一些调试信息,
+`Logger` 是一个蔚蓝底层引擎 `Everest` 的一个工具类, 它帮助你打印输出一些调试信息,
 通常这些信息会被打印进控制台的同时写入游戏的 `log.txt` 文件中, 
 这也就解释了为什么你遇到各种问题时别人总要求你发送你的 `log.txt`.  
 

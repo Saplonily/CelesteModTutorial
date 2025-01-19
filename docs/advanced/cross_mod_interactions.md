@@ -141,8 +141,8 @@ public static class MyCelesteModAPI
 
     // 如果导出的方法参数中有 in, out 或 ref 需要定义自定义委托类型以进行导入
     // Func 并不支持参数中带有 in, out 或 ref 的情况
-    public static TryDoubleIfEvenDelegate TryDoubleIfEven;
     public delegate bool TryDoubleIfEvenDelegate(int number, out int? doubledNumber);
+    public static TryDoubleIfEvenDelegate TryDoubleIfEven;
 }
 ```
 
