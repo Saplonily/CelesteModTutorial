@@ -100,7 +100,13 @@ nav:
       - XML:
         - XML 简单介绍: "extra/xml/xml-speedrun.md"
       - Lua:
-        - Lua 简单介绍: "extra/lua/simple_introduce.md"
+        - 开始: "extra/lua/begin.md"
+        - 基本语法: "extra/lua/syntax.md"
+        - 数据结构: "extra/lua/data_structure.md"
+        - 流程控制: "extra/lua/control_flow.md"
+        - 函数: "extra/lua/function.md"
+        - 迭代器: "extra/lua/iterator.md"
+        - 模块与包: "extra/lua/package.md"
       - LuaCutscene:
         - 开始: "extra/lua_cutscene/begin.md"
         - 参考: "extra/lua_cutscene/reference.md"
