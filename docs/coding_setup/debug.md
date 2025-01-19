@@ -77,7 +77,7 @@ public static void Log(LogLevel logLevel, string tag, string str)
 
 - `Verbose`: 一般用于输出冗余的日志信息.
 - `Debug`: 一般用于输出较多的调试信息.
-- `info`: 一般用于输出普通日志.
+- `Info`: 一般用于输出普通日志.
 - `Warn`: 一般用于输出一些错误但不影响游戏进行的信息.
 - `Error`: 一般用于输出一些致命性错误.
 
