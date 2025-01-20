@@ -60,7 +60,6 @@ nav:
   - 首页: "index.md"
   - 一些准备:
       - 基础环境配置: "coding_setup/basic_env.md"
-      - 偏好: "coding_setup/preference.md"
       - 调试: "coding_setup/debug.md"
       - 阅读代码: "coding_setup/code_reading.md"
   - 基础:
@@ -102,7 +101,7 @@ nav:
       - Lua:
         - 开始: "extra/lua/begin.md"
         - 基本语法: "extra/lua/syntax.md"
-        - 数据结构: "extra/lua/data_structure.md"
+        - 数据类型: "extra/lua/data_structure.md"
         - 流程控制: "extra/lua/control_flow.md"
         - 函数: "extra/lua/function.md"
         - 迭代器: "extra/lua/iterator.md"
@@ -116,6 +115,7 @@ nav:
   - 历史归档:
       - 基础环境配置: "arc/basic_env.md"
       - 通过模板创建项目: "arc/project_template.md"
+      - 偏好: "arc/preference.md"
       - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
   - 杂项:
       - ChangeLog: "misc/change_log.md"
