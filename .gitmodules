@@ -1,3 +1,3 @@
-[submodule "docs/extra_cmcc/cmcc"]
-	path = docs/extra_cmcc/cmcc
-	url = https://github.com/ForkKILLET/CelesteMapperCooperationInChina
+[submodule "docs/extra/cmcc/remote"]
+	path = docs/extra/cmcc/remote
+	url = https://github.com/ForkKILLET/CelesteMapperCooperationInChina.git

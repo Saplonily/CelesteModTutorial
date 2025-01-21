@@ -1,6 +1,5 @@
-namespace Celeste.Mod.CelesteModTutorial
+namespace Celeste.Mod.CelesteModTutorial;
+
+public sealed class CelesteModTutorialSaveData : EverestModuleSaveData
 {
-    public class CelesteModTutorialSaveData : EverestModuleSaveData
-    {
-    }
 }

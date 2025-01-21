@@ -1,6 +1,5 @@
-namespace Celeste.Mod.CelesteModTutorial
+namespace Celeste.Mod.CelesteModTutorial;
+
+public sealed class CelesteModTutorialSession : EverestModuleSession
 {
-    public class CelesteModTutorialSession : EverestModuleSession
-    {
-    }
 }

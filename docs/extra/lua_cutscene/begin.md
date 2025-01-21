@@ -1,4 +1,4 @@
-# 额外 - LuaCutscene
+# LuaCutscene
 
 ## 前言
 
@@ -7,17 +7,6 @@
 如果你想要你的剧情拥有更多的炫酷效果, 而不是局限于只有对话框和 Madeline 无聊的走动,
 比如炫酷的镜头缓动, 周边实体的花样表演, 甚至是拥有改变 gp 能力的剧情! 那么或许这里刚好就适合你.
 那么现在就开始吧.  
-
-## 配置环境
-
-这一步事实上是可选的, 不过为了更愉快的 lua 代码的书写,
-我个人还是觉得挺有必要的.  
-在这里我会推荐使用 [VSCode](https://code.visualstudio.com/Download) 配上 [Lua (sumneko.lua)](https://marketplace.visualstudio.com/items?itemName=sumneko.lua)
-插件.  
-![lua-in-vscode](./lua-in-vscode.png)
-
-!!! note
-    我个人不太会配置这种 lua 环境, 所以如果你遇到了大量的未定义警告你可以选择在设置中搜索 `Lua.diagnostics.enable` 并将其关闭.
 
 ## Hello World
 

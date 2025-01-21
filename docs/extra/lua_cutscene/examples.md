@@ -51,7 +51,7 @@ Cursor @
 
 以防你还不知道, 游戏的坐标系与常规的数学坐标系不同, 其 y 坐标经过了竖直翻转:
 
-![game-coord](../coding_challenges/images/simple_entity/game_coord.png)
+![game-coord](../../coding_challenges/images/simple_entity/game_coord.png) 
 
 ## 片段
 
