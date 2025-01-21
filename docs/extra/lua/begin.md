@@ -10,15 +10,20 @@
 
 ### Lua 安装
 !!!info
-    `Everest` 集成了 `Lua` 环境, 因此实际开发时无需再次安装 `Lua`. 以下步骤仅用于学习或自定义开发时的 `Lua` 环境安装.
+    `Everest` 集成了 `Lua` 环境, 因此实际写蔚蓝 Mod 时可以直接使用其提供的 `Lua` API. 以下步骤仅用于学习或自定义开发时的 `Lua` 环境安装.
 
 !!!info
-    这部分介绍的是 Windows 系统下的 `Lua` 安装, Linux 系统用户请直接访问 [Lua Download](https://www.lua.org/download.html) 下载并安装.
+    这部分介绍的是 Windows 系统下的 `Lua` 安装, Linux 用户可直接通过包管理器安装 `Lua`.
 
 我们可以通过命令行工具 `winget` 安装 `Lua`:
+
+!!!info 
+    下面使用的是 `Windows PowerShell` 而不是 `cmd`. 某些命令行语法是 `Windows PowerShell` 独有的, 使用 `cmd` 可能会导致问题.
+
 ```bat
 winget install DEVCOM.Lua
 ```
+
 安装完成后, 我们可以通过以下命令检查 `Lua` 是否安装成功:
 ```bat
 lua -v
@@ -28,13 +33,11 @@ lua -v
 ```bat
 lua : 无法将“lua”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，
 然后再试一次。
-```
+```          
 
-默认情况下, `winget` 会将 `Lua` 安装至 `C:\Users\你的用户名\AppData\Local\Programs\Lua\bin`, 这里需要根据你的用户名更改路径, 例如 `C:\Users\AppleSheep\AppData\Local\Programs\Lua\bin`.             
-
-随后在命令行输入以下命令将 `Lua` 安装目录添加至系统环境变量中:
+默认情况下, `winget` 会将 `Lua` 安装至 `%LocalAppdata%\Programs\Lua\bin`. 我们在命令行输入以下命令将 `Lua` 安装目录添加至系统环境变量中:
 ```bat
-setx PATH "$env:PATH;C:\Users\AppleSheep\AppData\Local\Programs\Lua\bin"
+setx PATH "$env:PATH;%LocalAppdata%\Programs\Lua\bin\Programs\Lua\bin"
 ```
 
 完成后我们可以再次检查 `Lua` 是否安装成功:

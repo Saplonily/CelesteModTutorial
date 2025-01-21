@@ -140,7 +140,7 @@ public static class MyCelesteModAPI
 
     // 如果没有返回值, 也就是返回值是 void 则使用 Action
     public static Action LogStuff;
-    public static Action LogNumber<int>;
+    public static Action<int> LogNumber;
 
     // 如果导出的方法参数中有 in, out 或 ref 需要定义自定义委托类型以进行导入
     // Func 并不支持参数中带有 in, out 或 ref 的情况

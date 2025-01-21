@@ -32,7 +32,7 @@
 * 归档 [一些准备 - 偏好](../arc/preference.md)
 * 重构 [一些准备 - 调试](../coding_setup/debug.md)
 * 完善 [进阶 - 跨 Mod 交互 - #ModInterop](../advanced/cross_mod_interactions.md)
-* 移动 [额外 - CMCC](../extra/cmcc/index.md), [额外 - LuaCutscene](../extra/lua_cutscene/begin.md) 以及[其他 - XML 简单介绍](../extra/xml/xml-speedrun.md) 至额外章节以优化排版
+* 移动 [额外 - CMCC](../extra/cmcc/index.md), [额外 - LuaCutscene](../extra/lua_cutscene/begin.md) 以及[其他 - XML 简单介绍](../extra/xml/xml_speedrun.md) 至额外章节以优化排版
 
 ### 2025.1.17
 * 更新项目模板
