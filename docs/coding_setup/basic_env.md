@@ -176,10 +176,10 @@ ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没�
 实际上有关 code mod 的所有代码相关的东西我们都已经做完了, 剩余的其实只是一个普通 mod 要做的 ---- 写 `everest.yaml`.
 
 好的, 现在我们找到模板自动生成的 `everest.yaml` 并打开 , 然后像一个普通的 mapper 一样填写信息:
-```yml
+```yaml
 - Name: MyCelesteMod
   Version: 0.1.0
-  DLL: MyCelesteMod.dll
+  DLL: Code/MyCelesteMod.dll
   Dependencies:
     - Name: EverestCore
       Version: 1.4465.0
@@ -188,9 +188,9 @@ ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没�
 
 - `Name`: 你的 mod 名字
 - `Version`: 你的 mod 的版本
-- `DLL`: 如果你是 code mod 的话, 这里填入你的 code (也就是 dll 文件) 的位置, 这里我们是直接把 .dll 文件放到这个 yaml 的旁边了, 所以直接写名字就好
+- `DLL`: 如果你是 code mod 的话, 这里填入你的 code (也就是 dll 文件) 的位置
 
-最后是最底下的那个依赖, 这里我们只依赖最基础的 Everest, 版本填上你目前使用的 Everest 版本.
+最后是最底下的那个 `Dependencies`, 即依赖. 这里我们只依赖最基础的 Everest, 版本填上你目前使用的 Everest 版本.
 如果你的 mod 依赖 Everest Core, 你需要在这里将 `Everest` 更改为 `EverestCore`, 并将版本号填写大于 4465 的值.
 
 ## 结语
@@ -201,8 +201,8 @@ ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没�
 - MyCelesteMod (你的根目录)
     - ModFolder
         - Code
-          - MyCelesteMod.dll
-          - MyCelesteMod.pdb
+            - MyCelesteMod.dll
+            - MyCelesteMod.pdb
         - everest.yaml
     - CelesteMod.props
     - CelesteMod.targets

@@ -97,7 +97,7 @@ nav:
         - readme: "extra/cmcc/remote/ReadMe.md"
         - FAQ: "extra/cmcc/remote/todo.md"
       - XML:
-        - XML 简单介绍: "extra/xml/xml-speedrun.md"
+        - XML 简单介绍: "extra/xml/xml_speedrun.md"
       - Lua:
         - 开始: "extra/lua/begin.md"
         - 基本语法: "extra/lua/syntax.md"
