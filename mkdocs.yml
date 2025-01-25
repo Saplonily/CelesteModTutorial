@@ -101,12 +101,14 @@ nav:
       - Lua:
         - 开始: "extra/lua/begin.md"
         - 基本语法: "extra/lua/syntax.md"
-        - 数据类型: "extra/lua/data_structure.md"
+        - 数据类型: "extra/lua/data_type.md"
         - 流程控制: "extra/lua/control_flow.md"
         - 运算符: "extra/lua/operator.md"
-        - 函数: "extra/lua/function.md"
         - 迭代器: "extra/lua/iterator.md"
+        - 元表: "extra/lua/metatable.md"
+        - 异常处理: "extra/lua/exception_handling.md"
         - 模块与包: "extra/lua/package.md"
+        - 面向对象: "extra/lua/oop.md"
       - LuaCutscene:
         - 开始: "extra/lua_cutscene/begin.md"
         - 参考: "extra/lua_cutscene/reference.md"

@@ -60,7 +60,7 @@ Lua 5.4.6  Copyright (C) 1994-2023 Lua.org, PUC-Rio
 !!! note
     个人不太会配置这种 lua 环境, 所以如果你遇到了大量的未定义警告你可以选择在设置中搜索 `Lua.diagnostics.enable` 并将其关闭.
 
-此外, Lua (sumneko.lua) 插件并不支持 `Lua` 的调试. 个人推荐安装 [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) 插件.
+此外, Lua (sumneko.lua) 插件并不支持 `Lua` 的运行. 个人推荐安装 [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) 插件.
 
 安装完成后我们在右键菜单内点击 `Run Code` 即可运行 `Lua` 脚本:
 
