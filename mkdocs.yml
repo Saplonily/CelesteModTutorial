@@ -103,6 +103,7 @@ nav:
         - 基本语法: "extra/lua/syntax.md"
         - 数据类型: "extra/lua/data_structure.md"
         - 流程控制: "extra/lua/control_flow.md"
+        - 运算符: "extra/lua/operator.md"
         - 函数: "extra/lua/function.md"
         - 迭代器: "extra/lua/iterator.md"
         - 模块与包: "extra/lua/package.md"

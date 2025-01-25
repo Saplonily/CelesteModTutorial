@@ -1,12 +1,24 @@
-number = 10          -- 全局变量
-local number = 20    -- 局部变量
-
-print(number)    -- 输出 20 (局部变量优先)
-
-do
-    local number = 30    -- 新的局部变量
-    print(number)        -- 输出 30
+local add = function (a, b)
+    return a + b
 end
 
-print(number)    -- 输出 20 (回到外层的局部变量)
+print(add(1, 2))
 
+local function apply(func, x, y)
+    return func(x, y)
+end
+
+local function sub(a, b)
+    return a - b
+end
+
+print(apply(sub, 10, 3))
+
+local function multiplyBy(factor)
+    return function(x)
+        return x * factor
+    end
+end
+
+local double = multiplyBy(2)
+print(double(10))
