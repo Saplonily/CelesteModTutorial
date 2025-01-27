@@ -34,6 +34,12 @@ theme:
       icon: material/brightness-4
       name: Switch to system preference
 
+plugins:
+  - git-revision-date-localized:
+        enable_creation_date: true
+  - search
+  - git-authors
+
 extra_css:
   - css/content.css
 

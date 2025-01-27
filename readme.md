@@ -1,10 +1,10 @@
-# 蔚蓝CodeMod教程
+# 蔚蓝 Code Mod 教程
 
 个人的一些经验写成的教程, 仅此.  
 好像就没啥要说的了(?  
 目前 host 在两个位置:
 
-https://saplonily.elecho.dev/celeste_mod_tutorial  
+https://saplonily.top/celeste_mod_tutorial  
 https://sapcelestemod.netlify.app  
 
 ## 自行 host
@@ -30,11 +30,21 @@ pip install mkdocs
 pip install mkdocs-material
 ```
 
+此外还有插件:
+
+```sh
+pip install mkdocs-git-revision-date-localized-plugin
+pip install mkdocs-git-authors-plugin
+```
+
 开放网页服务:
 
 ```sh
 mkdocs serve
 ```
+
+你可以先注释掉 `mkdocs.yml` 中约第 37 行的 `plugins` 的所有项来加快本地的生成,
+因为它会在每次生成时读取整个 git 历史来生成更新时间, 修改时间以及作者.
 
 默认开放在 `localhost:8000`.
 
