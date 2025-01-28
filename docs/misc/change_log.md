@@ -28,12 +28,15 @@
 * 编写 [实战 - 测试地图](../coding_challenges/test_map.md)
 * 完善 [进阶 - 跨 Mod 交互](../advanced/cross_mod_interactions.md)
 
-### 2025.1.16
+### 2025.1.19
 * 归档 [一些准备 - 偏好](../arc/preference.md)
 * 重构 [一些准备 - 调试](../coding_setup/debug.md)
 * 完善 [进阶 - 跨 Mod 交互 - #ModInterop](../advanced/cross_mod_interactions.md)
 * 移动 [额外 - CMCC](../extra/cmcc/index.md), [额外 - LuaCutscene](../extra/lua_cutscene/begin.md) 以及[其他 - XML 简单介绍](../extra/xml/xml_speedrun.md) 至额外章节以优化排版
 
-### 2025.1.17
+### 2025.1.28
+* 添加插件以显示页面的创建与最后修改时间 以及文档编写者
+
+### 2025.2.7
 * 更新项目模板
 * 编写 [额外 - Lua](../extra/lua/begin.md)

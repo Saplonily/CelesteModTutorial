@@ -34,10 +34,10 @@
 
 在经过如上的配置后, 你会发现在蔚蓝启动的时候, 进行编译并复制资源时会报错, 
 这是因为 Everest 锁定占用了它们, 导致你不得不让这一切在蔚蓝关闭时进行,
-同时由于蔚蓝的重启速度不是很理想, 这大大的拉低了 mod 开发效率.  
+同时由于蔚蓝的重启速度不是很理想, 这大大的拉低了 Mod 开发效率.  
 不过好在 Everest 提供了一个技术叫做 `code hot reload`,
-即热重载, 它允许你在游戏运行期间替换你的代码并重载资源.
-要开启这项功能, 首先到你的蔚蓝根目录下的 Saves 目录, 找到并打开 `modsettings-Everest.celeste` 这个文件,
+即热重载, 它允许在游戏运行期间替换你的代码并重载资源.
+要开启这项功能, 首先到蔚蓝根目录下的 `Saves` 目录, 找到并打开 `modsettings-Everest.celeste` 这个文件,
 翻到大概中间的位置, 找到属性 `CodeReload_WIP`, 将其更改为 `true`.
 
 ```yaml title="modsettings-Everest.celeste" hl_lines="11"
@@ -61,7 +61,7 @@ LogLevels: {}
 # 其他设置
 ```
 
-完成设置后重新编译项目, 你应该就不会再得到任何错误, 并且 Everest 也正确地热重载了你的 mod 和你的 mod 资源.
+完成设置后重新编译项目, 你应该就不会再得到任何错误, 并且 Everest 也正确地热重载了你的 Mod 和你的 Mod 资源.
 
 ## Logger
 
@@ -84,7 +84,7 @@ public static void Log(LogLevel logLevel, string tag, string str)
 - `Warn`: 一般用于输出一些错误但不影响游戏进行的信息.
 - `Error`: 一般用于输出一些致命性错误.
 
-一般地, 游戏只会打印 `Info` 等级及以上的日志, 你可以通过在 `everest-launch.txt` 中加入`--loglevel {等级}`来指定过滤等级.
+一般地, 游戏只会打印 `Info` 优先级及以上的日志, 你可以通过在 `everest-launch.txt` 中加入`--loglevel {等级}`来指定过滤等级.
 
 下面是一些使用示例:
 

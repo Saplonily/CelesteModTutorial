@@ -53,12 +53,12 @@ Lua 5.4.6  Copyright (C) 1994-2023 Lua.org, PUC-Rio
 ### Visual Studio Code 配置
 这一步实际上是可选的, 不过为了更愉快的 `Lua` 脚本的编写,
 个人还是觉得挺有必要的.  
-在这里我会推荐使用 [Visual Studio Code](https://code.visualstudio.com/Download) 配上 [Lua (sumneko.lua)](https://marketplace.visualstudio.com/items?itemName=sumneko.lua)
+在这里推荐使用 [Visual Studio Code](https://code.visualstudio.com/Download) 配上 [Lua (sumneko.lua)](https://marketplace.visualstudio.com/items?itemName=sumneko.lua)
 插件:  
 ![lua-in-vscode](images/begin/lua_in_vscode.png)
 
 !!! note
-    个人不太会配置这种 lua 环境, 所以如果你遇到了大量的未定义警告你可以选择在设置中搜索 `Lua.diagnostics.enable` 并将其关闭.
+    个人不太会配置这种 `Lua` 环境, 所以如果你遇到了大量的未定义警告你可以选择在设置中搜索 `Lua.diagnostics.enable` 并将其关闭.
 
 此外, Lua (sumneko.lua) 插件并不支持 `Lua` 的运行. 个人推荐安装 [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) 插件.
 
