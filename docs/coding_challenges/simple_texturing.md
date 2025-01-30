@@ -28,7 +28,9 @@
 
     public PassByRefill(EntityData data, Vector2 offset)
         : this(data.Position + offset, data.Int("dashes"))
-    { }
+    {
+
+    }
     ```
 === "Before"
     ```cs title="PassByRefill.cs"
@@ -42,7 +44,9 @@
 
     public PassByRefill(EntityData data, Vector2 offset)
         : this(data.Position + offset, new Vector2(data.Width, data.Height), data.Int("dashes"))
-    { }
+    { 
+
+    }
     ```
 
 !!! info
@@ -108,7 +112,9 @@ public class PassByRefill : Entity
 
     public PassByRefill(EntityData data, Vector2 offset)
         : this(data.Position + offset, data.Int("dashes"))
-    { }
+    {
+
+    }
 
     public override void Update()
     {

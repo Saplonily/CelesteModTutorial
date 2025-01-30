@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(UseCelesteAnalyzer)' == 'true'">
-    <PackageReference Include="CelesteAnalyzer" Version="*" />
+    <PackageReference Include="CelesteAnalyzer" Version="1.0.3.1" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(ImplicitCelesteReference)' == 'true'">
@@ -32,7 +32,7 @@
     </Reference>
     <PackageReference Include="CelesteMod.Publicizer"
                       Condition="'$(UseCelestePublicizer)' == 'true'"
-                      Version="*"
+                      Version="1.1.2"
                       CelesteAssembly="$(CelesteRootPath)/Celeste.dll"
                       PrivateAssets="all"
                       ExcludeAssets="runtime"
@@ -59,6 +59,10 @@
     </Reference>
     <Reference Include="MonoMod.RuntimeDetour">
       <HintPath>$(CelesteRootPath)/MonoMod.RuntimeDetour.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MonoMod.Patcher">
+      <HintPath>$(CelesteRootPath)/MonoMod.Patcher.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

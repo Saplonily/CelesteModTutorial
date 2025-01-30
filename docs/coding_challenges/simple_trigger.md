@@ -126,10 +126,6 @@ foreach(var refill in refills)
 
 最后, 你的代码应该总体上是这个样子:
 ```cs title="SetPassByRefillDashesTrigger.cs"
-using Celeste.Mod.Entities;
-
-namespace MyCelesteMod;
-
 [CustomEntity("MyCelesteMod/SetPassByRefillDashesTrigger")]
 public class SetPassByRefillDashesTrigger : Trigger
 {

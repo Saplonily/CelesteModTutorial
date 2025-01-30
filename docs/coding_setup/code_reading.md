@@ -18,7 +18,7 @@
 
 - 打开它
 - 点击左上角的`文件`, `打开`
-- 选择 `Celeste.exe` (如果你使用 core 版本的 everest, 你需要选择 `Celeste.dll`)
+- 选择 `Celeste.exe` (如果你使用 Core 版本的 Everest, 你需要选择 `Celeste.dll`)
 - 展开蔚蓝的程序集
 - 你现在可以看到蔚蓝都有哪些类了
 - 你现在也可以看到蔚蓝都有哪些函数了

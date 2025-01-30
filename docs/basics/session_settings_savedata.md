@@ -15,7 +15,7 @@ Settings, 顾名思义就是选项的意思. Everest 为我们封装了一个非
 在此之前, 我们先保存一下我们的 `EverestModule` 实例以方便我们访问它的实例(Everest 会确保它是单例的):
 
 ```cs
-public class MyCelesteModModule : EverestModule
+public sealed class MyCelesteModModule : EverestModule
 {
     public static MyCelesteModModule Instance { get; private set; }
 
@@ -33,7 +33,7 @@ public class MyCelesteModModule : EverestModule
 然后新建一个名字最好以 mod 开头, `Settings` 结尾的 `MyCelesteModSettings` 类并继承 `EverestModuleSettings`:
 
 ```cs
-public class MyCelesteModSettings : EverestModuleSettings
+public sealed class MyCelesteModSettings : EverestModuleSettings
 {
 
 }
@@ -42,7 +42,7 @@ public class MyCelesteModSettings : EverestModuleSettings
 然后在 module 类里这样注册这个类:
 
 ```cs hl_lines="5-6"
-public class MyCelesteModModule : EverestModule
+public sealed class MyCelesteModModule : EverestModule
 {
     public static MyCelesteModModule Instance { get; private set; }
 
@@ -63,7 +63,7 @@ public class MyCelesteModModule : EverestModule
 现在, 我们向选项中新加一条**公开**的 bool 类型的属性:
 
 ```cs
-public class MyCelesteModSettings : EverestModuleSettings
+public sealed class MyCelesteModSettings : EverestModuleSettings
 {
     public bool AnInterestingSwitch { get; set; }
 }
@@ -78,7 +78,7 @@ public class MyCelesteModSettings : EverestModuleSettings
 除此之外 Everest 还支持枚举, 字符串和数字, 它们分别会生成这样的选项:
 
 ```cs
-public class MyCelesteModSettings : EverestModuleSettings
+public sealed class MyCelesteModSettings : EverestModuleSettings
 {
     public bool AnInterestingSwitch { get; set; }
 
@@ -126,7 +126,7 @@ public class MyCelesteModSettings : EverestModuleSettings
 在这里, 我们需要的本地化键名是 `modoptions_{类名}_{属性名}`, 例如如下类:
 
 ```cs
-public class MyCelesteModSettings : EverestModuleSettings
+public sealed class MyCelesteModSettings : EverestModuleSettings
 {
     public bool EnableFunnyThing { get; set; }
 }
@@ -201,17 +201,13 @@ Session 是一个蔚蓝中保存数据的概念, 它用于保存 "保存并退�
 与 Settings 相同, 我们需要先创建一个继承于 `EverestModuleSession` 的类, 然后在模块类中声明它:
 
 ```cs title="MyCelesteModSession.cs"
-namespace Celeste.Mod.MyCelesteMod;
-
-public class MyCelesteModSession : EverestModuleSession
+public sealed class MyCelesteModSession : EverestModuleSession
 {
 }
 ```
 
 ```cs title="MyCelesteModModule.cs"
-namespace Celeste.Mod.MyCelesteMod;
-
-public class MyCelesteModModule : EverestModule
+public sealed class MyCelesteModModule : EverestModule
 {
     public static MyCelesteModModule Instance { get; private set; }
 
@@ -239,19 +235,13 @@ public class MyCelesteModModule : EverestModule
 退出了游戏, 再次进入时你会发现重生点是新的, 而 `PassByRefill` 的冲刺数又变回 `1` 了, 所以接下来我们尝试通过 `Session` 来修正这个错误.  
 
 ```cs title="MyCelesteModSession.cs"
-namespace Celeste.Mod.MyCelesteMod;
-
-public class MyCelesteModSession : EverestModuleSession
+public sealed class MyCelesteModSession : EverestModuleSession
 {
     public Dictionary<string, int> RoomIdToPassByRefillDashes = new();  // 我们将记录每个房间名对应的PassByRefill的冲刺数
 }
 ```
 
 ```cs title="SetPassByRefillDashesTrigger.cs"
-using Celeste.Mod.Entities;
-
-namespace MyCelesteMod;
-
 [CustomEntity("MyCelesteMod/SetPassByRefillDashesTrigger")]
 public class SetPassByRefillDashesTrigger : Trigger
 {
@@ -272,10 +262,6 @@ public class SetPassByRefillDashesTrigger : Trigger
 ```
 
 ```cs title="PassByRefill.cs"
-using Celeste.Mod.Entities;
-
-namespace MyCelesteMod;
-
 [CustomEntity("MyCelesteMod/PassByRefill")]
 public class PassByRefill : Entity
 {
@@ -321,17 +307,13 @@ public class PassByRefill : Entity
 使用它与使用 `Session` 极其相似:
 
 ```cs title="MyCelesteModSaveData.cs"
-namespace Celeste.Mod.MyCelesteMod;
-
-public class MyCelesteModSaveData : EverestModuleSaveData
+public sealed class MyCelesteModSaveData : EverestModuleSaveData
 {
 }
 ```
 
 ```cs title="MyCelesteModModule.cs"
-namespace Celeste.Mod.MyCelesteMod;
-
-public class MyCelesteModModule : EverestModule
+public sealed class MyCelesteModModule : EverestModule
 {
     public static MyCelesteModModule Instance { get; private set; }
 
