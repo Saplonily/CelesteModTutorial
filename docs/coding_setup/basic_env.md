@@ -150,7 +150,7 @@ dotnet new install Saladim.CelesteModTemplate
 ```cs
 namespace MyCelesteMod;
 
-public class MyCelesteModModule : EverestModule
+public sealed class MyCelesteModModule : EverestModule
 {
     public override void Load()
     {

@@ -225,9 +225,8 @@ Everest 会将所有 Code Mod 的程序集使用 MonoMod 进行 patch 处理后�
 
     - GravityHelper.GravityHelper.dll
     - ExtendedVariantMode.ExtendedVariantMode.dll
-    ` FrostHelper.FrostTempleHelper.dll
+    - FrostHelper.FrostTempleHelper.dll
 
-    我们填写目标 Mod 在 `Cache` 中名称的前半段就行.
 
 ### lib-stripped
 

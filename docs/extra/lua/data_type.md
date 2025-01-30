@@ -380,7 +380,7 @@ local function calculate(a, b)
     local add = a + b
     local sub = a - b
     local mul = a * b
-    return sum, sub, mul
+    return add, sub, mul
 end
 
 local addResult, subResult, mulResult = calculate(20, 5)

@@ -31,8 +31,6 @@
 那么你应该会写出如下的代码:
 
 ```cs title="PassByRefill.cs"
-namespace MyCelesteMod;
-
 public class PassByRefill : Entity
 {
 
@@ -60,8 +58,10 @@ public PassByRefill(Vector2 position, Vector2 size, int dashes)
 接下来, 我们需要声明一个特殊的构造函数, 以让 Everest 反射调用并使得我们的实体可以正常获取地图的数据:
 ```cs title="PassByRefill.cs"
 public PassByRefill(EntityData data, Vector2 offset) 
-        : this(data.Position + offset, new Vector2(data.Width, data.Height), data.Int("dashes"))
-    { }
+    : this(data.Position + offset, new Vector2(data.Width, data.Height), data.Int("dashes"))
+{ 
+
+}
 ```
 在这里, `EntityData data` 储存了作图软件保存的相关数据, 我们要提取它们很简单.  
 比如说我们要提取一个名为 `dashes` 的 `int` 类型的数据, 我们就简单地调用它的方法 `Int(string name)`,
@@ -83,7 +83,8 @@ public PassByRefill(EntityData data, Vector2 offset)
 [CustomEntity("MyCelesteMod/PassByRefill")]
 public class PassByRefill : Entity
 {
-......
+    // ......
+}
 ```
 在这里 "名称 ID" 我们一般推荐以 "{Mod名}/该实体类名" 进行命名, 就像这里一样, Mod 名为 `MyCelesteMod`, 类名为 `PassByRefill`, 实体 "名称 ID" 就是 `MyCelesteMod/PassByRefill`. 这里我建议你记住它, 待会我们会在作图软件配置的时候用到.
 
@@ -243,10 +244,6 @@ Draw.Rect(Position, Width, Height, c);
 
 如果你遇到了困难, 你可以对比一下最终的代码:
 ```cs title="PassByRefill.cs"
-using Celeste.Mod.Entities;
-
-namespace MyCelesteMod;
-
 [CustomEntity("MyCelesteMod/PassByRefill")]
 public class PassByRefill : Entity
 {
@@ -262,7 +259,9 @@ public class PassByRefill : Entity
 
     public PassByRefill(EntityData data, Vector2 offset)
         : this(data.Position + offset, new Vector2(data.Width, data.Height), data.Int("dashes"))
-    { }
+    { 
+
+    }
 
     public override void Update()
     {
