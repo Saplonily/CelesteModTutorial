@@ -13,7 +13,7 @@ if condition then
 end
 ```
 
-`condition` 是需要判断的表达式, `if` 语句会根据其真假值以决定是否执行 `statement` 中的代码.         
+`condition` 是需要判断的表达式, `if` 语句会根据其真假值以决定是否执行 `statement` 代码块.         
 如果 `condition` 为真, 则执行 `statement` 代码块, 如果为假, 则跳过该部分代码块.
 
 !!!info
@@ -103,27 +103,152 @@ else
 end
 ```
 
-### 嵌套 if 语句
+## 循环
 
-`if` 语句可以嵌套使用以实现更复杂的逻辑判断.
+`Lua` 提供以下三种循环语句, 分别用于在特定情况下重复执行代码块中的内容.
+
+### for
+
+`Lua` 支持两种 `for` 循环: 数值型 `for` 循环以及泛型 `for` 循环.
+
+!!!info
+    这里仅介绍数值型 `for` 循环, 泛型 `for` 循环请阅读 [Lua 迭代器](iterator.md).
+
+数值型 `for` 循环的语法结构如下:
+```lua
+for var = start, stop, step do
+    statement
+end
+```
+
+- `var`: 循环变量, 自动声明为局部变量. 其值在每次循环时自动更新.
+- `start`: 循环变量的起始值.
+- `stop`: 循环变量的结束值.
+- `step`: 可选部分, 步长, 每次循环时循环变量的增量, 默认为 1.
+- `statement`: 循环语句中需要反复执行的代码块.
+
+循环开始时`var` 会被设定为起始值 `start`, 每次循环都会执行 `statement` 中的代码.      
+每次循环结束时会更新 `var` 的值, 即 `var = var + step`. 当满足以下条件时循环结束:
+
+- `step` 为正, 则 `var` 大于结束值 `stop` 时结束循环.
+- `step` 为负, 则 `var` 小于结束值 `stop` 时结束循环.
 
 例如:
 ```lua
-local num = 10
+-- 从 1 循环到 5, 步长为 1
+for i = 1, 5 do
+    print(i)    -- 依次输出 1, 2, 3, 4, 5
+end
 
--- 判断 num 是否大于 5
+-- 从 10 循环到 1, 步长为 -2  
+for i = 10, 1, -2 do
+    print(i)    -- 依次输出 10, 8, 6, 4, 2
+end
+```
+
+### while
+
+`while` 循环在给定表达式为真时重复执行代码块. 其语法结构如下:
+```lua
+while condition do
+    statment
+end
+```
+
+`while` 循环会反复执行, 直到 `condition` 表达式的值为假.            
+如果 `condition` 表达式在某次循环后为假，则循环结束.
+
+!!!info
+    `while` 循环在开始时会先检查 `condition` 的值, 如果为假则不执行循环.
+
+例如:
+```lua
+local num = 0
+
+-- 当 num 小于 5 时，持续执行循环
+while num < 5 do
+    print(num)       -- 输出 0, 1, 2, 3, 4
+    num = num + 1    -- 更新 num 的值以避免死循环
+end
+```
+
+### repeat ... until
+
+`repeat ... until` 循环与 `while` 循环类似, 用于在条件满足时重复执行代码块. 其语法结构如下:
+```lua
+repeat
+   statements
+until condition 
+```
+
+`repeat ... until` 循环的结束条件与 `while` 循环相同.           
+不同的是其会先执行一次 `statement` 中的代码再判断 `condition` 表达式, 因此其至少会执行一次循环.
+
+例如:
+```lua
+local num = 0
+
+-- 当 num 小于等于 5 时，持续执行循环
+repeat
+    print(num)       -- 输出 0, 1, 2, 3, 4, 5
+    num = num + 1    -- 更新 num 的值以避免死循环
+until num > 5
+```
+
+### break
+
+`break` 语句用于跳出循环. 循环体中的代码执行 `break` 会立刻退出当前循环并执行循环语句之后的代码.
+
+例如:
+```lua
+-- 从 1 循环到 10, 步长为 1
+for i = 1, 10 do
+    if i == 5 then
+        break    -- 当 i 等于 5 时跳出循环
+    end
+    print(i)     -- 输出 1 2 3 4
+end
+```
+
+对于多层嵌套循环, `break` 只能跳出当前正在进行的循环语句, 并不能直接跳出外层循环.
+
+## 嵌套语句
+
+流程控制语句也可以嵌套使用以实现更为复杂的逻辑.
+
+例如:
+```lua
+-- if 嵌套 if
+-- 判断 5 < num < 15
+local num = 10
 if num > 5 then
-    -- 判断 num 是否小于 15
     if num < 15 then
         print("num is between 5 and 15")  -- 输出 num is between 5 and 15
     end
 end
+
+-- for 嵌套 for
+-- 输出 3 x 3 矩阵坐标
+for x = 1, 3 do
+    for y = 1, 3 do
+        print(x .. "," .. y)    -- 输出 1,1 1,2 ... 3,2 3,3
+    end
+end
+
+-- if 嵌套 for
+-- 如果 num2 小于 10, 输出 num2 到 10 的所有整数
+local num2 = 5
+if num2 > 10 then
+    for i = num2, 10 do
+        print(i)    -- 输出 5, 6, 7, 8, 9, 10
+    end
+end
+
+-- for 嵌套 if
+-- 输出偶数
+for i = 1, 5 do
+    if i % 2 == 0 then
+        print(i)    -- 输出 2, 4
+    end
+end
 ```
-
-## 循环
-
-### for
-
-### while
-
-### repeat ... until
