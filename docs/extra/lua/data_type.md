@@ -46,13 +46,6 @@ end
 print(type(add))              -- 输出 function
 ```
 
-对于类型比较, `type()` 函数返回的是一个 `string` 类型.          
-正确的比较方式是将 `type()` 的返回值与字符串进行比较, 并且需要使用 `""` 引用类型字符串:
-```lua
-print(type(nil) == nil)      -- 输出 false, type(nil) 返回的是 "nil", "nil" 不等于 nil
-print(type(nil) == "nil")    -- 输出 true, type(nil) 返回的是 "nil", "nil" 等于 "nil"
-```
-
 ### nil
 
 `nil` 是一种特殊的类型, 只包含一个值 `nil`. 所有未初始化的变量都被视为 `nil`, 把变量赋值为 `nil` 即可删除这个变量:
@@ -156,18 +149,6 @@ print("a line\nnew line")    -- 输出 a line
                              --      new line 
 ```
 
-需要连接字符串使用 `..` 运算符, 需要计算字符串的长度使用 `#` 运算符:
-```lua
-local str1 = "speed"
-local str2 = "run"
-
-print(str1 .. str2)           -- 输出 speedrun
-print(str1 .. " " .. str2)    -- 输出 speed run
-
-print(#str1)    -- 输出 5
-print(#str2)    -- 输出 3
-```
-
 `string` 类型是不可变的, 所有修改字符串的操作本质上都是生成并返回修改后的字符串:
 ```lua
 local str1 = "hi there"
@@ -217,14 +198,14 @@ end
 
 -- 空字符串 "" 被认为是真
 if "" then
-    print("\"\" is true")         -- 输出 "" is true
+    print("\"\" is true")      -- 输出 "" is true
 else
     print("\"\" is false")
 end
 
 -- 空表 {} 被认为是真
 if {} then
-    print("{} is true")         -- 输出 {} is true
+    print("{} is true")        -- 输出 {} is true
 else
     print("{} is false")
 end
@@ -270,7 +251,7 @@ local mixedTable = {
     sayHi = someFunc(),                       -- string 作为索引, function 作为值
     [someFunc()] = "use function as index"    -- function 作为索引, string 作为值
     
---  不能使用没有返回值的函数作为索引, 访问时会报错 table index is nil
+--  不能使用没有返回值的函数作为索引, 访问时会报错 "table index is nil"
 --  没有返回值的函数会返回 nil, nil 不能作为表的索引
 --  [noReturnValue()] = "error"
 }
@@ -341,21 +322,6 @@ print(someTable.player)       -- 输出 nil
 print(someTable[2])           -- 输出 nil
 print(someTable.square(5))    -- 输出 25.0
 ```
-
-`Lua` 中的 `table` 是引用类型, 直接使用 `=` 操作符赋值并不会复制表, 而是创建对原表的引用.       
-直接比较两个表时，会比较它们的引用地址而不是表的内容. 在比较两个表是否相等时可能导致预期外的结果:
-```lua
-local emptyTable = {}
-print(emptyTable == {})    -- 输出 false
-
-local table1 = {1, 2, 3}
-local table2 = {1, 2, 3}
-local table3 = table1
-print(table1 == table2)    -- 输出 false
-print(table1 == table3)    -- 输出 true
-```
-
-`Lua` 并没有内建实现表的比较与复制的函数. 需要额外实现. 
 
 ### function
 

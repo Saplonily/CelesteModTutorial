@@ -158,7 +158,7 @@ end
 `while` 循环会反复执行, 直到 `condition` 表达式的值为假.            
 如果 `condition` 表达式在某次循环后为假，则循环结束.
 
-!!!info
+!!!note
     `while` 循环在开始时会先检查 `condition` 的值, 如果为假则不执行循环.
 
 例如:
