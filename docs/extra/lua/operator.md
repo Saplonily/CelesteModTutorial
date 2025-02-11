@@ -162,18 +162,18 @@ print(1 or false or 3)    -- 输出 1
 ???note "Lua 模拟三元运算符"
     `and` 与 `or` 都使用短路运算, 如果返回第一个操作数则不会计算第二个操作数的值. 因此可以模拟 `C#` 中的三元运算符:
     ```lua
-    result = condition and "trueValue" or "falseValue"
+    result = condition and trueValue or falseValue
     ``` 
 
     其对应的 `C#` 代码如下:
     ```cs
-    result = condition ? "trueValue" : "falseValue";
+    result = condition ? trueValue : falseValue;
     ```
 
     需要注意的是, 在 `condition` 为真并且 `trueValue` 为假的情况下会输出预期外的 `falseValue`.          
     因此在 `Lua` 中模拟三元运算符时应确保 `trueValue` 的值不为假, 或是添加额外的条件判断:
     ```lua
-    result = condition and "trueValue" or (condition == false and "falseValue" or "fallback")
+    result = condition and trueValue or (condition == false and falseValue or fallback)
     ```
 
     下面是一个示例:
@@ -188,13 +188,13 @@ print(1 or false or 3)    -- 输出 1
 
     其对应的 `C#` 代码如下:
     ```cs
-    double safeDivide(double a, double b)
+    double SafeDivide(double a, double b)
     {
         return b != 0 ? a/b : throw new DivideByZeroException();
     }
         
-    Console.WriteLine(safeDivide(10, 2));    // 输出 5
-    Console.WriteLine(safeDivide(10, 0));    // 报错 "Attempted to divide by zero."
+    Console.WriteLine(SafeDivide(10, 2));    // 输出 5
+    Console.WriteLine(SafeDivide(10, 0));    // 报错 "Attempted to divide by zero."
     ```
 
 ## 其他运算符
