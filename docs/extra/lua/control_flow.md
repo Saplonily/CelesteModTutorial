@@ -9,12 +9,12 @@
 `if` 语句用于执行条件判断, 其语法结构如下:
 ```lua
 if condition then
-    statement
+    statements
 end
 ```
 
-`condition` 是需要判断的表达式, `if` 语句会根据其真假值以决定是否执行 `statement` 代码块.         
-如果 `condition` 为真, 则执行 `statement` 代码块, 如果为假, 则跳过该部分代码块.
+`condition` 是需要判断的表达式, `if` 语句会根据其真假值以决定是否执行 `statements` 代码块.         
+如果 `condition` 为真, 则执行 `statements` 代码块, 如果为假, 则跳过该部分代码块.
 
 !!!info
     表达式可使用逻辑运算符进行连接, 参考 [Lua - 运算符](operator.md).
@@ -34,16 +34,16 @@ end
 `elseif` 是 `if` 语句的可选语句, 用于执行多个条件的判断. 其语法结构如下:
 ```lua
 if condition1 then
-    statement1
+    statements1
 elseif condition2 then 
-    statement2
+    statements2
 ...
 elseif conditionN then
-    statementN
+    statementsN
 end
 ```
 
-`elseif` 后面可以跟任意多个 `condition` 表达式, `condition` 为真时会执行对应的 `statement` 代码块.            
+`elseif` 后面可以跟任意多个 `condition` 表达式, `condition` 为真时会执行对应的 `statements` 代码块.            
 如果 `condition` 为假, 则依次检查后续的 `elseif`, 直到找到为真且匹配的表达式.
 
 例如:
@@ -56,7 +56,7 @@ if num < 50 then
 elseif num == 50 then
     print("num is eqaul to 50")    -- 输出 num is eqaul to 50
 elseif num > 50 then
-    "num is greater than 50"
+    print("num is greater than 50")
 end
 ```
 
@@ -65,13 +65,13 @@ end
 `else` 是 `if` 语句的可选语句, 用于表达式为假时执行的默认代码块. 其语法结构如下:
 ```lua
 if condition then
-    statement
+    statements
 else
-    defaultStatement
+    defaultStatements
 end
 ```
 
-如果 `condition` 为假, 则执行 `else` 后的 `defaultStatement` 代码块.
+如果 `condition` 为假, 则执行 `else` 后的 `defaultStatements` 代码块.
 
 例如:
 ```lua
@@ -117,7 +117,7 @@ end
 数值型 `for` 循环的语法结构如下:
 ```lua
 for var = start, stop, step do
-    statement
+    statements
 end
 ```
 
@@ -125,9 +125,9 @@ end
 - `start`: 循环变量的起始值.
 - `stop`: 循环变量的结束值.
 - `step`: 可选部分, 步长, 每次循环时循环变量的增量, 默认为 1.
-- `statement`: 循环语句中需要反复执行的代码块.
+- `statements`: 循环语句中需要反复执行的代码块.
 
-循环开始时`var` 会被设定为起始值 `start`, 每次循环都会执行 `statement` 中的代码.      
+循环开始时`var` 会被设定为起始值 `start`, 每次循环都会执行 `statements` 中的代码.      
 每次循环结束时会更新 `var` 的值, 即 `var = var + step`. 当满足以下条件时循环结束:
 
 - `step` 为正, 则 `var` 大于结束值 `stop` 时结束循环.
@@ -151,7 +151,7 @@ end
 `while` 循环在给定表达式为真时重复执行代码块. 其语法结构如下:
 ```lua
 while condition do
-    statment
+    statements
 end
 ```
 
@@ -182,7 +182,7 @@ until condition
 ```
 
 `repeat ... until` 循环的结束条件与 `while` 循环相同.           
-不同的是其会先执行一次 `statement` 中的代码再判断 `condition` 表达式, 因此其至少会执行一次循环.
+不同的是其会先执行一次 `statements` 中的代码再判断 `condition` 表达式, 因此其至少会执行一次循环.
 
 例如:
 ```lua
