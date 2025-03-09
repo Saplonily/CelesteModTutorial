@@ -34,7 +34,7 @@
 
 ```
 !!! note
-    这个文件是 XML 格式的, 如果你不熟悉 XML 的话你可以到[这里](../other/xml-speedrun.md)简单看一下, 免得你不知道我们讨论的东西都是什么
+    这个文件是 XML 格式的, 如果你不熟悉 XML 的话你可以到[这里](../extra/xml/xml_speedrun.md)简单看一下, 免得你不知道我们讨论的东西都是什么
 
 其中我们只需要关注里面的 `PropertyGroup` 以及 `ItemGroup` 节点  
 `PropertyGroup` 节点定义了这个项目有哪些属性, 比如项目框架版本, 语言版本, 程序集昵称等  

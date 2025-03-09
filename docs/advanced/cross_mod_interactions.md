@@ -81,6 +81,8 @@ public static class MyCelesteModExports
     // 添加于 1.0.0 版本
     public static void LogStuff() => Logger.Log(LogLevel.Info, "MyCelesteMod", "Someone is calling this method!");
     // 添加于 1.0.0 版本
+    public static void LogNumber(int number) => Logger.Log(LogLevel.Info, "MyCelesteMod", $"Number is {number}!");
+    // 添加于 1.0.0 版本
     public static bool TryDoubleIfEven(int number, out int? doubledNumber)
     {
         if (number % 2 == 0)
@@ -138,11 +140,12 @@ public static class MyCelesteModAPI
 
     // 如果没有返回值, 也就是返回值是 void 则使用 Action
     public static Action LogStuff;
+    public static Action<int> LogNumber;
 
-    // 如果导出的方法参数中有 out 或 ref 需要定义自定义委托类型以进行导入
-    // Func 并不支持参数中带有 out 或 ref 的情况
-    public static TryDoubleIfEvenDelegate TryDoubleIfEven;
+    // 如果导出的方法参数中有 in, out 或 ref 需要定义自定义委托类型以进行导入
+    // Func 并不支持参数中带有 in, out 或 ref 的情况
     public delegate bool TryDoubleIfEvenDelegate(int number, out int? doubledNumber);
+    public static TryDoubleIfEvenDelegate TryDoubleIfEven;
 }
 ```
 
@@ -166,11 +169,9 @@ if (MyCelesteModAPI.MultiplyByTwo(myNumber) > 400)
     MyCelesteModAPI.LogStuff();
 }
 
-int myDoubledNumber;
-
 if (MyCelesteModAPI.TryDoubleIfEven(myNumber, out int? doubledNumber))
 {
-    myDoubledNumber = doubledNumber;
+    MyCelesteModAPI.LogNumber(doubledNumber);
 }
 ```
 
@@ -224,9 +225,8 @@ Everest 会将所有 Code Mod 的程序集使用 MonoMod 进行 patch 处理后�
 
     - GravityHelper.GravityHelper.dll
     - ExtendedVariantMode.ExtendedVariantMode.dll
-    ` FrostHelper.FrostTempleHelper.dll
+    - FrostHelper.FrostTempleHelper.dll
 
-    我们填写目标 Mod 在 `Cache` 中名称的前半段就行.
 
 ### lib-stripped
 
