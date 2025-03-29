@@ -1,44 +1,47 @@
 site_name: Celeste Code Mod 教程
 repo_url: https://github.com/Saplonily/CelesteModTutorial
+repo_name: Saplonily/CelesteModTutorial
 site_description: Celeste Code Mod Tutorial
 site_author: Saplonily
+site_url: https://saplonily.top
+
+plugins:
+  - search
+  - git-authors
+  - git-revision-date-localized:
+      enable_creation_date: true
 
 theme:
   name: material
   language: zh
   custom_dir: overrides
   logo: assets/images/favicon.png
+  favicon: assets/images/favicon.png
   font: false
   features:
     - content.code.copy
     - content.tabs.link
 
-  palette: 
-  # Palette toggle for automatic mode
-  - media: "(prefers-color-scheme)"
-    toggle:
-      icon: material/brightness-auto
-      name: Switch to light mode
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
 
-  # Palette toggle for light mode
-  - media: "(prefers-color-scheme: light)"
-    scheme: default 
-    toggle:
-      icon: material/brightness-7
-      name: Switch to dark mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
 
-  # Palette toggle for dark mode
-  - media: "(prefers-color-scheme: dark)"
-    scheme: slate
-    toggle:
-      icon: material/brightness-4
-      name: Switch to system preference
-
-plugins:
-  - git-revision-date-localized:
-        enable_creation_date: true
-  - search
-  - git-authors
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
 
 extra_css:
   - css/content.css
@@ -79,7 +82,7 @@ nav:
   - Loenn:
       - Loenn 目录结构: "loenn/folder_structure.md"
       - Loenn 基础配置: "loenn/basic_configurations.md"
-      - Entity 结构: "loenn/entity_structs.md" 
+      - Entity 结构: "loenn/entity_structs.md"
       - Trigger 结构: "loenn/trigger_structs.md"
       - Loenn 绘制: "loenn/rendering.md"
       - Loenn 节点: "loenn/nodes.md"
@@ -93,11 +96,11 @@ nav:
       - 钩子: "hooks/hook.md"
       - IL: "hooks/il.md"
       - IL 钩子与随意钩取: "hooks/adv_hooks.md"
-      - 协程的钩取与私有成员访问: "hooks/adv_hooks2.md"     
+      - 协程的钩取与私有成员访问: "hooks/adv_hooks2.md"
   - 组件:
       - Sprite, Image: "components/sprite_image.md"
-      - Alarm, Tween, Coroutine: "components/alarm_tween_coroutine.md"  
-      - StateMachine: "components/statemachine.md"    
+      - Alarm, Tween, Coroutine: "components/alarm_tween_coroutine.md"
+      - StateMachine: "components/statemachine.md"
   - 其他:
       - XML简单介绍: "other/xml-speedrun.md"
   - 额外 - LuaCutscene:
