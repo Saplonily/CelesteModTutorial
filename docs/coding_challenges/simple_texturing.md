@@ -28,7 +28,9 @@
 
     public PassByRefill(EntityData data, Vector2 offset)
         : this(data.Position + offset, data.Int("dashes"))
-    { }
+    {
+
+    }
     ```
 === "Before"
     ```cs title="PassByRefill.cs"
@@ -42,7 +44,9 @@
 
     public PassByRefill(EntityData data, Vector2 offset)
         : this(data.Position + offset, new Vector2(data.Width, data.Height), data.Int("dashes"))
-    { }
+    { 
+
+    }
     ```
 
 !!! info
@@ -59,11 +63,12 @@ ok 那么现在我们该在代码这边来点贴图了, 这里我们会用到之
     - Graphics
         - Atlases
             - Gameplay
-                - `MyCelesteMod`
-                    - pass_by_refill.png
+                - objects
+                    - PassByRefill
+                        - pass_by_refill.png
 
 `pass_by_refill.png` 即我们的贴图, 如果你同时也是一位 mapper 的话你一定很熟悉这个文件夹套套乐!  
-在代码这边, 我们使用 `GFX.Game["MyCelesteMod/pass_by_refill"]` 来获取这个贴图, 它是一个 `MTexture` 类型的实例, 在获取到这个贴图后,
+在代码这边, 我们使用 `GFX.Game["objects/PassByRefill/pass_by_refill"]` 来获取这个贴图, 它是一个 `MTexture` 类型的实例, 在获取到这个贴图后,
 我们 `new` 一个 `Monocle.Image`, 然后在构造函数中传入它, 然后使用 `this.Add` 函数挂载到我们的这个实体上, 总的代码应该是这样的:
 ```cs title="PassByRefill.cs"
 public PassByRefill(Vector2 position, int dashes)
@@ -73,16 +78,17 @@ public PassByRefill(Vector2 position, int dashes)
     Hitbox hitbox = new(64, 64);
     Collider = hitbox;
 
-    MTexture tex = GFX.Game["MyCelesteMod/pass_by_refill"];
+    MTexture tex = GFX.Game["objects/PassByRefill/pass_by_refill"];
     Image image = new(tex);
     this.Add(image);
 }
 ```
 
 !!! info
-    `GFX` 是蔚蓝中的一个管理贴图的类, 我们用它获取到一个贴图组 `Game`, 然后向它检索一个名为 `MyCelesteMod/pass_by_refill` 的贴图, 你可能会疑惑为什么这里的路径只需要后半部分,
-    这是因为 `GFX.Game` 只会检索 `Atlases/Graphics/Gameplay` 中的内容.  
-    同样的, `GFX.Portraits` 只会检索 `Atlases/Graphics/Portraits` 中的内容.
+    `GFX` 是蔚蓝中的一个管理贴图的类, 我们用它获取到一个贴图组 `Game`, 然后向它检索一个名为 `objects/PassByRefill/pass_by_refill` 的贴图, 你可能会疑惑为什么这里的路径只需要后半部分,
+    
+    这是因为 `GFX.Game` 只会检索 `Graphics/Atlases/Gameplay` 中的内容.  
+    同样的, `GFX.Portraits` 只会检索 `Graphics/Atlases/Portraits` 中的内容.
 
 顺便记得删掉我们重写的 `Render` 函数, 我们不再需要它了. 总的类应该是这样的:
 ```cs title="PassByRefill.cs"
@@ -99,14 +105,16 @@ public class PassByRefill : Entity
         Hitbox hitbox = new(64, 64);
         Collider = hitbox;
 
-        MTexture tex = GFX.Game["MyCelesteMod/pass_by_refill"];
+        MTexture tex = GFX.Game["objects/PassByRefill/pass_by_refill"];
         Image image = new(tex);
         this.Add(image);
     }
 
     public PassByRefill(EntityData data, Vector2 offset)
         : this(data.Position + offset, data.Int("dashes"))
-    { }
+    {
+
+    }
 
     public override void Update()
     {
@@ -171,7 +179,7 @@ public class PassByRefill : Entity
 
 然后设置 entity 的 `texture` 属性, 这会让 Loenn 为其设置贴图:
 ```lua
-entity.texture = "MyCelesteMod/pass_by_refill"
+entity.texture = "objects/PassByRefill/pass_by_refill"
 ```
 顺便设置贴图原点为左上角, 否则 Loenn 中的显示可能会与实际游戏中的不同:
 ```lua
@@ -197,7 +205,7 @@ entity.fieldInformation =
     }
 }
 
-entity.texture = "MyCelesteMod/pass_by_refill"
+entity.texture = "objects/PassByRefill/pass_by_refill"
 entity.justification = { 0.0, 0.0 }
 
 return entity
