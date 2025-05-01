@@ -22,6 +22,9 @@
 
 额外地, Everest, Forge, Fabric 这一类东西我们对其有个统称, 叫做 `ModApi`. 就像 Celeste 和 Minecraft 被统称为游戏本体/原版.
 
+### [为什么需要Everest](../extra_cmcc/cmcc/faq.md#what-does-everest-do)
+
+
 ## MonoMod
 
 Everest 底层基于 MonoMod, 在这里你只需要知道 Everest 依赖了 MonoMod, 同样地它也是一个开源项目([Github](https://github.com/MonoMod/MonoMod)).

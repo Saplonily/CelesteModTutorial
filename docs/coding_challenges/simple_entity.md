@@ -95,7 +95,7 @@ public class PassByRefill : Entity
 ### 基础使用
 
 Loenn 是一个蔚蓝的作图软件, 当然这里我们使用它不是制作出精美的地图, 而是仅仅放置一下我们的自定义实体!  
-\_(:з」∠)\_, 这里我不怎么想重复它的基础使用, 所以我推荐你去以下几个视频中了解:
+\_(:з」∠)\_, 这里我不怎么想重复它的基础使用, 所以我推荐你去以下几个视频中了解(可在[测试地图](./test_map.md)中捣鼓):
 
 - [Bilibili 【Celeste蔚蓝】电箱作图教程重置版 0-1 Loenn的安装](https://www.bilibili.com/video/av354525627/)
 - [Bilibili 【Celeste蔚蓝】电箱作图教程重置版 1-1 Loenn的使用](https://www.bilibili.com/video/av782056152/)
