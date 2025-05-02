@@ -56,7 +56,7 @@ public override void Load()
 
 一个 Mod 可以通过 `ModExportName` 特性导出一组方法, 而其他的 Mod 可以通过 `ModImportName` 特性导入这些方法作为委托以调用.
 
-!!! info
+!!! note
     如果被依赖的 Mod 被禁用, 其通过 `ModExportName` 导出的委托将会是 `null`, 调用它们将导致游戏崩溃.
     我们应该检查被依赖的 Mod 是否启用以决定是否调用.
 
@@ -99,7 +99,7 @@ public static class MyCelesteModExports
 }
 ```
 
-!!! info
+!!! note
     请记住, API 是一种**契约**. 使用你的 API 的 Mod 作者会期望它至少能在你的 API 下一个主要版本前保持稳定.
     因此, 我们**强烈**建议你记录每个版本 API 的修改, 至少包括每个方法的添加版本.
     这样可以帮助其他 Mod 作者了解哪些 API 是新增的, 哪些是更改过的, 尽可能避免因接口变动而导致的问题.
@@ -123,7 +123,7 @@ public override void Load()
 
 下面我们新建另一个 Mod `AnotherCelesteMod` 导入 `MyCelesteMod` 提供的 API:
 
-!!! info
+!!! note
     在导入前记得在 `everest.yaml` 中添加 `MyCelesteMod` 的可选依赖.
 
 ```cs title="MyCelesteModAPI.cs"
@@ -220,7 +220,7 @@ Everest 会将所有 Code Mod 的程序集使用 MonoMod 进行 patch 处理后�
 </Project>
 ```
 
-!!! info
+!!! note
     在引用之前我们需要确认目标 Mod 在 `Cache` 中的是否存在, 以上面引用的 Mod 为例. `Cache` 中应该存在:
 
     - GravityHelper.GravityHelper.dll

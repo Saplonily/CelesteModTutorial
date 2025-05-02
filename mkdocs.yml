@@ -69,14 +69,14 @@ nav:
       - Session, Settings, SaveData: "basics/session_settings_savedata.md"
   - 进阶:
       - 跨 Mod 交互: "advanced/cross_mod_interactions.md"
-  - Loenn:
-      - Loenn 目录结构: "loenn/folder_structure.md"
-      - Loenn 基础配置: "loenn/basic_configurations.md"
-      - Entity 结构: "loenn/entity_structs.md" 
-      - Trigger 结构: "loenn/trigger_structs.md"
-      - Loenn 绘制: "loenn/rendering.md"
-      - Loenn 节点: "loenn/nodes.md"
-      - Effect 结构: "loenn/effect_structs.md"
+  # - Loenn:
+  #     - Loenn 目录结构: "loenn/folder_structure.md"
+  #     - Loenn 基础配置: "loenn/basic_configurations.md"
+  #     - Entity 结构: "loenn/entity_structs.md" 
+  #     - Trigger 结构: "loenn/trigger_structs.md"
+  #     - Loenn 绘制: "loenn/rendering.md"
+  #     - Loenn 节点: "loenn/nodes.md"
+  #     - Effect 结构: "loenn/effect_structs.md"
   - 实战:
       - 测试地图: "coding_challenges/test_map.md"
       - 简单自定义实体: "coding_challenges/simple_entity.md"
@@ -106,7 +106,6 @@ nav:
         - 运算符: "extra/lua/operator.md"
         - 迭代器: "extra/lua/iterator.md"
         - 模块: "extra/lua/module.md"
-        - 面向对象: "extra/lua/oop.md"
       - LuaCutscene:
         - 开始: "extra/lua_cutscene/begin.md"
         - 参考: "extra/lua_cutscene/reference.md"
@@ -121,3 +120,4 @@ nav:
   - 杂项:
       - ChangeLog: "misc/change_log.md"
       - ToDoList: "misc/to_do_list.md"
+      - What: "misc/what.md"
