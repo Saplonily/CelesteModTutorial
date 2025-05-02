@@ -1,7 +1,7 @@
 # 简单贴图
 
 嗯... 那么到这一章我们该给我们实体上点贴图了, 以及还有 Loenn 侧的贴图, 那么结束这一章后你应该会觉得我们的实体是个"像样"的实体了.  
-这里我们会使用这个 64x64 的**超级丑陋**的贴图:  
+这里我们会使用这个 64 x 64 的**超级丑陋**的贴图:  
 
 <figure markdown>
   ![FuckingUglyTexture](images/simple_texturing/fucking_ugly_texture.png){ width=150 }
@@ -175,10 +175,12 @@ public class PassByRefill : Entity
 ```lua
 entity.texture = "objects/PassByRefill/pass_by_refill"
 ```
-顺便设置贴图原点为左上角, 否则 Loenn 中的显示可能会与实际游戏中的不同:
+顺便设置贴图锚点为左上角, 否则 Loenn 中的显示可能会与实际游戏中的不同:
 ```lua
 entity.justification = { 0.0, 0.0 }
 ```
+!!! 锚点
+    简单理解就是你在一张照片上插了根图钉, 照片的平移(位置), 旋转, 缩放都是基于/相对于这个图钉的
 这里的路径与我们之前在代码中的类似.  
 那么现在总体上看上去应该是这样的:
 ```lua

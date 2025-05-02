@@ -1,4 +1,4 @@
-# Session, Settings, SaveData
+# Settings, Session, SaveData
 
 <del>这部分内容在 Everest Wiki 里是在配置环境的同时说的, 我个人认为应该推后一点但是似乎现在推后的有点过头.</del>
 
@@ -235,15 +235,15 @@ public class MyCelesteModModule : EverestModule
 然后我们就可以在任何游戏处于关卡内的时候使用 `MyCelesteModModule.Session` 来访问我们的 Session 了.
 如果你尝试在游戏不在关卡内时读取它, 那么你会得到一个 `null` 值.  
 
-假设我们碰了 `SetPassByRefillDashesTrigger` 之后又碰到 `ChangeRespawnTrigger` 改变了重生点, 用 `Save And Quit`
-退出了游戏, 再次进入时你会发现重生点是新的, 而 `PassByRefill` 的冲刺数又变回 `1` 了, 所以接下来我们尝试通过 `Session` 来修正这个错误.  
+假设现在 `SetPassByRefillDashesTrigger` 的功能为"将所有的`PassByRefill`冲次数固定为一个值", 那么显然碰到trigger再主动去改是错误的做法, 因为切板/保存并退出会导致`PassByRefill`重新加载, 冲刺数也会被改回去,
+这个时候`Session`就派上用场了(一些比较简单的需求用原版的`Session`就足够了, 这里我们用自定义的), 以下为示例代码
 
 ```cs title="MyCelesteModSession.cs"
 namespace Celeste.Mod.MyCelesteMod;
 
 public class MyCelesteModSession : EverestModuleSession
 {
-    public Dictionary<string, int> RoomIdToPassByRefillDashes = new();  // 我们将记录每个房间名对应的PassByRefill的冲刺数
+    public int FixedPassByRefillDashes = -1;  // 我们记录Trigger修改的值(-1表示还没改过), 之后PassByRefill从这读
 }
 ```
 
@@ -266,12 +266,12 @@ public class SetPassByRefillDashesTrigger : Trigger
     public override void OnEnter(Player player)
     {
         base.OnEnter(player);
-        MyCelesteModModule.Session.RoomIdToPassByRefillDashes[SceneAs<Level>().Session.LevelData.Name] = Dashes;
+        MyCelesteModModule.Session.FixedPassByRefillDashes = Dashes;
     }
 }
 ```
 
-```cs title="PassByRefill.cs"
+```cs title="PassByRefill.cs" hl_lines="8 9 16 37"
 using Celeste.Mod.Entities;
 
 namespace MyCelesteMod;
@@ -279,16 +279,15 @@ namespace MyCelesteMod;
 [CustomEntity("MyCelesteMod/PassByRefill")]
 public class PassByRefill : Entity
 {
-    private int _dashes = 1;
-
-    public int Dashes => MyCelesteModModule.Session.RoomIdToPassByRefillDashes.GetValueOrDefault(SceneAs<Level>().Session.LevelData.Name, _dashes);
+    private int _dashes;
+    public int Dashes => MyCelesteModModule.Session.FixedPassByRefillDashes == -1 ? _dashes : MyCelesteModModule.Session.FixedPassByRefillDashes;
 
     private Image image;
 
     public PassByRefill(Vector2 position, int dashes)
     {
         Depth = 1;
-        Dashes = dashes;
+        _dashes = dashes;
         Position = position;
         Hitbox hitbox = new(64, 64);
         Collider = hitbox;

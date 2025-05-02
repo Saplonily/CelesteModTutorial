@@ -2,11 +2,13 @@
 
 ## Flag
 
-即一个 `bool` 状态, 我们可以通过 `string` 来区分不同的 `flag`, 用 `Dictionary<string, bool>` 来存储 `flag` 的状态(这样可能好理解点), 以让我们在某个时机做某件事(
-详情见 `Session`).
+在`Session`类中有个`HashSet<string> Flags`字段, 里面存储了当前游戏中激活的所有flag, 一个flag对应开/关(在/不在哈希表里)两种状态, 类似MC中的拉杆
 
-然后 Everest 已经为我们提供了一个简单的 `FlagTrigger`, 让 `player` 碰到 `trigger` 的时候触发某个 `flag`, 接着我们就可以在 `Session` 里读取,
-这样对于非常简单的需求就不需要自己写个 `trigger` 了, 例如 "`player` 碰到 `FlagTrigger`就跳一下" 这个需求: 我们可以不断读取 `flag`, 如果拿到 `true` 就删除 `flag` 并执行跳的动作.
+那么它能做什么呢
+
+比如当你做了一个陷阱实体, 那你肯定还得写个trigger去触发这个陷阱吧, 那如果玩家想要trigger在某些情况下触发某些陷阱, 你是不是不仅得考虑配对的问题, 还得考虑各种条件, 一下子就头大了?
+
+此时如果你写的是陷阱实体(with flag), 那么你就什么都不用管了, 因为根据条件触发flag这事Trigger Trigger(另一个helper里的trigger)已经做了, 所以你只要发现有这个flag就启动陷阱即可, 是不是很方便, 而且这也降低了mapper学习你的实体的成本
 
 ## Tag(BitTag)
 
@@ -58,7 +60,7 @@
 
 ### Persistent
 
-表示需要持久化在场, 切板不卸载的实体, 死亡会卸载, 一般在`Coroutine`里用来暂时保存下状态
+表示需要持久化在场, 切板不卸载的实体, 死亡会卸载, 一般在`Coroutine`(过场/动画等)里用来暂时保存下状态, 或者是像Theo这种得让人背着的
 
 ??? 例如
     * `birdNPC`最后一次飞走的时候
@@ -79,10 +81,10 @@
 
 ### HUD
 
-即是否是 UI 层, 此项就会改变 `Entity.Render` 的绘制逻辑(**注意`Position`不变**), 使绘制坐标基于屏幕坐标(`1920 x 1080`)而不是世界坐标绘制, 并调整绘制顺序使其置于顶层
+即是否是 UI 层, 此项会改变 `Entity.Render` 的绘制逻辑(**注意`Position`不变**), 使绘制坐标基于屏幕坐标(`1920 x 1080`)而不是世界坐标绘制, 并调整绘制顺序使其置于顶层
 
 !!! note
-    本质上选择HUD Tag后游戏会在绘制时通过矩阵把坐标从屏幕空间转化到世界空间(参考`HiresRenderer`, 线性代数最有用的一集~)
+    本质上选择HUD Tag后游戏会在绘制时通过矩阵把坐标从屏幕空间转化到世界空间(参考`HiresRenderer`, 线性代数最有用的一集~), 所以其实绘制用的还是世界坐标
 
 ??? 例如
     * 鸟的教程框`BirdTutorialGui`
@@ -117,7 +119,7 @@
 
 ### TransitionUpdate
 
-切板过程继续更新(或者说时间流速正常), 切板后销毁)(注意: 标签可作用于要被load的或者是要被unload的对象
+切板过程继续更新(或者说时间流速正常), 切板后销毁(注意: 标签可作用于要被load的或者是要被unload的对象)
 
 ??? 例如
     * 第七章管上升切板的`AscendManager`(好像就对应Loenn里的`SummitBackgroundManager`)
@@ -209,5 +211,5 @@ Frozen只是Level里的一个冻结状态(或者说一个bool变量, 而不是�
 
 `Tracker` 由 `Scene` 管理, 在我们使用 `Scene.Add(new Entity())` 的时候, 会通过 `EntityList` 向 `Tracker` 加入 `Entity` (当然还有 `Component`, 但在后面只提及 `Entity`).  
 所有需要被 `Tracked` (或者说被记录) 的 `Entity` 需要加上 `[Tracked]` 特性.  
-你还可以通过 `[TrackedAs(typeof(xxx))]` 特性让一个 `A` 类型被同时当作 `B` 类型, 这样就可以使用 `Scene.Tracker.GetEntity<B>()` 来同时拿到 `A` 和 `B` 了.
-这个特性作为 Everest 的一个拓展存在.
+你还可以通过 `[TrackedAs(typeof(xxx))]` 特性让一个 `A` 类型被同时当作 `B` 类型, 这样就可以使用 `Scene.Tracker.GetEntities<B>()` 来同时拿到 `A` 和 `B` 了
+(这个特性作为 Everest 的一个拓展存在).

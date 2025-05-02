@@ -82,7 +82,7 @@ nav:
       - Celeste, Everest, MonoMod: "basics/celeste_everest_monomod.md"
       - 更多EC: "basics/ec_common.md"
       - Flag, Tag, Tracker: "basics/flag_tag_tracker.md"
-      - Session, Settings, SaveData: "basics/session_settings_savedata.md"
+      - Settings, Session, SaveData: "basics/session_settings_savedata.md"
   - 进阶:
       - 跨 Mod 交互: "advanced/cross_mod_interactions.md"
   - Loenn:
@@ -98,15 +98,15 @@ nav:
       - 简单自定义实体: "coding_challenges/simple_entity.md"
       - 简单自定义Trigger: "coding_challenges/simple_trigger.md"
       - 简单贴图: "coding_challenges/simple_texturing.md"
+  - 组件:
+      - Sprite, Image: "components/sprite_image.md"
+      - Alarm, Tween, Coroutine: "components/alarm_tween_coroutine.md"
+      - StateMachine: "components/statemachine.md"
   - 钩子:
       - 钩子: "hooks/hook.md"
       - IL: "hooks/il.md"
       - IL 钩子与随意钩取: "hooks/adv_hooks.md"
-      - 协程的钩取与私有成员访问: "hooks/adv_hooks2.md"     
-  - 组件:
-      - Sprite, Image: "components/sprite_image.md"
-      - Alarm, Tween, Coroutine: "components/alarm_tween_coroutine.md"  
-      - StateMachine: "components/statemachine.md"    
+      - 协程的钩取与私有成员访问: "hooks/adv_hooks2.md"      
   - 其他:
       - XML简单介绍: "other/xml-speedrun.md"
   - 额外 - LuaCutscene:

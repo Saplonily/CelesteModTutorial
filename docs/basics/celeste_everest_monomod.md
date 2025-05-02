@@ -14,15 +14,15 @@
 <!--双波浪号删除线嵌在中文里在 mkdocs 中有解析问题... 所以只能使用 del 了-->
 如果你还玩过 **Minecraft** 的话我们可以建立一个这样的<del>奇妙</del>关系:
 
-|蔚蓝侧|MC侧|
-|-|-|
-|Celeste|Minecraft|
-|Everest|Forge/Fabric|
-|Olympus|PCL2/HCML|
+| 蔚蓝侧             |MC侧|
+|-----------------|-|
+| Celeste         |Minecraft|
+| Everest         |Forge/Fabric|
+| Olympus/Celemod |PCL2/HCML|
 
 额外地, Everest, Forge, Fabric 这一类东西我们对其有个统称, 叫做 `ModApi`. 就像 Celeste 和 Minecraft 被统称为游戏本体/原版.
 
-### [为什么需要Everest](../extra_cmcc/cmcc/faq.md#what-does-everest-do)
+### [为什么需要Everest](../extra_cmcc/cmcc/faq.md#everest)
 
 
 ## MonoMod

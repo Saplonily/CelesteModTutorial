@@ -18,7 +18,7 @@
 
 - 打开它
 - 点击左上角的`文件`, `打开`
-- 选择 `Celeste.exe` (如果你使用 [core 版本的 everest](../extra_cmcc/cmcc/faq.md#whats-net-core-everest), 你需要选择 `Celeste.dll`)
+- 选择 `Celeste.exe` (如果你使用 [core 版本的 everest](../extra_cmcc/cmcc/faq.md#net-core-everest), 你需要选择 `Celeste.dll`)
 - 展开蔚蓝的程序集
 - 你现在可以看到蔚蓝都有哪些类了
 - 你现在也可以看到蔚蓝都有哪些函数了
@@ -36,7 +36,7 @@
 
 - 打开它
 - 点击左上角的`文件`, `打开`
-- 选择 `Celeste.exe` (如果你使用 [core 版本的 everest](../extra_cmcc/cmcc/faq.md#whats-net-core-everest), 你需要选择 `Celeste.dll`)
+- 选择 `Celeste.exe` (如果你使用 [core 版本的 everest](../extra_cmcc/cmcc/faq.md#net-core-everest), 你需要选择 `Celeste.dll`)
 - 展开蔚蓝的程序集, 浏览类和方法
 
 相应的, `ILSpy` 也提供了"分析"的功能:
@@ -117,6 +117,14 @@ public override void Update()
 !!! info
     如果你自行钩取 `Player.Update` 函数这种已被 everest "钩取" 的函数实际上你钩取的是 everest 的钩子, 这对于 `On` 钩子可能没有大影响,
     但是对于后面我们会说的 `IL` 钩子有很大影响, 不过这些我们等到后面再说.
+
+## [反编译代码中的奇怪数字](../components/statemachine.md#st)
+
+有时你能在代码中看到各种奇怪的数字
+
+- 例如 320, 180, 这是因为对于 const 常量成员, c# 编译器在编译期就把引用的这些东西直接替换为了数字
+- 例如 0.100000024f, 这可能是因为常量计算完后本身就长这样, 也可能单纯是浮点误差之类的
+
 
 ## 反编译代码中的奇怪命名
 

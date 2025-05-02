@@ -9,7 +9,7 @@
     如果你不是 Windows 用户的话这一步你可以直接跳过.
 
 !!! info
-    在 [Everest Core](../extra_cmcc/cmcc/faq.md#whats-net-core-everest) 版本后(Stable 版本号大于 4465)强制切换为了 FNA 版本, 如果你已是 Core 版本你可以跳过这一步.
+    在 [Everest Core](../extra_cmcc/cmcc/faq.md#net-core-everest) 版本后(Stable 版本号大于 4465)强制切换为了 FNA 版本, 如果你已是 Core 版本你可以跳过这一步.
 
 Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝已经就是 FNA 版本了, 而在 Windows 上则是 XNA 版本, 所以我们需要一些方法切换到 FNA 版本:
 
