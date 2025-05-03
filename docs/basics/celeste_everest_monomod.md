@@ -18,7 +18,7 @@
 |-----------------|-|
 | Celeste         |Minecraft|
 | Everest         |Forge/Fabric|
-| Olympus/Celemod |PCL2/HCML|
+| Olympus/CeleMod |PCL2/HCML|
 
 额外地, Everest, Forge, Fabric 这一类东西我们对其有个统称, 叫做 `ModApi`. 就像 Celeste 和 Minecraft 被统称为游戏本体/原版.
 
