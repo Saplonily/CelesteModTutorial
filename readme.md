@@ -43,7 +43,7 @@ pip install mkdocs-git-authors-plugin
 mkdocs serve
 ```
 
-你可以先注释掉 `mkdocs.yml` 中约第 37 行的 `plugins` 的所有项来加快本地的生成,
+你可以先注释掉 `mkdocs.yml` 中约第 10 行的 `plugins` 的所有项来加快本地的生成,
 因为它会在每次生成时读取整个 git 历史来生成更新时间, 修改时间以及作者.
 
 默认开放在 `localhost:8000`.
