@@ -131,11 +131,11 @@ namespace MyCelesteMod
 以上一顿操作过后你会发现你的蔚蓝什么也没发生(乐). 因为我们还没告诉它让它加载我们的 mod! 为了让 Everest 加载我们的 mod, 其中一个方法就是在蔚蓝的 Mods 文件夹里面新建一个文件夹, 并放入我们的 mod 文件, 它的名字我们最好就是项目名字, 比如 `MyCelesteMod`, 然后在这里写一份 `everest.yaml` 文件, 它包含我们 mod 的一些基本信息:
 ```yaml title="everest.yaml"
 - Name: <mod名字>
-Version: <版本>
-DLL: <dll位置>
-Dependencies:
-    - Name: Everest
-    Version: <依赖的 everest 版本>
+  Version: <版本>
+  DLL: <dll位置>
+  Dependencies:
+      - Name: Everest
+        Version: <依赖的 everest 版本>
 ```
 ok, 我们来慢慢填这些东西
 - `mod名字`: 推荐为项目名比如 `MyCelesteMod`
@@ -152,11 +152,11 @@ ok, 我们来慢慢填这些东西
 everest.yaml可能长这个样子:
 ```yaml title="everest.yaml"
 - Name: MyCelesteMod
-Version: 0.1.0
-DLL: MyCelesteMod.dll
-Dependencies:
-    - Name: Everest
-    Version: 1.3876.0
+  Version: 0.1.0
+  DLL: MyCelesteMod.dll
+  Dependencies:
+      - Name: Everest
+        Version: 1.3876.0
 ```
 
 ok, 在启动之前我们还要干最后一件小事, 就是我们的日志, 它打印在文件里同时也打印在控制台里, 日志文件翻阅比较麻烦, 所以为了日后方便调试, 我们还是先让蔚蓝启动的同时启动一个控制台好一点. Everest 已经为我们做了这件事了, 我们要做的只是在蔚蓝exe同目录下找到`everest-launch.txt`, 没找到也没关系, 新建一个就可以了, 然后在里面写上`--console`, 是的就这一小点东西, 然后我们保存, 启动蔚蓝!

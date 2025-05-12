@@ -67,6 +67,15 @@ markdown_extensions:
 
 nav:
   - 首页: "index.md"
+  - 推荐入门顺序:
+      - Celeste, Everest, MonoMod: "basics/celeste_everest_monomod.md"
+      - 基础环境配置: "coding_setup/basic_env.md"
+      - 偏好: "coding_setup/preference.md"
+      - 钩子: "hooks/hook.md"
+      - 阅读代码: "coding_setup/code_reading.md"
+      - 简单自定义实体: "coding_challenges/simple_entity.md"
+      - 简单自定义Trigger: "coding_challenges/simple_trigger.md"
+      - 简单贴图: "coding_challenges/simple_texturing.md"
   - 一些准备:
       - 基础环境配置: "coding_setup/basic_env.md"
       - 偏好: "coding_setup/preference.md"
@@ -76,7 +85,7 @@ nav:
       - Celeste, Everest, MonoMod: "basics/celeste_everest_monomod.md"
       - 更多EC: "basics/ec_common.md"
       - Flag, Tag, Tracker: "basics/flag_tag_tracker.md"
-      - Session, Settings, SaveData: "basics/session_settings_savedata.md"
+      - Settings, Session, SaveData: "basics/session_settings_savedata.md"
   - 进阶:
       - 跨 Mod 交互: "advanced/cross_mod_interactions.md"
   - Loenn:
@@ -92,15 +101,15 @@ nav:
       - 简单自定义实体: "coding_challenges/simple_entity.md"
       - 简单自定义Trigger: "coding_challenges/simple_trigger.md"
       - 简单贴图: "coding_challenges/simple_texturing.md"
-  - 钩子:
-      - 钩子: "hooks/hook.md"
-      - IL: "hooks/il.md"
-      - IL 钩子与随意钩取: "hooks/adv_hooks.md"
-      - 协程的钩取与私有成员访问: "hooks/adv_hooks2.md"
   - 组件:
       - Sprite, Image: "components/sprite_image.md"
       - Alarm, Tween, Coroutine: "components/alarm_tween_coroutine.md"
       - StateMachine: "components/statemachine.md"
+  - 钩子:
+      - 钩子: "hooks/hook.md"
+      - IL: "hooks/il.md"
+      - IL 钩子与随意钩取: "hooks/adv_hooks.md"
+      - 协程的钩取与私有成员访问: "hooks/adv_hooks2.md"      
   - 其他:
       - XML简单介绍: "other/xml-speedrun.md"
   - 额外 - LuaCutscene:
@@ -112,7 +121,7 @@ nav:
   - 额外 - CMCC:
       - 首页: "extra_cmcc/index.md"
       - readme: "extra_cmcc/cmcc/ReadMe.md"
-      - FAQ: "extra_cmcc/cmcc/todo.md"
+      - FAQ: "extra_cmcc/cmcc/faq.md"
   - 历史归档:
       - 基础环境配置: "arc/basic_env.md"
       - 通过模板创建项目: "arc/project_template.md"

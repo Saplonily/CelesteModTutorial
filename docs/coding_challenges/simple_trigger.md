@@ -3,7 +3,7 @@
 如果你是一位 Mapper 的话那你一定知道 Trigger 是多么重要的存在. 在这里可能不是很能在短篇幅内说明 Trigger 的重要性, 这里只简单举几个例子:
 
 - 绝大部分镜头的移动与偏移
-- 剧情的触发, 无单双冲的切换
+- 剧情的触发, 无/单/双冲的切换
 - 风的改变
 - 重生点的设置
 - 音乐参数的设置
@@ -201,7 +201,7 @@ triggers.MyCelesteMod/SetPassByRefillDashesTrigger.placements.name.normal=SetPas
 ## 效果
 
 现在在你的地图上摆放这个 trigger 以及几个 `PassByRefill`.  
-我在这里会摆几个背景砖来帮我们辨识这个 trigger 在哪, 因为 trigger 通常都是不可见的 (你可以通过 `~` 键或者下载 `CelesteTAS` 这个 mod 来查看碰撞箱).  
+我在这里会摆几个背景砖来帮我们辨识这个 trigger 在哪, 因为 trigger 通常都是不可见的 (或者你可以通过 `~` 键或者下载 `CelesteTAS` 这个 mod 来查看碰撞箱).  
 ![loenn-trigger](images/simple_trigger/loenn_result_trigger.png)  
 那么见证你的杰作吧!  
 <br>

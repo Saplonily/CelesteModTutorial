@@ -5,7 +5,7 @@
 为了进行 Code Mod 的开发, 显然我们需要知道<del>看一眼就能被吓跑的</del>蔚蓝的代码是怎么运行的.
 
 所以这时我们就需要**阅读蔚蓝的代码**以了解这些东西. 当然, 蔚蓝是个商业游戏, 想指望它开源所有代码是不可能的,
-那我们就必须得借助一些反编译工具.  
+所以我们就必须得借助一些反编译工具.  
 
 在这里我会推荐 [`dnSpy`](https://github.com/dnSpyEx/dnSpy) 或 [`ILSpy`](https://github.com/icsharpcode/ILSpy)
 
@@ -18,7 +18,7 @@
 
 - 打开它
 - 点击左上角的`文件`, `打开`
-- 选择 `Celeste.exe` (如果你使用 core 版本的 everest, 你需要选择 `Celeste.dll`)
+- 选择 `Celeste.exe` (如果你使用 [core 版本的 everest](../extra_cmcc/cmcc/faq.md#net-core-everest), 你需要选择 `Celeste.dll`)
 - 展开蔚蓝的程序集
 - 你现在可以看到蔚蓝都有哪些类了
 - 你现在也可以看到蔚蓝都有哪些函数了
@@ -36,7 +36,7 @@
 
 - 打开它
 - 点击左上角的`文件`, `打开`
-- 选择 `Celeste.exe` (如果你使用 core 版本的 everest, 你需要选择 `Celeste.dll`)
+- 选择 `Celeste.exe` (如果你使用 [core 版本的 everest](../extra_cmcc/cmcc/faq.md#net-core-everest), 你需要选择 `Celeste.dll`)
 - 展开蔚蓝的程序集, 浏览类和方法
 
 相应的, `ILSpy` 也提供了"分析"的功能:
@@ -71,7 +71,7 @@ public void orig_ctor(EntityData e, Vector2 offset)
 
 嗯...好的, 首先 `orig_ctor` 这个名字有点怪但是能接受, 但是接下来的 `this..ctor` 是什么? 它甚至在 `C#` 中是个非法语法!  
 其实这并不罕见, 由于 Everest 对蔚蓝程序的修改并不只是停留在表面, 而更是深入到了 **IL 代码层**, 这是一种相对底层的代码,
-你的 `C#` 代码最终**都**会被编译为 `IL` 然后扔给**运行时(runtime)**来执行, 同样地, 所有其他的 `.NET` 系语言比如 `VB.NET` 和 `F#` 也都会被编译为 IL.  
+你的 `C#` 代码最终**都**会被编译为 `IL` 然后扔给**运行时(CLR-Common Language Runtime)**来执行, 同样地, 所有其他的 `.NET` 系语言比如 `VB.NET` 和 `F#` 也都会被编译为 IL.  
 那么既然这里的 IL 是由 `C#` 编译而来的, 那么这样的 IL 多多少少会有一种 "C# 味", 反编译器就是靠这种一定的 "C# 味" 来逆推出可能的 `C#` 源码. 
 但是既然这里 Everest 直接在 IL 代码层进行了修改, 破坏了这种 "C# 味", 那自然反编译器就会生成奇奇怪怪甚至非法的代码.  
 
@@ -118,4 +118,49 @@ public override void Update()
     如果你自行钩取 `Player.Update` 函数这种已被 everest "钩取" 的函数实际上你钩取的是 everest 的钩子, 这对于 `On` 钩子可能没有大影响,
     但是对于后面我们会说的 `IL` 钩子有很大影响, 不过这些我们等到后面再说.
 
+## [反编译代码中的奇怪数字](../components/statemachine.md#st)
+
+有时你能在代码中看到各种奇怪的数字
+
+- 例如 320, 180, 这是因为对于 const 常量成员, c# 编译器在编译期就把引用的这些东西直接替换为了数字
+- 例如 0.100000024f, 这可能是因为常量计算完后本身就长这样, 也可能单纯是浮点误差之类的
+
+
+## 反编译代码中的奇怪命名
+
+### num, text, array, flag
+当没有特意做过代码混淆的时候, 编译出来然后反编译回去的代码理论上都能被清晰的阅读, 但我们时常在反编译出来的代码中看到类似`num, text, array, flag`的字样,
+这是怎么回事呢, 明明有些变量名是可读的呀, 怎么有的就不可读了, 其实只要你仔细观察就会发现, 可读的基本上都是一些类名, 字段, 属性, 方法等, 而一些局部变量的名字往往不可读,
+这是因为这部分的信息存在了`.dll`同名的`.pdb(Program Database File)`类型的文件中, 它包含了程序的各种调试数据, 所以只需要把它跟对应`.dll`放一起就好了(没有就没办法了), 不然反编译器就只能根据这个变量的类型给它一个大众的名字了(比如bool给flag, 字符串给text等)
+
+这里我写了一个简单的c#控制台应用程序
+
+![source_code](./images/code_reading/source_code.png)
+
+你会发现编译出来的文件有`.exe` `.dll` `.pdb`
+
+![source_code](./images/code_reading/generated_files_after_compile.png)
+
+如果我直接反编译这个`.dll`你就会发现代码可读, 几乎跟在自己的ide里没什么两样
+
+![source_code](./images/code_reading/decompiled_with_pdb.png)
+
+而如果把这个`.dll`拖到桌面再反编译你就会发现代码开始变得奇怪了
+
+![source_code](./images/code_reading/decompiled.png)
+
+## 反编译代码中的奇怪写法
+
+### if if if if if ... 曾经的段子如今让我碰到了
+
+有的时候你会看到类似如下图所示的奇怪代码
+
+> WEG表示: 其实本质上它就是一个`switch case`, 因为`switch case`对于大分支实际上会对key做一个哈希,
+> dnspy反编译不太行 用ilspy看
+
+![source_code](./images/code_reading/weird_code_style.png)
+
+用ilspy打开后就发现确实正常了, ilspy win!(话虽如此, 我觉得dnspy用着还是蛮舒服的)
+ 
+![source_code](./images/code_reading/switch_case_decompiled_by_ilspy.png)
 

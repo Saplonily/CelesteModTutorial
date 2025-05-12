@@ -12,8 +12,7 @@ Image 你可以把它当作管图片的
 
 提供了最基础的渲染图片所需的信息和常用方法如: 位置, 旋转, 缩放, 锚点, 颜色系数, 是否翻转图像, 描边等
 
-!!! 锚点
-    简单理解就是你在一张照片上插了根图钉, 照片的平移, 旋转, 缩放都是基于这个图钉的
+
   
 ??? 类的属性字段方法说明
     * Vector2 Position: 图片相对于`Entity.Position`的位置
@@ -42,9 +41,11 @@ Image 你可以把它当作管图片的
       这样当我们需要把锚点设置到中心的时候就不需要用`new Vector2(Width, Height) / 2`了, 直接用`new Vector2(0.5f, 0.5f)`即可)
     * SetColor(Color color): 设置Color颜色
 
+
 ### Sprite
 
 对 `Image` 的进一步封装, 提供了对动画的管理(一连串图片形成一个帧动画, 再用 `id` 分组, 通过动画状态机实现动画间的跳转或是自身的 `loop`)
+
 
 ??? 类的属性字段方法说明
     里面有一层`Animation`类, 是对动画的简单封装
@@ -61,7 +62,7 @@ Image 你可以把它当作管图片的
         public Chooser<string> Goto;  // Chooser你可以理解为对分层随机数抽样的封装, 这里是播放完当前动画后应该跳到哪个动画(你可以去了解下"动画状态机") 
     }
     ```
-  
+        
     * float Rate: 动画播放速度倍率(负数意味着倒放)
     * bool UseRawDeltaTime: 是否使用现实时间流速(因为游戏可以调速嘛)
     * Vector2? Justify: `Origin`的额外偏移量
@@ -110,7 +111,9 @@ Image 你可以把它当作管图片的
     * void LogAnimations(): 输出注册过的动画信息
 
 
-接下来提供一个小示例, 我们需要先调整一下先前的文件结构
+接下来提供一个播放循环动画小示例
+
+我们需要先调整一下先前的文件结构
 
 ```
 - Atlases
@@ -124,7 +127,7 @@ Image 你可以把它当作管图片的
 ![img00](images/sprite_image/img00.png "img00")
 ![img01](images/sprite_image/img01.png "img01")
 
-* 接着我们在 `PassByRefill` 中把跟 `Image` 有关的部分替换为 `Sprite`, 然后你就得到了一个一秒一变的动画啦!
+接着我们在 `PassByRefill` 中把跟 `Image` 有关的部分替换为 `Sprite`, 把以下代码替换上去, 然后你就得到了一个一秒一变的动画啦!
 
 ```csharp
 private Sprite sprite;
@@ -139,3 +142,13 @@ public PassByRefill(Vector2 position, int dashes)
     sprite.Play("idle");
 }
 ```
+
+
+#### GFX
+
+应该是 Graphics 的音译缩写, 就像 SFX 是 Sound Effects 的缩写一样
+
+GFX主要管理游戏的贴图, 它会在游戏开始运行的时候加载所需要的资源, 然后将其分门别类的归到其各个字段中, 其中最常用的是`GFX.Game`和`GFX.SpriteBank`,
+我们常常使用`GFX.Game["xx/xx/xx.png"]`来访问相对`Graphics/Atlases/Gameplay`文件夹下的各种贴图,
+我们也常常使用`GFX.SpriteBank.Create("xxx");`来访问`Celeste/Content/Graphics/Sprites.xml`(也可以用自定义的)文件里的各种动画配置, 如player代码中的`this.sweatSprite = GFX.SpriteBank.Create("player_sweat");`,
+就是通过访问`Sprites.xml`里`<Sprite>`节点下的`<player_sweat>`节点的配置来生成一个Sprite.
