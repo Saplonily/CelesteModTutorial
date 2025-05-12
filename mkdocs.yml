@@ -1,9 +1,9 @@
 site_name: Celeste Code Mod 教程
-repo_url: https://github.com/Saplonily/CelesteModTutorial
-repo_name: Saplonily/CelesteModTutorial
+# repo_url: https://github.com/Saplonily/CelesteModTutorial
+# repo_name: Saplonily/CelesteModTutorial
 site_description: Celeste Code Mod Tutorial
 site_author: Saplonily
-site_url: https://saplonily.top
+site_url: https://saplonily.top/celeste_mod_tutorial/
 
 plugins:
   - search
