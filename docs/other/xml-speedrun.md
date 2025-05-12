@@ -5,7 +5,8 @@
 ## 定义
 
 这里摘抄一下:
-> XML 指可扩展标记语言(eXtensible Markup Language).  
+
+> XML 指可扩展标记语言(Extensible Markup Language).  
 > XML 被设计用来传输和存储数据, 不用于表现和展示数据, HTML 则用来表现数据.
 
 XML 是一种以格式化储存数据的语言, 在 `msbuild` 中它就被用来以格式化的方式描述整个项目的信息.

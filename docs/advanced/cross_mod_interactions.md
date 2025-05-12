@@ -21,7 +21,7 @@
 
 `everest.yaml` 中的依赖分为以下两种:
 
-- `Dependencies` 必需依赖: 必须在你的 Mod 加载前完成加载.
+- `Dependencies` 必需依赖: 会在你的 Mod 加载前完成加载.
 - `OptionalDependencies` 可选依赖: 只有在被启用时加载, 未启用则会忽略.
 
 通常为了保持 Mod 的轻量性与灵活性, 建议尽可能减少必需依赖的数量.
@@ -220,7 +220,7 @@ Everest 会将所有 Code Mod 的程序集使用 MonoMod 进行 patch 处理后�
 ```
 
 !!! info
-    在引用之前我们需要确认目标 Mod 在 `Cache` 中的是否存在, 以上面引用的 Mod 为例. `Cache` 中应该存在:
+    在引用之前我们需要确认目标 Mod 在 `Cache` 中是否存在, 以上面引用的 Mod 为例. `Cache` 中应该存在:
 
     - GravityHelper.GravityHelper.dll
     - ExtendedVariantMode.ExtendedVariantMode.dll

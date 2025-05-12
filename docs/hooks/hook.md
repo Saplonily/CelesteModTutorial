@@ -25,7 +25,17 @@
 
 对于 C# 的一个普通的函数来说, 它被调用时看起来是这样的:
 
+```csharp
+void Method(){}  // 原函数(不可随意修改)
+
+void Caller()  // 调用方
+{
+    Method();
+}
+
+```
 ``` mermaid
+
 graph LR
     A[调用方] --> B[即将调用该函数];
     subgraph 该函数
@@ -33,11 +43,40 @@ graph LR
     C --> D[结束调用该函数];
     end
     D --> E[调用方];
+
 ```
 
 当我们引入钩子技术后, 这个函数调用时会像被"钩"住一样转身去调用我们的函数:
 
+=== "一个Hook"
+    ```csharp
+    void Method(){}  // 原函数(不可随意修改)
+    
+    void Hook(Action method){}  // 我们的函数(可随意修改), 可以任意操控method的调用时机甚至不调用
+    
+    void Caller()  // 调用方
+    {
+        Hook(Method);
+    }
+    
+    ```
+=== "多个Hook"
+    ```csharp
+    void Method(){}
+    
+    void Hook(Action method){}
+
+    void Hook1(Action hook){ Hook(Method) }  // 不断套娃, 后续我们对蔚蓝代码的hook也是类似的
+    
+    void Caller()  // 调用方
+    {
+        Hook1(Hook);
+    }
+    
+    ```
+
 ``` mermaid
+
 graph LR
     A[调用方]; B[即将调用该函数];
     F[钩子]; G[我们的函数];
@@ -54,6 +93,7 @@ graph LR
     G --> H;
     G -.或者.-> D;
     D --> E;
+
 ```
 
 如图所见, 该钩子允许你在调用某个函数时转身去调用我们的函数, 同时你能选择我们的函数执行完后是否再执行回原函数.
@@ -88,7 +128,7 @@ Everest 为我们把几乎所有可能钩取的函数放到了命名空间 `On` 
 ![af](images/hook_reading_1/auto_complete_af.png)
 
 !!! note
-    注意 IDE 生成的函数默认包含一句抛出异常语句, 记得把它改掉
+    注意 IDE 生成的函数默认包含一句抛出异常语句, 是为了防止你忘了写实现的, 记得把它改掉
 
 `orig` 参数是一个**委托**, 调用它就相当于调用这个钩子钩住的原函数, 也就是说你可以在该函数调用前做些事,
 也可以在该函数调用后做些事, 或者干脆不调用这个函数, 甚至调用这个函数多次.
@@ -107,7 +147,7 @@ private void Player_Update(On.Celeste.Player.orig_Update orig, Player self)
 }
 ```
 
-如果你钩取到的是一个成员函数(也叫成员方法), 那么参数通常会带有一个 `self`, 它表示执行这个成员函数时 `this` 的值,
+如果你钩取到的是一个成员函数(也叫成员方法), 那么参数通常会带有一个 `self`, 它表示执行这个成员方法时对应的实例 `this` ,
 那么自然地如果你钩取的是一个静态函数那么是没有这个参数的.  
 如果你钩取的函数是带参数的, 那么参数列表会原封不动的排列在前面提到的参数的后面.  
 
@@ -129,8 +169,8 @@ public override void Unload()
 
 在这里我会简单介绍一下整个蔚蓝是怎么组织起来的.  
 首先蔚蓝基于 `Monocle` 引擎, 这是 `matt` 自己开发的一个引擎, 所以别指望你能在网上找到它的教程(,
-其次 `Monocle` 再次依赖 `XNA` (已停止维护) 或者 `FNA` (`XNA` 框架的重新实现),
-`XNA` 提供的 api 都非常原始, 甚至连最基本的场景组织之类的都没有, 那么 `Monocle` 就是来实现这些的.  
+其次 `Monocle` 依赖于 `XNA` (已停止维护) 或者 `FNA` (`XNA` 框架的重新实现),
+而`XNA` 提供的 api 都非常原始, 甚至连最基本的场景组织之类的都没有, 所以 `Monocle` 就是来实现这些的.  
 
 通常来说一个正在运行的 `Monocle` 游戏的结构就像:
 ```mermaid
@@ -164,7 +204,7 @@ C --- J[Component ...];
 ## 锁定单冲
 
 通过简单的浏览蔚蓝的代码, 你了解到(没了解到也正常, 后面会说一些常见类和结构帮助你理解) `Player.Dashes` 这个字段储存了玩家的冲刺数量, 那么现在我们将它锁定为 1, 也就是单冲.  
-首先我们钩取 `Player.Update()`, 然后在确保调用回原来的函数后直接将 `Dashes` 强制修改为 1.
+首先我们钩取 `Player.Update()`, 然后在确保调用回原来的函数前将 `Dashes` 强制修改为 1.
 
 ```cs title="锁定冲刺为1!"
 public override void Load()

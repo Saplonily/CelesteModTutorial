@@ -62,7 +62,7 @@ public override void Awake()
 `Entity` 本身有四个公开的字段:
 
 - `Active`, 该 `bool` 字段表示该 `Entity` 是否 "存活", 否则为 "失活", "失活" 的 `Entity` 将不会被调用 `Update` 方法直到 `Active` 为 `true`
-- `Collidable`, 该 `bool` 字段表示该 `Entity` 是否 "可碰撞", 不可碰撞的实体与任何实体进行碰撞检测时都会返回 `false`, 所以你可以使用该自动禁用它的碰撞箱
+- `Collidable`, 该 `bool` 字段表示该 `Entity` 是否 "可碰撞", 不可碰撞的实体与任何实体进行碰撞检测时都会返回 `false`, 所以你可以将它设为`false`来禁用它的碰撞箱
 - `Visible`, 该 `bool` 字段表示该 `Entity` 是否 "可见", 不可见的实体不会被调用 `Render` 方法, 注意即使不可见它的碰撞箱依然存在.
 - `Position`, 该 `Vector2` 字段表示该 `Entity` 的位置, 注意这个位置相对的坐标系是不同的, 对于 HUD 实体来说它的坐标系是一个 1922 x 1092 的原点左上角的屏幕坐标, 对于 gameplay 实体来说它是相对于世界原点的分度值为 1px 的坐标. 这个行为可以通过后面所说的 `Tag` 来配置.
 
@@ -85,6 +85,6 @@ this.AddTag(Tags.HUD);
 - `PauseUpdate`: 是否在暂停期间依然被调用 `Update`, 通常用于 ui 层的实体上
 - `FrozenUpdate`: 是否在 `Frozen` 状态下依然被调用 `Update` (比如草莓籽动画过程, 1a蓝心解密成功过程, 注意此状态与冻结帧无关)
 - `TransitionUpdate`: 是否在关卡切板时依然被调用 `Update`, 通常用于在切板时更新一些视觉上的东西(比如电网的 "放电" 动画不会在切板时静止)
-- `HUD`: 即是否是 ui 层, 此项就会改变 `Entity.Render` 的绘制逻辑, 使绘制坐标基于屏幕坐标而不是世界坐标
+- `HUD`: 即是否是 ui 层, 此项会改变 `Entity.Render` 的绘制逻辑, 使绘制坐标基于屏幕坐标而不是世界坐标
 - `Global`: 该 Entity 是否是全局的, 一个非全局实体在关卡重试后会消失, 全局 Tag 可以避免这件事, 通常全局 Tag 最常见的用法是和 HUD 结合在一起,
 这样你就拥有了一个在游戏内持久的 ui 部件了.

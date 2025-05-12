@@ -9,7 +9,7 @@
     如果你不是 Windows 用户的话这一步你可以直接跳过.
 
 !!! info
-    在 Everest Core 版本后(Stable 版本号大于 4465)强制切换为了 FNA 版本, 如果你已是 Core 版本你可以跳过这一步.
+    在 [Everest Core](../extra_cmcc/cmcc/faq.md#net-core-everest) 版本后(Stable 版本号大于 4465)强制切换为了 FNA 版本, 如果你已是 Core 版本你可以跳过这一步.
 
 Everest 需求我们使用 FNA 版本的蔚蓝, 而 Linux 和 MacOS 上的蔚蓝已经就是 FNA 版本了, 而在 Windows 上则是 XNA 版本, 所以我们需要一些方法切换到 FNA 版本:
 
@@ -188,20 +188,20 @@ public class MyCelesteModModule : EverestModule
 
 ## everest.yaml
 
-ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没有让蔚蓝加载到我们的mod, 不过别急, 这是倒数第二步了.  
+ok, 我们前面巴拉巴拉讲了几乎三千多个字, 但是依然没有让蔚蓝加载到我们的mod, 不过别急, 这是倒数第二步了.  
 实际上有关 code mod 的所有代码相关的东西我们都已经做完了, 剩余的其实只是一个普通 mod 要做的 ---- 写 `everest.yaml`.
-在这里我们需要在 `ModFolder` 这个文件夹里做这件事, 那么, 在你的这个文件夹下创建 `everest.yaml` 空文件, 你的目录结构可能像是:  
-
-!!! note
-    `.dll` 文件和 `.pdb` 文件仅会在你构建过项目后出现, 有时候甚至 ModFolder 目录也会在构建过后出现
+在这里我们需要在 `ModFolder` 这个文件夹里做这件事, 那么, 在你的这个文件夹下创建 `everest.yaml` 空文件, 你的目录结构可能像是:
 
 - ModFolder
     - everest.yaml
     - MyCelesteMod.dll
     - MyCelesteMod.pdb
 
+!!! note
+    `.dll` 文件和 `.pdb` 文件仅会在你构建过项目后出现, 有时候甚至 ModFolder 目录也会在构建过后出现
+
 好的, 现在我们打开 `everest.yaml`, 然后像一个普通的 mapper 一样填写信息:
-```yml
+```yaml
 - Name: MyCelesteMod
   Version: 0.1.0
   DLL: MyCelesteMod.dll
@@ -226,7 +226,7 @@ ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没�
 - 向里面写入 `--console`
 - 搞定, 走你!
 
-现在, 重新编译项目, 让 `msbuild` 带着你的 `ModFolder` 的内容前往蔚蓝 Mods 文件夹下, 启动蔚蓝.  
+现在, 重新编译项目, 让 `msbuild` 带着你的 `ModFolder` 的内容前往蔚蓝 Mods 文件夹下, 启动蔚蓝, 让 Everest 找到你的 dll.  
 在同时启动的黑乎乎的命令行窗口上你应该能在这附近看到那句熟悉的 Hello world:
 ```log hl_lines="7"
 (07/08/2023 21:18:59) [Everest] [Info] [core] Module DialogCutscene 1.0.0 registered.
@@ -241,7 +241,7 @@ ok, 我们前面几乎巴拉巴拉讲了几乎三千多个字, 但是依然没�
 FNA3D Driver: D3D11
 D3D11 Adapter: Intel(R) UHD Graphics 630
 ```
-<!-- 肯定会有人在意怎么是 630 核显( -->
+<!-- 肯定会有人在意怎么是 630 核显( / 我发现彩蛋了(乐 -->
 
 在经过如上的配置后, 你会发现在蔚蓝启动的时候, 进行编译并复制资源时会报错, 
 这是因为 Everest 锁定占用了它们, 导致你不得不让这一切在蔚蓝关闭时进行,
@@ -249,18 +249,18 @@ D3D11 Adapter: Intel(R) UHD Graphics 630
 不过好在 Everest 提供了一个技术叫做 `code hot reload`,
 即热重载, 它允许你在游戏运行期间替换你的代码并重载资源, 它目前还在 wip 状态.  
 要开启这项功能, 首先到你的蔚蓝根目录下的 Saves 目录, 找到并打开 `modsettings-Everest.celeste` 这个文件,
-翻到大概中间的位置, 找到属性 `CodeReload_WIP`, 将其更改为 `true`, 此时重新编译你的项目,
+使用`Ctrl + F 搜索`找到属性 `CodeReload_WIP`, 将其更改为 `true`, 此时重新编译你的项目,
 你应该就不会再得到任何错误, 并且 Everest 也正确地热重载了你的 mod 和你的 mod 资源.
 
 
 这一节完成后你的目录结构大概会像是          
 外部模板:
 
-- MyCelesteMod (你的根目录)
+- MyCelesteMod (你项目的根目录)
     - ModFolder
         - Code
-          - MyCelesteMod.dll
-          - MyCelesteMod.pdb
+            - MyCelesteMod.dll
+            - MyCelesteMod.pdb
         - everest.yaml
     - CelesteMod.props
     - CelesteMod.targets
@@ -269,7 +269,7 @@ D3D11 Adapter: Intel(R) UHD Graphics 630
 
 或 就地模板:
 
-- MyCelesteMod (你的根目录)
+- MyCelesteMod (你项目的根目录)
     - everest.yaml
     - Source
         - CelesteMod.props
@@ -283,7 +283,7 @@ D3D11 Adapter: Intel(R) UHD Graphics 630
 
 其中正如之前所介绍的, 如果你使用外部模板的话, mod 的资源文件应该放在 `ModFolder` 中, 然后就像往常一样放置你的 mod 资源, 当你的项目在构建时它们会自动被复制.
 并且将代码文件放置在 .csproj 同目录下或嵌套文件夹下,
-如果你没有更改你的项目而只更改了资源文件时你会发现编译项目会因为 "所有文件都是最新的" 而跳过编译, 而同时也会跳过我们的资源复制, 对此的话我们有两种解决方案:
+如果你没有更改你的项目而只更改了资源文件时你会发现编译项目会因为 "所有文件都是最新的" 而跳过编译, 而同时也会跳过我们的资源复制, 对此我们有两种解决方案:
 
 - 直接强制重新构建项目 (vs 中 "生成" -> "重新生成项目")
 - 在项目根目录执行 `msbuild -target:PostModBuild` 命令行

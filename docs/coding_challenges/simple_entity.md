@@ -57,7 +57,7 @@ public PassByRefill(Vector2 position, Vector2 size, int dashes)
 
 ![game-coord](images/simple_entity/game_coord.png)
 
-接下来, 我们需要声明一个特殊的构造函数, 以让 Everest 反射调用并使得我们的实体可以正常获取地图的数据:
+接下来, 我们需要声明一个特殊的构造函数, 以让 Everest 反射调用并使得我们的实体可以正常获取地图的数据, 然后将数据传给我们的构造函数:
 ```cs title="PassByRefill.cs"
 public PassByRefill(EntityData data, Vector2 offset) 
         : this(data.Position + offset, new Vector2(data.Width, data.Height), data.Int("dashes"))
@@ -95,7 +95,7 @@ public class PassByRefill : Entity
 ### 基础使用
 
 Loenn 是一个蔚蓝的作图软件, 当然这里我们使用它不是制作出精美的地图, 而是仅仅放置一下我们的自定义实体!  
-\_(:з」∠)\_, 这里我不怎么想重复它的基础使用, 所以我推荐你去以下几个视频中了解:
+\_(:з」∠)\_, 这里我不怎么想重复它的基础使用, 所以我推荐你去以下几个视频中了解(可在[测试地图](./test_map.md)中捣鼓):
 
 - [Bilibili 【Celeste蔚蓝】电箱作图教程重置版 0-1 Loenn的安装](https://www.bilibili.com/video/av354525627/)
 - [Bilibili 【Celeste蔚蓝】电箱作图教程重置版 1-1 Loenn的使用](https://www.bilibili.com/video/av782056152/)
@@ -175,9 +175,9 @@ public PassByRefill(Vector2 position, Vector2 size, int dashes)
 Collider = hitbox;
 ```
 `Collider` 是 `Entity` 的一个属性, 它表示这个 `Entity` 自身的碰撞箱.  
-`Collider` 属性是 `Collider` 类型的, 它是一个抽象类表示一个碰撞体, 这里我们的 `Hitbox` 就是它的一个实现, 也就是一种长方形的实现.  
+`Collider` 属性是 `Collider` 类型的, 它是一个抽象类表示一个碰撞体, 这里我们的 `Hitbox` 就是它的一个实现, 也就是一种长方形碰撞箱的实现.  
 
-碰撞箱设置完后, 我们就该在 `Update()` 检测碰撞了, 这很简单~
+碰撞箱设置完后, 我们就该在 `Update()` 里检测碰撞了, 这很简单~
 ```cs title="PassByRefill.Update()"
 public override void Update()
 {
@@ -237,11 +237,11 @@ Draw.Rect(Position, Width, Height, c);
 
 ## 准备就绪
 
-那么, 一切就绪, 编译你的项目, 到那个地方, 在半透明红色的区域里享受锁定冲刺数的快乐吧!
+那么, 一切就绪, 编译你的项目, 到那个地方, 在半透明红色的区域里享受锁定冲刺数的快乐吧(加背景墙才看得出来半透明)!
 
 ![sample](images/simple_entity/entity_result.png)
 
-如果你遇到了困难, 你可以对比一下最终的代码:
+如果你遇到了困难, 可以对比一下最终的代码:
 ```cs title="PassByRefill.cs"
 using Celeste.Mod.Entities;
 
@@ -289,7 +289,7 @@ public class PassByRefill : Entity
 ### 在 Loenn 中禁止设置 dashes 为小数
 
 在 Loenn 中如果你没有显式指定某个数字 data 的类型的话它默认会是浮点数,
-也就是你能输入小数, 不过这不会**很**影响(还是有的!)代码那边, 所以我们得跟 Loenn 说一下它是个整数! 那么我们在代码的 return 之前这样设置一下:
+也就是你能输入小数, 不过这不会**很**影响(还是有的!)代码那边, 所以我们得跟 Loenn 说一下它是个整数! 那么我们在代码 return entity 之前这样设置一下:
 ```lua title="PassByRefill.lua"
 entity.fieldInformation = 
 {
@@ -304,7 +304,7 @@ entity.fieldInformation =
 ### 为 Loenn 侧配置本地化
 
 现在我们在 Loenn 侧我们的实体放置选择的名称非常奇怪! 这肯定不是你想要的结果, 所以这里我们将为其配置**本地化**.  
-那么, 常规地, 我们需要在 `ModFolder/Loenn` 这个文件夹下再新建一个叫 `lang` 文件夹, 然后在里面创建一个叫 `en_gb.lang` 的空文件, 
+那么, 常规地, 我们需要在 `ModFolder/Loenn` 这个文件夹下再新建一个叫 `lang` 的文件夹, 然后在里面创建一个叫 `en_gb.lang` 的空文件, 
 它是 Loenn 默认读取的本地化文件. 现在你的目录结构应该像:
 
 - ModFolder
