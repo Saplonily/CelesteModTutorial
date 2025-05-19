@@ -1,0 +1,28 @@
+<Project>
+
+  <Target Name="PostModBuild" AfterTargets="AfterBuild">
+    <ItemGroup>
+      <_CompileOutput Include="$(OutputPath)/**"/>
+    </ItemGroup>
+    <Copy SourceFiles="@(_CompileOutput)" DestinationFolder="../Code/%(RecursiveDir)" SkipUnchangedFiles="true"/>
+  </Target>
+
+  <Target Name="CheckCelestePaths" BeforeTargets="PreBuildEvent">
+    <Message Text="Checking celeste root path..."/>
+    <Error Condition="!Exists('$(CelesteRootPath)/Celeste.exe') And !Exists('$(CelesteRootPath)/Celeste')" 
+        Text="Celeste not found. Create project inside 'Celeste/Mods' folder or use External mode template."
+        Code="SMT01"/>
+    <Error Condition="!Exists('$(CelesteRootPath)/Celeste.Mod.mm.dll')" Text="Everest not installed." Code="SMT02"/>
+    <Error Condition="Exists('$(CelesteRootPath)/Celeste.exe.config')"
+           Code="SMT03" Text="Legacy versions of Everest are not supported. Please update your Everest to 4465+."/>
+  </Target>
+
+  <ItemGroup>
+    <Reference Include="@(CelesteModReference->'%(Identity)')">
+      <HintPath>$(CelesteRootPath)/Mods/Cache/%(Identity).%(Identity).dll</HintPath>
+      <HintPath Condition="'%(AssemblyName)' != ''">$(CelesteRootPath)/Mods/Cache/%(Identity).%(AssemblyName).dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

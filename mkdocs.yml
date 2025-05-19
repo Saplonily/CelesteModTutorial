@@ -60,7 +60,6 @@ nav:
   - 首页: "index.md"
   - 一些准备:
       - 基础环境配置: "coding_setup/basic_env.md"
-      - 偏好: "coding_setup/preference.md"
       - 调试: "coding_setup/debug.md"
       - 阅读代码: "coding_setup/code_reading.md"
   - 基础:
@@ -70,7 +69,16 @@ nav:
       - Session, Settings, SaveData: "basics/session_settings_savedata.md"
   - 进阶:
       - 跨 Mod 交互: "advanced/cross_mod_interactions.md"
+  # - Loenn:
+  #     - Loenn 目录结构: "loenn/folder_structure.md"
+  #     - Loenn 基础配置: "loenn/basic_configurations.md"
+  #     - Entity 结构: "loenn/entity_structs.md" 
+  #     - Trigger 结构: "loenn/trigger_structs.md"
+  #     - Loenn 绘制: "loenn/rendering.md"
+  #     - Loenn 节点: "loenn/nodes.md"
+  #     - Effect 结构: "loenn/effect_structs.md"
   - 实战:
+      - 测试地图: "coding_challenges/test_map.md"
       - 简单自定义实体: "coding_challenges/simple_entity.md"
       - 简单自定义Trigger: "coding_challenges/simple_trigger.md"
       - 简单贴图: "coding_challenges/simple_texturing.md"
@@ -83,21 +91,34 @@ nav:
       - Sprite, Image: "components/sprite_image.md"
       - Alarm, Tween, Coroutine: "components/alarm_tween_coroutine.md"  
       - StateMachine: "components/statemachine.md"    
-  - 其他:
-      - XML简单介绍: "other/xml-speedrun.md"
-  - 额外 - LuaCutscene:
-      - 开始: "extra_luacs/begin.md"
-      - 参考: "extra_luacs/reference.md"
-      - C# 交互: "extra_luacs/cs_access.md"
-      - 例子: "extra_luacs/examples.md"
-      # - 高级对话: "extra_luacs/advanced_dialog.md"
-  - 额外 - CMCC:
-      - 首页: "extra_cmcc/index.md"
-      - readme: "extra_cmcc/cmcc/ReadMe.md"
-      - FAQ: "extra_cmcc/cmcc/todo.md"
+  - 额外:
+      - CMCC:
+        - 首页: "extra/cmcc/index.md"
+        - readme: "extra/cmcc/remote/ReadMe.md"
+        - FAQ: "extra/cmcc/remote/todo.md"
+      - XML:
+        - XML 简单介绍: "extra/xml/xml_speedrun.md"
+      - Lua:
+        - 开始: "extra/lua/begin.md"
+        - 基本语法: "extra/lua/syntax.md"
+        - 数据类型: "extra/lua/data_type.md"
+        - 流程控制: "extra/lua/control_flow.md"
+        - 运算符: "extra/lua/operator.md"
+        - 迭代器: "extra/lua/iterator.md"
+        - 模块: "extra/lua/module.md"
+        - 标准库: "extra/lua/standard_library.md"
+      - LuaCutscene:
+        - 开始: "extra/lua_cutscene/begin.md"
+        - 参考: "extra/lua_cutscene/reference.md"
+        - C# 交互: "extra/lua_cutscene/cs_access.md"
+        - 例子: "extra/lua_cutscene/examples.md"
+
   - 历史归档:
       - 基础环境配置: "arc/basic_env.md"
+      - 通过模板创建项目: "arc/project_template.md"
+      - 偏好: "arc/preference.md"
       - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
   - 杂项:
       - ChangeLog: "misc/change_log.md"
       - ToDoList: "misc/to_do_list.md"
+      - What: "misc/what.md"
