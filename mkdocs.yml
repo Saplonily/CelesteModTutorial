@@ -106,6 +106,7 @@ nav:
         - 运算符: "extra/lua/operator.md"
         - 迭代器: "extra/lua/iterator.md"
         - 模块: "extra/lua/module.md"
+        - 标准库: "extra/lua/standard_library.md"
       - LuaCutscene:
         - 开始: "extra/lua_cutscene/begin.md"
         - 参考: "extra/lua_cutscene/reference.md"

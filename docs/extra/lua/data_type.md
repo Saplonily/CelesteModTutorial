@@ -383,7 +383,7 @@ print(average())                  -- 输出 0
 ```lua
 -- 函数可以作为变量赋值
 -- 使用匿名函数定义加法操作
-local add = function (a, b)
+local function add(a, b)
     return a + b
 end
 
@@ -460,16 +460,16 @@ print(double(10))    -- 输出 20
 以下是使用示例:
 ```lua
 local function printToNumber(e, base)
-    local castedInput = tonumber(e)
+    local castedResult = tonumber(e)
 
     if base then
-        castedInput = tonumber(e, base)
+        castedResult = tonumber(e, base)
     end
      
-    if type(castedInput) == "nil" then
+    if type(castedResult) == "nil" then
         print("type: nil, cast failed")
     else
-        print("type: " .. type(castedInput) .. " value: " .. castedInput)
+        print("type: " .. type(castedResult) .. " value: " .. castedResult)
     end
 end
 

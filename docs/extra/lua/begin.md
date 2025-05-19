@@ -8,7 +8,7 @@
 
 !!!info
     本教程的内容基于 `LuaJIT 2.1`, 即 `Loenn` 底层引擎 `LOVE2D` 所使用的 `Lua` 版本.
-    因此, 高版本与 `Loenn` 开发中不涉及的特性(元表 异常处理等)在此教程不会提及.
+    因此, 高版本与 `Loenn` 开发中不涉及的特性(元表 面向对象 异常处理等)在此教程不会提及.
     如果对高版本 `Lua` 感兴趣可以阅读[官方文档](https://www.lua.org/manual/5.4).
 
 ## 开发环境
@@ -42,7 +42,7 @@ lua : 无法将“lua”项识别为 cmdlet、函数、脚本文件或可运行�
 
 默认情况下, `winget` 会将 `Lua` 安装至 `%LocalAppdata%\Programs\Lua\bin`. 我们在命令行输入以下命令将 `Lua` 安装目录添加至系统环境变量中:
 ```bat
-setx PATH "$env:PATH;%LocalAppdata%\Programs\Lua\bin\Programs\Lua\bin"
+setx PATH "$env:PATH;%LocalAppdata%\Programs\Lua\bin"
 ```
 
 完成后我们可以再次检查 `Lua` 是否安装成功:

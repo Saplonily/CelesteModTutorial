@@ -5,6 +5,7 @@
 - 算数运算符: 执行数学运算
 - 关系运算符: 执行比较运算
 - 逻辑运算符: 执行逻辑运算
+- 访问运算符: 执行访问与函数调用运算
 - 其他运算符: 执行其他特定的运算
 
 ## 算术运算符
@@ -197,6 +198,128 @@ print(1 or false or 3)    -- 输出 1
     Console.WriteLine(SafeDivide(10, 0));    // 报错 "Attempted to divide by zero."
     ```
 
+## 访问运算符
+
+访问运算符用于访问表中的元素或函数调用, `Lua` 支持以下访问运算符:
+
+- `.`: 点运算符
+- `:`: 冒号运算符
+
+两者在处理函数调用时的参数传递行为不同, 其余相同:
+
+### self 参数
+
+`Lua` 中 `self` 不是一个关键字, 而是一种编程约定, 其通常作为函数的第一个参数进行传递.           
+`self` 参数能够让函数访问调用者, 通常是表的内部数据. 其与 `C#` 的 `this` 类似, 本质上是指向调用者的引用. 
+
+### 点运算符
+
+`.` 运算符可以用于访问表中的元素:
+
+```lua
+local table = {
+    num = 0
+}
+
+-- 使用 . 运算符访问表中的元素
+print(table.num)     -- 输出 0
+table.num = 10       -- 修改表中 num 的值
+print(table.num)     -- 输出 10
+
+table.num2 = 202     -- 定义表中 num2 的值
+print(table.num2)    -- 输出 202
+```
+
+`.` 运算符也可以用于函数调用:
+```lua
+local calculator = {}
+
+-- 定义 calculator 表中的函数
+function calculator.add(a, b)
+    return a + b
+end
+
+function calculator.sub(a, b)
+    return a - b
+end
+
+-- 使用 . 运算符调用 calculator 表中的函数
+print(calculator.add(1, 2))     -- 输出 3
+print(calculator.sub(7, 3))     -- 输出 4
+```
+
+使用 `.` 运算符定义或调用函数时, 如果函数设计需要访问调用者状态则需要传递 `self` 参数:
+```lua
+local calculator = {
+    -- 计算器的初始值
+    value = 0            
+}
+
+-- 通过 self 参数显式传递指向 calculator 表自身的引用
+function calculator.reset(self)
+    -- 通过 self 参数修改 calculator 表中的数据
+    self.value = 0
+end
+
+function calculator.add (self, num)
+    self.value = self.value + num
+end
+
+function calculator.sub(self, num)
+    self.value = self.value - num
+end
+
+-- 调用函数时需要显式传递 calculator 表的引用
+calculator.add(calculator, 20)    
+print(calculator.value)                  -- 输出 20
+
+calculator.sub(calculator, 15)
+print(calculator.value)                  -- 输出 5
+
+calculator.reset(calculator)
+print(calculator.value)                  -- 输出 0
+
+calculator.add(calculator, 202)
+print(calculator.value)                  -- 输出 202
+```
+
+### 冒号运算符
+
+`:` 运算符会自动隐式传递 `self` 参数, 上面的代码等价于:
+```lua
+local calculator = {
+    -- 计算器的初始值
+    value = 0
+}
+
+-- 使用 : 运算符定义函数时会自动隐式传递 self 参数
+function calculator:reset()
+    -- 通过 self 参数修改 calculator 表中的数据
+    self.value = 0
+end
+
+function calculator:add(num)
+    self.value = self.value + num
+end
+
+function calculator:sub(num)
+    self.value = self.value - num
+end
+
+-- 使用 : 运算符调用函数时会自动隐式传递 self 参数
+calculator:add(20)
+print(calculator.value)                  -- 输出 20
+
+calculator:sub(15)
+print(calculator.value)                  -- 输出 5
+
+calculator:reset()
+print(calculator.value)                  -- 输出 0
+
+calculator:add(202)
+print(calculator.value)                  -- 输出 202
+```
+
 ## 其他运算符
 
 `#` 长度运算符用于计算字符串或表的长度:
@@ -212,11 +335,10 @@ print(#tas)          -- 输出 22
 local emptyTable = {}
 local letters = {"a", "b", "c"}
 
-print(#{})           -- 输出 0 
+print(#emptyTable)   -- 输出 0 
 print(#letters)      -- 输出 3
 ```
-对于非连续索引类型的表, 即字典类型以及包含 `nil` 的连续索引的表, 即数组类型,
-`#` 的输出可能不准确:
+对于非连续索引类型的表, 即字典类型以及包含 `nil` 的连续索引的表, 即数组类型, `#` 的输出可能不准确:
 ```lua
 -- 包含 nil 的连续索引类型的表
 local letters = {"a", "b", "c", nil}
@@ -251,7 +373,8 @@ print("Number: " .. 123)            -- 输出 Number: 123
 
 | 优先级组                | 运算符                         |
 |-------------------------|--------------------------------|
-| 最高                   | `^`                            |
+| 最高                   | `.` `:`                          |
+|                        | `^`                            |
 |                        | `not` `#` `-` (取相反数)        |
 |                        | `*` `/` `%`                   |
 |                        | `+` `-` (减法)                |

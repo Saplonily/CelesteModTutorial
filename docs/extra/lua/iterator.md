@@ -165,7 +165,7 @@ end
 ```lua
 local letters = {"a", "b", "c", "d", nil, "f"}
 
--- ipairs 迭代器适用于数字类型的表, 遇到 nil 会停止迭代. 其返回两个值:
+-- ipairs 迭代器适用于数组类型的表, 遇到 nil 会停止迭代. 其返回两个值:
 -- index: 当前索引
 -- value: 当前索引对应的值
 for index, value in ipairs(letters) do
