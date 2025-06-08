@@ -58,67 +58,68 @@ markdown_extensions:
 
 nav:
   - 首页: "index.md"
-  - 一些准备:
-      - 基础环境配置: "coding_setup/basic_env.md"
-      - 调试: "coding_setup/debug.md"
-      - 阅读代码: "coding_setup/code_reading.md"
-  - 基础:
-      - Celeste, Everest, MonoMod: "basics/celeste_everest_monomod.md"
-      - 更多EC: "basics/ec_common.md"
-      - Flag, Tag, Tracker: "basics/flag_tag_tracker.md"
-      - Session, Settings, SaveData: "basics/session_settings_savedata.md"
-  - 进阶:
-      - 跨 Mod 交互: "advanced/cross_mod_interactions.md"
-  # - Loenn:
-  #     - Loenn 目录结构: "loenn/folder_structure.md"
-  #     - Loenn 基础配置: "loenn/basic_configurations.md"
-  #     - Entity 结构: "loenn/entity_structs.md" 
-  #     - Trigger 结构: "loenn/trigger_structs.md"
-  #     - Loenn 绘制: "loenn/rendering.md"
-  #     - Loenn 节点: "loenn/nodes.md"
-  #     - Effect 结构: "loenn/effect_structs.md"
-  - 实战:
-      - 测试地图: "coding_challenges/test_map.md"
-      - 简单自定义实体: "coding_challenges/simple_entity.md"
-      - 简单自定义Trigger: "coding_challenges/simple_trigger.md"
-      - 简单贴图: "coding_challenges/simple_texturing.md"
-  - 钩子:
-      - 钩子: "hooks/hook.md"
-      - IL: "hooks/il.md"
-      - IL 钩子与随意钩取: "hooks/adv_hooks.md"
-      - 协程的钩取与私有成员访问: "hooks/adv_hooks2.md"     
-  - 组件:
-      - Sprite, Image: "components/sprite_image.md"
-      - Alarm, Tween, Coroutine: "components/alarm_tween_coroutine.md"  
-      - StateMachine: "components/statemachine.md"    
-  - 额外:
-      - CMCC:
-        - 首页: "extra/cmcc/index.md"
-        - readme: "extra/cmcc/remote/ReadMe.md"
-        - FAQ: "extra/cmcc/remote/todo.md"
-      - XML:
-        - XML 简单介绍: "extra/xml/xml_speedrun.md"
-      - Lua:
-        - 开始: "extra/lua/begin.md"
-        - 基本语法: "extra/lua/syntax.md"
-        - 数据类型: "extra/lua/data_type.md"
-        - 流程控制: "extra/lua/control_flow.md"
-        - 运算符: "extra/lua/operator.md"
-        - 迭代器: "extra/lua/iterator.md"
-        - 模块: "extra/lua/module.md"
-        - 标准库: "extra/lua/standard_library.md"
-      - LuaCutscene:
-        - 开始: "extra/lua_cutscene/begin.md"
-        - 参考: "extra/lua_cutscene/reference.md"
-        - C# 交互: "extra/lua_cutscene/cs_access.md"
-        - 例子: "extra/lua_cutscene/examples.md"
-
-  - 历史归档:
-      - 基础环境配置: "arc/basic_env.md"
-      - 通过模板创建项目: "arc/project_template.md"
-      - 偏好: "arc/preference.md"
-      - 偏好-sdk-styled-proj: "arc/sdk-styled-proj.md"
-  - 杂项:
-      - ChangeLog: "misc/change_log.md"
-      - ToDoList: "misc/to_do_list.md"
-#      - What: "misc/what.md"
+  - Mapping:
+    - 首页: "Mapping/index.md"
+  - Codeing:
+    - 首页: "Coding/index.md"
+    - 一些准备:
+        - 基础环境配置: "Coding/coding_setup/basic_env.md"
+        - 调试: "Coding/coding_setup/debug.md"
+        - 阅读代码: "Coding/coding_setup/code_reading.md"
+    - 基础:
+        - Celeste, Everest, MonoMod: "Coding/basics/celeste_everest_monomod.md"
+        - 更多EC: "Coding/basics/ec_common.md"
+        - Flag, Tag, Tracker: "Coding/basics/flag_tag_tracker.md"
+        - Session, Settings, SaveData: "Coding/basics/session_settings_savedata.md"
+    - 进阶:
+        - 跨 Mod 交互: "Coding/advanced/cross_mod_interactions.md"
+    # - Loenn:
+    #     - Loenn 目录结构: "loenn/folder_structure.md"
+    #     - Loenn 基础配置: "loenn/basic_configurations.md"
+    #     - Entity 结构: "loenn/entity_structs.md" 
+    #     - Trigger 结构: "loenn/trigger_structs.md"
+    #     - Loenn 绘制: "loenn/rendering.md"
+    #     - Loenn 节点: "loenn/nodes.md"
+    #     - Effect 结构: "loenn/effect_structs.md"
+    - 实战:
+        - 测试地图: "Coding/coding_challenges/test_map.md"
+        - 简单自定义实体: "Coding/coding_challenges/simple_entity.md"
+        - 简单自定义Trigger: "Coding/coding_challenges/simple_trigger.md"
+        - 简单贴图: "Coding/coding_challenges/simple_texturing.md"
+    - 钩子:
+        - 钩子: "Coding/hooks/hook.md"
+        - IL: "Coding/hooks/il.md"
+        - IL 钩子与随意钩取: "Coding/hooks/adv_hooks.md"
+        - 协程的钩取与私有成员访问: "Coding/hooks/adv_hooks2.md"     
+    - 组件:
+        - Sprite, Image: "Coding/components/sprite_image.md"
+        - Alarm, Tween, Coroutine: "Coding/components/alarm_tween_coroutine.md"  
+        - StateMachine: "Coding/components/statemachine.md"    
+    - 额外:
+        - XML:
+          - XML 简单介绍: "Coding/extra/xml/xml_speedrun.md"
+        - Lua:
+          - 开始: "Coding/extra/lua/begin.md"
+          - 基本语法: "Coding/extra/lua/syntax.md"
+          - 数据类型: "Coding/extra/lua/data_type.md"
+          - 流程控制: "Coding/extra/lua/control_flow.md"
+          - 运算符: "Coding/extra/lua/operator.md"
+          - 迭代器: "Coding/extra/lua/iterator.md"
+          - 模块: "Coding/extra/lua/module.md"
+          - 标准库: "Coding/extra/lua/standard_library.md"
+        - LuaCutscene:
+          - 开始: "Coding/extra/lua_cutscene/begin.md"
+          - 参考: "Coding/extra/lua_cutscene/reference.md"
+          - C# 交互: "Coding/extra/lua_cutscene/cs_access.md"
+          - 例子: "Coding/extra/lua_cutscene/examples.md"
+    - 历史归档:
+        - 基础环境配置: "Coding/arc/basic_env.md"
+        - 通过模板创建项目: "Coding/arc/project_template.md"
+        - 偏好: "Coding/arc/preference.md"
+        - 偏好-sdk-styled-proj: "Coding/arc/sdk-styled-proj.md"
+    - 杂项:
+        - ChangeLog: "Coding/misc/change_log.md"
+        - ToDoList: "Coding/misc/to_do_list.md"
+    #      - What: "Coding/misc/what.md"
+  - CustomMusic:
+    - 首页: "CustomMusic/index.md"
